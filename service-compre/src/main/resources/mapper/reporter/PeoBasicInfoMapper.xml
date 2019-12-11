@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IPeoBasicInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.PeoBasicInfoModel">
+    <constructor>
+      <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="people_char" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex_par" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="birth_day" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="poli_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="university" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="high_edu" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qhqm_seq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="native" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="occupation" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="main_achievement" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="spouse" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="la.niub.abcapi.servicecompre.model.PeoBasicInfoWithBLOBs">
+    <constructor>
+      <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="people_char" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex_par" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="birth_day" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="poli_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="university" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="high_edu" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qhqm_seq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="native" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="occupation" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="main_achievement" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="spouse" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="back_gro" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="per_resume" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    peo_uni_code, people_char, name, sex_par, birth_day, country, poli_status, university, 
+    high_edu, image, createtime, updatetime, status, remark, creator, editor, come_source, 
+    qhqm_seq, native, occupation, main_achievement, spouse
+  </sql>
+  <sql id="Blob_Column_List">
+    back_gro, per_resume
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from peo_basic_info
+    where peo_uni_code = #{peo_uni_code,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from peo_basic_info
+    where peo_uni_code = #{peo_uni_code,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.PeoBasicInfoWithBLOBs">
+    insert into peo_basic_info (peo_uni_code, people_char, name, 
+      sex_par, birth_day, country, 
+      poli_status, university, high_edu, 
+      image, createtime, updatetime, 
+      status, remark, creator, 
+      editor, come_source, qhqm_seq, 
+      native, occupation, main_achievement, 
+      spouse, back_gro, per_resume
+      )
+    values (#{peo_uni_code,jdbcType=BIGINT}, #{people_char,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{sex_par,jdbcType=TINYINT}, #{birth_day,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{poli_status,jdbcType=VARCHAR}, #{university,jdbcType=VARCHAR}, #{high_edu,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, #{qhqm_seq,jdbcType=DECIMAL}, 
+      #{native_place,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{main_achievement,jdbcType=VARCHAR}, 
+      #{spouse,jdbcType=VARCHAR}, #{back_gro,jdbcType=LONGVARCHAR}, #{per_resume,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.PeoBasicInfoWithBLOBs">
+    insert into peo_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="people_char != null">
+        people_char,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex_par != null">
+        sex_par,
+      </if>
+      <if test="birth_day != null">
+        birth_day,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="poli_status != null">
+        poli_status,
+      </if>
+      <if test="university != null">
+        university,
+      </if>
+      <if test="high_edu != null">
+        high_edu,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="qhqm_seq != null">
+        qhqm_seq,
+      </if>
+      <if test="native_place != null">
+        native,
+      </if>
+      <if test="occupation != null">
+        occupation,
+      </if>
+      <if test="main_achievement != null">
+        main_achievement,
+      </if>
+      <if test="spouse != null">
+        spouse,
+      </if>
+      <if test="back_gro != null">
+        back_gro,
+      </if>
+      <if test="per_resume != null">
+        per_resume,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="people_char != null">
+        #{people_char,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex_par != null">
+        #{sex_par,jdbcType=TINYINT},
+      </if>
+      <if test="birth_day != null">
+        #{birth_day,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="poli_status != null">
+        #{poli_status,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null">
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="high_edu != null">
+        #{high_edu,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="qhqm_seq != null">
+        #{qhqm_seq,jdbcType=DECIMAL},
+      </if>
+      <if test="native_place != null">
+        #{native_place,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="main_achievement != null">
+        #{main_achievement,jdbcType=VARCHAR},
+      </if>
+      <if test="spouse != null">
+        #{spouse,jdbcType=VARCHAR},
+      </if>
+      <if test="back_gro != null">
+        #{back_gro,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="per_resume != null">
+        #{per_resume,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.PeoBasicInfoWithBLOBs">
+    update peo_basic_info
+    <set>
+      <if test="people_char != null">
+        people_char = #{people_char,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex_par != null">
+        sex_par = #{sex_par,jdbcType=TINYINT},
+      </if>
+      <if test="birth_day != null">
+        birth_day = #{birth_day,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="poli_status != null">
+        poli_status = #{poli_status,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null">
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="high_edu != null">
+        high_edu = #{high_edu,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="qhqm_seq != null">
+        qhqm_seq = #{qhqm_seq,jdbcType=DECIMAL},
+      </if>
+      <if test="native_place != null">
+        native = #{native_place,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="main_achievement != null">
+        main_achievement = #{main_achievement,jdbcType=VARCHAR},
+      </if>
+      <if test="spouse != null">
+        spouse = #{spouse,jdbcType=VARCHAR},
+      </if>
+      <if test="back_gro != null">
+        back_gro = #{back_gro,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="per_resume != null">
+        per_resume = #{per_resume,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where peo_uni_code = #{peo_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="la.niub.abcapi.servicecompre.model.PeoBasicInfoWithBLOBs">
+    update peo_basic_info
+    set people_char = #{people_char,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      sex_par = #{sex_par,jdbcType=TINYINT},
+      birth_day = #{birth_day,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      poli_status = #{poli_status,jdbcType=VARCHAR},
+      university = #{university,jdbcType=VARCHAR},
+      high_edu = #{high_edu,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      qhqm_seq = #{qhqm_seq,jdbcType=DECIMAL},
+      native = #{native_place,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      main_achievement = #{main_achievement,jdbcType=VARCHAR},
+      spouse = #{spouse,jdbcType=VARCHAR},
+      back_gro = #{back_gro,jdbcType=LONGVARCHAR},
+      per_resume = #{per_resume,jdbcType=LONGVARCHAR}
+    where peo_uni_code = #{peo_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.PeoBasicInfoModel">
+    update peo_basic_info
+    set people_char = #{people_char,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      sex_par = #{sex_par,jdbcType=TINYINT},
+      birth_day = #{birth_day,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      poli_status = #{poli_status,jdbcType=VARCHAR},
+      university = #{university,jdbcType=VARCHAR},
+      high_edu = #{high_edu,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      qhqm_seq = #{qhqm_seq,jdbcType=DECIMAL},
+      native = #{native_place,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      main_achievement = #{main_achievement,jdbcType=VARCHAR},
+      spouse = #{spouse,jdbcType=VARCHAR}
+    where peo_uni_code = #{peo_uni_code,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectNameByPeoUniCode" resultType="java.lang.String">
+    SELECT peo_basic_info.name
+    FROM peo_basic_info
+    WHERE peo_uni_code = #{peo_uni_code}
+    limit 1
+  </select>
+</mapper>

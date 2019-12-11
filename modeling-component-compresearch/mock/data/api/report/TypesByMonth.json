@@ -1,0 +1,39 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "month": "G6urLvr2PE",
+            "reportTypes": {
+                "industry ": 8212,
+                "common ": 93434,
+                "macroscopic ": 26849,
+                "company ": 85370,
+                "total": 86465
+            }
+        },
+        {
+            "month": "VtmbYRBFsb",
+            "reportTypes": {
+                "industry ": 81720,
+                "common ": 14454,
+                "macroscopic ": 75137,
+                "company ": 24539,
+                "total": 49974
+            }
+        },
+        {
+            "month": "rmgiIa8Lnu",
+            "reportTypes": {
+                "industry ": 41867,
+                "common ": 58756,
+                "macroscopic ": 9606,
+                "company ": 83378,
+                "total": 89725
+            }
+        }
+    ],
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

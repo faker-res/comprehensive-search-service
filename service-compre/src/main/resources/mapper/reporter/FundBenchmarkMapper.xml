@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundBenchmarkDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundBenchmarkModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_benchmark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="yield_period" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_valid" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="memo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, announcement_date, begin_date, end_date, fund_benchmark, yield_period, 
+    is_valid, memo, createtime, updatetime, status, creator, editor, push_search, push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_benchmark
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_benchmark
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundBenchmarkModel">
+    insert into fund_benchmark (id, sec_uni_code, announcement_date, 
+      begin_date, end_date, fund_benchmark, 
+      yield_period, is_valid, memo, 
+      createtime, updatetime, status, 
+      creator, editor, push_search, 
+      push_product)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, #{fund_benchmark,jdbcType=VARCHAR}, 
+      #{yield_period,jdbcType=VARCHAR}, #{is_valid,jdbcType=TINYINT}, #{memo,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, 
+      #{push_product,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundBenchmarkModel">
+    insert into fund_benchmark
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="fund_benchmark != null">
+        fund_benchmark,
+      </if>
+      <if test="yield_period != null">
+        yield_period,
+      </if>
+      <if test="is_valid != null">
+        is_valid,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="fund_benchmark != null">
+        #{fund_benchmark,jdbcType=VARCHAR},
+      </if>
+      <if test="yield_period != null">
+        #{yield_period,jdbcType=VARCHAR},
+      </if>
+      <if test="is_valid != null">
+        #{is_valid,jdbcType=TINYINT},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundBenchmarkModel">
+    update fund_benchmark
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="fund_benchmark != null">
+        fund_benchmark = #{fund_benchmark,jdbcType=VARCHAR},
+      </if>
+      <if test="yield_period != null">
+        yield_period = #{yield_period,jdbcType=VARCHAR},
+      </if>
+      <if test="is_valid != null">
+        is_valid = #{is_valid,jdbcType=TINYINT},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundBenchmarkModel">
+    update fund_benchmark
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      fund_benchmark = #{fund_benchmark,jdbcType=VARCHAR},
+      yield_period = #{yield_period,jdbcType=VARCHAR},
+      is_valid = #{is_valid,jdbcType=TINYINT},
+      memo = #{memo,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectBySecUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_benchmark
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} limit 1
+  </select>
+</mapper>

@@ -1,0 +1,77 @@
+@import '../theme/common.scss';
+$baseColor:#F8F8F8;
+$whiteColor:#fff;
+.ResultNews {
+    background-color: $baseColor;
+    width: 100%;
+    height: 100%;
+    .ResultNewsCon {
+        background: $fill-base;
+        border-radius: 0px;
+        width: 100%;
+        height: 100%;
+        ul {
+            li {
+                position: relative;
+                .newsListViewListCon {
+                    display: block;
+                    h3 {
+                        font-size: 16px;
+                        font-family: PingFangSC-Medium;
+                        color: rgba(56, 96, 157, 1);
+                        line-height: 1.5em;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        a {
+                            &:first-child {
+                                font-family: PingFangSC-Medium;
+                                color: #333333;
+                                text-decoration: none;
+                                line-height: 1.5em;
+                                margin-bottom: 5px;
+                                font-weight: bold;
+                                display: inline-block;
+                                width: auto;
+                                &:hover{color: #287ddc;text-decoration: underline;}
+                                &:visited{color: #465067;text-decoration: underline;}
+                            }
+                        }
+
+                    }
+                    p {
+                        font-size: 13px;
+                        font-family: PingFangSC-Regular;
+                        color: #666666;
+                        line-height: 1.5em;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                        max-height: 3em;
+                    }
+                    .sourcefoot{
+                        margin-top: 10px;
+                        a,span{
+                            color: #8c8c8c;
+                            font-size: 12px;
+                            display: inline-block;
+                            padding-right: 7px;
+                            margin-right: 7px;
+                            border-right: 1px solid #ededed;
+                            &:last-child{border-right: none;}
+                        }
+
+                    }
+                    .currentNewsCon.hasImg{
+                        .currentNewsCon__pic{float: left;width: 120px;height: 80px;background-size: cover;margin-right: 10px;background-color: #F5F7FA;}
+                        .currentNewsCon__info{overflow: hidden;position: relative;height: 80px;
+                            > p{-webkit-line-clamp: 3;max-height: 4.5em;}
+                            // .sourcefoot{position: absolute;bottom: 0;left: 0;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecIndustryNewDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecIndustryNewModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stk_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="indu_standard" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="indu_standard_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="if_performed" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="first_indu_code" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="first_indu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="second_indu_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="second_indu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="third_indu_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="third_indu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fourth_indu_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fourth_indu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sub_end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sub_beg_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="dzh_seq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, stk_code, indu_standard, indu_standard_name, if_performed, first_indu_code, 
+    first_indu_name, second_indu_code, second_indu_name, third_indu_code, third_indu_name, 
+    fourth_indu_code, fourth_indu_name, sub_end_date, createtime, updatetime, status, 
+    remark, creator, editor, sub_beg_date, dzh_seq
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_industry_new
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sec_industry_new
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecIndustryNewModel">
+    insert into sec_industry_new (id, sec_uni_code, stk_code, 
+      indu_standard, indu_standard_name, if_performed, 
+      first_indu_code, first_indu_name, second_indu_code, 
+      second_indu_name, third_indu_code, third_indu_name, 
+      fourth_indu_code, fourth_indu_name, sub_end_date, 
+      createtime, updatetime, status, 
+      remark, creator, editor, 
+      sub_beg_date, dzh_seq)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{stk_code,jdbcType=VARCHAR}, 
+      #{indu_standard,jdbcType=BIGINT}, #{indu_standard_name,jdbcType=VARCHAR}, #{if_performed,jdbcType=CHAR}, 
+      #{first_indu_code,jdbcType=CHAR}, #{first_indu_name,jdbcType=VARCHAR}, #{second_indu_code,jdbcType=VARCHAR}, 
+      #{second_indu_name,jdbcType=VARCHAR}, #{third_indu_code,jdbcType=VARCHAR}, #{third_indu_name,jdbcType=VARCHAR}, 
+      #{fourth_indu_code,jdbcType=VARCHAR}, #{fourth_indu_name,jdbcType=VARCHAR}, #{sub_end_date,jdbcType=DATE}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{sub_beg_date,jdbcType=DATE}, #{dzh_seq,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecIndustryNewModel">
+    insert into sec_industry_new
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="stk_code != null">
+        stk_code,
+      </if>
+      <if test="indu_standard != null">
+        indu_standard,
+      </if>
+      <if test="indu_standard_name != null">
+        indu_standard_name,
+      </if>
+      <if test="if_performed != null">
+        if_performed,
+      </if>
+      <if test="first_indu_code != null">
+        first_indu_code,
+      </if>
+      <if test="first_indu_name != null">
+        first_indu_name,
+      </if>
+      <if test="second_indu_code != null">
+        second_indu_code,
+      </if>
+      <if test="second_indu_name != null">
+        second_indu_name,
+      </if>
+      <if test="third_indu_code != null">
+        third_indu_code,
+      </if>
+      <if test="third_indu_name != null">
+        third_indu_name,
+      </if>
+      <if test="fourth_indu_code != null">
+        fourth_indu_code,
+      </if>
+      <if test="fourth_indu_name != null">
+        fourth_indu_name,
+      </if>
+      <if test="sub_end_date != null">
+        sub_end_date,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="sub_beg_date != null">
+        sub_beg_date,
+      </if>
+      <if test="dzh_seq != null">
+        dzh_seq,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="stk_code != null">
+        #{stk_code,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_standard != null">
+        #{indu_standard,jdbcType=BIGINT},
+      </if>
+      <if test="indu_standard_name != null">
+        #{indu_standard_name,jdbcType=VARCHAR},
+      </if>
+      <if test="if_performed != null">
+        #{if_performed,jdbcType=CHAR},
+      </if>
+      <if test="first_indu_code != null">
+        #{first_indu_code,jdbcType=CHAR},
+      </if>
+      <if test="first_indu_name != null">
+        #{first_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="second_indu_code != null">
+        #{second_indu_code,jdbcType=VARCHAR},
+      </if>
+      <if test="second_indu_name != null">
+        #{second_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="third_indu_code != null">
+        #{third_indu_code,jdbcType=VARCHAR},
+      </if>
+      <if test="third_indu_name != null">
+        #{third_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fourth_indu_code != null">
+        #{fourth_indu_code,jdbcType=VARCHAR},
+      </if>
+      <if test="fourth_indu_name != null">
+        #{fourth_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="sub_end_date != null">
+        #{sub_end_date,jdbcType=DATE},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="sub_beg_date != null">
+        #{sub_beg_date,jdbcType=DATE},
+      </if>
+      <if test="dzh_seq != null">
+        #{dzh_seq,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecIndustryNewModel">
+    update sec_industry_new
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="stk_code != null">
+        stk_code = #{stk_code,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_standard != null">
+        indu_standard = #{indu_standard,jdbcType=BIGINT},
+      </if>
+      <if test="indu_standard_name != null">
+        indu_standard_name = #{indu_standard_name,jdbcType=VARCHAR},
+      </if>
+      <if test="if_performed != null">
+        if_performed = #{if_performed,jdbcType=CHAR},
+      </if>
+      <if test="first_indu_code != null">
+        first_indu_code = #{first_indu_code,jdbcType=CHAR},
+      </if>
+      <if test="first_indu_name != null">
+        first_indu_name = #{first_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="second_indu_code != null">
+        second_indu_code = #{second_indu_code,jdbcType=VARCHAR},
+      </if>
+      <if test="second_indu_name != null">
+        second_indu_name = #{second_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="third_indu_code != null">
+        third_indu_code = #{third_indu_code,jdbcType=VARCHAR},
+      </if>
+      <if test="third_indu_name != null">
+        third_indu_name = #{third_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fourth_indu_code != null">
+        fourth_indu_code = #{fourth_indu_code,jdbcType=VARCHAR},
+      </if>
+      <if test="fourth_indu_name != null">
+        fourth_indu_name = #{fourth_indu_name,jdbcType=VARCHAR},
+      </if>
+      <if test="sub_end_date != null">
+        sub_end_date = #{sub_end_date,jdbcType=DATE},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="sub_beg_date != null">
+        sub_beg_date = #{sub_beg_date,jdbcType=DATE},
+      </if>
+      <if test="dzh_seq != null">
+        dzh_seq = #{dzh_seq,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecIndustryNewModel">
+    update sec_industry_new
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      stk_code = #{stk_code,jdbcType=VARCHAR},
+      indu_standard = #{indu_standard,jdbcType=BIGINT},
+      indu_standard_name = #{indu_standard_name,jdbcType=VARCHAR},
+      if_performed = #{if_performed,jdbcType=CHAR},
+      first_indu_code = #{first_indu_code,jdbcType=CHAR},
+      first_indu_name = #{first_indu_name,jdbcType=VARCHAR},
+      second_indu_code = #{second_indu_code,jdbcType=VARCHAR},
+      second_indu_name = #{second_indu_name,jdbcType=VARCHAR},
+      third_indu_code = #{third_indu_code,jdbcType=VARCHAR},
+      third_indu_name = #{third_indu_name,jdbcType=VARCHAR},
+      fourth_indu_code = #{fourth_indu_code,jdbcType=VARCHAR},
+      fourth_indu_name = #{fourth_indu_name,jdbcType=VARCHAR},
+      sub_end_date = #{sub_end_date,jdbcType=DATE},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      sub_beg_date = #{sub_beg_date,jdbcType=DATE},
+      dzh_seq = #{dzh_seq,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByCodeAndStandard" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_industry_new
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT} and indu_standard = #{indu_standard,jdbcType=INTEGER} limit 1
+  </select>
+  <select id="buildInduBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_industry_new
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and if_performed='1' limit 1
+  </select>
+  <select id="buildInduListBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_industry_new
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and if_performed='1'
+  </select>
+    <select id="buildInduCompanyByTInduCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sec_industry_new
+        where third_indu_code = #{thirdInduCode,jdbcType=VARCHAR}
+    </select>
+    <select id="buildInduCompanyByTInduCodes" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sec_industry_new
+        where third_indu_code IN
+        <foreach collection="thirdInduCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+  <select id="selectByFirstInduCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_industry_new
+    where first_indu_code = #{firstInduCode,jdbcType=CHAR}
+    and if_performed='1'
+  </select>
+  <select id="selectShenwanByFirstInduCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_industry_new
+    where first_indu_code = #{firstInduCode,jdbcType=CHAR}
+    and indu_standard=1001014
+    and if_performed='1'
+  </select>
+
+  <select id="getThirdInduNameBySecUniCode" parameterType="java.math.BigInteger" resultType="string">
+    SELECT
+        third_indu_name
+    FROM
+        `sec_industry_new`
+    WHERE
+        STATUS != '9'
+    AND if_performed = '1'
+    AND indu_standard = 1001014
+    AND sec_uni_code = #{secUniCode}
+  </select>
+  
+  <select id="getAbcCodeByInduNameAndAbcCode" resultType="String">
+    SELECT stk_code as abc_code
+    FROM sec_industry_new
+    WHERE if_performed = '1'
+    AND indu_standard = 1001014
+    <if test="indu_name != null">
+      AND first_indu_name = #{indu_name}
+    </if>
+    <if test="abc_code != null">
+      AND stk_code = #{abc_code}
+    </if>
+  </select>
+
+  <select id="getInduNameBySecUniCode" resultType="java.lang.String">
+    select first_indu_name
+    FROM sec_industry_new
+    where if_performed = '1'
+    AND indu_standard = 1001014
+    AND sec_uni_code = #{secUniCode}
+    limit 1
+  </select>
+
+  <select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.SecIndustryNewModel">
+    SELECT <include refid="Base_Column_List"/> FROM sec_industry_new WHERE 1=1
+    <if test="sec_uni_code != null">
+      AND sec_uni_code = #{sec_uni_code}
+    </if>
+    <if test="if_performed != null">
+      AND if_performed = #{if_performed}
+    </if>
+    <if test="orderByField != null and orderByField != ''">
+      ORDER BY ${orderByField}
+    </if>
+    <if test="limit != null and limit != 0">
+      LIMIT ${limit} OFFSET ${offset}
+    </if>
+  </select>
+
+  <select id="getCount" parameterType="map" resultType="long">
+    SELECT COUNT(1) FROM sec_industry_new WHERE 1=1
+    <if test="sec_uni_code != null">
+      AND sec_uni_code = #{sec_uni_code}
+    </if>
+    <if test="if_performed != null">
+      AND if_performed = #{if_performed}
+    </if>
+  </select>
+
+  <select id="getCodeIndu" parameterType="String" resultType="map">
+    SELECT b.sec_uni_code  ,b.abc_code  ,a.first_indu_name,a.first_indu_code,a.second_indu_name,a.third_indu_name
+    FROM sec_industry_new a
+    JOIN sec_basic_info b
+    ON a.sec_uni_code=b.sec_uni_code
+    AND stk_code=#{abc_code}
+    AND a.indu_standard='1001014'
+    AND a.if_performed='1'
+  </select>
+</mapper>

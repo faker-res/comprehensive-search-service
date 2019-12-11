@@ -1,0 +1,255 @@
+//入口
+// @import './_reset.scss';
+@font-face {
+    font-family: 'iconfont';
+    /* project id 687409 */
+    src: url('//at.alicdn.com/t/font_687409_ob72bjedbdl.eot');
+    src: url('//at.alicdn.com/t/font_687409_ob72bjedbdl.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_687409_ob72bjedbdl.woff') format('woff'), url('//at.alicdn.com/t/font_687409_ob72bjedbdl.ttf') format('truetype'), url('//at.alicdn.com/t/font_687409_ob72bjedbdl.svg#iconfont') format('svg');
+}
+
+.page-mystock {
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .iconfont.small {
+        font-size: 12px;
+    }
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+    body {
+        min-height: 100%;
+        background: #F0F2F5;
+        font-size: 14px;
+        font-family: 'PingFangSC-Regular;', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, STHeitiSC-Light, WOL_SB, 'Segoe UI Semibold', 'Segoe UI', Tahoma, Helvetica, sans-serif;
+    }
+    .ms-container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+    .icon {
+        display: inline-block;
+        margin: 0 3px;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .icon-download {
+        width: 14px;
+        height: 14px;
+        background-image: url("./theme/images/download.png")
+    }
+    .icon-download:hover {
+        background-image: url("./theme/images/download_hover.png")
+    }
+    .icon-table {
+        width: 16px;
+        height: 16px;
+        background-image: url("./theme/images/icon_table.png")
+    }
+    .ant-table,
+    .ant-card {
+        font-family: inherit
+    }
+    .ant-table-thead>tr>th,
+    .ant-table-tbody>tr>td {
+        padding: 11px 15px;
+        font-size: 12px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .ant-table-tbody>tr>td.ant-table-column-has-filters {
+        padding: 11px 0;
+    }
+    .ant-table-thead>tr>th {
+        font-weight: bold;
+    }
+    .ant-table-thead tr th {
+        background: transparent;
+    }
+    .Absolute-Center {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .ant-table-tbody>tr:hover td {
+        background-color: #F2F6FB;
+        ;
+    }
+    .hidden {
+        display: none;
+    }
+    .scrollable::-webkit-scrollbar {
+        width: 6px;
+        height: 5px;
+        border-radius: 3px;
+    }
+    .scrollable::-webkit-scrollbar-thumb {
+        background-color: #dcdcdc;
+    }
+    .operationBtn {
+        border: 0;
+        background: transparent;
+        padding-right: 0;
+        .anticon-ellipsis {
+            transform: rotate(90deg);
+        }
+        .anticon-ellipsis:before {
+            font-size: 16px;
+        }
+    }
+    .ant-btn.operationBtn:hover,
+    .ant-btn.operationBtn:focus,
+    .ant-btn.operationBtn:active,
+    .ant-btn.operationBtn.active {
+        background: transparent;
+    }
+    .ms-loading,
+    .ms-empty {
+        padding: 20px 0;
+        text-align: center;
+    }
+    .display_none {
+        display: none !important;
+    }
+    .visibility_hidden {
+        visibility: hidden;
+    }
+    .middle {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+    }
+    .flex_top {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: flex-start;
+        -ms-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .center {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+    }
+    .col_middle {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .col_center_middle {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: column;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .center_middle {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex !important;
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+    }
+    .space_between {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+    }
+    .space_around {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-around;
+        -ms-justify-content: space-around;
+        justify-content: space-around;
+    }
+    .right {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: flex-end !important;
+        -ms-justify-content: flex-end !important;
+        justify-content: flex-end !important;
+    }
+    .cursor_pointer {
+        cursor: pointer;
+    }
+    .common_shadow {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    }
+    .str_ellipsis {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .str_ellpsis_2 {
+        display: -webkit-box;
+        display: -moz-box;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        /*显示行数*/
+    }
+    // 股票代码Icon
+    .stockIcon {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border-radius: 2px;
+        font-size: 10px;
+        color: #FFFFFF;
+        text-align: center;
+        font-weight: normal;
+        margin-right: 4px;
+        margin-left: -22px;
+        margin-top: 2px;
+    }
+    .stockIcon.usd {
+        background: #d9554e;
+    }
+    .stockIcon.hkd {
+        background: #4990dc;
+    }
+    .stockIcon.fund {
+        background: #adc2fd;
+    }
+    .stockIcon.financing {
+        background: #74b6f8;
+    }
+}

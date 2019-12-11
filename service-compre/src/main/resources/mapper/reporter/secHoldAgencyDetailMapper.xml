@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IsecHoldAgencyDetailDao">
+
+  <sql id="Base_Column_List">
+    id, sec_uni_code, end_date, org_uni_code, org_name, org_type, org_type_name, hold_liq, 
+    hold_value, hold_pct, createtime, updatetime, status, remark, creator, editor, come_source
+  </sql>
+  <select id="getRecordsByUniCode" resultType="la.niub.abcapi.servicecompre.model.secHoldAgencyDetailModel">
+    select sec_uni_code, end_date, org_uni_code, org_name, org_type, org_type_name, hold_liq,hold_value, hold_pct
+    from sec_hold_agency_detail
+    where sec_uni_code = #{comUniCode,jdbcType=BIGINT}
+    order by end_date desc
+    <if test="limit != null">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+</mapper>

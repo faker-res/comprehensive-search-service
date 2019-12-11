@@ -1,0 +1,39 @@
+.FundBottomComponent {
+    .conList {
+       padding-bottom: 10px;
+        p {
+            margin: 15px 22px;
+            overflow: hidden;
+            box-sizing: border-box;
+            &::after{
+               clear: both;
+            }
+            span{
+                float:right;
+            }
+            i {
+                font-style: normal;
+                font-size: 12px;
+                font-family: PingFangSC-Regular;
+                color: rgba(155, 159, 164, 1);
+                font-weight: normal;
+                margin-right: 10px;
+                float: left;
+            }
+            font-size:13px;
+            font-family:PingFangSC-Medium;
+            color:rgba(74, 74, 74, 1);
+            font-weight: bold;
+            &.totalValue {
+                i {
+                    color: #5D5D5D;
+                }
+            }
+            &.currentValue {
+                i {
+                    color: #828A92;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+/**
+ * @description 默认头部组件样式
+ * @author jhqu
+ * date: 2018-05-18
+ */
+
+.default-header {
+  $block: &;
+  $index: 100;
+  display: block;
+  position: relative;
+
+  // 固定定位样式
+  &--fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 500;
+
+    @at-root .has-fixed-header {
+      padding-top: 100px;
+      background: #f8f8f8;
+    }
+  }
+
+  &__item {
+    position: relative;
+    
+    &:nth-of-type(1) {
+      z-index: $index;
+      $index: $index - 1;
+    }
+    
+    &:nth-of-type(2) {
+      z-index: $index;
+      $index: $index - 1;
+    }
+  }
+}

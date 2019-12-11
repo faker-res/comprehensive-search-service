@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundHoldStkStatDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundHoldStkStatModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stk_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stk_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="hold_stk_fund_amt" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="hold_tot_stk_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hold_stk_amt_chg" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hold_tot_stk_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hold_stk_value_nav_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stk_uni_code, stk_code, end_date, hold_stk_fund_amt, hold_tot_stk_amt, hold_stk_amt_chg, 
+    hold_tot_stk_value, hold_stk_value_nav_ratio, createtime, updatetime, status, creator, 
+    editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_hold_stk_stat
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_hold_stk_stat
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundHoldStkStatModel">
+    insert into fund_hold_stk_stat (id, stk_uni_code, stk_code, 
+      end_date, hold_stk_fund_amt, hold_tot_stk_amt, 
+      hold_stk_amt_chg, hold_tot_stk_value, hold_stk_value_nav_ratio, 
+      createtime, updatetime, status, 
+      creator, editor)
+    values (#{id,jdbcType=BIGINT}, #{stk_uni_code,jdbcType=BIGINT}, #{stk_code,jdbcType=VARCHAR}, 
+      #{end_date,jdbcType=DATE}, #{hold_stk_fund_amt,jdbcType=INTEGER}, #{hold_tot_stk_amt,jdbcType=DECIMAL}, 
+      #{hold_stk_amt_chg,jdbcType=DECIMAL}, #{hold_tot_stk_value,jdbcType=DECIMAL}, #{hold_stk_value_nav_ratio,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundHoldStkStatModel">
+    insert into fund_hold_stk_stat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stk_uni_code != null">
+        stk_uni_code,
+      </if>
+      <if test="stk_code != null">
+        stk_code,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="hold_stk_fund_amt != null">
+        hold_stk_fund_amt,
+      </if>
+      <if test="hold_tot_stk_amt != null">
+        hold_tot_stk_amt,
+      </if>
+      <if test="hold_stk_amt_chg != null">
+        hold_stk_amt_chg,
+      </if>
+      <if test="hold_tot_stk_value != null">
+        hold_tot_stk_value,
+      </if>
+      <if test="hold_stk_value_nav_ratio != null">
+        hold_stk_value_nav_ratio,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="stk_uni_code != null">
+        #{stk_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="stk_code != null">
+        #{stk_code,jdbcType=VARCHAR},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="hold_stk_fund_amt != null">
+        #{hold_stk_fund_amt,jdbcType=INTEGER},
+      </if>
+      <if test="hold_tot_stk_amt != null">
+        #{hold_tot_stk_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_stk_amt_chg != null">
+        #{hold_stk_amt_chg,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_tot_stk_value != null">
+        #{hold_tot_stk_value,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_stk_value_nav_ratio != null">
+        #{hold_stk_value_nav_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundHoldStkStatModel">
+    update fund_hold_stk_stat
+    <set>
+      <if test="stk_uni_code != null">
+        stk_uni_code = #{stk_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="stk_code != null">
+        stk_code = #{stk_code,jdbcType=VARCHAR},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="hold_stk_fund_amt != null">
+        hold_stk_fund_amt = #{hold_stk_fund_amt,jdbcType=INTEGER},
+      </if>
+      <if test="hold_tot_stk_amt != null">
+        hold_tot_stk_amt = #{hold_tot_stk_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_stk_amt_chg != null">
+        hold_stk_amt_chg = #{hold_stk_amt_chg,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_tot_stk_value != null">
+        hold_tot_stk_value = #{hold_tot_stk_value,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_stk_value_nav_ratio != null">
+        hold_stk_value_nav_ratio = #{hold_stk_value_nav_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundHoldStkStatModel">
+    update fund_hold_stk_stat
+    set stk_uni_code = #{stk_uni_code,jdbcType=BIGINT},
+      stk_code = #{stk_code,jdbcType=VARCHAR},
+      end_date = #{end_date,jdbcType=DATE},
+      hold_stk_fund_amt = #{hold_stk_fund_amt,jdbcType=INTEGER},
+      hold_tot_stk_amt = #{hold_tot_stk_amt,jdbcType=DECIMAL},
+      hold_stk_amt_chg = #{hold_stk_amt_chg,jdbcType=DECIMAL},
+      hold_tot_stk_value = #{hold_tot_stk_value,jdbcType=DECIMAL},
+      hold_stk_value_nav_ratio = #{hold_stk_value_nav_ratio,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getNewestRecords" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_hold_stk_stat
+    where stk_uni_code = #{secUniCode,jdbcType=BIGINT}
+    ORDER BY end_date DESC
+    limit 1
+  </select>
+</mapper>

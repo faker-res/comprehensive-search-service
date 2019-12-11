@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComIndexAnaDao">
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, report_period, basic_perstock_income, reduce_perstock_income, 
+    netassets_ps, ocf_ps, eps_diluted_2, gr_ps, or_ps, surpluscapital_ps, surplusreserve_ps, 
+    undistributed_ps, retained_ps, cf_ps, ebit_ps, ebitdaps, perstock_incomeTTM, eps_diluted_3, 
+    eps_diluted_4, eps_diluted_5, netprofit_margin, grossprofit_margin, ratio_sales_cost, 
+    expense_sales, operateexpense_per_gr, adminexpense_per_gr, finaexpense_per_gr, impair_per_gr, 
+    impair_per_op, roe_diluted, roe_avg, roe_yearly, deduct_roe_diluted, deduct_roe_avg, 
+    roa_2, roa_2_yearly, rot_a, ro_a_yearly, op_per_gr, ebit_per_gr, gc_per_gr, roic, 
+    current_ratio, quick_ratio, quick_ratio_keep, equity_per_debt, ocf_per_debt, ocf_per_shortdebt, 
+    ocf_per_longdebt, ebitda_per_debt, ocf_interest, debt_equity, longdebt_workingcapital, 
+    longdebt_debt, ocf_per_netdebt, op_per_currentborrow, op_per_bondstotal, net_debt_ratio, 
+    nonoperateprofit_per_ebt, tax_per_ebt, deductedprofit_per_profit, operateincome_per_ebt, 
+    operateincome_per_ebt_ttm, nonoperateprofit_per_ebt_ttm, nonoperateprofit, debt_assets, 
+    assets_equity, ca_per_assets, nca_per_assets, currentdebt_per_debt, longdeb_per_debt, 
+    deducteddebt_assets, longdebt_equity, currentdebt_equity, longdebt_longcaptial, ar_turndays, 
+    inv_turn, ar_turn, ca_turn, fa_turn, assets_turn, ap_turn, apturn_days, non_currentassets_turn, 
+    relative_assets, relative_equity, initial_roe_diluted, final_roe_diluted, ocf_per_or, 
+    ocf_per_sales, ocf_assets, ocf_cf, icf_cf, fcf_cf, salescash_per_or, ocf_per_operateincome, 
+    salescash_per_or_ttm, ocf_per_or_ttm, ocf_per_operateincome_ttm, roe_avg_dp, parentnetprofit_per_netprofit, 
+    profit_per_gr_dp, netprofit_profittotal, profittotal_per_ebit, grossprofit, operateincome, 
+    ebit, deduct_netprofit, overall_income_ttm, overall_cost_ttm, main_income_ttm, sale_cost_ttm, 
+    manage_cost_ttm, fin_cost_ttm, asset_loss_ttm, operateincome_ttm, overall_profit_ttm, 
+    nonoperateprofit_ttm, ebit_ttm, profit_total_ttm, netprofit_ttm, parent_netprofit_ttm, 
+    current_depre_amor, sale_cash_ttm, bussiness_cash_netvalue_ttm, invest_cash_netvalue_ttm, 
+    borrow_cash_netvalue_ttm, cash_netvalue_ttm, workingcapital, networkingcapital, retainedprofit, 
+    netdebt, asset_total_mrq, bonds_total_mrq, equity_total_mrq, parent_equity_mrq, parent_equitynewreport, 
+    X1, X2, X3, X5, createtime, updatetime, status, remark, creator, editor, fcff_eps, 
+    roe_weigh, roe_addi, operation_cycle, inv_turndays, interest_bearing_debt, total_invested_capital, 
+    net_value, non_interst, non_interst_non, inventory_income, overall_income_cagr_3y, 
+    overall_income_cagr_5y, net_profit_cagr_3y, net_profit_cagr_5y, net_pro_share_cagr_3y, 
+    net_pro_share_cagr_5y, eps_cagr_3y, eps_cagr_5y, net_profit_cash_cover, ebitda, value_net_change, 
+    ffcf, ebit_per_int, rot_a_dp, assets_equity_dp, netprofit_margin_dp, assets_turn_dp, 
+    ebit_per_gr_dp, profit_per_gr, average_total_assets, average_equity, initial_total_assets, 
+    final_total_assets, op_profit, initial_equity, final_equity, average_inventory_balance, 
+    initial_inventory, final_inventory, average_currentasset, initial_currentasset, final_currentasset, 
+    average_fixedassets, initial_fixedassets, final_fixedassets, average_payaccount, 
+    initial_payaccount, final_payaccount, average_recaccount, initial_recaccount, final_recaccount, 
+    initial_noncurrent_asset_total, final_noncurrent_asset_total, average_noncurrent_asset_total, 
+    initial_basic_perstock_income, final_basic_perstock_income, initial_reduce_perstock_income, 
+    final_reduce_perstock_income, initial_overall_income, final_overall_income, initial_main_income, 
+    final_main_income, initial_ocf_ps, final_ocf_ps, be_year_asset_total, be_year_parent_equity, 
+    initial_overall_profit, final_overall_profit, initial_profit_total, final_profit_total, 
+    initial_parent_netprofit, final_parent_netprofit, initial_deduct_netprofit, final_deduct_netprofit, 
+    initial_bussiness_cash_netvalue, final_bussiness_cash_netvalue, initial_asset_total, 
+    final_asset_total, initial_netasset, final_netasset, initial_bonds_total, final_bonds_total, 
+    initial_netprofit, final_netprofit
+  </sql>
+  <select id="getTopNRecords" resultType="la.niub.abcapi.servicecompre.model.ComIndexAnaModel">
+    select 
+    <include refid="Base_Column_List" />
+    from com_index_ana
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectBalanceDistByComUniCodeList" resultType="la.niub.abcapi.servicecompre.model.bo.theme.BalanceDistBO">
+    SELECT  com_uni_code, roe_weigh, debt_assets,MAX(end_date) end_date
+    FROM com_index_ana
+    WHERE com_uni_code IN
+                       <foreach collection="com_uni_code_list" item="com_uni_code" separator="," open="(" close=")">
+                         #{com_uni_code}
+                       </foreach>
+    GROUP BY com_uni_code;
+  </select>
+
+  <select id="selectMaxEndDateByComUniCode" resultType="java.util.Date">
+    SELECT MAX(end_date)
+    FROM com_index_ana
+    WHERE com_uni_code = #{com_uni_code}
+  </select>
+
+  <select id="selectBalanceDistByEndDateAndComUniCode" resultType="la.niub.abcapi.servicecompre.model.bo.theme.BalanceDistBO">
+    SELECT  com_uni_code, roe_weigh, debt_assets,MAX(end_date) end_date
+    FROM com_index_ana
+    WHERE com_uni_code = #{com_uni_code}
+    AND end_date = #{end_date}
+  </select>
+</mapper>

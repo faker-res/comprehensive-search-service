@@ -1,0 +1,21 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "portfolioName": "环保公用组合",
+            "income": 0.34912446095123,
+            "month": "1973-10"
+        },
+        {
+            "portfolioName": "环保公用组合",
+            "income": 1.112505,
+            "month": "1994-04"
+        },
+        {
+            "portfolioName": "环保公用组合",
+            "income": 0.740573218,
+            "month": "2003-11"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "code": 200,
+    "msg": "oeqYQ1BNK1",
+    "data": [
+        {
+            "stockName": "CKK4LzdtgU",
+            "stockCode": "UNtHpgdKVF",
+            "stockPoolName": "skIOjldLJ6",
+            "adjustType": "入库",
+            "peopel": "gziHFpt0Xg"
+        },
+        {
+            "stockName": "iT1N17xgOo",
+            "stockCode": "kZv76TeVez",
+            "stockPoolName": "VS0NM38hBN",
+            "adjustType": "入库",
+            "peopel": "AcPc62Z6Ot"
+        },
+        {
+            "stockName": "V1onm3CSNa",
+            "stockCode": "fjLuxdOvAe",
+            "stockPoolName": "7PYK2vW9XO",
+            "adjustType": "入库",
+            "peopel": "vRllxHz4eL"
+        }
+    ]
+}

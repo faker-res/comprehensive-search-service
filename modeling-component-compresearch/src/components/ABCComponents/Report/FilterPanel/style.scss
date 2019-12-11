@@ -1,0 +1,401 @@
+/**
+ * @description 筛选面板组件样式
+ * @author jhqu
+ * date: 2018-07-10
+ */
+
+.filter-panel {
+  $block: &;
+  display: block;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #eeeeee;
+   ul {
+       margin-bottom: 0;
+   }
+  // 重置antd的Tag样式
+  .ant-tag {
+    position: relative;
+    line-height: 22px;
+    height: 24px;
+    border: 1px solid #c6cbea;
+    background-color: #fff;
+    font-size: 12px;
+    color: #7d8198;
+    padding: 0 10px;
+    border-radius: 100px;
+    vertical-align: middle;
+
+    .anticon-cross {
+      margin-left: 5px;
+      color: #9dcfff;
+    }
+  }
+
+  // 重置antd的Button样式
+  .ant-btn {
+    padding: 0 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    color: #7d8198;
+    background-color: #f0f1f7;
+    border-width: 1px;
+    border-color: #f0f1f7;
+  }
+  .ant-btn:hover,
+  .ant-btn:active {
+    color: #fff !important;
+    background-color: #287ddc !important;
+    border-color: #287ddc !important;
+  }
+  .ant-btn:focus {
+    color: #7d8198;
+    background-color: #f0f1f7;
+    border-color: #f0f1f7;
+  }
+
+  &__button.ant-btn, &__button.ant-btn:focus {
+    position: relative;
+    width: 50px;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #287ddc;
+    border-color: #287ddc;
+  }
+  &__button.ant-btn:disabled {
+    color: #999 !important;
+    background-color: #f5f5f5 !important;
+    border-color: #ddd !important;
+  }
+
+  &__selected-tags-bar {
+    margin: 0 25px;
+    padding: 15px 0 5px;
+    line-height: 24px;
+    border-bottom: 1px dashed #bbb;
+
+    & > .ant-tag {
+      margin-bottom: 10px;
+      color: #188fff;
+      border-color: #188fff;
+      background-color: #e7f3ff;
+      vertical-align: middle;
+    }
+
+    & > .ant-btn {
+      color: #333;
+      margin-bottom: 10px;
+      background-color: #eef0f4;
+      border-color: #eef0f4;
+      vertical-align: middle;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__category-item {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 25px;
+    padding: 15px 0;
+    line-height: 24px;
+    background-color: #fff;
+    transition: all .15s ease;
+
+    & + & {
+      border-top: 1px dashed #bbb;
+    }
+
+    // 筛选面板折叠状态
+    #{$block}:not(.is-expand) &.is-default-collapse {
+      height: 0;
+      padding: 0;
+      border-top: none;
+      overflow: hidden;
+    }
+
+    // 多选模式激活状态
+    &.is-multi-select-active {
+      border: 1px solid #F5A623;
+      background: #fefcf8;
+      padding: 15px 5px;
+      margin: -1px 20px 0;
+    }
+    #{$block}__category-list:first-child > &.is-multi-select-active:first-child {
+      margin-top: 15px;
+    }
+
+    &.is-multi-select-active + & {
+      border-top: none;
+    }
+  }
+
+  &__category-title {
+    position: relative;
+    width: 90px;
+    padding-left: 12px;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      height: 16px;
+      width: 4px;
+      background: #5b9ce4;
+    }
+  }
+
+  &__category-tags {
+    flex: 1;
+    max-width: 638px;
+    max-width: calc(100% - 90px - 160px);
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+
+    // 选中状态的标签
+    .ant-tag-checkable-checked {
+      color: #fff;
+      border-color: #287ddc;
+      background-color: #287ddc;
+    }
+
+    // 展开状态与多选模式
+    #{$block}__category-item.is-expand > &,
+    #{$block}__category-item.is-multi-select-active > & {
+      overflow: visible;
+      height: auto;
+    }
+  }
+  &__category-tags-wrapper {
+    line-height: 24px;
+    margin-bottom: -10px;
+
+    & > .ant-tag {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag-total {
+    color: #359dff;
+    margin-left: 8px;
+
+    // 标签选中状态下
+    #{$block}__category-tags .ant-tag-checkable-checked & {
+      color: #fff;
+    }
+  }
+  &__category-search-wrapper {
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+    
+    & > .anticon {
+      position: absolute;
+      left: 10px;
+      top: 9px;
+      font-size: 14px;
+      color: #bfbfbf;
+      z-index: 10;
+    }
+
+    & > .ant-btn, & > .ant-btn:focus {
+      position: relative;
+      top: -1px;
+      width: 50px;
+      border-radius: 4px;
+      margin-left: 5px;
+      color: #fff;
+      background-color: #287ddc;
+      border-color: #287ddc;
+    }
+    & > .ant-btn:disabled {
+      color: #999 !important;
+      background-color: #f5f5f5 !important;
+      border-color: #ddd !important;
+    }
+
+    // 展开状态
+    #{$block}__category-item:not(.is-expand) & {
+      display: none;
+    }
+  }
+  &__category-search {
+    min-width: 210px;
+    max-width: 90%;
+    max-width: calc(100% - 55px);
+    font-size: 12px;
+    word-break: break-all;
+
+    .ant-select-selection--multiple .ant-select-selection__rendered {
+      margin-left: 28px;
+    }
+  }
+  &__category-search-dropdown {
+    #{$block}__option-text,#{$block}__tag-total {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    #{$block}__option-text {
+      max-width: 60%;
+    }
+    #{$block}__tag-total {
+      max-width: 40%;
+    }
+  }
+
+  // 日期范围选择控件
+  &__date-range-picker {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    cursor: pointer;
+  }
+  &__date-range-picker-dropdown {
+    .ant-calendar-input-wrap,.ant-calendar-range-middle {
+      display: none;
+    }
+
+    table thead tr:first-child {
+      background: inherit !important;
+    }
+
+    table tr:nth-child(odd) {
+      background: #fff;
+    }
+
+    table tr:nth-child(even) {
+      background: #fff;
+    }
+  }
+
+  &__category-multi-select-actions {
+    margin: 40px -160px 0 -90px;
+    text-align: center;
+
+    & > .ant-btn + .ant-btn {
+      margin-left: 10px;
+    }
+
+    & > .ant-btn,
+    & > .ant-btn:hover,
+    & > .ant-btn:active
+    & > .ant-btn:focus {
+      color: #666 !important;
+      background-color: #fff !important;
+      border-color: #ddd !important;
+    }
+
+    & > .ant-btn-primary,
+    & > .ant-btn-primary:hover,
+    & > .ant-btn-primary:active
+    & > .ant-btn-primary:focus {
+      color: #fff !important;
+      background-color: #287ddc !important;
+      border-color: #287ddc !important;
+    }
+
+    // 展开状态
+    #{$block}__category-item:not(.is-multi-select-active) & {
+      display: none;
+    }
+  }
+
+  &__category-actions {
+    width: 160px;
+    text-align: right;
+    
+    & > .ant-btn + .ant-btn {
+      margin-left: 10px;
+    }
+
+    // 多选模式下隐藏按钮
+    #{$block}__category-item.is-multi-select-active > & > .ant-btn {
+      display: none;
+    }
+  }
+
+  &__category-toggle-collapse > .anticon {
+    transition: transform .15s ease;
+
+    // 展开状态
+    #{$block}__category-item.is-expand & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__collapse-bar {
+    display: block;
+    margin: 0 25px;
+    text-align: center;
+    
+    #{$block}__category-list:not(:empty) + & {
+      border-top: 1px dashed #bbb;
+    }
+  }
+  &__collapse-toggle-button {
+    display: inline-block;
+    font-size: 12px;
+    color: #7d8198;
+    padding: 15px;
+    cursor: pointer;
+
+    .anticon {
+      margin-left: 5px;
+
+      // 筛选面板展开状态
+      #{$block}.is-expand & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // 关键词筛选组件
+  &__keywords-filter {
+    font-size: 12px;
+    margin-top: -4px;
+
+    .ant-select {
+      width: 110px;
+      font-size: 12px;
+    }
+
+    .ant-input {
+      width: 210px;
+      color: #333;
+      font-size: 12px;
+    }
+
+    .ant-input-group #{$block}__button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &-tips {
+      display: inline-block;
+      height: 32px;
+      line-height: 32px;
+      font-size: 12px;
+      color: #8c8c8c;
+      margin-left: 10px;
+    }
+  }
+}

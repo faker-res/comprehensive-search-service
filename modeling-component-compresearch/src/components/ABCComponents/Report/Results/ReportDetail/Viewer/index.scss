@@ -1,0 +1,56 @@
+.abc-report-detail-viewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    // background: #f0f2f5;
+    background: #fff;
+
+    .left-side-bar {
+
+        .left-sidebar-wrap {
+            width: 48px;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            bottom: 0;
+            background: #f2f2f2;
+            text-align: center;
+            z-index: 2;
+
+        }
+        .left-sidenav {
+            height: 100%;
+
+            li {
+                padding: 15px 0;
+                cursor: pointer;
+                &:hover {
+                    color: #287ddc;
+                }
+
+                a {
+                    display: block;
+                    padding-top: 22px;
+                    background-position: center top;
+                    background-repeat: no-repeat;
+                    font-size: 12px;
+                    color: rgba(0,0,0,.65);
+
+                    &:hover {
+                        color: #287ddc;
+                    }
+                }
+
+                .share-button {
+                    font-size: 12px;
+                }
+                .anticon {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

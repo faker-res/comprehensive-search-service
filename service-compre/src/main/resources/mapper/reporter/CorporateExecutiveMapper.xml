@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ICorporateExecutiveDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.CorporateExecutiveBasicInfoModel">
+        <constructor>
+            <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <idArg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="led_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="birth_day" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="ename" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="occupation" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="main_achievement" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="back_gro" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+            <arg column="per_resume" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+            <!--<arg column="post_name" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <arg column="oss_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <!--<arg column="post_office" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<arg column="start_date" javaType="java.util.Date" jdbcType="DATE" />-->
+            <!--<arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />-->
+        </constructor>
+    </resultMap>
+    <!--<resultMap id="ResultMap" type="la.niub.abcapi.servicecompre.model.CorporateExecutiveBasicInfoModel">-->
+        <!--<id column="peo_uni_code" property="peo_uni_code" />-->
+        <!--<result column="com_uni_code" property="com_uni_code" />-->
+        <!--<result column="led_name" property="led_name" />-->
+        <!--<result column="birth_day" property="birth_day" />-->
+        <!--<result column="country" property="country" />-->
+        <!--<result column="ename" property="ename" />-->
+        <!--<result column="occupation" property="occupation" />-->
+        <!--<result column="main_achievement" property="main_achievement" />-->
+        <!--<result column="back_gro" property="back_gro" />-->
+        <!--<result column="per_resume" property="per_resume" />-->
+    <!--</resultMap>-->
+    <resultMap id="CorporateExecutiveSameComResuktMap" type="la.niub.abcapi.servicecompre.model.CorporateExecutiveSameComModel">
+        <constructor>
+            <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <idArg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="led_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="post_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="oss_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
+    <!--<sql id="Base_Column_List">-->
+        <!--DISTINCT peo_leader.peo_uni_code, peo_leader.com_uni_code, com_led_position.led_name,-->
+        <!--peo_leader.birth_day, peo_leader.country, peo_leader.ename, peo_leader.occupation,-->
+        <!--peo_leader.main_achievement, peo_leader.back_gro, peo_leader.per_resume, com_led_position.post_name, peo_image.oss_path-->
+    <!--</sql>-->
+    <select id="selectCorporateExecutiveBasicInfoByPeoUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        SELECT DISTINCT peo_leader.peo_uni_code, peo_leader.com_uni_code, peo_leader.name AS led_name,
+        peo_leader.birth_day, peo_leader.country, peo_leader.ename, peo_leader.occupation,
+        peo_leader.main_achievement, peo_leader.back_gro, peo_leader.per_resume, peo_leader.image AS oss_path
+        FROM peo_leader
+        LEFT JOIN  com_led_position ON peo_leader.`peo_uni_code` = com_led_position.`peo_uni_code`
+        WHERE peo_leader.peo_uni_code = #{peo_uni_code}
+        <!--SELECT-->
+        <!--<include refid="Base_Column_List"/>-->
+        <!--FROM peo_leader, com_led_position, com_led_stockalter, peo_image-->
+        <!--<where>-->
+            <!--peo_leader.peo_uni_code = #{peo_uni_code}-->
+            <!--and com_led_stockalter.peo_uni_code = #{peo_uni_code}-->
+            <!--and com_led_position.peo_uni_code = #{peo_uni_code}-->
+            <!--AND peo_image.peo_uni_code = #{peo_uni_code}-->
+        <!--</where>-->
+    </select>
+    <!--<sql id="CorporateExecutiveSameCom_Column_List">-->
+         <!--DISTINCT peo_leader.peo_uni_code, peo_leader.com_uni_code, com_led_position.`led_name`, com_led_position.post_name, peo_image.oss_path-->
+    <!--</sql>-->
+    <select id="selectCorporateExecutiveSameComByPeoUniCode" resultMap="CorporateExecutiveSameComResuktMap">
+        <!--SELECT-->
+        <!--<include refid="CorporateExecutiveSameCom_Column_List"/>-->
+        <!--FROM peo_leader, com_led_position, com_led_stockalter, peo_image-->
+        <!--<where>-->
+            <!--peo_leader.com_uni_code = #{com_uni_code}-->
+            <!--and peo_image.peo_uni_code = peo_leader.peo_uni_code-->
+            <!--and com_led_positon.peo_uni_code = peo_leader.peo_uni_code-->
+            <!--and com_led_stockalter.peo_uni_code = peo_leader.peo_uni_code-->
+            <!--AND com_led_position.if_position = 1-->
+        <!--</where>-->
+        SELECT DISTINCT peo_leader.peo_uni_code, peo_leader.com_uni_code, com_led_position.led_name, com_led_position.post_name, peo_leader.image AS oss_path
+        FROM peo_leader
+        LEFT JOIN com_led_position ON com_led_position.peo_uni_code = peo_leader.peo_uni_code
+        WHERE peo_leader.com_uni_code = (SELECT peo_leader.com_uni_code FROM peo_leader WHERE peo_leader.peo_uni_code = #{peo_uni_code} limit 0, 1)
+        AND peo_leader.com_uni_code = com_led_position.com_uni_code
+        AND peo_leader.peo_uni_code != #{peo_uni_code}
+        AND com_led_position.if_position = '1'
+    </select>
+
+    <select id="getImageByPeoUniCode" resultType="string">
+        SELECT
+            image
+        FROM
+            peo_leader
+        WHERE
+            peo_uni_code = #{peo_uni_code} AND image IS NOT NULL
+        limit 1
+    </select>
+
+    <select id="getSameComWhenComIsInUk" resultMap="CorporateExecutiveSameComResuktMap">
+        SELECT DISTINCT peo_leader.peo_uni_code, peo_leader.com_uni_code, ovsec_led_position.led_name, ovsec_led_position.post_name, peo_leader.image AS oss_path
+        FROM peo_leader
+        LEFT JOIN ovsec_led_position ON ovsec_led_position.peo_uni_code = peo_leader.peo_uni_code
+        WHERE peo_leader.com_uni_code = (SELECT peo_leader.com_uni_code FROM peo_leader WHERE peo_leader.peo_uni_code = #{peo_uni_code} limit 0, 1)
+        AND peo_leader.com_uni_code = ovsec_led_position.com_uni_code
+        AND peo_leader.peo_uni_code != #{peo_uni_code}
+        AND ovsec_led_position.if_position = '1'
+    </select>
+
+    <select id="getSameComWhenComIsInUS" resultMap="CorporateExecutiveSameComResuktMap">
+        SELECT DISTINCT peo_leader.peo_uni_code, peo_leader.com_uni_code, ovsec_us_led_position.led_name, ovsec_us_led_position.post_name, peo_leader.image AS oss_path
+        FROM peo_leader
+        LEFT JOIN ovsec_us_led_position ON ovsec_us_led_position.peo_uni_code = peo_leader.peo_uni_code
+        WHERE peo_leader.com_uni_code = (SELECT peo_leader.com_uni_code FROM peo_leader WHERE peo_leader.peo_uni_code = #{peo_uni_code} limit 0, 1)
+        AND peo_leader.com_uni_code = ovsec_us_led_position.com_uni_code
+        AND peo_leader.peo_uni_code != #{peo_uni_code}
+        AND ovsec_us_led_position.if_position = '1'
+    </select>
+</mapper>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystStatisticsDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AnalystStatisticsModel">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="peo_uni_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="analyst" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="current_org" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="sac" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="tel_phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="reachdays_analyst" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="reachdays_percent" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="stock_count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="recom_times" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="analyst_team" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="industry_cover" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="report_count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="report_quarter" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="stock_returns" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, peo_uni_code, analyst, current_org, sac, email, tel_phone, reachdays_analyst,
+    reachdays_percent, stock_count, recom_times, analyst_team, industry_cover, report_count,
+    report_quarter, stock_returns, create_time, update_time
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_statistics
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from analyst_statistics
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AnalystStatisticsModel">
+    insert into analyst_statistics (id, peo_uni_code, analyst,
+      current_org, sac, email,
+      tel_phone, reachdays_analyst, reachdays_percent,
+      stock_count, recom_times, analyst_team,
+      industry_cover, report_count, report_quarter,
+      stock_returns, create_time, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{peo_uni_code,jdbcType=VARCHAR}, #{analyst,jdbcType=VARCHAR},
+      #{current_org,jdbcType=VARCHAR}, #{sac,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+      #{tel_phone,jdbcType=VARCHAR}, #{reachdays_analyst,jdbcType=DECIMAL}, #{reachdays_percent,jdbcType=DECIMAL},
+      #{stock_count,jdbcType=INTEGER}, #{recom_times,jdbcType=INTEGER}, #{analyst_team,jdbcType=VARCHAR},
+      #{industry_cover,jdbcType=VARCHAR}, #{report_count,jdbcType=INTEGER}, #{report_quarter,jdbcType=INTEGER},
+      #{stock_returns,jdbcType=DECIMAL}, #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystStatisticsModel">
+        insert into analyst_statistics
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="peo_uni_code != null">
+                peo_uni_code,
+            </if>
+            <if test="analyst != null">
+                analyst,
+            </if>
+            <if test="current_org != null">
+                current_org,
+            </if>
+            <if test="sac != null">
+                sac,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="tel_phone != null">
+                tel_phone,
+            </if>
+            <if test="reachdays_analyst != null">
+                reachdays_analyst,
+            </if>
+            <if test="reachdays_percent != null">
+                reachdays_percent,
+            </if>
+            <if test="stock_count != null">
+                stock_count,
+            </if>
+            <if test="recom_times != null">
+                recom_times,
+            </if>
+            <if test="analyst_team != null">
+                analyst_team,
+            </if>
+            <if test="industry_cover != null">
+                industry_cover,
+            </if>
+            <if test="report_count != null">
+                report_count,
+            </if>
+            <if test="report_quarter != null">
+                report_quarter,
+            </if>
+            <if test="stock_returns != null">
+                stock_returns,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="update_time != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="peo_uni_code != null">
+                #{peo_uni_code,jdbcType=VARCHAR},
+            </if>
+            <if test="analyst != null">
+                #{analyst,jdbcType=VARCHAR},
+            </if>
+            <if test="current_org != null">
+                #{current_org,jdbcType=VARCHAR},
+            </if>
+            <if test="sac != null">
+                #{sac,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="tel_phone != null">
+                #{tel_phone,jdbcType=VARCHAR},
+            </if>
+            <if test="reachdays_analyst != null">
+                #{reachdays_analyst,jdbcType=DECIMAL},
+            </if>
+            <if test="reachdays_percent != null">
+                #{reachdays_percent,jdbcType=DECIMAL},
+            </if>
+            <if test="stock_count != null">
+                #{stock_count,jdbcType=INTEGER},
+            </if>
+            <if test="recom_times != null">
+                #{recom_times,jdbcType=INTEGER},
+            </if>
+            <if test="analyst_team != null">
+                #{analyst_team,jdbcType=VARCHAR},
+            </if>
+            <if test="industry_cover != null">
+                #{industry_cover,jdbcType=VARCHAR},
+            </if>
+            <if test="report_count != null">
+                #{report_count,jdbcType=INTEGER},
+            </if>
+            <if test="report_quarter != null">
+                #{report_quarter,jdbcType=INTEGER},
+            </if>
+            <if test="stock_returns != null">
+                #{stock_returns,jdbcType=DECIMAL},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="update_time != null">
+                #{update_time,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystStatisticsModel">
+        update analyst_statistics
+        <set>
+            <if test="peo_uni_code != null">
+                peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+            </if>
+            <if test="analyst != null">
+                analyst = #{analyst,jdbcType=VARCHAR},
+            </if>
+            <if test="current_org != null">
+                current_org = #{current_org,jdbcType=VARCHAR},
+            </if>
+            <if test="sac != null">
+                sac = #{sac,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="tel_phone != null">
+                tel_phone = #{tel_phone,jdbcType=VARCHAR},
+            </if>
+            <if test="reachdays_analyst != null">
+                reachdays_analyst = #{reachdays_analyst,jdbcType=DECIMAL},
+            </if>
+            <if test="reachdays_percent != null">
+                reachdays_percent = #{reachdays_percent,jdbcType=DECIMAL},
+            </if>
+            <if test="stock_count != null">
+                stock_count = #{stock_count,jdbcType=INTEGER},
+            </if>
+            <if test="recom_times != null">
+                recom_times = #{recom_times,jdbcType=INTEGER},
+            </if>
+            <if test="analyst_team != null">
+                analyst_team = #{analyst_team,jdbcType=VARCHAR},
+            </if>
+            <if test="industry_cover != null">
+                industry_cover = #{industry_cover,jdbcType=VARCHAR},
+            </if>
+            <if test="report_count != null">
+                report_count = #{report_count,jdbcType=INTEGER},
+            </if>
+            <if test="report_quarter != null">
+                report_quarter = #{report_quarter,jdbcType=INTEGER},
+            </if>
+            <if test="stock_returns != null">
+                stock_returns = #{stock_returns,jdbcType=DECIMAL},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="update_time != null">
+                update_time = #{update_time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AnalystStatisticsModel">
+    update analyst_statistics
+    set peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      analyst = #{analyst,jdbcType=VARCHAR},
+      current_org = #{current_org,jdbcType=VARCHAR},
+      sac = #{sac,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      tel_phone = #{tel_phone,jdbcType=VARCHAR},
+      reachdays_analyst = #{reachdays_analyst,jdbcType=DECIMAL},
+      reachdays_percent = #{reachdays_percent,jdbcType=DECIMAL},
+      stock_count = #{stock_count,jdbcType=INTEGER},
+      recom_times = #{recom_times,jdbcType=INTEGER},
+      analyst_team = #{analyst_team,jdbcType=VARCHAR},
+      industry_cover = #{industry_cover,jdbcType=VARCHAR},
+      report_count = #{report_count,jdbcType=INTEGER},
+      report_quarter = #{report_quarter,jdbcType=INTEGER},
+      stock_returns = #{stock_returns,jdbcType=DECIMAL},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByPeoUniCodes" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from analyst_statistics
+        where peo_uni_code in
+        <foreach collection="peoUniCodes" index="index" item="item" open="(" separator="," close=")">
+            #{item,jdbcType=BIGINT}
+        </foreach>
+    </select>
+    <select id="selectByPeoUniCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_statistics
+        where peo_uni_code = #{peoUniCodes,jdbcType=VARCHAR}
+        limit 1
+    </select>
+</mapper>

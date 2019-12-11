@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystBasicinfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="peo_uni_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="people_char" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex_par" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="birth_day" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="poli_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="university" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="high_edu" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="back_gro" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="honor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_new" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="direction" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mobil_phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tel_phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="arg1" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="arg2" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="arg3" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="arg4" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="arg5" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, peo_uni_code, people_char, name, sex_par, birth_day, country, poli_status, university,
+    high_edu, image, back_gro, createtime, updatetime, status, remark, creator, editor,
+    come_source, honor, is_new, direction, mobil_phone, tel_phone, email, arg1, arg2,
+    arg3, arg4, arg5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_basicinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from analyst_basicinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    insert into analyst_basicinfo (id, peo_uni_code, people_char,
+      name, sex_par, birth_day,
+      country, poli_status, university,
+      high_edu, image, back_gro,
+      createtime, updatetime, status,
+      remark, creator, editor,
+      come_source, honor, is_new,
+      direction, mobil_phone, tel_phone,
+      email, arg1, arg2,
+      arg3, arg4, arg5)
+    values (#{id,jdbcType=BIGINT}, #{peo_uni_code,jdbcType=VARCHAR}, #{people_char,jdbcType=BIGINT},
+      #{name,jdbcType=VARCHAR}, #{sex_par,jdbcType=TINYINT}, #{birth_day,jdbcType=VARCHAR},
+      #{country,jdbcType=VARCHAR}, #{poli_status,jdbcType=VARCHAR}, #{university,jdbcType=VARCHAR},
+      #{high_edu,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{back_gro,jdbcType=VARCHAR},
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT},
+      #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR},
+      #{come_source,jdbcType=VARCHAR}, #{honor,jdbcType=VARCHAR}, #{is_new,jdbcType=TINYINT},
+      #{direction,jdbcType=VARCHAR}, #{mobil_phone,jdbcType=VARCHAR}, #{tel_phone,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR}, #{arg1,jdbcType=VARCHAR}, #{arg2,jdbcType=VARCHAR},
+      #{arg3,jdbcType=VARCHAR}, #{arg4,jdbcType=VARCHAR}, #{arg5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    insert into analyst_basicinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="people_char != null">
+        people_char,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex_par != null">
+        sex_par,
+      </if>
+      <if test="birth_day != null">
+        birth_day,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="poli_status != null">
+        poli_status,
+      </if>
+      <if test="university != null">
+        university,
+      </if>
+      <if test="high_edu != null">
+        high_edu,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="back_gro != null">
+        back_gro,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="honor != null">
+        honor,
+      </if>
+      <if test="is_new != null">
+        is_new,
+      </if>
+      <if test="direction != null">
+        direction,
+      </if>
+      <if test="mobil_phone != null">
+        mobil_phone,
+      </if>
+      <if test="tel_phone != null">
+        tel_phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="arg1 != null">
+        arg1,
+      </if>
+      <if test="arg2 != null">
+        arg2,
+      </if>
+      <if test="arg3 != null">
+        arg3,
+      </if>
+      <if test="arg4 != null">
+        arg4,
+      </if>
+      <if test="arg5 != null">
+        arg5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=VARCHAR},
+      </if>
+      <if test="people_char != null">
+        #{people_char,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex_par != null">
+        #{sex_par,jdbcType=TINYINT},
+      </if>
+      <if test="birth_day != null">
+        #{birth_day,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="poli_status != null">
+        #{poli_status,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null">
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="high_edu != null">
+        #{high_edu,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="back_gro != null">
+        #{back_gro,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="honor != null">
+        #{honor,jdbcType=VARCHAR},
+      </if>
+      <if test="is_new != null">
+        #{is_new,jdbcType=TINYINT},
+      </if>
+      <if test="direction != null">
+        #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="mobil_phone != null">
+        #{mobil_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="tel_phone != null">
+        #{tel_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="arg1 != null">
+        #{arg1,jdbcType=VARCHAR},
+      </if>
+      <if test="arg2 != null">
+        #{arg2,jdbcType=VARCHAR},
+      </if>
+      <if test="arg3 != null">
+        #{arg3,jdbcType=VARCHAR},
+      </if>
+      <if test="arg4 != null">
+        #{arg4,jdbcType=VARCHAR},
+      </if>
+      <if test="arg5 != null">
+        #{arg5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    update analyst_basicinfo
+    <set>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      </if>
+      <if test="people_char != null">
+        people_char = #{people_char,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex_par != null">
+        sex_par = #{sex_par,jdbcType=TINYINT},
+      </if>
+      <if test="birth_day != null">
+        birth_day = #{birth_day,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="poli_status != null">
+        poli_status = #{poli_status,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null">
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="high_edu != null">
+        high_edu = #{high_edu,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="back_gro != null">
+        back_gro = #{back_gro,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="honor != null">
+        honor = #{honor,jdbcType=VARCHAR},
+      </if>
+      <if test="is_new != null">
+        is_new = #{is_new,jdbcType=TINYINT},
+      </if>
+      <if test="direction != null">
+        direction = #{direction,jdbcType=VARCHAR},
+      </if>
+      <if test="mobil_phone != null">
+        mobil_phone = #{mobil_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="tel_phone != null">
+        tel_phone = #{tel_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="arg1 != null">
+        arg1 = #{arg1,jdbcType=VARCHAR},
+      </if>
+      <if test="arg2 != null">
+        arg2 = #{arg2,jdbcType=VARCHAR},
+      </if>
+      <if test="arg3 != null">
+        arg3 = #{arg3,jdbcType=VARCHAR},
+      </if>
+      <if test="arg4 != null">
+        arg4 = #{arg4,jdbcType=VARCHAR},
+      </if>
+      <if test="arg5 != null">
+        arg5 = #{arg5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    update analyst_basicinfo
+    set peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      people_char = #{people_char,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      sex_par = #{sex_par,jdbcType=TINYINT},
+      birth_day = #{birth_day,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      poli_status = #{poli_status,jdbcType=VARCHAR},
+      university = #{university,jdbcType=VARCHAR},
+      high_edu = #{high_edu,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      back_gro = #{back_gro,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      honor = #{honor,jdbcType=VARCHAR},
+      is_new = #{is_new,jdbcType=TINYINT},
+      direction = #{direction,jdbcType=VARCHAR},
+      mobil_phone = #{mobil_phone,jdbcType=VARCHAR},
+      tel_phone = #{tel_phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      arg1 = #{arg1,jdbcType=VARCHAR},
+      arg2 = #{arg2,jdbcType=VARCHAR},
+      arg3 = #{arg3,jdbcType=VARCHAR},
+      arg4 = #{arg4,jdbcType=VARCHAR},
+      arg5 = #{arg5,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPeoUniCode" resultType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_basicinfo where `peo_uni_code`=#{peo_uni_code,jdbcType=VARCHAR} limit 1
+  </select>
+
+  <select id="getAnalystByDirection" resultType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_basicinfo where direction like concat("%",#{direction,jdbcType=VARCHAR},"%")
+  </select>
+
+  <select id="selectByPeoUniCodeList" resultType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_basicinfo
+    where
+    <if test ="null != peoUniCodes">
+      peo_uni_code IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+  <select id="selectByPeoUniCodesAndDirection" resultType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_basicinfo
+    where peo_uni_code IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+      and direction like concat("%",#{direction,jdbcType=VARCHAR},"%")
+  </select>
+
+  <select id="getAnalystByDirectionLimit" resultMap="BaseResultMap">
+    select `peo_uni_code`
+    from analyst_basicinfo where direction like concat("%",#{direction,jdbcType=VARCHAR},"%")
+    <if test ="null != limit">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+    <select id="selectByPeoUniCodesAndDirectionLimit" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_basicinfo
+        where 1=1
+        <if test ="null != peoUniCodes">
+            and peo_uni_code IN
+            <foreach collection="peoUniCodes" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test ="null != directionList">
+            and
+            <foreach collection="directionList" item="item" index="index"
+                     open="(" separator=" OR " close=")">
+                <!--direction like concat("%",#{item,jdbcType=VARCHAR},"%")-->
+                direction like "%"#{item,jdbcType=VARCHAR}"%"
+            </foreach>
+        </if>
+        <if test ="null != limit">
+            limit #{limit,jdbcType=INTEGER}
+        </if>
+    </select>
+
+  <select id="selectUniquePeoUniCodeByNameAndPeoUniCodeList" resultType="java.lang.String">
+    SELECT peo_uni_code
+    FROM analyst_basicinfo
+    where analyst_basicinfo.name = #{name}
+    AND peo_uni_code in
+      <foreach collection="peo_uni_code_list" item="peo_uni_code" open="(" close=")" separator=",">
+        #{peo_uni_code}
+      </foreach>
+    limit 1
+  </select>
+
+  <select id="selectAnalystNameByPeoUniCodeList" resultType="java.lang.String">
+    select analyst_basicinfo.name
+    FROM analyst_basicinfo
+    where peo_uni_code in
+    <foreach collection="peo_uni_code_list" item="peo_uni_code" open="(" close=")" separator=",">
+      #{peo_uni_code}
+    </foreach>
+  </select>
+
+  <select id="selectPeoUniCodeByNameListAndPeoUniCodeList" resultType="java.lang.String">
+    SELECT peo_uni_code
+    FROM analyst_basicinfo
+    where analyst_basicinfo.name IN
+      <foreach collection="name_list" separator="," open="(" close=")" item="name" >
+         #{name}
+      </foreach>
+    AND peo_uni_code in
+      <foreach collection="peo_uni_code_list" item="peo_uni_code" open="(" close=")" separator=",">
+        #{peo_uni_code}
+      </foreach>
+    GROUP by peo_uni_code
+  </select>
+
+  <select id="getAllAnalystName" resultType="java.lang.String">
+    SELECT NAME FROM analyst_basicinfo WHERE peo_uni_code IN (
+        SELECT peo_uni_code
+        FROM analyst_chan_status
+        WHERE 1
+        AND `practice_post` = "证券投资咨询业务(分析师)"
+        AND certificate_status  IN ('正常', '机构内变更')
+    GROUP BY peo_uni_code) GROUP BY NAME
+  </select>
+
+  <select id="getPeoUniCodeByNameAndSpellAndOrgSnameAndDirectionListAndPrior" resultType="map">
+    <!--SELECT analyst_basicinfo.peo_uni_code, NAME, org_sname, name_prefix, analyst_honor.direction-->
+    <!--FROM analyst_basicinfo-->
+    <!--RIGHT JOIN-->
+          <!--(SELECT peo_uni_code, org_sname-->
+          <!--FROM analyst_chan_status-->
+          <!--WHERE `practice_post` = "证券投资咨询业务(分析师)"-->
+          <!--AND certificate_status  IN ('正常', '机构内变更')-->
+          <!--GROUP BY peo_uni_code ) a ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`-->
+    <!--LEFT JOIN analyst_honor ON analyst_honor.`peo_uni_code` = analyst_basicinfo.`peo_uni_code`-->
+    <!--WHERE 1-->
+    <!--<if test="name != null">-->
+      <!--AND NAME = #{name}-->
+    <!--</if>-->
+    <!--<if test="spellPrefix != null">-->
+      <!--AND name_prefix = #{spellPrefix}-->
+    <!--</if>-->
+    <!--<if test="org_sname != null">-->
+      <!--AND org_sname = #{org_sname}-->
+    <!--</if>-->
+    <!--<if test="directionList != null">-->
+      <!--AND analyst_honor.direction IN-->
+           <!--<foreach collection="directionList" item="direction" open="(" close=")" separator=",">-->
+                <!--#{direction}-->
+           <!--</foreach>-->
+    <!--</if>-->
+    <!--GROUP BY peo_uni_code-->
+    <!--ORDER BY peo_uni_code-->
+    <!--LIMIT #{offset}, #{limit}-->
+
+
+      SELECT *
+      FROM (SELECT analyst_basicinfo.peo_uni_code, analyst_basicinfo.name, analyst_basicinfo.image, org_sname,
+      name_prefix, analyst_honor.direction,
+      reachdays_analyst, analyst_honor.`honor`, analyst_honor.time, analyst_honor.`ranking`,b.count1
+      FROM analyst_basicinfo
+      RIGHT JOIN
+      (SELECT peo_uni_code, org_sname
+      FROM analyst_chan_status
+      WHERE `practice_post` = "证券投资咨询业务(分析师)"
+      AND certificate_status IN ('正常', '机构内变更')
+      GROUP BY peo_uni_code ) a
+      ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`
+      LEFT JOIN analyst_honor ON analyst_honor.`peo_uni_code` = analyst_basicinfo.`peo_uni_code`
+      LEFT JOIN analyst_statistics ON analyst_statistics.`peo_uni_code` = analyst_basicinfo.`peo_uni_code`
+      LEFT JOIN (SELECT peo_uni_code, COUNT(peo_uni_code) count1
+      FROM analyst_honor
+      WHERE honor = '新财富最佳分析师'
+      AND TIME IS NOT NULL
+      AND ranking IS NOT NULL
+      GROUP BY peo_uni_code ) b ON b.peo_uni_code = analyst_basicinfo.peo_uni_code
+      WHERE 1
+      <if test="name != null">
+        AND NAME = #{name}
+          </if>
+            <if test="spellPrefix != null">
+              AND name_prefix = #{spellPrefix}
+            </if>
+            <if test="org_sname != null">
+              AND org_sname = #{org_sname}
+            </if>
+            <if test="directionList != null">
+              AND analyst_honor.direction IN
+              <foreach collection="directionList" item="direction" open="(" close=")" separator=",">
+                #{direction}
+              </foreach>
+            </if>
+            ORDER BY
+                <if test="prior == 'ranking'">
+                  analyst_honor.ranking  IS  NULL ,analyst_honor.honor !=  '新财富最佳分析师', analyst_honor.time DESC , analyst_honor.ranking ASC, analyst_basicinfo.peo_uni_code
+                </if>
+                <if test="prior == 'prizeCount'">
+                  count1 IS NULL, count1 DESC, analyst_basicinfo.peo_uni_code
+                </if>
+                <if test="prior == 'days'">
+                  reachdays_analyst IS NULL , reachdays_analyst, analyst_basicinfo.peo_uni_code
+                </if> ) c
+      GROUP BY c.peo_uni_code
+      ORDER BY
+          <if test="prior == 'ranking'">
+              c.ranking  IS  NULL ,c.honor !=  '新财富最佳分析师', c.time DESC , c.ranking ASC, c.peo_uni_code
+          </if>
+          <if test="prior == 'prizeCount'">
+              count1 IS NULL, count1 DESC, c.peo_uni_code
+          </if>
+          <if test="prior == 'days'">
+              reachdays_analyst IS NULL , reachdays_analyst, c.peo_uni_code
+          </if>
+      LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="getPeoUniCodeByNameAndSpellAndOrgSnameAndDirectionList" resultType="map">
+    select analyst_basicinfo.peo_uni_code, analyst_basicinfo.name
+    FROM analyst_basicinfo
+    RIGHT JOIN
+            (SELECT peo_uni_code, org_sname
+            FROM analyst_chan_status
+            WHERE `practice_post` = "证券投资咨询业务(分析师)"
+            AND certificate_status  IN ('正常', '机构内变更')
+            GROUP BY peo_uni_code ) a
+            ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`
+    LEFT JOIN analyst_honor ON analyst_honor.`peo_uni_code` = analyst_basicinfo.`peo_uni_code`
+    where 1
+    <if test="name != null">
+      AND analyst_basicinfo.name = #{name}
+    </if>
+    <if test="spellPrefix != null">
+      AND name_prefix = #{spellPrefix}
+    </if>
+    <if test="org_sname != null">
+      AND org_sname = #{org_sname}
+    </if>
+    <if test="directionList != null">
+      AND analyst_honor.direction IN
+      <foreach collection="directionList" item="direction" open="(" close=")" separator=",">
+        #{direction}
+      </foreach>
+    </if>
+    GROUP BY analyst_basicinfo.peo_uni_code
+  </select>
+
+  <select id="getPeoUniCodeByNameAndSpellAndPeoUniCodeList" resultType="java.lang.String">
+    SELECT peo_uni_code
+    FROM analyst_basicinfo
+    where 1
+    <if test="name != null">
+      and name = #{name}
+    </if>
+    <if test="spellPrefix != null">
+      AND name_prefix = #{spellPrefix}
+    </if>
+    <if test="peoUniCodeList != null">
+      AND peo_uni_code in
+         <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+           #{peoUniCode}
+         </foreach>
+    </if>
+    GROUP BY peo_uni_code
+  </select>
+
+  <select id="getRankByPriorIsPrizeCount" resultType="java.lang.String">
+    SELECT peo_uni_code
+    FROM (SELECT analyst_basicinfo.`peo_uni_code`, count1
+           FROM analyst_basicinfo
+        LEFT JOIN (
+        SELECT peo_uni_code, COUNT(peo_uni_code) count1
+        FROM analyst_honor
+        WHERE honor = '新财富最佳分析师'
+        AND TIME IS NOT NULL
+        AND ranking IS NOT NULL
+        AND peo_uni_code IN
+                    <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                      #{peoUniCode}
+                    </foreach>
+        GROUP BY peo_uni_code) a ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`
+        ORDER BY count1 IS NULL, count1 DESC, analyst_basicinfo.peo_uni_code)b
+    WHERE peo_uni_code IN
+                <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                #{peoUniCode}
+              </foreach>
+    GROUP BY peo_uni_code
+    ORDER BY count1 IS NULL, count1 DESC, peo_uni_code
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="getRankByPriorIsRanking" resultType="java.lang.String">
+    SELECT peo_uni_code
+    FROM (
+            SELECT analyst_basicinfo.`peo_uni_code`, ranking, TIME, a.honor
+            FROM analyst_basicinfo
+            LEFT JOIN (
+                     SELECT peo_uni_code, ranking, TIME, honor
+                     FROM analyst_honor
+                     WHERE peo_uni_code IN
+                                <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                                  #{peoUniCode}
+                                </foreach>
+                     ) a ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`
+                     ORDER BY a.ranking  IS  NULL ,a.honor !=  '新财富最佳分析师', a.time DESC , a.ranking ASC, peo_uni_code) b
+    WHERE peo_uni_code IN
+                    <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                      #{peoUniCode}
+                    </foreach>
+    GROUP BY peo_uni_code
+    ORDER BY ranking  IS  NULL ,honor !=  '新财富最佳分析师', TIME DESC ,  ranking ASC, peo_uni_code
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="getRankByPriorIsDays" resultType="java.lang.String">
+    SELECT *
+    FROM (SELECT  analyst_basicinfo.`peo_uni_code`, days
+           FROM analyst_basicinfo
+          LEFT JOIN (SELECT peo_uni_code, reachdays_analyst days
+                    FROM analyst_statistics
+                    WHERE peo_uni_code IN
+                        <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                        #{peoUniCode}
+                      </foreach>) a ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`
+          ORDER BY days IS NULL , days, analyst_basicinfo.peo_uni_code) b
+    WHERE peo_uni_code IN
+                  <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                  #{peoUniCode}
+                </foreach>
+    GROUP BY peo_uni_code
+    ORDER BY days IS NULL , days, peo_uni_code
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="getAnalystInfoByPeoUniCodeList" resultType="map">
+    SELECT *
+    FROM (SELECT analyst_basicinfo.peo_uni_code, analyst_basicinfo.name, analyst_basicinfo.image, org_sname, org_uni_code,
+          name_prefix, analyst_honor.direction,
+          reachdays_analyst, analyst_honor.`honor`, analyst_honor.time, analyst_honor.`ranking`,b.count1
+          FROM analyst_basicinfo
+          RIGHT JOIN
+                    (SELECT peo_uni_code, org_uni_code, org_sname
+                    FROM analyst_chan_status
+                    WHERE peo_uni_code in
+                            <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                              #{peoUniCode}
+                            </foreach>
+                    AND `practice_post` = "证券投资咨询业务(分析师)"
+                    AND certificate_status  IN ('正常', '机构内变更')
+                    GROUP BY peo_uni_code ) a
+                    ON a.peo_uni_code = analyst_basicinfo.`peo_uni_code`
+          LEFT JOIN analyst_honor ON analyst_honor.`peo_uni_code` = analyst_basicinfo.`peo_uni_code`
+          LEFT JOIN analyst_statistics ON analyst_statistics.`peo_uni_code` = analyst_basicinfo.`peo_uni_code`
+          LEFT JOIN (SELECT peo_uni_code, COUNT(peo_uni_code) count1
+                      FROM analyst_honor
+                      WHERE peo_uni_code in
+                                    <foreach collection="peoUniCodeList" open="(" close=")" separator="," item="peoUniCode">
+                                      #{peoUniCode}
+                                    </foreach>
+                      GROUP BY peo_uni_code ) b ON b.peo_uni_code = analyst_basicinfo.peo_uni_code
+          WHERE 1
+          <if test="prior != null">
+            ORDER BY
+            <if test="prior == 'ranking'">
+              analyst_honor.ranking  IS  NULL ,analyst_honor.honor !=  '新财富最佳分析师', analyst_honor.time DESC , analyst_honor.ranking ASC, analyst_basicinfo.peo_uni_code
+            </if>
+            <if test="prior == 'prizeCount'">
+              count1 IS NULL, count1 DESC, analyst_basicinfo.peo_uni_code
+            </if>
+            <if test="prior == 'days'">
+              reachdays_analyst IS NULL , reachdays_analyst, analyst_basicinfo.peo_uni_code
+            </if>
+          </if>
+           ) c
+    GROUP BY c.peo_uni_code
+    <if test="prior != null">
+      ORDER BY
+      <if test="prior == 'ranking'">
+        c.ranking  IS  NULL ,c.honor !=  '新财富最佳分析师', c.time DESC , c.ranking ASC, c.peo_uni_code
+      </if>
+      <if test="prior == 'prizeCount'">
+        count1 IS NULL, count1 DESC, c.peo_uni_code
+      </if>
+      <if test="prior == 'days'">
+        reachdays_analyst IS NULL , reachdays_analyst, c.peo_uni_code
+      </if>
+    </if>
+  </select>
+
+  <select id="getPeoUniCodeByPeoUniCodeListAndDirections" resultType="java.lang.String">
+    SELECT peo_uni_code
+    FROM analyst_basicinfo
+    WHERE 1
+    <if test="peoUniCodeList != null">
+      AND peo_uni_code in
+      <foreach collection="peoUniCodeList" item="peoUniCode" open="(" separator="," close=")">
+        #{peoUniCode}
+      </foreach>
+    </if>
+    <if test="direction != null">
+      AND analyst_basicinfo.direction LIKE "%"#{direction}"%"
+    </if>
+    GROUP BY peo_uni_code
+  </select>
+
+  <select id="selectByPeoUniCodesAndDirectionAndLimit" resultType="la.niub.abcapi.servicecompre.model.AnalystBasicinfoModel">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_basicinfo
+    where 1=1
+    <if test ="null != peoUniCodes">
+      and peo_uni_code IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    <if test ="null != direction">
+      and direction = #{direction}
+    </if>
+    <if test ="null != limit">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+</mapper>

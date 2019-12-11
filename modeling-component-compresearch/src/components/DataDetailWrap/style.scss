@@ -1,0 +1,195 @@
+@import '../../theme/common.scss';
+$subTitColor : #9a9fa5;
+$subTitHoverColor : #1890ff;
+$leftRightPad : 48px;
+$leftRightPad_s : 10px;
+
+:local(.localClass){position: relative;height: 100%;width: 100%;
+    .mainTit{font-size: 16px;color: $color-text-base;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;font-weight: bold;padding-top: 20px;padding-right: 20px;
+        > a{color: $color-text-base;}
+    }
+    .dataDetailWrap{height: 100%;
+        .dataDetailSide{float: right;;width: 350px;background: #fff;box-shadow: 0 2px 4px 1px rgba(0,0,0,0.1);border-left: 1px solid #eee;padding: 0 20px;height: 100%;display: none;position: relative;
+            .mainTit{margin-bottom: 10px;}
+            .sidePicShowArea{position: absolute;left: 20px;right: 20px;top: 46px;bottom: 20px;overflow-y: auto;
+                img{max-width: 100%; border: 1px solid #ededed;}
+                p{margin: 10px 0;font-size: 14px;color: #999;line-height: 140%;
+                    span{float: left;}
+                    i{font-style: normal;}
+                    a{color: #999;overflow: hidden;display: block;}
+                }
+            }
+        }
+        
+    }
+    .dataDetailWrap:after{content: '';display: block;overflow: hidden;clear: both;height: 0;width: 100%;}
+    .dataDetailCon{margin-bottom: 10px;padding: 0 0;height: 100%;position: relative;overflow: auto;
+        .titDate{font-size: 12px;margin-top: 10px;color: $color-text-caption;}
+        .mainConWrap{
+            .subTit{font-size: 14px;color: $subTitColor;margin: 10px 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;
+                > span{padding-right: 10px;margin-right: 10px;border-right: 1px solid $subTitColor;}
+                > span:last-child{border-right: 0;}
+                a{color: $subTitColor;}
+                a:hover{color: $subTitHoverColor;}
+                i{font-style: normal;}
+            }
+            .detailDataShowArea{
+                margin-top: 30px;
+                img{max-width: 100%;}
+            }
+            .funcBox{padding: 10px 0 10px;}
+        }
+        .funcBox{float: right;vertical-align: middle;padding-top: 14px;
+            .ypeng-antd-icon{font-size: 16px;vertical-align: middle;color: #999;}
+            i{font-style: normal;vertical-align: middle;}
+            a{line-height: 28px;color: #6e7378;font-size: 12px;margin-right: 32px;}
+            a:hover{border-color: #ccc;text-decoration: none;}
+            button{vertical-align: middle;margin-right: 10px;}
+            .share-button{height: auto;padding: 0;border: 0;background: none;}
+        }
+    }
+    .dataDetailWrap.type-chart{
+        .dataDetailSide{display: block;}
+        .dataDetailCon{margin-right: 350px;overflow: visible;
+            .mainConWrap{
+                .funcBox{float: none;}
+            }
+            .mainConWrap{position: absolute;top: 68px;left: $leftRightPad;right: $leftRightPad;bottom: 10px;
+                .detailDataShowArea{/* position: absolute;top: 0;left: 0;right: 0;bottom: 0; */height: 100%;overflow: auto;display: flex;justify-content: center;align-items: center;margin-top: 0;}
+            }
+        }
+    }
+    .dataDetailWrap.type-table{
+        .detailDataShowArea{padding-bottom: 10px;margin-top: 10px;}
+        .dataDetailCon{
+            .mainConWrap{
+                .funcBox{float: none;
+                    a{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .dataDetailWrap.type-bigPic{
+        .dataDetailCon{
+            .mainConWrap{padding-bottom: 10px;
+                .detailDataShowArea{display: flex;justify-content: center;align-items: center;min-height: 500px;}
+            }
+        }
+    }
+    .dataDetailWrap.type-smallPic{
+        .dataDetailSide{display: block;}
+        .dataDetailCon{
+            .mainConWrap{padding-bottom: 10px;
+                .detailDataShowArea{display: flex;justify-content: center;align-items: center;min-height: 500px;}
+            }
+        }
+    }
+    .dataDetailWrap.isMobile{
+        .dataDetailCon{
+            .funcBox{}
+        }
+    }
+    .dataDetailWrap.type-chart.isMobile{
+        .dataDetailCon{
+            .mainConWrap{
+                .detailDataShowArea{top: 14px;}
+            }
+        }
+    }
+    .dataDetailWrap.type-chart.isSharePage{
+        .dataDetailCon{margin-right: 0;overflow: visible;
+            .mainConWrap{
+                .detailDataShowArea{/* top: 14px; */bottom: 26px;}
+            }
+        }
+    }
+    .dataDetailWrap.type-chart.isSharePage.isMobile{
+        .dataDetailCon{
+            .mainConWrap{
+                .detailDataShowArea{bottom: 72px;}
+            }
+        }
+    }
+    .Guide-installApp{text-align: center;position: fixed;left: 0;right: 0;bottom: 66px;
+        a{background: linear-gradient(-94deg, #00B2DF 0%, #007ABB 99%);display: inline-block;line-height: 36px;border-radius: 18px;padding: 0 20px;color: #fff;}
+    }
+    .Guide-signUp{position: fixed;left: 0;right: 0;bottom: 0;height: 56px;line-height: 56px;background: #101529 url(./images/share-footer-bg.png) no-repeat left center;color: #fff;font-size: 18px;display: flex; flex-direction: row-reverse;justify-content: space-between;padding: 0 $leftRightPad;align-items: center;
+        .Guide-signUp_btn{display: inline-block;padding: 0 10px;border-radius: 15px;line-height: 30px;background: #fff;color: #007ABB;font-size: 14px;height: 30px;flex-basis: 1;}
+        .Guide-signUp_btn:hover{opacity: .9;text-decoration: none;}
+        .Guide-signUp_tit{}
+        .Guide-signUp_subTit{font-size: 14px;color: #888A94;}
+        .Guide-signUp_subTit:before{content: ' —— ';}
+    }
+
+    .meta-info {
+        margin-top: 10px;
+
+        .info-tag {
+            display: inline-block;
+            line-height: 1;
+            font-size: 13px;
+            color: #9a9fa5;
+        }
+    }
+
+    @media screen and (max-width: 992px){
+        .dataDetailWrap.isSharePage{
+            .dataDetailCon{
+                > .funcBox{padding-top: 0;}
+            }
+        }
+        .dataDetailCon{
+            > .funcBox{float: none;}
+        }
+        .dataDetailWrap{
+            .dataDetailCon{padding-left: $leftRightPad_s;padding-right: $leftRightPad_s;}
+        }
+        .dataDetailWrap{
+            .dataDetailSide{display: none !important;}
+            .dataDetailCon{margin-right: 0 !important;}
+            &.type-chart .dataDetailCon{
+                .mainConWrap{left: $leftRightPad_s;right: $leftRightPad_s;top: 120px;}
+            }
+        }
+        .dataDetailWrap.type-chart.isMobile, .dataDetailWrap.type-chart.isSharePage{
+            .dataDetailCon{
+                .mainConWrap{top: 68px;}
+            }
+        }
+        .dataDetailWrap.type-table{
+            .dataDetailCon{padding-bottom: 62px;}
+        }
+        .dataDetailWrap.type-smallPic, .dataDetailWrap.type-bigPic{
+            .dataDetailCon{
+                .mainConWrap{
+                    .detailDataShowArea{min-height: 300px;}
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        div.dataDetailWrap{
+            .dataDetailCon{
+                .funcBox{ display: none}
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .Guide-signUp{height: 56px;line-height: 56px;font-size: 18px;padding: 0 10px;
+            .Guide-info{display: inline-flex;align-items: center;
+                .Guide-signUp_tit{line-height: 140%;font-size: 14px;display: inline-block;}
+                .Guide-signUp_subTit{font-size: 12px;display: block;}
+                .Guide-signUp_subTit:before{display: none;}
+            }
+            .Guide-info:before{content: '';display: inline-block;background: url(./images/mobile-app-logo.png) no-repeat center center;width: 40px;height: 40px;margin-right: 10px;background-size: 100%;}
+        }
+    }
+}
+
+.ypeng-antd-dropMenu{
+    padding: 0;border-radius: 0;
+    a{font-size: 12px;}
+    a:hover{text-decoration: none;}
+}

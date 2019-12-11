@@ -1,0 +1,80 @@
+.abc-fullscrren-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .header-bar {
+        position: absolute;
+        height: 74px;
+        left: 48px;
+        right: 48px;
+        top: 0;
+
+        .title {
+            padding-top: 20px;
+            line-height: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333333;
+            max-width: 41%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .actions {
+            position: absolute;
+            top: 17px;
+            right: 0px;
+            font-size: 12px;
+
+            .action-item {
+                height: 30px;
+                margin-left: 8px;
+                float: left;
+                overflow: hidden;
+                line-height: 30px;
+                font-size: 12px;
+                color: #6e7378;
+                border: 1px solid #e0e1e7;
+                
+                &.download {
+                    .ant-menu-horizontal {
+                        font-size: 12px;
+                        color: #6e7378;
+                        line-height: 30px;
+                        border-bottom: none;
+                        
+                        &::after,
+                        &::before {
+                            display: none;
+                        }
+                    }
+                    .ant-menu-submenu-title {
+                        padding: 0 15px;
+                    }
+                }
+                &.close {
+                    border: 1px solid #3A6BB1;
+
+                    .ant-btn {
+                        border: none;
+                        line-height: 30px;
+                        height: 30px;
+                        font-size: 12px;
+                        border-radius: 0;
+                    }
+                }
+            }
+        }
+    }
+    .content-wrap {
+        position: absolute;
+        top: 74px;
+        left: 48px;
+        right: 48px;
+        bottom: 0;        
+    }
+}

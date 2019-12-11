@@ -1,0 +1,79 @@
+{
+	"code": 200,
+	"message": "ok",
+	"data": [
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "刘蓉发布了“申万宏源”股票邮件中的风险信息的…",
+			"type": "药明康德（600089）",
+			"memo": "包含敏感词“上调”“批露”风险信息",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		}
+	],
+	"pageSize": 12,
+	"currentPage": 1,
+	"totalCount": 1200
+}

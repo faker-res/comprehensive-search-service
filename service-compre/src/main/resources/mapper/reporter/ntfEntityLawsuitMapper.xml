@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IntfEntityLawsuitDao">
+  <sql id="Base_Column_List">
+    id, uuid, com_uni_code, com_name, url, openlaw_seq, caseno, casetype, doctype, base, 
+    court, judgetime, submittime, title, casereason, trialprocedure, legalbasis, come_source, 
+    createtime, updatetime, status,plaintext, head, partyInfo, lawsuit_record, fact, reason, result, tail, party
+  </sql>
+  <resultMap id="groupByCaseTypeAndYear" type="la.niub.abcapi.servicecompre.model.NtfEntityLawsuitGroupByCaseTypeAndYearModel">
+    <result column="judgeYear" property="judgeYear" jdbcType="BIGINT"/>
+    <result column="casetype" property="casetype" jdbcType="VARCHAR"/>
+    <result column="count" property="count" jdbcType="INTEGER"/>
+  </resultMap>
+  <select id="selectByComUniCode" resultType="la.niub.abcapi.servicecompre.model.ntfEntityLawsuitModel">
+    select url, judgetime,title,casereason,plaintext,caseno,partyInfo, court
+    from ntf_entity_lawsuit
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    <if test="caseType != null">
+      AND casetype = #{caseType,jdbcType=VARCHAR}
+    </if>
+    order by judgetime desc
+    <if test="limit != null">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+    <if test="offset != null">
+      offset #{offset,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="getCount" resultType="java.lang.Integer">
+    select count(id)
+    from ntf_entity_lawsuit
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    <if test="caseType != null">
+      AND casetype = #{caseType,jdbcType=VARCHAR}
+    </if>
+  </select>
+  
+  <select id="selectByComIdAndYearGroupByCaseTypeAndYear" resultMap="groupByCaseTypeAndYear">
+    select
+    DATE_FORMAT(t.judgetime,'%Y') judgeYear,
+    case when t.casetype   in ('执行案件','刑事案件','民事案件','行政案件','赔偿案件','知识产权','驳回案件') then   t.casetype  else  '其它' end  casetype,
+    count(1) as `count`
+    from ntf_entity_lawsuit t
+    WHERE com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    and judgetime &gt;= #{beginDate,jdbcType=DATE}
+    and judgetime &lt;= #{endDate,jdbcType=DATE}
+    group by
+    case when t.casetype   in ('执行案件','刑事案件','民事案件','行政案件','赔偿案件','知识产权','驳回案件') then   t.casetype  else  '其它' end
+    ,DATE_FORMAT(t.judgetime,'%Y')
+    order by  casetype , judgetime desc;
+  </select>
+</mapper>

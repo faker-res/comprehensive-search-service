@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComForecastDao">
+    <sql id="Com_forecast_Column_List">
+id,com_uni_code,abc_code,notice_id,end_date,reporttype,publish_date,currency_type,fore_type,fore_content,fore_reason,netprofit_change_range,netprofit_change_range_low,netprofit_change_range_up,fore_abstract,netprofit_low,netprofit_up,last_parentnp,fore_eps_low,fore_pe_up,fore_profit_deviat,fore_eps_up,eps_last_year,fore_pe_low,createtime,updatetime,status,remark,creator,editor,come_source,src_id
+    </sql>
+	
+	<select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.ComForecastModel">
+        SELECT <include refid="Com_forecast_Column_List"/> FROM com_forecast WHERE 1=1
+		<if test="id != null and id != ''">
+			AND id = #{id}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND com_uni_code = #{com_uni_code}
+		</if>
+		<if test="abc_code != null and abc_code != ''">
+			AND abc_code = #{abc_code}
+		</if>
+		<if test="notice_id != null and notice_id != ''">
+			AND notice_id = #{notice_id}
+		</if>
+		<if test="end_date != null and end_date != ''">
+			AND end_date = #{end_date}
+		</if>
+		<if test="reporttype != null and reporttype != ''">
+			AND reporttype = #{reporttype}
+		</if>
+		<if test="publish_date != null and publish_date != ''">
+			AND publish_date = #{publish_date}
+		</if>
+		<if test="currency_type != null and currency_type != ''">
+			AND currency_type = #{currency_type}
+		</if>
+		<if test="fore_type != null and fore_type != ''">
+			AND fore_type = #{fore_type}
+		</if>
+		<if test="fore_content != null and fore_content != ''">
+			AND fore_content = #{fore_content}
+		</if>
+		<if test="fore_reason != null and fore_reason != ''">
+			AND fore_reason = #{fore_reason}
+		</if>
+		<if test="netprofit_change_range != null and netprofit_change_range != ''">
+			AND netprofit_change_range = #{netprofit_change_range}
+		</if>
+		<if test="netprofit_change_range_low != null and netprofit_change_range_low != ''">
+			AND netprofit_change_range_low = #{netprofit_change_range_low}
+		</if>
+		<if test="netprofit_change_range_up != null and netprofit_change_range_up != ''">
+			AND netprofit_change_range_up = #{netprofit_change_range_up}
+		</if>
+		<if test="fore_abstract != null and fore_abstract != ''">
+			AND fore_abstract = #{fore_abstract}
+		</if>
+		<if test="netprofit_low != null and netprofit_low != ''">
+			AND netprofit_low = #{netprofit_low}
+		</if>
+		<if test="netprofit_up != null and netprofit_up != ''">
+			AND netprofit_up = #{netprofit_up}
+		</if>
+		<if test="last_parentnp != null and last_parentnp != ''">
+			AND last_parentnp = #{last_parentnp}
+		</if>
+		<if test="fore_eps_low != null and fore_eps_low != ''">
+			AND fore_eps_low = #{fore_eps_low}
+		</if>
+		<if test="fore_pe_up != null and fore_pe_up != ''">
+			AND fore_pe_up = #{fore_pe_up}
+		</if>
+		<if test="fore_profit_deviat != null and fore_profit_deviat != ''">
+			AND fore_profit_deviat = #{fore_profit_deviat}
+		</if>
+		<if test="fore_eps_up != null and fore_eps_up != ''">
+			AND fore_eps_up = #{fore_eps_up}
+		</if>
+		<if test="eps_last_year != null and eps_last_year != ''">
+			AND eps_last_year = #{eps_last_year}
+		</if>
+		<if test="fore_pe_low != null and fore_pe_low != ''">
+			AND fore_pe_low = #{fore_pe_low}
+		</if>
+		<if test="createtime != null and createtime != ''">
+			AND createtime = #{createtime}
+		</if>
+		<if test="updatetime != null and updatetime != ''">
+			AND updatetime = #{updatetime}
+		</if>
+		<if test="status != null and status != ''">
+			AND status = #{status}
+		</if>
+		<if test="remark != null and remark != ''">
+			AND remark = #{remark}
+		</if>
+		<if test="creator != null and creator != ''">
+			AND creator = #{creator}
+		</if>
+		<if test="editor != null and editor != ''">
+			AND editor = #{editor}
+		</if>
+		<if test="come_source != null and come_source != ''">
+			AND come_source = #{come_source}
+		</if>
+		<if test="src_id != null and src_id != ''">
+			AND src_id = #{src_id}
+		</if>
+		<if test="reporttypesql != null and reporttypesql != ''">
+			${reporttypesql}
+		</if>
+		<if test="start_time != null and start_time != ''">
+			AND end_date &gt;= #{start_time}
+		</if>
+		<if test="end_time != null and end_time != ''">
+			AND end_date &lt;= #{end_time}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND com_uni_code = #{com_uni_code}
+		</if>
+		<if test="orderby != null and orderby != ''">
+             ${orderby}
+        </if>
+        <if test="limit != null and offset != null">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+        SELECT COUNT(1) FROM com_forecast WHERE 1=1
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="com_uni_code != null and com_uni_code != ''">
+				AND com_uni_code = #{com_uni_code}
+			</if>
+			<if test="abc_code != null and abc_code != ''">
+				AND abc_code = #{abc_code}
+			</if>
+			<if test="notice_id != null and notice_id != ''">
+				AND notice_id = #{notice_id}
+			</if>
+			<if test="end_date != null and end_date != ''">
+				AND end_date = #{end_date}
+			</if>
+			<if test="reporttype != null and reporttype != ''">
+				AND reporttype = #{reporttype}
+			</if>
+			<if test="publish_date != null and publish_date != ''">
+				AND publish_date = #{publish_date}
+			</if>
+			<if test="currency_type != null and currency_type != ''">
+				AND currency_type = #{currency_type}
+			</if>
+			<if test="fore_type != null and fore_type != ''">
+				AND fore_type = #{fore_type}
+			</if>
+			<if test="fore_content != null and fore_content != ''">
+				AND fore_content = #{fore_content}
+			</if>
+			<if test="fore_reason != null and fore_reason != ''">
+				AND fore_reason = #{fore_reason}
+			</if>
+			<if test="netprofit_change_range != null and netprofit_change_range != ''">
+				AND netprofit_change_range = #{netprofit_change_range}
+			</if>
+			<if test="netprofit_change_range_low != null and netprofit_change_range_low != ''">
+				AND netprofit_change_range_low = #{netprofit_change_range_low}
+			</if>
+			<if test="netprofit_change_range_up != null and netprofit_change_range_up != ''">
+				AND netprofit_change_range_up = #{netprofit_change_range_up}
+			</if>
+			<if test="fore_abstract != null and fore_abstract != ''">
+				AND fore_abstract = #{fore_abstract}
+			</if>
+			<if test="netprofit_low != null and netprofit_low != ''">
+				AND netprofit_low = #{netprofit_low}
+			</if>
+			<if test="netprofit_up != null and netprofit_up != ''">
+				AND netprofit_up = #{netprofit_up}
+			</if>
+			<if test="last_parentnp != null and last_parentnp != ''">
+				AND last_parentnp = #{last_parentnp}
+			</if>
+			<if test="fore_eps_low != null and fore_eps_low != ''">
+				AND fore_eps_low = #{fore_eps_low}
+			</if>
+			<if test="fore_pe_up != null and fore_pe_up != ''">
+				AND fore_pe_up = #{fore_pe_up}
+			</if>
+			<if test="fore_profit_deviat != null and fore_profit_deviat != ''">
+				AND fore_profit_deviat = #{fore_profit_deviat}
+			</if>
+			<if test="fore_eps_up != null and fore_eps_up != ''">
+				AND fore_eps_up = #{fore_eps_up}
+			</if>
+			<if test="eps_last_year != null and eps_last_year != ''">
+				AND eps_last_year = #{eps_last_year}
+			</if>
+			<if test="fore_pe_low != null and fore_pe_low != ''">
+				AND fore_pe_low = #{fore_pe_low}
+			</if>
+			<if test="createtime != null and createtime != ''">
+				AND createtime = #{createtime}
+			</if>
+			<if test="updatetime != null and updatetime != ''">
+				AND updatetime = #{updatetime}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND remark = #{remark}
+			</if>
+			<if test="creator != null and creator != ''">
+				AND creator = #{creator}
+			</if>
+			<if test="editor != null and editor != ''">
+				AND editor = #{editor}
+			</if>
+			<if test="come_source != null and come_source != ''">
+				AND come_source = #{come_source}
+			</if>
+			<if test="src_id != null and src_id != ''">
+				AND src_id = #{src_id}
+			</if>
+    </select>
+	
+</mapper>
+

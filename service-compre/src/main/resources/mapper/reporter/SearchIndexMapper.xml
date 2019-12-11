@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISearchIndexDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SearchIndexModel">
+    <constructor>
+      <idArg column="keyword_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="keyword" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="keyword_type" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="country" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="province" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="city" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_frequency" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="plate_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    keyword_id, keyword, keyword_type, country, province, city, index_frequency, createtime, 
+    updatetime, plate_uni_code, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from search_index
+    where keyword_id = #{keyword_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from search_index
+    where keyword_id = #{keyword_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexModel">
+    insert into search_index (keyword_id, keyword, keyword_type, 
+      country, province, city, 
+      index_frequency, createtime, updatetime, 
+      plate_uni_code, status)
+    values (#{keyword_id,jdbcType=BIGINT}, #{keyword,jdbcType=VARCHAR}, #{keyword_type,jdbcType=CHAR}, 
+      #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{index_frequency,jdbcType=CHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{plate_uni_code,jdbcType=BIGINT}, #{status,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexModel">
+    insert into search_index
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="keyword_id != null">
+        keyword_id,
+      </if>
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="keyword_type != null">
+        keyword_type,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="index_frequency != null">
+        index_frequency,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="plate_uni_code != null">
+        plate_uni_code,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="keyword_id != null">
+        #{keyword_id,jdbcType=BIGINT},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword_type != null">
+        #{keyword_type,jdbcType=CHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="index_frequency != null">
+        #{index_frequency,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plate_uni_code != null">
+        #{plate_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexModel">
+    update search_index
+    <set>
+      <if test="keyword != null">
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword_type != null">
+        keyword_type = #{keyword_type,jdbcType=CHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="index_frequency != null">
+        index_frequency = #{index_frequency,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plate_uni_code != null">
+        plate_uni_code = #{plate_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where keyword_id = #{keyword_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexModel">
+    update search_index
+    set keyword = #{keyword,jdbcType=VARCHAR},
+      keyword_type = #{keyword_type,jdbcType=CHAR},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      index_frequency = #{index_frequency,jdbcType=CHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      plate_uni_code = #{plate_uni_code,jdbcType=BIGINT},
+      status = #{status,jdbcType=CHAR}
+    where keyword_id = #{keyword_id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByKeyword" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from search_index
+    where keyword = #{keyword,jdbcType=VARCHAR}
+  </select>
+</mapper>

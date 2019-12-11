@@ -1,0 +1,112 @@
+/**
+ * @description 默认搜索栏组件样式
+ * @author jhqu
+ * date: 2018-05-18
+ */
+
+.default-search-bar {
+  position: relative;
+  // TODO: 将头部组件布局调整为响应式布局
+  min-width: 1370px;
+  padding-top: 15px;
+  background-color: #353a47;
+
+  // 重置链接样式
+  a:hover {
+    text-decoration: none;
+  }
+
+  // 搜索行布局
+  &__row-search {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  // 导航栏布局
+  &__row-nav {
+    padding-left: 168px;
+  }
+
+  // Logo
+  &__logo {
+    width: 129px;
+    height: 16px;
+    margin-left: 24px;
+    margin-right: 15px;
+  }
+
+  &__search-box {
+    width: 800px;
+    max-width: 100%;
+
+    .suggested-search-box__container,
+    .ant-input,
+    .ant-input-suffix,
+    .ant-input-search-button {
+      height: 34px !important;
+      line-height: 34px !important;
+    }
+  }
+
+  // 右侧操作栏
+  &__side-actions {
+    display: flex;
+    position: absolute;
+    right: 30px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__side-actions-item + &__side-actions-item {
+    margin-left: 30px;
+  }
+
+  &__btn-home {
+    margin-right: 20px;
+    color: #a8b0bc;
+
+    & > .anticon {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__btn-home {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    font-size: 0;
+    line-height: 0;
+    background: url(../../../../assets/image/icon-home.svg) no-repeat center center / contain;
+  }
+
+  // 导航栏
+  &__nav {
+    background-color: transparent !important; border-bottom: 1px solid #353a47 !important;
+
+    &-item {
+      padding: 0 24px !important;
+      line-height: 43px;
+      border-bottom-width: 3px !important;
+    }
+
+    &-item > a {
+      color: #a8b0bc !important;
+    }
+
+    &-item > a:hover, &-item.ant-menu-item-selected > a {
+      color: #fff !important;
+    }
+
+    &-item:hover,
+    &-item.ant-menu-item-selected,
+    &-item.ant-menu-item-active {
+      background-color: transparent;
+      border-color: #287ddc !important;
+    }
+  }
+}

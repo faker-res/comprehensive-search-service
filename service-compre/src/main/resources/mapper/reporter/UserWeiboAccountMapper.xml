@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IUserWeiboAccountDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.UserWeiboAccountModel">
+    <constructor>
+      <idArg column="account_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="account_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="verify" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="position" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="brief" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tags" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="follow" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="follower" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="blog_num" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="head" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="url" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    account_id, user_id, account_name, verify, position, brief, tags, follow, follower, 
+    blog_num, head, url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_weibo_account
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_weibo_account
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.UserWeiboAccountModel">
+    insert into user_weibo_account (account_id, user_id, account_name, 
+      verify, position, brief, 
+      tags, follow, follower, 
+      blog_num, head, url
+      )
+    values (#{account_id,jdbcType=VARCHAR}, #{user_id,jdbcType=VARCHAR}, #{account_name,jdbcType=VARCHAR}, 
+      #{verify,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, 
+      #{tags,jdbcType=VARCHAR}, #{follow,jdbcType=INTEGER}, #{follower,jdbcType=INTEGER}, 
+      #{blog_num,jdbcType=INTEGER}, #{head,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.UserWeiboAccountModel">
+    insert into user_weibo_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="account_id != null">
+        account_id,
+      </if>
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="account_name != null">
+        account_name,
+      </if>
+      <if test="verify != null">
+        verify,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="follow != null">
+        follow,
+      </if>
+      <if test="follower != null">
+        follower,
+      </if>
+      <if test="blog_num != null">
+        blog_num,
+      </if>
+      <if test="head != null">
+        head,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="account_id != null">
+        #{account_id,jdbcType=VARCHAR},
+      </if>
+      <if test="user_id != null">
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="account_name != null">
+        #{account_name,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        #{verify,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="follow != null">
+        #{follow,jdbcType=INTEGER},
+      </if>
+      <if test="follower != null">
+        #{follower,jdbcType=INTEGER},
+      </if>
+      <if test="blog_num != null">
+        #{blog_num,jdbcType=INTEGER},
+      </if>
+      <if test="head != null">
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.UserWeiboAccountModel">
+    update user_weibo_account
+    <set>
+      <if test="user_id != null">
+        user_id = #{user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="account_name != null">
+        account_name = #{account_name,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        verify = #{verify,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="follow != null">
+        follow = #{follow,jdbcType=INTEGER},
+      </if>
+      <if test="follower != null">
+        follower = #{follower,jdbcType=INTEGER},
+      </if>
+      <if test="blog_num != null">
+        blog_num = #{blog_num,jdbcType=INTEGER},
+      </if>
+      <if test="head != null">
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.UserWeiboAccountModel">
+    update user_weibo_account
+    set user_id = #{user_id,jdbcType=VARCHAR},
+      account_name = #{account_name,jdbcType=VARCHAR},
+      verify = #{verify,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      brief = #{brief,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      follow = #{follow,jdbcType=INTEGER},
+      follower = #{follower,jdbcType=INTEGER},
+      blog_num = #{blog_num,jdbcType=INTEGER},
+      head = #{head,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR}
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByUserId" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM `user_weibo_account`
+    WHERE `user_id` = #{userId,jdbcType=VARCHAR}
+    ORDER  BY `account_id` ASC ;
+  </select>
+</mapper>

@@ -1,0 +1,151 @@
+/**
+ * @description 人物列表组件
+ * @author kygeng
+ * date: 2018-06-20
+ */
+ .abcft-person-list-view {
+     $root: &;
+     width: 350px;
+     background: #fff;
+     box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.03);
+     border: 1px solid rgba(238, 238, 238, 1);
+     &-header {
+         padding: 0px 20px;
+         width: 100%;
+         height: 50px;
+         border-bottom: 1px solid #f2f2f2;
+     }
+     &-content {
+         padding: 16px 20px;
+         width: 100%;
+         overflow-x: hidden;
+         overflow-y: auto;
+         align-content: flex-start
+     }
+     &.grid #{$root}-content {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+     }
+     &-item {
+         margin-bottom: 24px;
+         width: 100%;
+         height: 52px;
+         &-avatar {
+             > img {
+                 width: 50px;
+                 min-width: 50px;
+                 max-width: 50px;
+                 border-radius: 4px;
+             }
+             display: inline-block;
+             flex-basis: 50px;
+             width: 50px;
+             min-width: 50px;
+             max-width: 50px;
+             height: 50px;
+             max-height: 50px;
+             min-height: 50px;
+             border-radius: 4px;
+             cursor: pointer;
+             overflow: hidden;
+         }
+         &-info {
+             -webkit-box-flex: 1;
+             -webkit-flex: auto;
+             -ms-flex: auto;
+             flex: auto;
+             position: relative;
+             display: inline-block;
+             padding-left: 16px;
+             width: 260px;
+             width: calc(100% - 50px);
+         }
+         &-name,
+         &-tags,
+         &-tip {
+             line-height: 1.5;
+         }
+         &-name {
+             cursor: pointer;
+         }
+         &-tags {
+             font-size: 12px;
+             color: #999;
+             white-space: nowrap;
+             &-item {
+                 margin-right: 5px;
+                 >i {
+                     font-style: normal;
+                     margin-left: 5px;
+                 }
+                 &:last-child {
+                     >i {
+                         display: none;
+                     }
+                 }
+             }
+         }
+         &-news {
+             font-size: 12px;
+             font-family: PingFangSC-Regular;
+             cursor: pointer;
+         }
+         &-subscribe {
+             position: absolute;
+             right: 0;
+             top: 5px;
+             width: 55px;
+             height: 22px;
+             text-align: center;
+             line-height: 22px;
+             color: #287ddc;
+             background: rgba(#287ddc, 0.1);
+             border-radius: 12px;
+             cursor: pointer;
+         }
+     }
+     &.grid #{$root}-item {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0;
+        width: 50%;
+        height: auto;
+        &-info,
+        &-tags {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0;
+            width: 100%;
+        }
+        &-name {
+            margin-top: 8px;
+        }
+        &-tags {
+            margin-top: 8px;
+            &-item {
+                margin-bottom: 5px;
+            }
+            &-item > i {
+                display: none;
+            }
+        }
+        &-news {
+            display: none;
+        }
+        &:hover,&:active,&:focus {
+            background-color: rgba(#dddddd, 0.3);
+        } 
+     }
+     .loadingDate{
+         width:100%;
+         height: 320px;
+     }
+ }

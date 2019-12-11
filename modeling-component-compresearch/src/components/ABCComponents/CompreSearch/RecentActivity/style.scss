@@ -1,0 +1,31 @@
+$itemGap : 12px;
+$hoverColor : #2563C1;
+$lineHeight : 1.4em;
+
+:local(.localClass){
+    line-height: 140%;
+    .fr{float: right;}
+    .timeBarWrap{
+        .title{font-size: 14px;color: #333;padding-left: 21px;position: relative;line-height: 20px;font-weight: bold;
+            .icon_clock{position: absolute;left: 0;width: 20px;height: 20px;background: #DCE2E9;margin-left: -10px;border-radius: 50%;color: #fff;display: flex;justify-content: center;align-items: center;font-weight: normal;}
+        }
+        .itemListWrap{
+            > .item:first-child{padding-top: $itemGap;}
+            > .item{padding-left: 20px;border-left: 1px solid #EFF1F4;position: relative;padding-bottom: $itemGap;
+                .snaps{position: absolute;width: 8px;height: 8px;border-radius: 50%;background: #DCE2E9;left: -21px;top: 4px;margin-left: -4px;}
+                > p{margin: 5px 0;white-space: nowrap;}
+                > p:first-child{margin-top: 0;}
+                .itemDate{font-size: 12px;color: #A4AEBC;position: relative;}
+                .itemSource{font-size: 12px;color: #999;overflow: hidden;text-overflow: ellipsis;}
+                .itemDetail{font-size: 16px;color: #333;overflow: hidden;max-height: $lineHeight*2;line-height: $lineHeight;white-space: normal;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
+                    > a{color: #333;}
+                    > a:hover{color: $hoverColor;}
+                }
+            }
+        }
+        .more{color: #97999C;font-size: 12px;display: inline-block;position: relative;z-index: 1;line-height: 20px;
+            > em{font-family: "宋体";font-size: 14px;}
+        }
+        .more:hover{color: $hoverColor;text-decoration: none;}
+    }
+}

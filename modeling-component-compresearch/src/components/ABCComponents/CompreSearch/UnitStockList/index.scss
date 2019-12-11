@@ -1,0 +1,161 @@
+.unitStockList {
+    .greenFontColor{
+        color: #4DA04C !important;
+    }
+    .redFontColor{
+        color: #D9554E !important;
+    }
+    .nullFontColor{
+        color: #9B9B9B !important;
+    }
+    .greenbg{
+        background-color: #4DA04C !important;
+    }
+    .redbg{
+        background-color: #D9554E !important;
+    }
+    .nullbg{
+        background-color: #9B9B9B !important;
+    }
+    &.ant-card {
+        .ant-card-head {
+            .ant-card-head-title {
+                color: rgba(51, 51, 51, 1);
+                font-size: 14px;
+                font-family: PingFangSC-Medium;
+            }
+        }
+        .ant-card-body {
+            .unitStockList-table {
+                .ant-table-body {
+                    table {
+                        table-layout: fixed;
+                        thead {
+                            tr {
+                                th {
+                                    background: #F0F5FC;
+                                    .ant-table-column-sorter{
+                                        color:#D8D8D8;
+                                    }
+                                }
+                            }
+                        }
+                        tr {
+                            &:nth-child(even) {
+                                background: #fff;
+                            }
+                            td {
+                                border-bottom: 1px solid #e8e8e8;
+                            }
+                        }
+                        td {
+                            border: 0;
+                            color: rgba(51, 51, 51, 1);
+                            font-size: 12px;
+                            font-family: PingFangSC-Regular;
+                        }
+                        a {
+                            color: rgba(51, 51, 51, 1);
+                            font-size: 12px;
+                            text-decoration: none;
+                        }
+                        .publicInfo {
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            h3 {
+                                color: rgba(0, 0, 0, 1);
+                                font-size: 14px;
+                                font-family: PingFangSC-Medium;
+                                a {
+                                    display: block;
+                                    &:hover {
+                                        color: #407CD5;
+                                    }
+                                }
+                            }
+                            p {
+                                color: rgba(155, 155, 155, 1);
+                                font-size: 12px;
+                            }
+                        }
+                        .nowPrice{
+                            .todayPrice,.yesterdayPrice{
+                                span{
+                                    display: inline-block;
+                                }
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                            }
+                            .todayPrice{
+                                span{
+                                    &:first-child{
+                                        font-weight: bold;
+                                    }
+                                    &:nth-child(3){
+                                        background-color: #4DA04C;
+                                        padding: 0 10px;
+                                        color: #fff;
+                                        border-radius: 3px;
+                                    }
+                                }
+                            }
+                            .yesterdayPrice{
+                                margin-top: 5px;
+                                color:#999999;
+                            }
+                        }
+                        .delist{
+                            span{
+                                color:#000;
+                                &:nth-child(2){
+                                    padding: 0 10px;
+                                    margin-left: 20px;
+                                    color: #fff;
+                                    border-radius: 3px;
+                                }
+                            }
+                        }
+                        .tableTitleUnit{
+                            position: relative;
+                            display: inline-block;
+                            width: 50px;
+                            span{
+                                &:last-child{
+                                    font-size: 12px;
+                                    transform: scale(0.7);
+                                    display: inline-block;
+                                    position: absolute;
+                                    width: 30px;
+                                    top: -6px;
+                                    right: -13px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .filterDropdownBox {
+                    background-color: #fff;
+                    box-shadow: 1px 1px 10px #ccc;
+                    border-radius: 5px;
+                    min-width: 120px;
+                    ul {
+                        li {
+                            padding: 5px 20px;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: #F0F5FC;
+                                font-weight: bold;
+                            }
+                            &.active{
+                                background-color: #F0F5FC;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

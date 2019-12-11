@@ -1,0 +1,108 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+fieldset, lengend, button, input, textarea,
+th, td {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  height: 100%;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Lantinghei SC', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', 'sans-serif', 'SimSun';
+  background-color: #F8F8F8;
+  min-width: 1300px;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clearfix:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+//组件面板公用样式
+.component-panel {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.07);
+  //头部
+  .header {
+    padding: 0 20px;
+    height: 42px;
+    background-color: rgba(252, 252, 252, 1);
+    box-shadow: undefined, inset 0px -1px 0px 0px rgba(223, 228, 239, 1);
+    border-bottom: 1px solid rgb(229, 229, 229);
+    //标题
+    .title {
+      float: left;
+      height: 42px;
+      line-height: 42px;
+      color: rgba(51, 51, 51, 1);
+      font-size: 14px;
+      font-family: PingFangSC-Medium;
+    }
+  }
+  background-color: #FFF;
+}
+
+// 修复modal被header遮盖的情况
+.ant-modal-mask {
+  z-index: 9999 !important;
+}
+
+.ant-modal-wrap {
+  z-index: 10000 !important;
+}
+
+.ant-message {
+  z-index: 10000 !important;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 542707 */
+  src: url('//at.alicdn.com/t/font_542707_xvxlofw6s8.eot');
+  src: url('//at.alicdn.com/t/font_542707_xvxlofw6s8.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_542707_xvxlofw6s8.woff') format('woff'),
+  url('//at.alicdn.com/t/font_542707_xvxlofw6s8.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_542707_xvxlofw6s8.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 542707 */
+  src: url('//at.alicdn.com/t/font_542707_1itmmigijoy.eot');
+  src: url('//at.alicdn.com/t/font_542707_1itmmigijoy.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_542707_1itmmigijoy.woff') format('woff'),
+  url('//at.alicdn.com/t/font_542707_1itmmigijoy.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_542707_1itmmigijoy.svg#iconfont') format('svg');
+}
+.iconfont-web {
+  font-family: "iconfont-web" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}

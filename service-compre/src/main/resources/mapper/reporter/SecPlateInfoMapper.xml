@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecPlateInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecPlateInfoModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="plate_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plate_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_valid" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, org_uni_code, begin_date, end_date, plate_code, plate_name, is_valid, 
+    createtime, updatetime, status, creator, editor, push_search, push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_plate_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sec_plate_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecPlateInfoModel">
+    insert into sec_plate_info (id, sec_uni_code, org_uni_code, 
+      begin_date, end_date, plate_code, 
+      plate_name, is_valid, createtime, 
+      updatetime, status, creator, 
+      editor, push_search, push_product
+      )
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{org_uni_code,jdbcType=BIGINT}, 
+      #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, #{plate_code,jdbcType=VARCHAR}, 
+      #{plate_name,jdbcType=VARCHAR}, #{is_valid,jdbcType=TINYINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, #{push_product,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecPlateInfoModel">
+    insert into sec_plate_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="org_uni_code != null">
+        org_uni_code,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="plate_code != null">
+        plate_code,
+      </if>
+      <if test="plate_name != null">
+        plate_name,
+      </if>
+      <if test="is_valid != null">
+        is_valid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="org_uni_code != null">
+        #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="plate_code != null">
+        #{plate_code,jdbcType=VARCHAR},
+      </if>
+      <if test="plate_name != null">
+        #{plate_name,jdbcType=VARCHAR},
+      </if>
+      <if test="is_valid != null">
+        #{is_valid,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecPlateInfoModel">
+    update sec_plate_info
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="org_uni_code != null">
+        org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="plate_code != null">
+        plate_code = #{plate_code,jdbcType=VARCHAR},
+      </if>
+      <if test="plate_name != null">
+        plate_name = #{plate_name,jdbcType=VARCHAR},
+      </if>
+      <if test="is_valid != null">
+        is_valid = #{is_valid,jdbcType=TINYINT},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecPlateInfoModel">
+    update sec_plate_info
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      plate_code = #{plate_code,jdbcType=VARCHAR},
+      plate_name = #{plate_name,jdbcType=VARCHAR},
+      is_valid = #{is_valid,jdbcType=TINYINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectBySecUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_plate_info
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} limit 1
+  </select>
+  <select id="getFundType" parameterType="java.lang.Long" resultType="string">
+    select plate_name from sec_plate_info
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and substr(plate_code,1,4)='1002' limit 1
+  </select>
+  <select id="getFundRisk" parameterType="java.lang.Long" resultType="string">
+    select plate_name from sec_plate_info
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and substr(plate_code,1,7)='1001005' limit 1
+  </select>
+
+  <select id="getPlateNameAndCodeBySecUniCodeList" resultType="map">
+    SELECT
+      sec_plate_category.`plate_code`,
+      SUBSTRING_INDEX(
+          sec_plate_category.plate_name,
+          '基金',
+          1
+      ) plate_name
+    FROM
+        sec_plate_info,
+        sec_plate_category
+    WHERE
+        SUBSTR(
+            sec_plate_info.plate_code,
+            1,
+            10
+        ) = sec_plate_category.plate_code
+    AND sec_plate_info.end_date IS NULL
+    AND sec_plate_info.`is_valid` = '1'
+    AND sec_plate_category.plate_type = '1004003'
+    AND sec_plate_category.plate_standard = '1906001'
+    AND SUBSTR(
+        sec_plate_category.plate_code,
+        1,
+        10
+    ) IN (
+        '1001001001',
+        '1001001002',
+        '1001001003',
+        '1001001004',
+        '1001001005',
+        '1001003001',
+        '1001003003',
+        '1001003005'
+    )
+    AND sec_plate_info.sec_uni_code IN
+    <foreach collection="secUniCodeList" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    GROUP BY
+        plate_code
+    ORDER BY plate_code ASC
+  </select>
+
+  <select id="getFundTypeCodeBySecUniCode" parameterType="java.lang.Long" resultType="map">
+    select plate_code, plate_name from sec_plate_info
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and substr(plate_code,1,4)='1002' limit 1
+  </select>
+
+  <select id="getSecUnICodeListByPlateCode" parameterType="string" resultType="java.lang.Long">
+    SELECT
+        sec_uni_code
+    FROM
+        sec_plate_info
+    WHERE
+        plate_code = #{plateCode} AND sec_uni_code != 0 AND end_date IS NULL
+  </select>
+
+  <select id="getSecUniCodeListBySecUniCodeListAndPlateCode" resultType="java.lang.Long">
+    SELECT sec_uni_code
+    FROM sec_plate_info,sec_plate_category
+    WHERE SUBSTR(sec_plate_info.plate_code,1,10)=sec_plate_category.plate_code
+    AND sec_plate_info.end_date IS NULL
+    AND sec_plate_info.`is_valid`='1'
+    AND sec_plate_category.plate_type='1004003'
+    AND sec_plate_category.plate_standard='1906001'
+    <if test="fundType != null">
+      AND SUBSTR(sec_plate_category.plate_code,1,10)= #{fundType}
+    </if>
+    <if test="fundType == null">
+      AND SUBSTR(sec_plate_category.plate_code,1,10) IN ('1001003006', '1001003005', '1001003004',
+      '1001003003', '1001003002', '1001003001', '1001001001',
+      '1001001002', '1001001003', '1001001004', '1001001005', '1001001006')
+    </if>
+    <if test="secUniCodeList != null">
+      AND sec_uni_code in
+      <foreach collection="secUniCodeList" item="secUniCode" open="(" close=")" separator=",">
+        #{secUniCode}
+      </foreach>
+    </if>
+  </select>
+
+  <select id="getAllFundType" resultType="map">
+    SELECT SUBSTRING_INDEX(sec_plate_category.plate_name, '基金', 1) AS plate_name, SUBSTR(sec_plate_category.plate_code,1,10) AS plate_code
+    FROM sec_plate_info,sec_plate_category
+    WHERE SUBSTR(sec_plate_info.plate_code,1,10)=sec_plate_category.plate_code
+    AND sec_plate_info.end_date IS NULL
+    AND sec_plate_info.`is_valid`='1'
+    AND sec_plate_category.plate_type='1004003'
+    AND sec_plate_category.plate_standard='1906001'
+    AND SUBSTR(sec_plate_category.plate_code,1,10) IN ('1001003005', '1001003003', '1001003001', '1001001001',
+                                                 '1001001002', '1001001003', '1001001004', '1001001005')
+    GROUP BY plate_code
+  </select>
+
+  <select id="getPlateNameBySecUniCode" parameterType="java.lang.Long" resultType="string">
+    SELECT
+	  sec_plate_info.plate_name
+    FROM
+        sec_plate_info,
+        sec_plate_category
+    WHERE
+        substr(
+            sec_plate_info.plate_code,
+            1,
+            7
+        ) = '1001001'
+    AND sec_plate_info.plate_code = sec_plate_category.plate_code
+    AND sec_plate_category.plate_type = '1004003'
+    AND sec_plate_category.plate_level = '4'
+    AND sec_plate_info.sec_uni_code = #{sec_uni_code}
+    ORDER BY
+        end_date IS NOT NULL,
+        end_date DESC
+    limit 1;
+  </select>
+</mapper>

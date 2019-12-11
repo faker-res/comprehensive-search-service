@@ -1,0 +1,30 @@
+{
+    "code": 200,
+    "message": "请求成功",
+    "data": [
+        {
+            "shareId": "300352.SZ",
+            "shareDesc": "北信源",
+            "shareDate": 1532760464970,
+            "researchTimes": 8,
+            "newestPrice": "5.64",
+            "riseAndFallRange": "+0.20/+3.68%"
+        },
+        {
+            "shareId": "300352.SZ",
+            "shareDesc": "北信源",
+            "shareDate": 1532760464970,
+            "researchTimes": 8,
+            "newestPrice": "5.64",
+            "riseAndFallRange": "+0.20/+3.68%"
+        },
+        {
+            "shareId": "300352.SZ",
+            "shareDesc": "北信源",
+            "shareDate": 1532760464970,
+            "researchTimes": 8,
+            "newestPrice": "5.64",
+            "riseAndFallRange": "+0.20/+3.68%"
+        }
+    ]
+}

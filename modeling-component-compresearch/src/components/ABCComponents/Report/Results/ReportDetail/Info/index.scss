@@ -1,0 +1,103 @@
+.abc-report-detail-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+
+    .base-info-box {
+        margin-bottom: 20px;
+        padding: 0 20px 50px;
+        background: #fff;
+        padding-bottom: 0px;
+        min-height: 548px;
+        max-width: 1200px;
+        margin: 0px auto;
+        min-height: 548px;
+        display: block;
+
+        .content-title {
+            padding: 20px 0;
+            font-size: 24px;
+            color: #333;
+            border-bottom: none;
+        }
+        .tag-tip {
+            float: left;
+            line-height: 52px;
+            color: #666;
+            margin-right: 16px;
+        }
+        .tag-box {
+            list-style: none;
+            margin: 10px auto 25px auto;
+            color: #999;
+            float: left;
+    
+            li {
+                display: inline-block;
+                padding: 5px 15px;
+                border-radius: 25px;
+                border: 1px solid #ccc;
+                margin-right: 6px;
+                margin-bottom: 10px;
+            }
+        }
+        .point-sub-title {
+            font-size: 14px;
+            padding: 10px 0 15px 0;
+            border-bottom: 1px solid #e5e5e5;
+            color: #333333;
+            font-weight: 600;
+    
+            &::before {
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                width: 2px;
+                height: 18px;
+                background-color: #3d4db7;
+                margin-right: 8px;
+            }
+        }
+        .report-info {
+            .info-list {
+                display: inline-block;
+                vertical-align: top;
+                width: 32.5%;
+                margin: 25px 0;
+    
+                li {
+                    display: table;
+                    margin: 10px 0;
+                    color: #666;
+    
+                    label {
+                        display: inline-block;
+                        width: 75px;
+                        text-align: right;
+                        margin-right: 15px;
+                    }
+                    span {
+                        display: table-cell;
+                        word-break: break-all;
+                        word-wrap: break-word;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }
+
+    .clearfix::after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+    .hidden {
+        display: none;
+    }
+}

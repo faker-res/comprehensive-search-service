@@ -1,0 +1,36 @@
+{
+    "code": 200,
+    "msg": "zC1EDt3Xh7",
+    "data": [
+        {
+            "month": "aF7LauvFqa",
+            "reportTypes": {
+                "industry": 10855,
+                "common": 23997,
+                "macroscopic": 30489,
+                "company": 39952,
+                "total": 83910
+            }
+        },
+        {
+            "month": "NVoaMwEVjb",
+            "reportTypes": {
+                "industry": 13423,
+                "common": 57508,
+                "macroscopic": 14213,
+                "company": 14515,
+                "total": 39560
+            }
+        },
+        {
+            "month": "TT9S8Bvjzb",
+            "reportTypes": {
+                "industry": 45549,
+                "common": 84566,
+                "macroscopic": 9549,
+                "company": 28215,
+                "total": 92950
+            }
+        }
+    ]
+}

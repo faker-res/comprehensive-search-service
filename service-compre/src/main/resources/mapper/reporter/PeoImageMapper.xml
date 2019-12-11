@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IPeoImageDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.PeoImageModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="image_size" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="oss_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="source_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, peo_uni_code, name, image_size, oss_path, come_source, source_id, createtime, 
+    updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from peo_image
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from peo_image
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.PeoImageModel">
+    insert into peo_image (id, peo_uni_code, name, 
+      image_size, oss_path, come_source, 
+      source_id, createtime, updatetime, 
+      status, creator, editor
+      )
+    values (#{id,jdbcType=BIGINT}, #{peo_uni_code,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{image_size,jdbcType=VARCHAR}, #{oss_path,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, 
+      #{source_id,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.PeoImageModel">
+    insert into peo_image
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="image_size != null">
+        image_size,
+      </if>
+      <if test="oss_path != null">
+        oss_path,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="source_id != null">
+        source_id,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="image_size != null">
+        #{image_size,jdbcType=VARCHAR},
+      </if>
+      <if test="oss_path != null">
+        #{oss_path,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="source_id != null">
+        #{source_id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.PeoImageModel">
+    update peo_image
+    <set>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="image_size != null">
+        image_size = #{image_size,jdbcType=VARCHAR},
+      </if>
+      <if test="oss_path != null">
+        oss_path = #{oss_path,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="source_id != null">
+        source_id = #{source_id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.PeoImageModel">
+    update peo_image
+    set peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      image_size = #{image_size,jdbcType=VARCHAR},
+      oss_path = #{oss_path,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      source_id = #{source_id,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPeoUniCodes" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM `peo_image`
+    WHERE 1
+    <if test ="null != peoUniCodes">
+    AND  `peo_uni_code` IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    GROUP BY `peo_uni_code` ASC ;
+  </select>
+  <select id="selectByPeoUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM `peo_image`
+    WHERE `peo_uni_code` = #{peoUniCode,jdbcType=BIGINT} limit 1
+  </select>
+</mapper>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundNavDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundNavModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="currency_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="unit_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="cumu_unit_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="grow_line_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="asset_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tot_asset_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="rise_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="is_exdiv_date" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="fund_sign" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="memo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, announcement_date, end_date, currency_type, unit_nav, cumu_unit_nav, 
+    grow_line_value, asset_nav, tot_asset_nav, rise_rate, differ, is_exdiv_date, fund_sign, 
+    memo, createtime, updatetime, status, creator, editor, push_search, push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_nav
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_nav
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundNavModel">
+    insert into fund_nav (id, sec_uni_code, announcement_date, 
+      end_date, currency_type, unit_nav, 
+      cumu_unit_nav, grow_line_value, asset_nav, 
+      tot_asset_nav, rise_rate, differ, 
+      is_exdiv_date, fund_sign, memo, 
+      createtime, updatetime, status, 
+      creator, editor, push_search, 
+      push_product)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{end_date,jdbcType=DATE}, #{currency_type,jdbcType=BIGINT}, #{unit_nav,jdbcType=DECIMAL}, 
+      #{cumu_unit_nav,jdbcType=DECIMAL}, #{grow_line_value,jdbcType=DECIMAL}, #{asset_nav,jdbcType=DECIMAL}, 
+      #{tot_asset_nav,jdbcType=DECIMAL}, #{rise_rate,jdbcType=DECIMAL}, #{differ,jdbcType=DECIMAL}, 
+      #{is_exdiv_date,jdbcType=TINYINT}, #{fund_sign,jdbcType=TINYINT}, #{memo,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, 
+      #{push_product,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundNavModel">
+    insert into fund_nav
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="currency_type != null">
+        currency_type,
+      </if>
+      <if test="unit_nav != null">
+        unit_nav,
+      </if>
+      <if test="cumu_unit_nav != null">
+        cumu_unit_nav,
+      </if>
+      <if test="grow_line_value != null">
+        grow_line_value,
+      </if>
+      <if test="asset_nav != null">
+        asset_nav,
+      </if>
+      <if test="tot_asset_nav != null">
+        tot_asset_nav,
+      </if>
+      <if test="rise_rate != null">
+        rise_rate,
+      </if>
+      <if test="differ != null">
+        differ,
+      </if>
+      <if test="is_exdiv_date != null">
+        is_exdiv_date,
+      </if>
+      <if test="fund_sign != null">
+        fund_sign,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="currency_type != null">
+        #{currency_type,jdbcType=BIGINT},
+      </if>
+      <if test="unit_nav != null">
+        #{unit_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="cumu_unit_nav != null">
+        #{cumu_unit_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="grow_line_value != null">
+        #{grow_line_value,jdbcType=DECIMAL},
+      </if>
+      <if test="asset_nav != null">
+        #{asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_asset_nav != null">
+        #{tot_asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="rise_rate != null">
+        #{rise_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="is_exdiv_date != null">
+        #{is_exdiv_date,jdbcType=TINYINT},
+      </if>
+      <if test="fund_sign != null">
+        #{fund_sign,jdbcType=TINYINT},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundNavModel">
+    update fund_nav
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="currency_type != null">
+        currency_type = #{currency_type,jdbcType=BIGINT},
+      </if>
+      <if test="unit_nav != null">
+        unit_nav = #{unit_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="cumu_unit_nav != null">
+        cumu_unit_nav = #{cumu_unit_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="grow_line_value != null">
+        grow_line_value = #{grow_line_value,jdbcType=DECIMAL},
+      </if>
+      <if test="asset_nav != null">
+        asset_nav = #{asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_asset_nav != null">
+        tot_asset_nav = #{tot_asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="rise_rate != null">
+        rise_rate = #{rise_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        differ = #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="is_exdiv_date != null">
+        is_exdiv_date = #{is_exdiv_date,jdbcType=TINYINT},
+      </if>
+      <if test="fund_sign != null">
+        fund_sign = #{fund_sign,jdbcType=TINYINT},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundNavModel">
+    update fund_nav
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      currency_type = #{currency_type,jdbcType=BIGINT},
+      unit_nav = #{unit_nav,jdbcType=DECIMAL},
+      cumu_unit_nav = #{cumu_unit_nav,jdbcType=DECIMAL},
+      grow_line_value = #{grow_line_value,jdbcType=DECIMAL},
+      asset_nav = #{asset_nav,jdbcType=DECIMAL},
+      tot_asset_nav = #{tot_asset_nav,jdbcType=DECIMAL},
+      rise_rate = #{rise_rate,jdbcType=DECIMAL},
+      differ = #{differ,jdbcType=DECIMAL},
+      is_exdiv_date = #{is_exdiv_date,jdbcType=TINYINT},
+      fund_sign = #{fund_sign,jdbcType=TINYINT},
+      memo = #{memo,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_nav where `sec_uni_code`=#{sec_uni_code,jdbcType=INTEGER} order by end_date desc limit 1
+  </select>
+  <select id="selectByEndDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_nav
+    where `sec_uni_code`=#{secUniCode,jdbcType=BIGINT} and end_date >= #{endDate,jdbcType=DATE}
+  </select>
+
+  <select id="getUnitNavBySecuniCode" resultType="map">
+    SELECT sec_uni_code, unit_nav, cumu_unit_nav, rise_rate
+    FROM fund_nav
+    WHERE end_date = (SELECT MAX(end_date) FROM fund_nav WHERE sec_uni_code = #{secUniCode})
+    AND sec_uni_code =  #{secUniCode}
+    LIMIT 1
+  </select>
+
+  <select id="getFundChart" resultType="map">
+    SELECT end_date, cumu_unit_nav
+    FROM fund_nav
+    WHERE sec_uni_code = #{secUniCode}
+    AND end_date >= #{startDate}
+    ORDER BY end_date
+  </select>
+
+  <select id="getLatestDateBySecUniCode" resultType="java.util.Date">
+    SELECT end_date
+    FROM fund_nav
+    WHERE sec_uni_code = #{secUniCode}
+    ORDER BY end_date DESC
+    LIMIT 1
+  </select>
+
+  <select id="getRiseRateBySecUniCodeAndDate" resultType="la.niub.abcapi.servicecompre.model.FundNavModel">
+    SELECT
+      end_date,
+      rise_rate
+    FROM fund_nav
+    WHERE sec_uni_code = #{sec_uni_code}
+    AND end_date &gt;= #{startTime}
+    AND end_date &lt; #{endTime}
+    ORDER BY end_date
+  </select>
+</mapper>

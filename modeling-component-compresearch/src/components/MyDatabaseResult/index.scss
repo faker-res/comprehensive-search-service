@@ -1,0 +1,195 @@
+.MyDatabaseResult {
+    width: 870px;
+
+    .content {
+        background-color: #fff;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 6px 1px rgba(0, 0, 0, .03);
+        border: 1px solid #eee;
+
+        .header {
+            font-size: 14px;
+            color: #4a4a4a;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            padding:20px;
+            border-bottom: 1px solid #eee;
+            width: 100%;
+
+            .title {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                span{
+                    background-color: #eceef3;
+                    font-size: 13px;
+                    color: #407cd5;
+                    padding: 5px 10px;
+                    border-radius: 25px;
+                    height: 20px;
+                    line-height: 20px;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 10px;
+                }
+                label{
+                    display: none;
+                    background-color: #fffaeb;
+                    display: inline-block;
+                    color: rgba(0,0,0,.65);
+                    margin: 0 10px;
+                    font-size: 12px;
+                    padding: 0 5px;
+                    height: 32px;
+                    line-height: 32px;
+                    border: 1px solid #FFE9A7;
+                    position: relative;
+                    a{
+                        display: inline-block;
+                        border-top: 5px solid transparent;
+                        border-bottom: 5px solid transparent;
+                        border-right: 2px solid #ffe9a7;
+                        position: absolute;
+                        left: -3px;
+                        top: 10px;
+                    }
+                    img{
+                        width: 10px;
+                        height: 10px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+
+            .filter {
+                color: #ddd;
+            }
+            img{
+                width: 10px;
+                margin: 0 0 0 5px;
+                cursor: pointer;
+            }
+        }
+        .databaseList {
+            background-color: #fff;
+            padding: 0 20px;
+            margin: 0;
+            li {
+                border-bottom:1px solid #eee;
+                padding: 15px 0;
+                &:last-child{
+                    border-bottom:none;
+                }
+                a:hover{
+                    color: #287ddc;
+                }
+                .title {
+                    line-height: 28px;
+                    color: #000;
+                    font-size: 18px;
+                    text-align: left;
+                    font-family: PingFangSC-Medium;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                .context {
+                    cursor: pointer;
+                    font-size: 13px;
+                    color: #999;
+                    margin: 11px 0 15px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    &:hover{
+                        background-color: #f9f9f9;
+                    }
+                }
+                .source-tag {
+                    display: flex;
+                    align-items: center;
+                    div{
+                        flex:1;
+                    }
+                    .source_from{
+                        padding: 0 15px;
+                        display: inline-block;
+                        label{
+                            padding: 0 5px;
+                        }
+                    }
+                    span {
+                        display: inline-block;
+                        height: 15px;
+                        line-height: 15px;
+                        color: rgba(140, 140, 140, 1);
+                        font-size: 13px;
+                        text-align: left;
+                        padding: 0 10px;
+                        font-family: PingFangSC-Regular;
+                        border-right: 1px solid #8c8c8c;
+                        a{
+                            color: #8c8c8c;
+                        }
+
+                    }
+
+                    span:first-child {
+                        display: inline-block;
+                        height: 15px;
+                        line-height: 15px;
+                        color: rgba(140, 140, 140, 1);
+                        font-size: 13px;
+                        text-align: left;
+                        padding-right: 10px;
+                        padding-left: 0px;
+                        font-family: PingFangSC-Regular;
+                    }
+
+                    span:last-child {
+                        display: inline-block;
+                        height: 15px;
+                        line-height: 15px;
+                        color: rgba(140, 140, 140, 1);
+                        font-size: 13px;
+                        text-align: left;
+                        padding: 0 10px;
+                        font-family: PingFangSC-Regular;
+                        border-right: none;
+
+                    }
+                    label{
+                        color: rgba(140, 140, 140, 1);
+                        font-size: 13px;
+                    }
+                }
+            }
+
+        }
+        .loadingData{
+            height: 200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .ant-spin-spinning {
+            opacity: 1;
+            position: static;
+            display: inline-block;
+            margin: auto;
+        }
+        .footer{
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            border-top: 1px solid #eee;
+            cursor: pointer;
+            a{
+                padding:0 2px;
+            }
+        }
+    }
+}

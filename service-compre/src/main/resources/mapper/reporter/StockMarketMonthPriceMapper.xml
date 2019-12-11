@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IStockMarketMonthPriceDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.StockMarketMonthPriceModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stock_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="close_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="open" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="high" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="low" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pre_close" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ_range" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stock_code, time, close_price, open, high, low, differ, pre_close, differ_range, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from stock_market_month_price
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from stock_market_month_price
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.StockMarketMonthPriceModel">
+    insert into stock_market_month_price (id, stock_code, time, 
+      close_price, open, high, 
+      low, differ, pre_close, 
+      differ_range, update_time)
+    values (#{id,jdbcType=BIGINT}, #{stock_code,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{close_price,jdbcType=DECIMAL}, #{open,jdbcType=DECIMAL}, #{high,jdbcType=DECIMAL}, 
+      #{low,jdbcType=DECIMAL}, #{differ,jdbcType=DECIMAL}, #{pre_close,jdbcType=DECIMAL}, 
+      #{differ_range,jdbcType=DECIMAL}, #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.StockMarketMonthPriceModel">
+    insert into stock_market_month_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stock_code != null">
+        stock_code,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="close_price != null">
+        close_price,
+      </if>
+      <if test="open != null">
+        open,
+      </if>
+      <if test="high != null">
+        high,
+      </if>
+      <if test="low != null">
+        low,
+      </if>
+      <if test="differ != null">
+        differ,
+      </if>
+      <if test="pre_close != null">
+        pre_close,
+      </if>
+      <if test="differ_range != null">
+        differ_range,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="stock_code != null">
+        #{stock_code,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="close_price != null">
+        #{close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="open != null">
+        #{open,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null">
+        #{high,jdbcType=DECIMAL},
+      </if>
+      <if test="low != null">
+        #{low,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="pre_close != null">
+        #{pre_close,jdbcType=DECIMAL},
+      </if>
+      <if test="differ_range != null">
+        #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.StockMarketMonthPriceModel">
+    update stock_market_month_price
+    <set>
+      <if test="stock_code != null">
+        stock_code = #{stock_code,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="close_price != null">
+        close_price = #{close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="open != null">
+        open = #{open,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null">
+        high = #{high,jdbcType=DECIMAL},
+      </if>
+      <if test="low != null">
+        low = #{low,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        differ = #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="pre_close != null">
+        pre_close = #{pre_close,jdbcType=DECIMAL},
+      </if>
+      <if test="differ_range != null">
+        differ_range = #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.StockMarketMonthPriceModel">
+    update stock_market_month_price
+    set stock_code = #{stock_code,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      close_price = #{close_price,jdbcType=DECIMAL},
+      open = #{open,jdbcType=DECIMAL},
+      high = #{high,jdbcType=DECIMAL},
+      low = #{low,jdbcType=DECIMAL},
+      differ = #{differ,jdbcType=DECIMAL},
+      pre_close = #{pre_close,jdbcType=DECIMAL},
+      differ_range = #{differ_range,jdbcType=DECIMAL},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

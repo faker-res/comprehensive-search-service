@@ -1,0 +1,121 @@
+{
+	"code": 200,
+	"message": "ok",
+	"data": [
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于沈娟提交股票池入库审批申请",
+			"title": "商业贸易行业：“独角兽”回归通道开启，重视",
+			"autor": "沈娟,郭其伟,刘雪菲",
+			"stockCode": "600258",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于胡宏伟提交股票池入库审批申请",
+			"title": "证券行业关于通过CDR方式接引新经济独角兽",
+			"autor": "胡红伟,常丹丹",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "【策略】以TDR为镜，观CDR之路——独角之一",
+			"autor": "范子铭,王君,李而实,徐驰",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"title": "详解CDR专题报告：CDR是“独角兽”回归A股",
+			"autor": "李达宁,张越清,陈子金",
+			"stockCode": "600089",
+			"industry": "行业定期",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		}
+	],
+	"pageSize": 12,
+	"currentPage": 1,
+	"totalCount": 1200
+}

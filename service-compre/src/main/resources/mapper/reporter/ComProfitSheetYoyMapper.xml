@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComProfitSheetYoyDao">
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, report_type, principles, consolidation, currency_code, 
+    report_format, announcement_date, overall_income, main_income, interest_netincome, 
+    interest_income, interest_cost, commission_netincome, commission_income, commission_cost, 
+    earn_insurance, insurance_bus_income, premium_income, separate_premiums, extraction_unexpired, 
+    brokerage_fee_income, netincome_of_investment_banking_fees, netincome_of_asset_management_fees, 
+    invest_income, relate_invest_income, gain_loss_income, value_gains, other_income, 
+    operating_revenue_special_course, operating_revenue_balance_course, overall_cost, 
+    main_cost, operat_expenses, canel_insurance_money, pay_expenses, spread_pay_expenses, 
+    insurance_liability, spread_insurance_liability, insurance_cost, reduce_insurance_cost, 
+    tax, operating_manage_cost, spread_premium, sale_cost, manage_cost, fin_cost, asset_loss, 
+    other_bus_cost, total_cost_of_special_subjects, total_cost_of_balance_subjects, overall_profit, 
+    addition_income, addition_cost, interest_dispose, disposal_noncurrent_assets, operating_profit_special_subjects, 
+    operating_profit_balance_subjects, profit_total, reduce_tax, profit_total_special_subjects, 
+    profit_total_balance_subjects, netprofit, parent_netprofit, minority_loss, netprofit_special_subjects, 
+    netprofit_balance_subjects, basic_perstock_income, reduce_perstock_income, other_composite_loss, 
+    parent_other_com_income, income_for_holer_other_com_income, all_income_total, income_for_parent, 
+    income_for_minority, special_case_description, other_income_loss, recalculate_change_plan, 
+    equity_method, others_1, other_income_profit, share_of_equity_method, sale_financial_assets, 
+    sale_financial, cashflow_hedge_gains, effective_portion_cashflow, others_2, createtime, 
+    updatetime, status, remark, creator, editor, whether_published, come_source, src_id
+  </sql>
+  <select id="getTopNRecords" resultType="la.niub.abcapi.servicecompre.model.ComProfitSheetYoyModel">
+    select 
+    <include refid="Base_Column_List" />
+    from com_profit_sheet_yoy
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+
+  <select id="financialSummary" resultType="map" parameterType="map">
+    select a.id,a.overall_income,b.overall_income as overall_income_y2y,a.overall_cost,a.overall_profit,b.overall_profit as overall_profit_y2y,a.profit_total,b.profit_total as profit_total_y2y ,
+    a.netprofit,a.parent_netprofit,b.parent_netprofit as parent_netprofit_y2y,i.total_amount,c.deduct_netprofit,h.deduct_netprofit as deduct_netprofit_y2y,c.ebit,
+
+    d.total_current_asset,d.fix_asset,d.long_equity_investment,d.total_asset,g.total_asset as total_asset_y2y,d.total_current_liabilities,d.total_non_current_liabilities,d.total_liabilities,
+    g.total_liabilities as total_liabilities_y2y,d.total_account_equity,d.total_account_parent_equity,g.total_account_parent_equity as total_account_parent_equity_y2y,d.capital_reserve,d.earn_reserve,d.nopay_profit,
+
+    e.sale_cash,e.bussiness_cash_netvalue,e.subs_pay_cash,e.invest_pay_cash,e.invest_cash_netvalue,e.rec_invest_reccash,e.rec_borrow_cash,e.borrow_cash_netvalue,e.cash_to_netadd,e.last_cash,
+
+    c.roe_diluted,c.roe_weigh,c.deduct_roe_diluted,c.roa_2,c.roic,c.grossprofit_margin,c.netprofit_margin,c.ebit_per_gr,c.ebitda_per_gr,c.debt_assets,c.assets_turn,
+
+    c.basic_perstock_income,c.reduce_perstock_income,c.eps_diluted_2,c.eps_diluted_3,c.netassets_ps,c.or_ps,c.ocf_ps,c.cf_ps,
+
+    a.end_date
+    from
+    com_profit a
+    LEFT JOIN
+    com_profit_sheet_yoy b
+    on a.com_uni_code=b.com_uni_code and a.end_date=b.end_date and a.consolidation=b.consolidation
+    LEFT JOIN
+    com_index_ana c
+    on a.com_uni_code=c.com_uni_code and a.end_date=c.end_date
+    LEFT JOIN
+    com_balance d
+    on a.com_uni_code=d.com_uni_code and a.end_date=d.end_date and a.consolidation=d.consolidation
+    LEFT JOIN
+    com_cashflow e
+    on a.com_uni_code=e.com_uni_code and a.end_date=e.end_date and a.consolidation=e.consolidation
+    LEFT JOIN sec_basic_info f
+    on a.com_uni_code=f.com_uni_code
+    LEFT JOIN com_balance_yoy g
+    on a.com_uni_code=g.com_uni_code and a.end_date=g.end_date and a.consolidation=g.consolidation
+    LEFT JOIN com_index_ana_yoy h
+    on a.com_uni_code=h.com_uni_code and a.end_date=h.end_date
+    LEFT JOIN com_non_recur_profit i
+    on a.com_uni_code=i.com_uni_code and a.end_date=i.end_date
+    where f.sec_type=1004001 and a.consolidation=1501002
+    <if test="reporttype != null and reporttype != ''">
+      ${reporttype}
+    </if>
+    <if test="start_time != null and start_time != ''">
+      AND end_date &gt;= #{start_time}
+    </if>
+    <if test="end_time != null and end_time != ''">
+      AND end_date &lt;= #{end_time}
+    </if>
+    <if test="end_date != null and end_date != ''">
+      AND end_date = #{end_date}
+    </if>
+    <if test="code != null">
+     and f.sec_uni_code = #{code}
+    </if>
+    <if test="orderby != null">
+      order by a.end_date  ${orderby}
+    </if>
+    <if test="limit != null and offset != null">
+      LIMIT ${limit} OFFSET ${offset}
+    </if>
+  </select>
+</mapper>

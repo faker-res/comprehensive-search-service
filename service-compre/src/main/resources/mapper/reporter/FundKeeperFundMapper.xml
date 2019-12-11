@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundKeeperFundDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundKeeperFundModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_keeper_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_keeper_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_quantity" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fund_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fund_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="open_fund_quantity" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="open_fund_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="open_fund_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="closed_fund_quantity" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="closed_fund_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="closed_fund_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, end_date, fund_keeper_code, fund_keeper_name, fund_quantity, fund_share, fund_nav, 
+    open_fund_quantity, open_fund_share, open_fund_nav, closed_fund_quantity, closed_fund_share, 
+    closed_fund_nav, createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_keeper_fund
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from fund_keeper_fund
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperFundModel">
+    insert into fund_keeper_fund (id, end_date, fund_keeper_code, 
+      fund_keeper_name, fund_quantity, fund_share, 
+      fund_nav, open_fund_quantity, open_fund_share, 
+      open_fund_nav, closed_fund_quantity, closed_fund_share, 
+      closed_fund_nav, createtime, updatetime, 
+      status, creator, editor
+      )
+    values (#{id,jdbcType=INTEGER}, #{end_date,jdbcType=DATE}, #{fund_keeper_code,jdbcType=BIGINT}, 
+      #{fund_keeper_name,jdbcType=VARCHAR}, #{fund_quantity,jdbcType=INTEGER}, #{fund_share,jdbcType=DECIMAL}, 
+      #{fund_nav,jdbcType=DECIMAL}, #{open_fund_quantity,jdbcType=INTEGER}, #{open_fund_share,jdbcType=DECIMAL}, 
+      #{open_fund_nav,jdbcType=DECIMAL}, #{closed_fund_quantity,jdbcType=INTEGER}, #{closed_fund_share,jdbcType=DECIMAL}, 
+      #{closed_fund_nav,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperFundModel">
+    insert into fund_keeper_fund
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="fund_keeper_code != null">
+        fund_keeper_code,
+      </if>
+      <if test="fund_keeper_name != null">
+        fund_keeper_name,
+      </if>
+      <if test="fund_quantity != null">
+        fund_quantity,
+      </if>
+      <if test="fund_share != null">
+        fund_share,
+      </if>
+      <if test="fund_nav != null">
+        fund_nav,
+      </if>
+      <if test="open_fund_quantity != null">
+        open_fund_quantity,
+      </if>
+      <if test="open_fund_share != null">
+        open_fund_share,
+      </if>
+      <if test="open_fund_nav != null">
+        open_fund_nav,
+      </if>
+      <if test="closed_fund_quantity != null">
+        closed_fund_quantity,
+      </if>
+      <if test="closed_fund_share != null">
+        closed_fund_share,
+      </if>
+      <if test="closed_fund_nav != null">
+        closed_fund_nav,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="fund_keeper_code != null">
+        #{fund_keeper_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_name != null">
+        #{fund_keeper_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_quantity != null">
+        #{fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="fund_share != null">
+        #{fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_nav != null">
+        #{fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="open_fund_quantity != null">
+        #{open_fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="open_fund_share != null">
+        #{open_fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="open_fund_nav != null">
+        #{open_fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="closed_fund_quantity != null">
+        #{closed_fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="closed_fund_share != null">
+        #{closed_fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="closed_fund_nav != null">
+        #{closed_fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperFundModel">
+    update fund_keeper_fund
+    <set>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="fund_keeper_code != null">
+        fund_keeper_code = #{fund_keeper_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_name != null">
+        fund_keeper_name = #{fund_keeper_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_quantity != null">
+        fund_quantity = #{fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="fund_share != null">
+        fund_share = #{fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_nav != null">
+        fund_nav = #{fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="open_fund_quantity != null">
+        open_fund_quantity = #{open_fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="open_fund_share != null">
+        open_fund_share = #{open_fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="open_fund_nav != null">
+        open_fund_nav = #{open_fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="closed_fund_quantity != null">
+        closed_fund_quantity = #{closed_fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="closed_fund_share != null">
+        closed_fund_share = #{closed_fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="closed_fund_nav != null">
+        closed_fund_nav = #{closed_fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperFundModel">
+    update fund_keeper_fund
+    set end_date = #{end_date,jdbcType=DATE},
+      fund_keeper_code = #{fund_keeper_code,jdbcType=BIGINT},
+      fund_keeper_name = #{fund_keeper_name,jdbcType=VARCHAR},
+      fund_quantity = #{fund_quantity,jdbcType=INTEGER},
+      fund_share = #{fund_share,jdbcType=DECIMAL},
+      fund_nav = #{fund_nav,jdbcType=DECIMAL},
+      open_fund_quantity = #{open_fund_quantity,jdbcType=INTEGER},
+      open_fund_share = #{open_fund_share,jdbcType=DECIMAL},
+      open_fund_nav = #{open_fund_nav,jdbcType=DECIMAL},
+      closed_fund_quantity = #{closed_fund_quantity,jdbcType=INTEGER},
+      closed_fund_share = #{closed_fund_share,jdbcType=DECIMAL},
+      closed_fund_nav = #{closed_fund_nav,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

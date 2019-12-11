@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISystemConstDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SystemConstModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="system_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="system_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fat_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fat_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="system_disc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, system_uni_code, system_name, fat_code, fat_name, system_disc, createtime, updatetime, 
+    status, remark, creator, editor, come_source
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from system_const
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from system_const
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SystemConstModel">
+    insert into system_const (id, system_uni_code, system_name, 
+      fat_code, fat_name, system_disc, 
+      createtime, updatetime, status, 
+      remark, creator, editor, 
+      come_source)
+    values (#{id,jdbcType=BIGINT}, #{system_uni_code,jdbcType=BIGINT}, #{system_name,jdbcType=VARCHAR}, 
+      #{fat_code,jdbcType=BIGINT}, #{fat_name,jdbcType=VARCHAR}, #{system_disc,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{come_source,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SystemConstModel">
+    insert into system_const
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="system_uni_code != null">
+        system_uni_code,
+      </if>
+      <if test="system_name != null">
+        system_name,
+      </if>
+      <if test="fat_code != null">
+        fat_code,
+      </if>
+      <if test="fat_name != null">
+        fat_name,
+      </if>
+      <if test="system_disc != null">
+        system_disc,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="system_uni_code != null">
+        #{system_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="system_name != null">
+        #{system_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fat_code != null">
+        #{fat_code,jdbcType=BIGINT},
+      </if>
+      <if test="fat_name != null">
+        #{fat_name,jdbcType=VARCHAR},
+      </if>
+      <if test="system_disc != null">
+        #{system_disc,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SystemConstModel">
+    update system_const
+    <set>
+      <if test="system_uni_code != null">
+        system_uni_code = #{system_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="system_name != null">
+        system_name = #{system_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fat_code != null">
+        fat_code = #{fat_code,jdbcType=BIGINT},
+      </if>
+      <if test="fat_name != null">
+        fat_name = #{fat_name,jdbcType=VARCHAR},
+      </if>
+      <if test="system_disc != null">
+        system_disc = #{system_disc,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SystemConstModel">
+    update system_const
+    set system_uni_code = #{system_uni_code,jdbcType=BIGINT},
+      system_name = #{system_name,jdbcType=VARCHAR},
+      fat_code = #{fat_code,jdbcType=BIGINT},
+      fat_name = #{fat_name,jdbcType=VARCHAR},
+      system_disc = #{system_disc,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectBySystemUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from system_const
+    where system_uni_code = #{systemUniCode,jdbcType=BIGINT}
+  </select>
+  <select id="selectBySystemName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from system_const
+    where system_name = #{systemName,jdbcType=VARCHAR}
+  </select>
+</mapper>

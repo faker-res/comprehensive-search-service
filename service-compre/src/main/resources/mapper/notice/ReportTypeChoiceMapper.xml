@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IReportTypeChoiceDao">
+    <select id="selectReportType" resultType="la.niub.abcapi.servicecompre.model.RepostTypeModel">
+        SELECT type_id, type_name
+        FROM report_type_choice
+        WHERE type_id IN ( 'S004001','S004021','S004022','S004019','S004009','S004020',
+                          'S004005','S004006','S004007','S004018','S004014','S004016',
+                          'S004015','S004011','S004012','S004013')
+    </select>
+
+    <select id="selectSecondLevelReportTypeByParentId" resultType="java.lang.String">
+        SELECT type_id FROM report_type_choice
+        <if test="parent_id != null">
+            WHERE parent_id = #{parent_id}
+        </if>
+    </select>
+
+    <select id="selectTypeNameByTypeId" resultType="java.lang.String">
+        SELECT type_name
+        FROM report_type_choice
+        WHERE type_id = #{type_id}
+    </select>
+</mapper>

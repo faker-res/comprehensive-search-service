@@ -1,0 +1,10 @@
+{
+    "code": 200,
+    "msg": "lUqyJMQMJt",
+    "data": {
+        "sum": 63551,
+        "thisYear": 58532,
+        "lastYear": 83259,
+        "beforeLastYear": 25200
+    }
+}

@@ -1,0 +1,345 @@
+
+.mail-detail-affix {
+  .ant-affix {
+    position: absolute!important;
+    height: 100% !important;
+  }
+  .ant-spin-spinning{
+    position: absolute;
+    top:500px;
+    left:50%;
+    margin-left: -20px;
+  }
+}
+.ant-layout-content{
+  height: auto;
+}
+
+.mail-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    text-align: center;
+    margin-top: 8rem;
+    font-size: 2rem;
+    color: #999;
+  }
+}
+.more-attach {
+  height: 35px;
+  padding-right: 20px;
+  line-height: 35px;
+  a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #999;
+    float: right;
+    .icon-qiehuan-yue {
+      transform: rotateX(90deg) !important;
+    }
+  }
+}
+
+.download-more{
+  padding-right: 12px;
+}
+
+.mail-detail-content {
+  overflow: hidden;
+  .mail-info {
+    float: left;
+  }
+  .change-item {
+    float: right;
+    margin-right: 30px;
+    margin-top: 1.2rem;
+    a {
+      // color: #666;
+      margin-left:10px;
+    }
+    i {
+      font-size: 1rem;
+    }
+  }
+  // 邮件标题
+  .mail-detail-title {
+    height: 70px;
+    padding-left: 16px;
+    padding-right: 50px;
+    padding-top: 13px;
+    background: #f8f8f8;
+    .icon {
+      fill: currentColor;
+      overflow: hidden;
+      float: left;
+      width: 36.5px;
+      height: 29px; 
+      margin-top: 0.5rem;
+    }
+    .icon-qiehuan-ri{
+      width:9px;
+      height: 16px;
+      color:#cccccc;
+    }
+    .mail-content-title {
+      font-size: 1rem;
+      height: 44px;
+      color: #333333;
+      letter-spacing: 0;
+      font-weight: 600;
+      line-height: 44px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  // 用户部分
+  .mail-content-user {
+    overflow: hidden;
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0;
+    padding-left:18px;
+    width: 100%;
+    .icon-concat {
+      float: left;
+      width: 30px;
+      height: 30px;
+      margin-top:18px;
+      fill: currentColor;
+      overflow: hidden;
+      float: left;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .mail-content-userInfo {
+      height: 20px;
+      margin-top: 17px;
+      .mail-content-userName {
+        font-size: 14px;
+        color: #3a6bb1;
+        float: left;
+        height: 20px;
+      }
+      .mail-content-userMail {
+        float: left;
+        height: 20px;
+        line-height: 20px;
+        color: #666666;
+        font-size: 14px;
+      }
+      .mail-content-date{
+        display: inline-block;
+        height: 17px;
+        line-height: 17px;
+        font-size: 12px;
+        color:#999999;
+        margin-top: 2px;
+        margin-left: 20px;
+      }
+      .mail-attach-num{
+        display: inline-block;
+        width:38px;
+        height:18px;
+        background: #F0F1F2;
+        border-radius: 10px;
+        margin-left: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        i{
+          color:#FF940B;
+          font-size: 12px;
+          margin-right: 3px;
+          margin-left: 6px;
+        }
+        span{
+          color:#666;
+          line-height: 17px;
+          font-size: 14px;
+        }
+      }
+    }
+    .mail-receiveusers{
+      width:720px;
+      height: auto;
+      margin-bottom: 17px;
+      .mail-content-receiveuser {
+        display: inline-block;
+        width:650px;
+        height: 17px;
+        line-height: 17px;
+        font-size: 12px;
+        color:#999999;
+        margin-top:6px;
+        overflow: hidden;
+        white-space: normal;
+        padding-right:10px;
+        text-overflow: -o-ellipsis-lastline;
+        span{
+          display: inline-block;
+          float: left;
+        }
+      }
+      .more{
+        display: inline-block;
+        line-height: 17px;
+        height:17px;
+        span{
+          cursor: pointer;
+          color:#3A6BB1;
+        }
+      }
+    }
+  }
+  // 文件部分
+  .mail-detail-file {
+    width: 96%;
+    height: 58px;  
+     margin-top: 10px;
+     margin-bottom: 30px;
+    .mail-detail-attaches {
+      display: flex;
+      cursor: pointer;
+      background: #F3F3F3;
+      border: 1px solid #EBEBEB;
+      border-radius: 4px;
+      width: 556px;
+      height: 80px;
+      margin-top: 0.5rem;
+      .icon-file  {
+        flex: 1;
+        width: 60px;
+        height: 60px;
+        margin:10px;
+        font-size: 60px;
+        // color:#f6565d;
+        // margin-top: -5px;
+      }
+      .mail-attach-info {
+        flex:6;
+        margin-top: 10px;
+        display: flex!important;
+        // justify-content: center;
+        width:400px;
+        flex-direction: column;
+        height:62px;
+        overflow: hidden;
+        .simple-content {
+          overflow: hidden;
+          white-space: normal;
+          height: 34px;
+          padding-right:10px;
+          text-overflow: -o-ellipsis-lastline;
+        }
+        h5 {
+          color: #333;
+          font-size: 12px;
+          margin-top: 2px;
+          font-family: PingFangSC-Regular;
+          margin-bottom: 3px;
+        }
+        p {
+          color: #999;
+          font-size: 10px;
+          
+        }
+      }
+      .right{
+          flex: 1;
+          padding-left:35px;
+          margin-top: 12px;
+          i{
+            color:#3A6BB1;
+            font-size: 14px;
+            margin-left: 16px;
+          }
+          .kong{
+            width:15px;
+            height:22px;
+          }
+          .attach-size {
+            color: #999;
+            font-size: 12px;
+          }
+      }
+    }
+  }
+  //文件具体内容
+  .mail-detail-text {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0;
+    line-height: 24px;
+    width: 100%;
+    margin: 0 auto;
+    padding:40px 38px 22px 40px;
+    border-top: 1px dashed #ebebeb;
+    font-size: 12px;
+    height:auto;
+    *{
+      box-sizing: content-box;
+    }
+  }
+}
+
+#detail-iframe {
+  width: 100%;
+  height: auto;
+  border: none;
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #aaa;
+    border-width: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    min-height: 2rem;
+    background: #d2d2d2;
+    background-clip: padding-box;
+    border: 3px solid rgba(51, 51, 51, 0);
+    border-radius: 5px;
+  }
+  -webkit-scrollbar-button {
+    display: block;
+  }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+  }
+}
+  
+//附件预览
+
+.viewFileModal {
+  width: 80%!important;
+  .ant-modal-footer {
+    display: none;
+  }
+}
+.file-content{
+  width:96%;
+  margin: 0 auto;
+  border-top:1px solid #E7E7E7;
+  padding-left: 5px;
+  #attach-show{
+    color: #333;
+  }
+  .top{
+    margin-top: 20px;
+    font-size: 12px;
+    color:#333;
+    .download-more{
+      color:#3A6BB1;
+    }
+  }
+}
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-center-modal .ant-modal {
+  top: 0;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IVNewsHeatFundDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.VNewsHeatFundModel">
+    <constructor>
+      <arg column="code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="dict_word" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="heat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="partition_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, dict_word, heat, partition_time, createtime
+  </sql>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.VNewsHeatFundModel">
+    insert into v_news_heat_fund (code, dict_word, heat, 
+      partition_time, createtime)
+    values (#{code,jdbcType=BIGINT}, #{dict_word,jdbcType=VARCHAR}, #{heat,jdbcType=DECIMAL}, 
+      #{partition_time,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.VNewsHeatFundModel">
+    insert into v_news_heat_fund
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
+      <if test="dict_word != null">
+        dict_word,
+      </if>
+      <if test="heat != null">
+        heat,
+      </if>
+      <if test="partition_time != null">
+        partition_time,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=BIGINT},
+      </if>
+      <if test="dict_word != null">
+        #{dict_word,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null">
+        #{heat,jdbcType=DECIMAL},
+      </if>
+      <if test="partition_time != null">
+        #{partition_time,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from v_news_heat_fund
+    where code = #{secUniCode,jdbcType=BIGINT} and partition_time >= #{endDate,jdbcType=VARCHAR}
+  </select>
+</mapper>

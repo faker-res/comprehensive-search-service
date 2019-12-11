@@ -1,0 +1,47 @@
+.search_container{
+  width: 100%;
+}
+.logo{
+  margin-right: 30px;
+}
+.search_keyword_container{
+  width: inherit;
+  position: relative;
+  :global{
+    .ant-btn-primary{
+      background-color:  #287ddc;
+      border-color:  #287ddc;
+    }
+  }
+}
+.stock_list_title{
+  background-color: white;
+  padding-left: 22px;
+  color: #a8b0bc;
+  font-size: 12px;
+  height: 30px;
+}
+// .history_container li{
+//   &:hover{
+//     span:nth-child(2){
+//       display: block;
+//     }
+//   }
+// }
+
+:global{
+  .stock_list .ant-menu-vertical > .ant-menu-item
+  {
+    padding: 0 14px;
+    line-height: 30px!important;
+    height: 30px!important;
+    color: #202329;
+    margin: 0; 
+    &:hover{
+      background-color: #F6F6F6;
+      div span:nth-child(2) {
+        display: block!important;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import '../../theme/common.scss';
+
+:local(.localClass){
+    width: 58px;height: 58px;bottom: 88px;right: 20px;background: rgba(0,0,0,0.5);border-radius:6px;display:flex;justify-content:center;align-items:center;transition:all ease .5s;
+    .icon{font-size: 30px;color: #fff;background: none;}
+    :hover{background: rgba(0,0,0,0.2);}
+}
+:local(.localClass:hover){background: rgba(0,0,0,0.2);
+    .icon{background: none;}
+}

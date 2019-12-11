@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IOrgbasicinfochgDao">
+    <sql id="Org_basic_info_chg_Column_List">
+id,org_uni_code,announcement_date,change_type,begin_date,end_date,begin_change,after_change,change_reason,createtime,updatetime,status,creator,editor,come_source
+    </sql>
+
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.OrgbasicinfochgModel">
+        INSERT INTO org_basic_info_chg (<include refid="Org_basic_info_chg_Column_List"/>) VALUES
+(#{id},#{org_uni_code},#{announcement_date},#{change_type},#{begin_date},#{end_date},#{begin_change},#{after_change},#{change_reason},#{createtime},#{updatetime},#{status},#{creator},#{editor},#{come_source})
+    </insert>
+
+    <delete id="delete" parameterType="la.niub.abcapi.servicecompre.model.OrgbasicinfochgModel">
+        DELETE FROM org_basic_info_chg WHERE 1=1
+        <if test="id != null and id !=''">
+            AND id = #{id}
+        </if>
+    </delete>
+	
+	<update id="update" parameterType="la.niub.abcapi.servicecompre.model.OrgbasicinfochgModel">
+        UPDATE org_basic_info_chg
+        <trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="org_uni_code != null and org_uni_code != ''">
+				org_uni_code = #{org_uni_code},
+			</if>
+			<if test="announcement_date != null and announcement_date != ''">
+				announcement_date = #{announcement_date},
+			</if>
+			<if test="change_type != null and change_type != ''">
+				change_type = #{change_type},
+			</if>
+			<if test="begin_date != null and begin_date != ''">
+				begin_date = #{begin_date},
+			</if>
+			<if test="end_date != null and end_date != ''">
+				end_date = #{end_date},
+			</if>
+			<if test="begin_change != null and begin_change != ''">
+				begin_change = #{begin_change},
+			</if>
+			<if test="after_change != null and after_change != ''">
+				after_change = #{after_change},
+			</if>
+			<if test="change_reason != null and change_reason != ''">
+				change_reason = #{change_reason},
+			</if>
+			<if test="createtime != null and createtime != ''">
+				createtime = #{createtime},
+			</if>
+			<if test="updatetime != null and updatetime != ''">
+				updatetime = #{updatetime},
+			</if>
+			<if test="status != null and status != ''">
+				status = #{status},
+			</if>
+			<if test="creator != null and creator != ''">
+				creator = #{creator},
+			</if>
+			<if test="editor != null and editor != ''">
+				editor = #{editor},
+			</if>
+			<if test="come_source != null and come_source != ''">
+				come_source = #{come_source},
+			</if>
+        </trim>
+        WHERE 1=1
+        <if test="id != null and id !=''">
+            AND id = #{id}
+        </if>
+    </update>
+	
+	<select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.OrgbasicinfochgModel">
+        SELECT <include refid="Org_basic_info_chg_Column_List"/> FROM org_basic_info_chg WHERE 1=1
+		<if test="id != null and id != ''">
+			AND id = #{id}
+		</if>
+		<if test="org_uni_code != null and org_uni_code != ''">
+			AND org_uni_code = #{org_uni_code}
+		</if>
+		<if test="announcement_date != null and announcement_date != ''">
+			AND announcement_date = #{announcement_date}
+		</if>
+		<if test="change_type != null and change_type != ''">
+			AND change_type = #{change_type}
+		</if>
+		<if test="begin_date != null and begin_date != ''">
+			AND begin_date = #{begin_date}
+		</if>
+		<if test="end_date != null and end_date != ''">
+			AND end_date = #{end_date}
+		</if>
+		<if test="begin_change != null and begin_change != ''">
+			AND begin_change = #{begin_change}
+		</if>
+		<if test="after_change != null and after_change != ''">
+			AND after_change = #{after_change}
+		</if>
+		<if test="change_reason != null and change_reason != ''">
+			AND change_reason = #{change_reason}
+		</if>
+		<if test="createtime != null and createtime != ''">
+			AND createtime = #{createtime}
+		</if>
+		<if test="updatetime != null and updatetime != ''">
+			AND updatetime = #{updatetime}
+		</if>
+		<if test="status != null and status != ''">
+			AND status = #{status}
+		</if>
+		<if test="creator != null and creator != ''">
+			AND creator = #{creator}
+		</if>
+		<if test="editor != null and editor != ''">
+			AND editor = #{editor}
+		</if>
+		<if test="come_source != null and come_source != ''">
+			AND come_source = #{come_source}
+		</if>
+		<if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="startPageNum != null and perPageNum != null">
+            LIMIT ${perPageNum} OFFSET ${startPageNum}
+        </if>
+    </select>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+        SELECT COUNT(1) FROM org_basic_info_chg WHERE 1=1
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="org_uni_code != null and org_uni_code != ''">
+				AND org_uni_code = #{org_uni_code}
+			</if>
+			<if test="announcement_date != null and announcement_date != ''">
+				AND announcement_date = #{announcement_date}
+			</if>
+			<if test="change_type != null and change_type != ''">
+				AND change_type = #{change_type}
+			</if>
+			<if test="begin_date != null and begin_date != ''">
+				AND begin_date = #{begin_date}
+			</if>
+			<if test="end_date != null and end_date != ''">
+				AND end_date = #{end_date}
+			</if>
+			<if test="begin_change != null and begin_change != ''">
+				AND begin_change = #{begin_change}
+			</if>
+			<if test="after_change != null and after_change != ''">
+				AND after_change = #{after_change}
+			</if>
+			<if test="change_reason != null and change_reason != ''">
+				AND change_reason = #{change_reason}
+			</if>
+			<if test="createtime != null and createtime != ''">
+				AND createtime = #{createtime}
+			</if>
+			<if test="updatetime != null and updatetime != ''">
+				AND updatetime = #{updatetime}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="creator != null and creator != ''">
+				AND creator = #{creator}
+			</if>
+			<if test="editor != null and editor != ''">
+				AND editor = #{editor}
+			</if>
+			<if test="come_source != null and come_source != ''">
+				AND come_source = #{come_source}
+			</if>
+    </select>
+	
+</mapper>
+

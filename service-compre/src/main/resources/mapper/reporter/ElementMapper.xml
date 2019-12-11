@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IElementDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.ElementModel">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sheet_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="field_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_unit" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_frequency" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_update_frequency" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="abc_date_update_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_source_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, sheet_name, field_name, data_unit, data_frequency, data_update_frequency, abc_date_update_time, 
+    data_source, data_source_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from element
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from element
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.ElementModel">
+    insert into element (ID, sheet_name, field_name, 
+      data_unit, data_frequency, data_update_frequency, 
+      abc_date_update_time, data_source, data_source_code
+      )
+    values (#{ID,jdbcType=INTEGER}, #{sheet_name,jdbcType=VARCHAR}, #{field_name,jdbcType=VARCHAR}, 
+      #{data_unit,jdbcType=VARCHAR}, #{data_frequency,jdbcType=VARCHAR}, #{data_update_frequency,jdbcType=VARCHAR}, 
+      #{abc_date_update_time,jdbcType=VARCHAR}, #{data_source,jdbcType=VARCHAR}, #{data_source_code,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.ElementModel">
+    insert into element
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="sheet_name != null">
+        sheet_name,
+      </if>
+      <if test="field_name != null">
+        field_name,
+      </if>
+      <if test="data_unit != null">
+        data_unit,
+      </if>
+      <if test="data_frequency != null">
+        data_frequency,
+      </if>
+      <if test="data_update_frequency != null">
+        data_update_frequency,
+      </if>
+      <if test="abc_date_update_time != null">
+        abc_date_update_time,
+      </if>
+      <if test="data_source != null">
+        data_source,
+      </if>
+      <if test="data_source_code != null">
+        data_source_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="sheet_name != null">
+        #{sheet_name,jdbcType=VARCHAR},
+      </if>
+      <if test="field_name != null">
+        #{field_name,jdbcType=VARCHAR},
+      </if>
+      <if test="data_unit != null">
+        #{data_unit,jdbcType=VARCHAR},
+      </if>
+      <if test="data_frequency != null">
+        #{data_frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="data_update_frequency != null">
+        #{data_update_frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="abc_date_update_time != null">
+        #{abc_date_update_time,jdbcType=VARCHAR},
+      </if>
+      <if test="data_source != null">
+        #{data_source,jdbcType=VARCHAR},
+      </if>
+      <if test="data_source_code != null">
+        #{data_source_code,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.ElementModel">
+    update element
+    <set>
+      <if test="sheet_name != null">
+        sheet_name = #{sheet_name,jdbcType=VARCHAR},
+      </if>
+      <if test="field_name != null">
+        field_name = #{field_name,jdbcType=VARCHAR},
+      </if>
+      <if test="data_unit != null">
+        data_unit = #{data_unit,jdbcType=VARCHAR},
+      </if>
+      <if test="data_frequency != null">
+        data_frequency = #{data_frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="data_update_frequency != null">
+        data_update_frequency = #{data_update_frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="abc_date_update_time != null">
+        abc_date_update_time = #{abc_date_update_time,jdbcType=VARCHAR},
+      </if>
+      <if test="data_source != null">
+        data_source = #{data_source,jdbcType=VARCHAR},
+      </if>
+      <if test="data_source_code != null">
+        data_source_code = #{data_source_code,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.ElementModel">
+    update element
+    set sheet_name = #{sheet_name,jdbcType=VARCHAR},
+      field_name = #{field_name,jdbcType=VARCHAR},
+      data_unit = #{data_unit,jdbcType=VARCHAR},
+      data_frequency = #{data_frequency,jdbcType=VARCHAR},
+      data_update_frequency = #{data_update_frequency,jdbcType=VARCHAR},
+      abc_date_update_time = #{abc_date_update_time,jdbcType=VARCHAR},
+      data_source = #{data_source,jdbcType=VARCHAR},
+      data_source_code = #{data_source_code,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <select id="getRecordsBySheetNameAndFileds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from element
+    where sheet_name = #{sheetName,jdbcType=VARCHAR} and field_name in
+      <foreach collection="fields" index="index" item="item" open="(" separator="," close=")">
+          #{item,jdbcType=VARCHAR}
+      </foreach>
+  </select>
+</mapper>

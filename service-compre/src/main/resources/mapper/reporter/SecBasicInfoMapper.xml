@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecBasicInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecBasicInfoModel">
+    <constructor>
+      <idArg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sec_ename" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sec_fname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sec_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="abc_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sec_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_small_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_short_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="used_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="ipo_status" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="security_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="ipo_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+        <arg column="end_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="ipo_sector" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="isin_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="currency_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    sec_uni_code, com_uni_code, org_uni_code, sec_name, sec_ename, sec_fname, sec_code, 
+    abc_code, sec_type, sec_small_type, sec_short_name, used_name, ipo_status, security_type, 
+    ipo_date, end_date, ipo_sector, isin_code, createtime, updatetime, status, remark, 
+    creator, editor, currency_type, come_source
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sec_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecBasicInfoModel">
+    insert into sec_basic_info (sec_uni_code, com_uni_code, org_uni_code, 
+      sec_name, sec_ename, sec_fname, 
+      sec_code, abc_code, sec_type, 
+      sec_small_type, sec_short_name, used_name, 
+      ipo_status, security_type, ipo_date, 
+      end_date, ipo_sector, isin_code, 
+      createtime, updatetime, status, 
+      remark, creator, editor, 
+      currency_type, come_source)
+    values (#{sec_uni_code,jdbcType=BIGINT}, #{com_uni_code,jdbcType=BIGINT}, #{org_uni_code,jdbcType=BIGINT}, 
+      #{sec_name,jdbcType=VARCHAR}, #{sec_ename,jdbcType=VARCHAR}, #{sec_fname,jdbcType=VARCHAR}, 
+      #{sec_code,jdbcType=VARCHAR}, #{abc_code,jdbcType=VARCHAR}, #{sec_type,jdbcType=BIGINT}, 
+      #{sec_small_type,jdbcType=BIGINT}, #{sec_short_name,jdbcType=VARCHAR}, #{used_name,jdbcType=VARCHAR}, 
+      #{ipo_status,jdbcType=BIGINT}, #{security_type,jdbcType=BIGINT}, #{ipo_date,jdbcType=TIMESTAMP}, 
+      #{end_date,jdbcType=TIMESTAMP}, #{ipo_sector,jdbcType=BIGINT}, #{isin_code,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{currency_type,jdbcType=BIGINT}, #{come_source,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecBasicInfoModel">
+    insert into sec_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="com_uni_code != null">
+        com_uni_code,
+      </if>
+      <if test="org_uni_code != null">
+        org_uni_code,
+      </if>
+      <if test="sec_name != null">
+        sec_name,
+      </if>
+      <if test="sec_ename != null">
+        sec_ename,
+      </if>
+      <if test="sec_fname != null">
+        sec_fname,
+      </if>
+      <if test="sec_code != null">
+        sec_code,
+      </if>
+      <if test="abc_code != null">
+        abc_code,
+      </if>
+      <if test="sec_type != null">
+        sec_type,
+      </if>
+      <if test="sec_small_type != null">
+        sec_small_type,
+      </if>
+      <if test="sec_short_name != null">
+        sec_short_name,
+      </if>
+      <if test="used_name != null">
+        used_name,
+      </if>
+      <if test="ipo_status != null">
+        ipo_status,
+      </if>
+      <if test="security_type != null">
+        security_type,
+      </if>
+      <if test="ipo_date != null">
+        ipo_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="ipo_sector != null">
+        ipo_sector,
+      </if>
+      <if test="isin_code != null">
+        isin_code,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="currency_type != null">
+        currency_type,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="com_uni_code != null">
+        #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="org_uni_code != null">
+        #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="sec_name != null">
+        #{sec_name,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_ename != null">
+        #{sec_ename,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_fname != null">
+        #{sec_fname,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_code != null">
+        #{sec_code,jdbcType=VARCHAR},
+      </if>
+      <if test="abc_code != null">
+        #{abc_code,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_type != null">
+        #{sec_type,jdbcType=BIGINT},
+      </if>
+      <if test="sec_small_type != null">
+        #{sec_small_type,jdbcType=BIGINT},
+      </if>
+      <if test="sec_short_name != null">
+        #{sec_short_name,jdbcType=VARCHAR},
+      </if>
+      <if test="used_name != null">
+        #{used_name,jdbcType=VARCHAR},
+      </if>
+      <if test="ipo_status != null">
+        #{ipo_status,jdbcType=BIGINT},
+      </if>
+      <if test="security_type != null">
+        #{security_type,jdbcType=BIGINT},
+      </if>
+      <if test="ipo_date != null">
+        #{ipo_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipo_sector != null">
+        #{ipo_sector,jdbcType=BIGINT},
+      </if>
+      <if test="isin_code != null">
+        #{isin_code,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="currency_type != null">
+        #{currency_type,jdbcType=BIGINT},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecBasicInfoModel">
+    update sec_basic_info
+    <set>
+      <if test="com_uni_code != null">
+        com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="org_uni_code != null">
+        org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="sec_name != null">
+        sec_name = #{sec_name,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_ename != null">
+        sec_ename = #{sec_ename,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_fname != null">
+        sec_fname = #{sec_fname,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_code != null">
+        sec_code = #{sec_code,jdbcType=VARCHAR},
+      </if>
+      <if test="abc_code != null">
+        abc_code = #{abc_code,jdbcType=VARCHAR},
+      </if>
+      <if test="sec_type != null">
+        sec_type = #{sec_type,jdbcType=BIGINT},
+      </if>
+      <if test="sec_small_type != null">
+        sec_small_type = #{sec_small_type,jdbcType=BIGINT},
+      </if>
+      <if test="sec_short_name != null">
+        sec_short_name = #{sec_short_name,jdbcType=VARCHAR},
+      </if>
+      <if test="used_name != null">
+        used_name = #{used_name,jdbcType=VARCHAR},
+      </if>
+      <if test="ipo_status != null">
+        ipo_status = #{ipo_status,jdbcType=BIGINT},
+      </if>
+      <if test="security_type != null">
+        security_type = #{security_type,jdbcType=BIGINT},
+      </if>
+      <if test="ipo_date != null">
+        ipo_date = #{ipo_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipo_sector != null">
+        ipo_sector = #{ipo_sector,jdbcType=BIGINT},
+      </if>
+      <if test="isin_code != null">
+        isin_code = #{isin_code,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="currency_type != null">
+        currency_type = #{currency_type,jdbcType=BIGINT},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecBasicInfoModel">
+    update sec_basic_info
+    set com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      sec_name = #{sec_name,jdbcType=VARCHAR},
+      sec_ename = #{sec_ename,jdbcType=VARCHAR},
+      sec_fname = #{sec_fname,jdbcType=VARCHAR},
+      sec_code = #{sec_code,jdbcType=VARCHAR},
+      abc_code = #{abc_code,jdbcType=VARCHAR},
+      sec_type = #{sec_type,jdbcType=BIGINT},
+      sec_small_type = #{sec_small_type,jdbcType=BIGINT},
+      sec_short_name = #{sec_short_name,jdbcType=VARCHAR},
+      used_name = #{used_name,jdbcType=VARCHAR},
+      ipo_status = #{ipo_status,jdbcType=BIGINT},
+      security_type = #{security_type,jdbcType=BIGINT},
+      ipo_date = #{ipo_date,jdbcType=TIMESTAMP},
+      end_date = #{end_date,jdbcType=TIMESTAMP},
+      ipo_sector = #{ipo_sector,jdbcType=BIGINT},
+      isin_code = #{isin_code,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      currency_type = #{currency_type,jdbcType=BIGINT},
+      come_source = #{come_source,jdbcType=VARCHAR}
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </update>
+  <select id="selectBySecUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT} and isnull(end_date)
+  </select>
+  <select id="selectBySecCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_basic_info
+    where sec_code = #{sec_code,jdbcType=VARCHAR} and sec_small_type in (1004001001,1004001002) and status!=9 limit 1
+  </select>
+    <select id="selectBySecCode2" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sec_basic_info
+        where sec_code = #{sec_code,jdbcType=VARCHAR} and status!=9 limit 1
+    </select>
+  <select id="selectByAbcCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_basic_info
+    where abc_code = #{abc_code,jdbcType=VARCHAR} and status!=9 limit 1
+  </select>
+
+
+
+  <select id="getListBySecUniCodes" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM `sec_basic_info`
+    WHERE `sec_uni_code` IN
+    <foreach collection="secUniCodes" item="item" open="(" close=")" separator=",">
+      #{item}
+    </foreach> and isnull(end_date)
+  </select>
+
+  <select id="getListBySecUniCodesNullEndDate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM `sec_basic_info`
+    WHERE `sec_uni_code` IN
+    <foreach collection="secUniCodes" item="item" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </select>
+
+  <select id="getListByAbcCodes" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM `sec_basic_info`
+    WHERE `abc_code` IN
+    <foreach collection="abcCodes" item="item" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </select>
+
+  <select id="getComUniCodeBySecCodeList" resultType="java.lang.Long">
+    select com_uni_code
+    from sec_basic_info
+    where sec_type = 1004001
+    and sec_code in
+        <foreach collection="sec_code_list" separator="," open="(" close=")" item="sec_code">
+          #{sec_code}
+        </foreach>
+  </select>
+
+  <select id="selectComCountInIpoSectorBySecCodeList" resultType="la.niub.abcapi.servicecompre.model.bo.theme.ComCountInIpoSectorBO">
+    SELECT CASE ipo_sector WHEN 1005001 THEN '主板' WHEN 1005002 THEN '中小板' WHEN 1005003 THEN '创业板' WHEN 1005007 THEN '老三板'  WHEN 1005004 THEN '新三板' END ipo_sector, COUNT(ipo_sector) 'count'
+    FROM sec_basic_info
+    WHERE sec_type=1004001
+    AND sec_code IN
+        <foreach collection="sec_code_list" separator="," open="(" close=")" item="sec_code">
+          #{sec_code}
+        </foreach>
+    GROUP BY ipo_sector
+  </select>
+  
+  <select id="selectSecUniCodeBySecTypeAndSecCodeList" resultType="java.lang.Long">
+    SELECT sec_uni_code
+     FROM sec_basic_info
+     WHERE sec_type = 1004001
+     AND sec_code IN
+           <foreach collection="sec_code_list" separator="," open="(" close=")" item="sec_code">
+             #{sec_code}
+           </foreach>
+  </select>
+
+  <select id="selectBySecCodeList" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM `sec_basic_info`
+    AND sec_code IN
+    <foreach collection="sec_code_list" separator="," open="(" close=")" item="sec_code">
+      #{sec_code}
+    </foreach>
+  </select>
+
+  <select id="getListBySecCodeList" resultType="map">
+    SELECT
+        sec_uni_code,
+        com_uni_code,
+        sec_name
+    FROM
+        sec_basic_info
+    WHERE
+        STATUS != '9'
+    AND sec_type = 1004001
+    AND ipo_status = 1002007
+    AND sec_code IN
+    <foreach collection="secCodeList" separator="," open="(" close=")" item="secCode">
+      #{secCode}
+    </foreach>
+  </select>
+
+  <!--<select id="getAbcCodeAndSecUniCodeByComUniCode" resultType="map">-->
+    <!--SELECT sec_uni_code, abc_code-->
+    <!--FROM sec_basic_info-->
+    <!--WHERE com_uni_code = #{com_uni_code}-->
+<!--&#45;&#45;     AND sec_type = 1004001-->
+    <!--limit 1-->
+  <!--</select>-->
+
+  <select id="getSecUniCodeByComUniCode" resultType="java.lang.Long">
+    SELECT sec_uni_code
+    FROM sec_basic_info
+    WHERE com_uni_code = #{com_uni_code}
+    AND sec_type in (1004001, 1004017, 1004018)
+    ORDER BY sec_type
+    limit 1
+  </select>
+
+  <select id="getSecTypeByComUniCode" resultType="java.lang.Long">
+    SELECT sec_type
+    FROM sec_basic_info
+    WHERE com_uni_code = #{com_uni_code}
+    AND sec_type in (1004001, 1004017, 1004018)
+    ORDER BY sec_type
+    limit 1
+  </select>
+
+  <select id="getAbcCodeByComUniCode" resultType="java.lang.String">
+    SELECT abc_code
+    FROM sec_basic_info
+    WHERE com_uni_code = #{com_uni_code}
+    AND sec_type in (1004001, 1004017, 1004018)
+  </select>
+
+  <select id="getSecNameAndAbcCodeAndComUniCodeAndSecUniCode" resultType="map">
+    SELECT sec_name, abc_code, sec_uni_code, com_uni_code
+    FROM sec_basic_info
+    WHERE sec_type in (1004001, 1004017, 1004018)
+    group BY sec_uni_code
+  </select>
+
+  <select id="getSecNameAndAbcCodeAndSecUniCodeByComUniCodeByAbcCode" resultType="map">
+    SELECT sec_name, sec_uni_code, com_uni_code
+    FROM sec_basic_info
+    WHERE sec_type in (1004001, 1004017, 1004018)
+    AND abc_uni_code = #{abc_code}
+    group BY sec_uni_code
+    limit 1
+  </select>
+
+  <select id="getAbcCodeByAbcCodeListAndSecType" resultType="java.lang.String">
+    SELECT abc_code
+    FROM sec_basic_info
+    WHERE sec_type in (1004001, 1004017, 1004018)
+    AND abc_code in
+    <foreach collection="abcCodeList" item="abcCode" separator="," open="(" close=")">
+      #{abcCode}
+    </foreach>
+    <if test="sec_type != null">
+      AND sec_type = #{sec_type}
+    </if>
+  </select>
+
+  <select id="getSecUniCodeByComUniCodeAndSecTypeAndSecSmallType" parameterType="java.lang.Long" resultType="java.lang.Long">
+    SELECT
+	  sec_uni_code
+    FROM
+        sec_basic_info
+    WHERE
+      com_uni_code = #{com_uni_code}
+    AND sec_type = '1004003'
+    AND sec_small_type IN ('1004003002', '1004003003')
+    AND end_date IS NULL
+  </select>
+  <select id="getSameComSecUniCodeListBySecUniCode" resultType="java.lang.Long">
+    SELECT sec_uni_code
+    FROM sec_basic_info
+    WHERE com_uni_code = #{com_uni_code}
+    and sec_type = 1004003
+    AND end_date IS NULL
+    <if test="sec_uni_code != null">
+      AND sec_uni_code != #{sec_uni_code}
+    </if>
+    group BY sec_uni_code
+  </select>
+
+  <select id="getComUniCodeBySecUniCode" resultType="java.lang.Long">
+    SELECT com_uni_code
+    FROM sec_basic_info
+    WHERE sec_uni_code = #{sec_uni_code}
+    Limit 1
+  </select>
+
+  <select id="getRankingWhenTableIsFundShareChange" resultType="map">
+    SELECT sbi.sec_uni_code, sbi.sec_code, sbi.abc_code, sbi.sec_name, fsc.tot_app_share, fsc.tot_redem_share
+    FROM sec_basic_info sbi
+    LEFT JOIN  (SELECT *
+                FROM (SELECT a.sec_uni_code, a.end_date,  a.tot_app_share ,a.tot_redem_share
+                      FROM fund_share_change a, ( SELECT sec_uni_code , MAX(end_date) end_date
+                                                  FROM fund_share_change
+                                                  WHERE sec_uni_code in
+                                                                <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+                                                                  #{secUniCode}
+                                                                </foreach>
+                                                  GROUP BY sec_uni_code ) b
+                       WHERE a.sec_uni_code = b.sec_uni_code
+                       AND a.end_date = b.end_date
+                       ORDER BY tot_app_share IS NULL, tot_app_share, tot_redem_share IS NULL, tot_redem_share) c
+			    GROUP BY sec_uni_code ) fsc ON sbi.sec_uni_code = fsc.sec_uni_code
+    WHERE sbi.sec_uni_code IN
+                         <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+                           #{secUniCode}
+                         </foreach>
+     GROUP BY sbi.sec_uni_code
+     ORDER BY ${prior}
+     limit #{offset}, #{limit}
+  </select>
+
+  <select id="getRankingWhenTableIsFundNav" resultType="map">
+    SELECT sbi.sec_uni_code, sbi.sec_code, sbi.abc_code, sbi.sec_name, fn.unit_nav, fn.cumu_unit_nav, fn.rise_rate
+    FROM sec_basic_info sbi
+    LEFT JOIN  (SELECT *
+                FROM (SELECT a.sec_uni_code, a.end_date,  a.unit_nav ,a.cumu_unit_nav, a.rise_rate
+                      FROM fund_nav a, ( SELECT sec_uni_code , MAX(end_date) end_date
+                                          FROM fund_nav
+                                          WHERE sec_uni_code in
+                                                    <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+                                                      #{secUniCode}
+                                                    </foreach>
+                                          GROUP BY sec_uni_code ) b
+                      WHERE a.sec_uni_code = b.sec_uni_code
+                      AND a.end_date = b.end_date
+                      ORDER BY unit_nav IS NULL, unit_nav, cumu_unit_nav IS NULL, cumu_unit_nav, rise_rate is NULL , rise_rate) c
+                GROUP BY sec_uni_code ) fn ON fn.sec_uni_code = sbi.sec_uni_code
+    WHERE sbi.sec_uni_code IN
+                  <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+                    #{secUniCode}
+                  </foreach>
+    GROUP BY sbi.sec_uni_code
+    ORDER BY ${prior}
+    limit #{offset}, #{limit}
+  </select>
+
+  <select id="getRankingWhenTableIsFundNavReturn" resultType="map">
+    SELECT sbi.sec_uni_code, sbi.sec_code, sbi.abc_code, sbi.sec_name, fnr.nav_return_l_1w, fnr.nav_return_l_1m,
+             fnr.nav_return_l_3m, fnr.nav_return_l_6m, fnr.nav_return_t_1y
+    FROM sec_basic_info sbi
+    LEFT JOIN  (SELECT *
+                FROM (SELECT a.sec_uni_code, a.end_date,  a.nav_return_l_1w, a.nav_return_l_1m,
+                             a.nav_return_l_3m, a.nav_return_l_6m, a.nav_return_t_1y
+                      FROM fund_nav_return a, ( SELECT sec_uni_code , MAX(end_date) end_date
+                                          FROM fund_nav_return
+                                          WHERE sec_uni_code in
+                                              <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+                                                #{secUniCode}
+                                              </foreach>
+                                          GROUP BY sec_uni_code ) b
+                      WHERE a.sec_uni_code = b.sec_uni_code
+                      AND a.end_date = b.end_date
+                      ORDER BY unit_nav IS NULL, unit_nav, cumu_unit_nav IS NULL, cumu_unit_nav, rise_rate is NULL , rise_rate) c
+                GROUP BY sec_uni_code ) fnr ON fnr.sec_uni_code = sbi.sec_uni_code
+    WHERE sbi.sec_uni_code IN
+            <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+              #{secUniCode}
+            </foreach>
+    GROUP BY sbi.sec_uni_code
+    ORDER BY ${prior}
+    limit #{offset}, #{limit}
+  </select>
+
+  <select id="getAllFundCodeExceptSecUniCode" resultType="java.lang.Long">
+    SELECT sec_uni_code
+    FROM sec_basic_info
+    WHERE sec_type = 1004003
+    AND sec_uni_code != #{secUniCode}
+    AND end_date IS NULL
+    GROUP BY sec_uni_code
+  </select>
+
+  <select id="getSecNameAndSecCodeBySecUniCode" resultType="map">
+    SELECT sec_uni_code, sec_name, sec_code, abc_code
+    FROM sec_basic_info
+    where sec_type = 1004003
+    AND sec_uni_code = #{secUniCode}
+    limit 1
+  </select>
+
+  <select id="getValidSecUniCodeBySecUniCodeList" resultType="java.lang.Long">
+    SELECT
+        sec_uni_code
+    FROM
+        sec_basic_info
+    WHERE
+        end_date IS NULL
+    AND sec_uni_code IN
+    <foreach collection="secUniCodeList" item="secUniCode" separator="," open="(" close=")">
+      #{secUniCode}
+    </foreach>
+  </select>
+
+  <select id="getStockComCode" resultType="String" parameterType="String">
+    SELECT com_uni_code
+    FROM sec_basic_info
+    where sec_type='1004001'
+    AND abc_code = #{abc_code}
+    limit 1
+  </select>
+
+  <select id="selectBySecUniCodeHS" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT} and isnull(end_date) and sec_type='1004001'
+  </select>
+
+  <select id="getNotionDetail" parameterType="map" resultType="map">
+    SELECT sec_uni_code as id,abc_code,sec_name,ipo_date,(select system_name from system_const where system_uni_code=security_type) as security_type from  sec_basic_info t where  t.sec_code in(select b.sec_code
+    from index_ingre_stock a
+    join index_ingre_stock b
+    on a.index_id=b.index_id
+    where a.out_date is null and b.out_date is null
+    and a.sec_code =#{sec_code}
+    and a.index_id in (select index_id from index_basic_info where remark='概念板块指数' and index_code=#{index_code})) and t.sec_type=1004001
+    <if test="orderByField != null and orderByField != ''">
+      ORDER BY ${orderByField}
+    </if>
+    <if test="limit != null and limit != 0">
+      LIMIT ${limit} OFFSET ${offset}
+    </if>
+  </select>
+
+  <select id="getNotionDetailCount" parameterType="map" resultType="long">
+    SELECT count(1) from  sec_basic_info t where  t.sec_code in(select b.sec_code
+    from index_ingre_stock a
+    join index_ingre_stock b
+    on a.index_id=b.index_id
+    where a.out_date is null and b.out_date is null
+    and a.sec_code =#{sec_code}
+    and a.index_id in (select index_id from index_basic_info where remark='概念板块指数' and index_code=#{index_code})) and t.sec_type=1004001
+  </select>
+</mapper>

@@ -1,0 +1,119 @@
+{
+    "code": 200,
+    "msg": "success",
+    "data": [
+        {
+            "readingAmount": 6812122,
+            "title": "互联网大数据周报",
+            "domain": "水泥制造",
+            "relatedStockList": [
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                },
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                },
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                }
+            ],
+            "strategy": "买入",
+            "category": "公司点评",
+            "authorList": [
+                "刘永融"
+            ],
+            "documentPageNumber": 65,
+            "department": "基金一部",
+            "commentAmount": 12,
+            "shareAmount": 17,
+            "collectAmount": 12,
+            "recommendAmount": 23,
+            "star": 5,
+            "creationTime": "2017/08/02",
+            "tagList": [
+                "重要事件",
+                "股利分红"
+            ],
+            "reportText": "研报概述内容"
+        },
+        {
+            "department": "基金一部",
+            "readingAmount": 68,
+            "domain": "水泥制造",
+            "relatedStockList": [
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                },
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                },
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                }
+            ],
+            "strategy": "买入",
+            "category": "公司点评",
+            "authorList": [
+                "刘永融"
+            ],
+            "documentPageNumber": 65,
+            "title": "互联网大数据周报",
+            "commentAmount": 12,
+            "shareAmount": 17,
+            "collectAmount": 12,
+            "recommendAmount": 23,
+            "star": 5,
+            "creationTime": "2017/08/02",
+            "tagList": [
+                "重要事件",
+                "股利分红"
+            ],
+            "reportText": "研报概述内容"
+        },
+        {
+            "title": "互联网大数据周报",
+            "department": "基金一部",
+            "domain": "水泥制造",
+            "relatedStockList": [
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                },
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                },
+                {
+                    "code": "600089",
+                    "name": "特变电工"
+                }
+            ],
+            "strategy": "买入",
+            "category": "公司点评",
+            "authorList": [
+                "刘永融"
+            ],
+            "documentPageNumber": 65,
+            "readingAmount": 68,
+            "commentAmount": 12,
+            "shareAmount": 17,
+            "collectAmount": 12,
+            "recommendAmount": 23,
+            "star": 5,
+            "creationTime": "2017/08/02",
+            "tagList": [
+                "重要事件",
+                "股利分红"
+            ],
+            "reportText": "研报概述内容"
+        }
+    ],
+    "pageSize": 10,
+    "currentPage": 1
+}

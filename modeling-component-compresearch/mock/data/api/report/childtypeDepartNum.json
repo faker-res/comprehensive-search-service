@@ -1,0 +1,60 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "childTypes": "k7DpVFhgJN",
+            "departsNum": [
+                {
+                    "depart": "f03hyh1MWv",
+                    "num": 31534
+                },
+                {
+                    "depart": "OXc1MXpIfI",
+                    "num": 110
+                },
+                {
+                    "depart": "nnmvTjC5zm",
+                    "num": 2685
+                }
+            ]
+        },
+        {
+            "childTypes": "T6qjw2d0rU",
+            "departsNum": [
+                {
+                    "depart": "JX1p05lxQl",
+                    "num": 87190
+                },
+                {
+                    "depart": "DtgtBNQs4j",
+                    "num": 24953
+                },
+                {
+                    "depart": "INbug6zsZA",
+                    "num": 19946
+                }
+            ]
+        },
+        {
+            "childTypes": "k9FvA8Sws9",
+            "departsNum": [
+                {
+                    "depart": "THoOCAsdxu",
+                    "num": 3997
+                },
+                {
+                    "depart": "eHtYeftjGH",
+                    "num": 49222
+                },
+                {
+                    "depart": "3WtjzhhwrA",
+                    "num": 39069
+                }
+            ]
+        }
+    ],
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

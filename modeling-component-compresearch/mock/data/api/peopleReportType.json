@@ -1,0 +1,39 @@
+{
+    "code": 200,
+    "msg": "yIpiiCGsQf",
+    "data": [
+        {
+            "id": "86594",
+            "name": "1IRVZjBQco",
+            "typesNum": {
+                "industry": 76281,
+                "common": 67383,
+                "macroscopic": 48250,
+                "company": 33757,
+                "total": 75504
+            }
+        },
+        {
+            "id": "87484",
+            "name": "CNYZgrobZG",
+            "typesNum": {
+                "industry": 13341,
+                "common": 37547,
+                "macroscopic": 35242,
+                "company": 9320,
+                "total": 88355
+            }
+        },
+        {
+            "id": "88432",
+            "name": "SfffLLYDqJ",
+            "typesNum": {
+                "industry": 14168,
+                "common": 93385,
+                "macroscopic": 46059,
+                "company": 51929,
+                "total": 72098
+            }
+        }
+    ]
+}

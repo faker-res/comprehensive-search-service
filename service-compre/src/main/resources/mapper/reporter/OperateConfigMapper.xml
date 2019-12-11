@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IOperateConfigDao">
+    <resultMap id="keywordQueryResult" type="la.niub.abcapi.servicecompre.model.KeyWordQueryModel">
+        <result column="id" property="id" />
+        <result column="display_Name" property="display_Name" />
+        <result column="QUERY" property="QUERY" />
+        <result column="stock_Code" property="stock_Code" />
+        <result column="topic_Url" property="topic_Url" />
+    </resultMap>
+    <resultMap id="ChartConfigMap" type="la.niub.abcapi.servicecompre.model.ChartConfigModel">
+        <result column="id" property="id" />
+        <result column="topic_Title" property="topic_Title" />
+        <result column="topic_Sub" property="topic_Sub" />
+        <result column="topic_Url" property="topic_Url" />
+        <result column="bg_ImgID" property="bg_ImgID" />
+        <result column="query" property="query" />
+    </resultMap>
+    <resultMap id="ChartConfigIMAGEMap" type="la.niub.abcapi.servicecompre.model.ChartConfigIMAGEModel">
+        <result column="img_Title" property="img_Title"/>
+        <result column="img_Url" property="img_Url"/>
+        <result column="img_Source" property="img_Source"/>
+        <result column="source_Url" property="source_Url"/>
+        <result column="img_Category" property="img_Category"/>
+        <result column="recommendation" property="recommendation"/>
+        <result column="isTop" property="isTop"/>
+        <result column="img_Width" property="img_Width"/>
+        <result column="img_Height" property="img_Height"/>
+        <result column="update_Time" property="update_Time"/>
+        <result column="id" property="id"/>
+    </resultMap>
+    <resultMap id="FreqSearchTablesMap" type="java.lang.String">
+        <result column="tab_ID" property="tab_ID"/>
+    </resultMap>
+    <resultMap id="CateCategoriesMap" type="la.niub.abcapi.servicecompre.model.CateCategoriesModel">
+        <result column="category_Name" property="category_Name"/>
+        <result column="category_Code" property="category_Code"/>
+        <result column="category_icon" property="category_icon"/>
+    </resultMap>
+    <resultMap id="OtherCategoriesMap" type="java.lang.String">
+        <result column="category_Code" property="category_Code"/>
+    </resultMap>
+    <resultMap id="CategoriesTablesDetailsMap" type="la.niub.abcapi.servicecompre.model.FreqTablesDetailsModel">
+        <result column="tab_id" property="tab_id"/>
+        <result column="icon" property="icon"/>
+        <result column="name" property="name"/>
+        <result column="shortName" property="shortName"/>
+        <result column="engName" property="engName"/>
+    </resultMap>
+    <resultMap id="TablesFromCategoryCodeMap" type="la.niub.abcapi.servicecompre.model.AllSearchTablesModel">
+        <result column="id" property="id"/>
+        <result column="tab_ID" property="tab_ID"/>
+        <result column="tab_ICON" property="tab_ICON"/>
+        <result column="tab_Name" property="tab_Name"/>
+        <result column="tab_ShortName" property="tab_ShortName"/>
+        <result column="tab_EngName" property="tab_EngName"/>
+        <result column="category_Code" property="category_Code"/>
+        <result column="isImportant" property="isImportant"/>
+        <result column="display_Order" property="display_Order"/>
+        <result column="tab_ICON_Freq" property="tab_ICON_Freq"/>
+    </resultMap>
+    <select id="queryWithKeyWordpresetQuery"  resultMap="keywordQueryResult">
+        select id,display_Name,query,stock_Code from presetQuery where ana_module = #{module,jdbcType=VARCHAR}
+        and search_Column = #{module,jdbcType=VARCHAR} and isApp != #{terminal,jdbcType=INTEGER} and isEnglish != #{lan,jdbcType=INTEGER}
+        limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="queryWithKeyWordhotSearch"  resultMap="keywordQueryResult">
+        select id,display_Name,query,stock_Code from hotSearch where ana_module = #{module,jdbcType=VARCHAR}
+        and search_Column = #{module,jdbcType=VARCHAR} and isApp != #{terminal,jdbcType=INTEGER} and isEnglish != #{lan,jdbcType=INTEGER} order by display_Order asc limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="queryWithKeyWordpromoteWords"  resultMap="keywordQueryResult">
+        select id,display_Name,query,stock_Code,topic_Url from promoteWords where ana_module = #{module,jdbcType=VARCHAR}
+        and search_Column = #{module,jdbcType=VARCHAR} and isApp != #{terminal,jdbcType=INTEGER} and isEnglish != #{lan,jdbcType=INTEGER} order by display_Order asc limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="getChartConfigFromOpTopic"  resultMap="ChartConfigMap">
+        select id, topic_Title,topic_Sub,topic_Url,bg_ImgID,query from op_topic where ana_Module = #{module,jdbcType=VARCHAR}
+        and isApp != #{terminal,jdbcType=INTEGER} and isEnglish != #{lan,jdbcType=INTEGER}  and isActive=2 order by display_Order ASC limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="getChartConfigFromSelectedIMG"  resultMap="ChartConfigIMAGEMap">
+        select img_Title,img_Url,img_Source,source_Url,img_Category,recommendation,isTop,img_Width,img_Height,update_Time,id from op_selectedIMG where isActive = 1
+        and isApp != #{terminal,jdbcType=INTEGER} and isEnglish != #{lan,jdbcType=INTEGER} order by isTop ASC, id DESC
+        <if test="limit != 0">
+            limit #{limit,jdbcType=INTEGER}
+        </if>
+    </select>
+
+    <select id="getChartConfigFromSelectedIMGONE"  resultMap="ChartConfigIMAGEMap">
+        select img_Title,img_Url,img_Source,source_Url,img_Category,recommendation,isTop,img_Width,img_Height,update_Time,id from op_selectedIMG where 1=1
+        <if test="id != null">
+            and  id=#{id,jdbcType=VARCHAR}
+        </if>
+    </select>
+
+    <select id="getTabIdsFromFreqSearchTables"  resultMap="FreqSearchTablesMap">
+        select tab_ID from freq_SearchTables order by display_Order ASC limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="getTablesDetails"  resultMap="CategoriesTablesDetailsMap">
+        select tab_ID as tab_id, tab_ICON_Freq as icon, tab_Name as name, tab_ShortName as shortName, tab_EngName as engName from
+        all_SearchTables WHERE `tab_ID` in
+        <foreach collection="tab_IDs" index="index" item="item" open="(" separator="," close=")">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+    <select id="getCateCategories"  resultMap="CateCategoriesMap">
+        select category_Name,category_Code,grp_ICON as category_icon from all_TableGroups WHERE isDisplay=1 order by display_Order
+    </select>
+    <select id="getOtherCategories"  resultMap="OtherCategoriesMap">
+        select category_Code from all_TableGroups WHERE isDisplay=0
+    </select>
+    <select id="getTablesFromCategoryCode"  resultMap="TablesFromCategoryCodeMap">
+        select * from all_SearchTables WHERE isImportant=1 and `category_Code` = #{categoryCode,jdbcType=VARCHAR}
+        order by display_Order, category_Code ASC
+    </select>
+    <select id="getOtherCategoryCodeFromTable"  resultType="java.lang.String">
+        select category_Code from all_TableGroups WHERE isDisplay=0
+    </select>
+    <select id="getTablesByKeyword"  resultMap="CategoriesTablesDetailsMap">
+        select tab_ID as tab_id, tab_Name as name, tab_ShortName as shortName, tab_EngName as engName from all_SearchTables
+        <if test="keyword != null">
+            WHERE `tab_ShortName` LIKE #{keyword,jdbcType=VARCHAR}
+        </if>
+        limit #{limit,jdbcType=INTEGER}
+    </select>
+</mapper>

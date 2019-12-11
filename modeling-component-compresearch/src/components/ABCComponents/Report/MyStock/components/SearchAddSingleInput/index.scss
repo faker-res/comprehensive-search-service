@@ -1,0 +1,41 @@
+.searchContainer .search-batch-add{
+  display: inline-block;
+}
+.ms-stocksearch-wrap{
+    width: 70%;
+    height: 28px;
+    font-size: 12px;
+    border:1px solid #D5DCE5;
+    position: relative;
+}
+.ms-stocksearch-wrap.focused{
+    border-color:#287DDC;
+}
+.ms-stocksearch-wrap .ant-select-auto-complete.ant-select-lg .ant-select-selection__rendered{
+    line-height:initial;
+}
+.ms-stocksearch-wrap .ant-select-selection,.ms-stocksearch-wrap .global-search.showBatchAddMenu{width:100%;}
+.ms-stocksearch-wrap .ant-select-selection,.ms-stocksearch-wrap .global-search{height: 100% !important;width:100%;}
+.ms-stocksearch-wrap .anticon-search{position: absolute;top:50%;margin-top:-8px;left:10px;z-index:2}
+.anticon-search:before{font-size: 16px;color:#999}
+.ms-stocksearch-wrap .ant-select-auto-complete.ant-select-lg .ant-input{
+    height: 100%;
+    border:none;
+    line-height: 20px;
+    box-shadow: none;
+}
+.ms-stocksearch-wrap input[type="text"]{   
+    margin-left: 29px;
+    font-size: 12px;
+    height: 24px;
+}
+.ms-stocksearch-wrap  .dropmenu {margin:0!important;height:100%!important;}
+.ant-select-dropdown .stock-code,.ant-select-dropdown .stock-name{
+    display:inline-block;width:80px;margin-right:10px;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ant-select-dropdown .stock-name{width:88px;}
+.ant-select-dropdown{font-size: 12px;}
+.ms-stocksearch-wrap .global-search .ant-select-selection__placeholder{margin-left:30px;font-size: 12px;height: 100%;}
+.ms-stocksearch-item .icon-add{float: right;margin-top:5px;}
+.ms-stocksearch-item .icon-add:before{color:#287DDC}
+.ms-stocksearch-item.ant-select-dropdown-menu-item{color:#333;}
+.ms-stocksearch-item.ant-select-dropdown-menu-item-disabled{color: #ccc !important;}

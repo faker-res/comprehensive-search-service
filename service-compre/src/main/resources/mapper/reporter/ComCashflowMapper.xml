@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComCashflowDao">
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, reporttype, principles, consolidation, currency_code, 
+    announcement_date, report_format, sale_cash, custom_to_netvalue, borrow_netvalue, 
+    borrow_other_netvalue, trad_sec_cash_netr, rec_insurance_cash, rec_insurance_netvalue, 
+    invest_netvalue, taxes_refu, trading_financial_dispose_netcash, char_inte_cash, cash_netvalue, 
+    return_cash_netvalue, rec_other_cash, special_items_ocif, adjustment_items_ocif, 
+    bussiness_cash_total, buy_for_cash, custom_netvalue, pay_contra_settle_cash, pay_interest_cash, 
+    pay_profit_cash, pay_com_cash, trad_sec_net_decr, bank_cash_netvalue, pay_emp_cash, 
+    pay_tax, pay_other_cash, special_items_ocof, adjustment_items_ocof, bussiness_cash_output, 
+    special_bussiness_cash_net, bussiness_cash_netvalue, rec_invest_cash, invest_rec_cash, 
+    dispose_asset_netvalue, subs_net_cash, rec_otherinvest_cash, special_items_cash, 
+    adjustmen_items_cash, invest_cash_total, invest_pay_cash, loan_net_addvalue, subs_pay_cash, 
+    disp_subs_pay_cash, pay_otherinvest_cash, special_items_icif, adjustmen_items_icif, 
+    invest_cash_output, invest_cash_netvalue_special_item, invest_cash_netvalue, rec_invest_reccash, 
+    cash_for_holder_invest, rec_borrow_cash, rec_other_relatecash, publish_rec_cash, 
+    special_items_fcif, adjustment_items_fcif, borrow_cash_total, pay_debet_cash, interest_pay_cash, 
+    profit_for_holder, pay_other_relatecash, special_items_fcof, adjustment_items_fcof, 
+    borrow_cash_outtotal, special_borrow_netcash, borrow_cash_netvalue, rate_to_cash, 
+    cash_to_netadd, origin_cash, last_cash, net_profit, plus_asset_loss, asset_depr, 
+    intangible_asset_discount, long_cost_discount, asset_loss, fix_asset_loss, value_change_loss, 
+    fin_cost, invest_loss, exch_gain_loss, deferred_taxes_asset_chg, deferred_taxes_liabl_chg, 
+    stock_reduce, rec_project_reduce, pay_project_add, other, special_bussiness_cashnet, 
+    balance_account_bussiness_cashnet, indirect_management_cash_netvalue, debt_to_capital, 
+    debt_one_year, cash_to_asset, last_cash_value, origin_cash_value, last_cash_equiv_value, 
+    origin_cash_equiv_value, cash_equ_net_increase_special, cash_equ_net_increase_balance, 
+    indirect_cash_equiv_netvalue, whether_published, special_case_description, paid_expenses_reduced, 
+    paid_expenses_add, net_increase_in_special, net_increase_in_balance, end_period_special, 
+    end_period_balance, net_reduce_net_capital, net_increase_net_capital, come_source, 
+    createtime, updatetime, status, remark, creator, editor
+  </sql>
+  <select id="getTopNRecords" resultType="la.niub.abcapi.servicecompre.model.ComCashflowModel">
+    select
+    <include refid="Base_Column_List" />
+    from com_cashflow
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+</mapper>

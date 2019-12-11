@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IIndexValuationAnaDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.IndexValuationAnaModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="index_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="account_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="total_market_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="total_shares" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="freefloat_market_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="float_shares" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pe" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pelyr" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pettm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pb" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pbmrq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pcf" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pcf_ttm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ps" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="psttm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, index_uni_code, account_date, total_market_value, total_shares, freefloat_market_value, 
+    float_shares, pe, pelyr, pettm, pb, pbmrq, pcf, pcf_ttm, ps, psttm, createtime, updatetime, 
+    status, creator, editor, come_source, push_search, push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from index_valuation_ana
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_valuation_ana
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.IndexValuationAnaModel">
+    insert into index_valuation_ana (id, index_uni_code, account_date, 
+      total_market_value, total_shares, freefloat_market_value, 
+      float_shares, pe, pelyr, 
+      pettm, pb, pbmrq, pcf, 
+      pcf_ttm, ps, psttm, 
+      createtime, updatetime, status, 
+      creator, editor, come_source, 
+      push_search, push_product)
+    values (#{id,jdbcType=BIGINT}, #{index_uni_code,jdbcType=BIGINT}, #{account_date,jdbcType=DATE}, 
+      #{total_market_value,jdbcType=DECIMAL}, #{total_shares,jdbcType=DECIMAL}, #{freefloat_market_value,jdbcType=DECIMAL}, 
+      #{float_shares,jdbcType=DECIMAL}, #{pe,jdbcType=DECIMAL}, #{pelyr,jdbcType=DECIMAL}, 
+      #{pettm,jdbcType=DECIMAL}, #{pb,jdbcType=DECIMAL}, #{pbmrq,jdbcType=DECIMAL}, #{pcf,jdbcType=DECIMAL}, 
+      #{pcf_ttm,jdbcType=DECIMAL}, #{ps,jdbcType=DECIMAL}, #{psttm,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, 
+      #{push_search,jdbcType=TINYINT}, #{push_product,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.IndexValuationAnaModel">
+    insert into index_valuation_ana
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="index_uni_code != null">
+        index_uni_code,
+      </if>
+      <if test="account_date != null">
+        account_date,
+      </if>
+      <if test="total_market_value != null">
+        total_market_value,
+      </if>
+      <if test="total_shares != null">
+        total_shares,
+      </if>
+      <if test="freefloat_market_value != null">
+        freefloat_market_value,
+      </if>
+      <if test="float_shares != null">
+        float_shares,
+      </if>
+      <if test="pe != null">
+        pe,
+      </if>
+      <if test="pelyr != null">
+        pelyr,
+      </if>
+      <if test="pettm != null">
+        pettm,
+      </if>
+      <if test="pb != null">
+        pb,
+      </if>
+      <if test="pbmrq != null">
+        pbmrq,
+      </if>
+      <if test="pcf != null">
+        pcf,
+      </if>
+      <if test="pcf_ttm != null">
+        pcf_ttm,
+      </if>
+      <if test="ps != null">
+        ps,
+      </if>
+      <if test="psttm != null">
+        psttm,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="index_uni_code != null">
+        #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="account_date != null">
+        #{account_date,jdbcType=DATE},
+      </if>
+      <if test="total_market_value != null">
+        #{total_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="total_shares != null">
+        #{total_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="freefloat_market_value != null">
+        #{freefloat_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="float_shares != null">
+        #{float_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="pe != null">
+        #{pe,jdbcType=DECIMAL},
+      </if>
+      <if test="pelyr != null">
+        #{pelyr,jdbcType=DECIMAL},
+      </if>
+      <if test="pettm != null">
+        #{pettm,jdbcType=DECIMAL},
+      </if>
+      <if test="pb != null">
+        #{pb,jdbcType=DECIMAL},
+      </if>
+      <if test="pbmrq != null">
+        #{pbmrq,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf != null">
+        #{pcf,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf_ttm != null">
+        #{pcf_ttm,jdbcType=DECIMAL},
+      </if>
+      <if test="ps != null">
+        #{ps,jdbcType=DECIMAL},
+      </if>
+      <if test="psttm != null">
+        #{psttm,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.IndexValuationAnaModel">
+    update index_valuation_ana
+    <set>
+      <if test="index_uni_code != null">
+        index_uni_code = #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="account_date != null">
+        account_date = #{account_date,jdbcType=DATE},
+      </if>
+      <if test="total_market_value != null">
+        total_market_value = #{total_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="total_shares != null">
+        total_shares = #{total_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="freefloat_market_value != null">
+        freefloat_market_value = #{freefloat_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="float_shares != null">
+        float_shares = #{float_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="pe != null">
+        pe = #{pe,jdbcType=DECIMAL},
+      </if>
+      <if test="pelyr != null">
+        pelyr = #{pelyr,jdbcType=DECIMAL},
+      </if>
+      <if test="pettm != null">
+        pettm = #{pettm,jdbcType=DECIMAL},
+      </if>
+      <if test="pb != null">
+        pb = #{pb,jdbcType=DECIMAL},
+      </if>
+      <if test="pbmrq != null">
+        pbmrq = #{pbmrq,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf != null">
+        pcf = #{pcf,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf_ttm != null">
+        pcf_ttm = #{pcf_ttm,jdbcType=DECIMAL},
+      </if>
+      <if test="ps != null">
+        ps = #{ps,jdbcType=DECIMAL},
+      </if>
+      <if test="psttm != null">
+        psttm = #{psttm,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.IndexValuationAnaModel">
+    update index_valuation_ana
+    set index_uni_code = #{index_uni_code,jdbcType=BIGINT},
+      account_date = #{account_date,jdbcType=DATE},
+      total_market_value = #{total_market_value,jdbcType=DECIMAL},
+      total_shares = #{total_shares,jdbcType=DECIMAL},
+      freefloat_market_value = #{freefloat_market_value,jdbcType=DECIMAL},
+      float_shares = #{float_shares,jdbcType=DECIMAL},
+      pe = #{pe,jdbcType=DECIMAL},
+      pelyr = #{pelyr,jdbcType=DECIMAL},
+      pettm = #{pettm,jdbcType=DECIMAL},
+      pb = #{pb,jdbcType=DECIMAL},
+      pbmrq = #{pbmrq,jdbcType=DECIMAL},
+      pcf = #{pcf,jdbcType=DECIMAL},
+      pcf_ttm = #{pcf_ttm,jdbcType=DECIMAL},
+      ps = #{ps,jdbcType=DECIMAL},
+      psttm = #{psttm,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getRecordsByDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_valuation_ana
+    where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+    <if test="accountDate != null">
+      and account_date = #{accountDate,jdbcType=TIMESTAMP}
+    </if>
+    limit 1
+  </select>
+    <select id="getLastAccountDate" resultType="date">
+        select
+        max(account_date)
+        from index_valuation_ana
+    </select>
+    <select id="selectHeatPelyrByIndexUniCodesAfterAccountDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from (select
+        <include refid="Base_Column_List"/>
+        from index_valuation_ana
+        where index_uni_code in
+        <foreach collection="indexUniCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and account_date >= #{accountDate,jdbcType=TIMESTAMP}
+        order by account_date asc) a
+        group by index_uni_code
+        order by pelyr desc
+        limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="selectHeatPettmByIndexUniCodesAfterAccountDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from (select
+        <include refid="Base_Column_List"/>
+        from index_valuation_ana
+        where index_uni_code in
+        <foreach collection="indexUniCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and account_date >= #{accountDate,jdbcType=TIMESTAMP}
+        order by account_date asc) a
+        group by index_uni_code
+        order by pettm desc
+        limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="selectHeatPbmrqByIndexUniCodesAfterAccountDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from (select
+        <include refid="Base_Column_List"/>
+        from index_valuation_ana
+        where index_uni_code in
+        <foreach collection="indexUniCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and account_date >= #{accountDate,jdbcType=TIMESTAMP}
+        order by account_date asc) a
+        group by index_uni_code
+        order by pbmrq desc
+        limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="selectByIndexUniCodesAfterAccountDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from (select
+        <include refid="Base_Column_List"/>
+        from index_valuation_ana
+        where index_uni_code in
+        <foreach collection="indexUniCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        and account_date >= #{accountDate,jdbcType=TIMESTAMP}
+        order by account_date asc) a
+        group by index_uni_code
+    </select>
+  <select id="selectByIndexUniCodeAndTradeDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_valuation_ana
+    where
+    <foreach collection="indexUniCodeAndDate" item="item" index="index"
+             open="(" separator=" OR " close=")">
+      (index_uni_code=#{index,jdbcType=BIGINT} and account_date=#{item,jdbcType=TIMESTAMP})
+    </foreach>
+  </select>
+</mapper>

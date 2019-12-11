@@ -1,0 +1,151 @@
+@import '../../../../theme/common.scss';
+.ResearchActivities-container{
+    width: 100%;
+    height: 270px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.03);
+    .title{
+        height:47.74px;
+        line-height:47.74px;
+        color: rgba(51, 51, 51, 1);
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+        font-family: PingFangSC-Medium;
+        border-bottom:1px solid rgba(242, 242, 242, 1);
+        text-indent:27px;
+    }
+    .AnalystCard-content-container{
+        padding: 10px 23px;
+        .AnalystCard-content{
+            padding: 10px 0;
+            // margin:10px 0;
+            display: flex;
+            .AnalystCard-content-left{
+                width:49px;
+                height:85px;
+                background-color: #F3F5F8;
+                padding:0 5px;
+                span{
+                    display: block;
+                    width:100%;
+                    height:42px;
+                    line-height: 42px;
+                    text-align: center;
+                    color: rgba(61, 92, 127, 1);
+                    &.time{
+                        font-size: 16px;
+                    }
+                    &.line{
+                        width: 39px;
+                        height: 1px;
+                        opacity: 0.58;
+                        background-color: rgba(56, 96, 157, 0.31);
+                    }
+                    &.week{
+                        font-size: 12px;
+                    }
+                }
+                
+                // display:flex;
+                // .time{
+
+                // }
+                // .line{
+                //     width:39px;
+                //     height:1px;
+                //     left: 131px;
+                //     background-color: rgba(56, 96, 157, 0.31);
+                // }
+            }
+            .AnalystCard-content-right{
+                margin-left:15px;
+                >li{
+                    position: relative;
+                    margin-bottom: 10px;
+                }
+            .headWrap{
+                    font-size: 15px;
+                    color: #333;
+                    font-weight: 700;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: flex;
+                    align-items: center;
+                    margin-right: 80px;
+                    .headTitle {
+                        color: #333;
+                        vertical-align: middle;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+            }
+            .currentNewsCon{
+                .currentNewsCon__info{
+                    .bodyCntWrap{
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            color: #666;
+                            font-size: 12px;
+                            line-height: 17px;
+                            margin: 10px 0;
+                            font-size: 13px;
+                            font-family: PingFangSC-Regular;
+                            color: #666;
+                            line-height: 21px;
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                            overflow: hidden;
+                            max-height: 3em;
+                    }
+                    .footWrap{
+                            color: #8c8c8c;
+                            margin-top: 5px;
+                            font-size: 12px;
+                            .tagList{
+                                display: flex;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                li{
+                                    margin-bottom: 0;
+                                    line-height: 20px;
+                                    position: relative;
+                                    span{
+                                        vertical-align: middle;
+                                    }
+                                }
+                                li:after{
+                                    content: "";
+                                    display: inline-block;
+                                    // width: 1px;
+                                    // height: 12px;
+                                    // background: #e8e8e8;
+                                    // vertical-align: middle;
+                                    margin: 0 9px;
+                                }
+                                .text span{
+                                    display: inline-block;
+                                    height: 15px;
+                                    line-height: 15px;
+                                    font-size: 12px;
+                                    padding: 0 2px;
+                                    color: #3D5C7F;
+                                    // background-color: #949cb3;
+                                    // border: 1px solid #949cb3;
+                                    // border-radius: 3px;
+                                    // border-top-right-radius: 0;
+                                    // border-bottom-right-radius: 0;
+                                }
+                            }
+                        }
+                    }  
+                }
+            }
+        }
+    }
+}

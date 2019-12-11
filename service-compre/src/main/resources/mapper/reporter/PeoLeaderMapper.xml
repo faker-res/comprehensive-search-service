@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IPeoLeaderDao">
+    <select id="getComUniCodeByPeoUniCode" resultType="java.lang.Long">
+        SELECT com_uni_code FROM peo_leader WHERE peo_uni_code = #{peo_uni_code}
+    </select>
+
+    <select id="getPeoComNameByPeoUniCode" resultType="map">
+        SELECT com_uni_code, com_name FROM peo_leader WHERE peo_uni_code = #{peo_uni_code}
+    </select>
+
+    <select id="getPeoUniCodeListByComUniCode" resultType="java.lang.Long">
+        SELECT peo_uni_code
+        FROM peo_leader
+        WHERE com_uni_code = #{com_uni_code}
+        GROUP BY peo_uni_code
+    </select>
+
+    <select id="getLedNameByPeoUniCode" resultType="java.lang.String">
+        SELECT peo_leader.name
+        FROM peo_leader
+        WHERE peo_uni_code = #{peo_uni_code}
+        limit 1
+    </select>
+</mapper>

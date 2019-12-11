@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundInvestInduStatDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundInvestInduStatModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="indu_standard" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="indu_published_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="indu_published_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="indu_fund_tot_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_stk_tot_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, fund_uni_code, end_date, indu_standard, indu_published_code, indu_published_name, 
+    indu_fund_tot_nav, indu_stk_tot_value, createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_invest_indu_stat
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_invest_indu_stat
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundInvestInduStatModel">
+    insert into fund_invest_indu_stat (id, fund_uni_code, end_date, 
+      indu_standard, indu_published_code, indu_published_name, 
+      indu_fund_tot_nav, indu_stk_tot_value, 
+      createtime, updatetime, status, 
+      creator, editor)
+    values (#{id,jdbcType=BIGINT}, #{fund_uni_code,jdbcType=BIGINT}, #{end_date,jdbcType=DATE}, 
+      #{indu_standard,jdbcType=BIGINT}, #{indu_published_code,jdbcType=VARCHAR}, #{indu_published_name,jdbcType=VARCHAR}, 
+      #{indu_fund_tot_nav,jdbcType=DECIMAL}, #{indu_stk_tot_value,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundInvestInduStatModel">
+    insert into fund_invest_indu_stat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="fund_uni_code != null">
+        fund_uni_code,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="indu_standard != null">
+        indu_standard,
+      </if>
+      <if test="indu_published_code != null">
+        indu_published_code,
+      </if>
+      <if test="indu_published_name != null">
+        indu_published_name,
+      </if>
+      <if test="indu_fund_tot_nav != null">
+        indu_fund_tot_nav,
+      </if>
+      <if test="indu_stk_tot_value != null">
+        indu_stk_tot_value,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="fund_uni_code != null">
+        #{fund_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="indu_standard != null">
+        #{indu_standard,jdbcType=BIGINT},
+      </if>
+      <if test="indu_published_code != null">
+        #{indu_published_code,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_published_name != null">
+        #{indu_published_name,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_fund_tot_nav != null">
+        #{indu_fund_tot_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_stk_tot_value != null">
+        #{indu_stk_tot_value,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundInvestInduStatModel">
+    update fund_invest_indu_stat
+    <set>
+      <if test="fund_uni_code != null">
+        fund_uni_code = #{fund_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="indu_standard != null">
+        indu_standard = #{indu_standard,jdbcType=BIGINT},
+      </if>
+      <if test="indu_published_code != null">
+        indu_published_code = #{indu_published_code,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_published_name != null">
+        indu_published_name = #{indu_published_name,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_fund_tot_nav != null">
+        indu_fund_tot_nav = #{indu_fund_tot_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_stk_tot_value != null">
+        indu_stk_tot_value = #{indu_stk_tot_value,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundInvestInduStatModel">
+    update fund_invest_indu_stat
+    set fund_uni_code = #{fund_uni_code,jdbcType=BIGINT},
+      end_date = #{end_date,jdbcType=DATE},
+      indu_standard = #{indu_standard,jdbcType=BIGINT},
+      indu_published_code = #{indu_published_code,jdbcType=VARCHAR},
+      indu_published_name = #{indu_published_name,jdbcType=VARCHAR},
+      indu_fund_tot_nav = #{indu_fund_tot_nav,jdbcType=DECIMAL},
+      indu_stk_tot_value = #{indu_stk_tot_value,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IPlateChainStockDao">
+    <select id="getPlateChainStockByInduChainCode" parameterType="long" resultType="map">
+        SELECT
+            sec_name,
+            CASE
+        WHEN LEFT (sec_code, 1) IN ('0', '3', '2') THEN
+            CONCAT(sec_code, '.SZ')
+        WHEN LEFT (sec_code, 1) IN ('6', '9') THEN
+            CONCAT(sec_code, '.SH')
+        END abc_code
+        FROM
+            plate_chain_stock
+        WHERE
+            sub_state = 1
+        AND indu_chain_code = #{induChainCode}
+    </select>
+</mapper>

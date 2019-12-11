@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.INavigation_barDao">
+    <sql id="Navigation_bar_Column_List">
+id,parent_id,name,url,content,status,sort_order,type,module,icon,created,updated,iscard,encode_name
+    </sql>
+
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.Navigation_bar">
+        INSERT INTO navigation_bar (<include refid="Navigation_bar_Column_List"/>) VALUES
+(#{id},#{parent_id},#{name},#{url},#{content},#{status},#{sort_order},#{type},#{module},#{icon},#{created},#{updated},#{iscard},#{encode_name})
+    </insert>
+
+    <delete id="delete" parameterType="la.niub.abcapi.servicecompre.model.Navigation_bar">
+        DELETE FROM navigation_bar WHERE 1=1
+        <if test="id != null and id !=''">
+            AND id = #{id}
+        </if>
+    </delete>
+	
+	<update id="update" parameterType="la.niub.abcapi.servicecompre.model.Navigation_bar">
+        UPDATE navigation_bar
+        <trim prefix="set" suffixOverrides=",">
+			<if test="id != null and id != ''">
+				id = #{id},
+			</if>
+			<if test="parent_id != null and parent_id != ''">
+				parent_id = #{parent_id},
+			</if>
+			<if test="name != null and name != ''">
+				name = #{name},
+			</if>
+			<if test="url != null and url != ''">
+				url = #{url},
+			</if>
+			<if test="content != null and content != ''">
+				content = #{content},
+			</if>
+			<if test="status != null and status != ''">
+				status = #{status},
+			</if>
+			<if test="sort_order != null and sort_order != ''">
+				sort_order = #{sort_order},
+			</if>
+			<if test="type != null and type != ''">
+				type = #{type},
+			</if>
+			<if test="module != null and module != ''">
+				module = #{module},
+			</if>
+			<if test="icon != null and icon != ''">
+				icon = #{icon},
+			</if>
+			<if test="created != null and created != ''">
+				created = #{created},
+			</if>
+			<if test="updated != null and updated != ''">
+				updated = #{updated},
+			</if>
+			<if test="iscard != null and iscard != ''">
+				iscard = #{iscard},
+			</if>
+			<if test="encode_name != null and encode_name != ''">
+				encode_name = #{encode_name},
+			</if>
+        </trim>
+        WHERE 1=1
+        <if test="id != null and id !=''">
+            AND id = #{id}
+        </if>
+    </update>
+	
+	<select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.Navigation_bar">
+        SELECT <include refid="Navigation_bar_Column_List"/> FROM navigation_bar WHERE 1=1
+		<if test="id != null and id != ''">
+			AND id = #{id}
+		</if>
+		<if test="parent_id != null and parent_id != ''">
+			AND parent_id = #{parent_id}
+		</if>
+		<if test="name != null and name != ''">
+			AND name = #{name}
+		</if>
+		<if test="url != null and url != ''">
+			AND url = #{url}
+		</if>
+		<if test="content != null and content != ''">
+			AND content = #{content}
+		</if>
+		<if test="status != null and status != ''">
+			AND status = #{status}
+		</if>
+		<if test="sort_order != null and sort_order != ''">
+			AND sort_order = #{sort_order}
+		</if>
+		<if test="type != null and type != ''">
+			AND type = #{type}
+		</if>
+		<if test="module != null and module != ''">
+			AND module = #{module}
+		</if>
+		<if test="icon != null and icon != ''">
+			AND icon = #{icon}
+		</if>
+		<if test="created != null and created != ''">
+			AND created = #{created}
+		</if>
+		<if test="updated != null and updated != ''">
+			AND updated = #{updated}
+		</if>
+		<if test="iscard != null and iscard != ''">
+			AND iscard = #{iscard}
+		</if>
+		<if test="encode_name != null and encode_name != ''">
+			AND encode_name = #{encode_name}
+		</if>
+		<if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="startPageNum != null and perPageNum != null">
+            LIMIT ${perPageNum} OFFSET ${startPageNum}
+        </if>
+    </select>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+        SELECT COUNT(1) FROM navigation_bar WHERE 1=1
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="parent_id != null and parent_id != ''">
+				AND parent_id = #{parent_id}
+			</if>
+			<if test="name != null and name != ''">
+				AND name = #{name}
+			</if>
+			<if test="url != null and url != ''">
+				AND url = #{url}
+			</if>
+			<if test="content != null and content != ''">
+				AND content = #{content}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="sort_order != null and sort_order != ''">
+				AND sort_order = #{sort_order}
+			</if>
+			<if test="type != null and type != ''">
+				AND type = #{type}
+			</if>
+			<if test="module != null and module != ''">
+				AND module = #{module}
+			</if>
+			<if test="icon != null and icon != ''">
+				AND icon = #{icon}
+			</if>
+			<if test="created != null and created != ''">
+				AND created = #{created}
+			</if>
+			<if test="updated != null and updated != ''">
+				AND updated = #{updated}
+			</if>
+			<if test="iscard != null and iscard != ''">
+				AND iscard = #{iscard}
+			</if>
+			<if test="encode_name != null and encode_name != ''">
+				AND encode_name = #{encode_name}
+			</if>
+    </select>
+	
+</mapper>
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IQueryHistoryDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.QueryHistoryModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="keyword" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="input_from" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="page" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="lastmodify" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, keyword, input_from, page, lastmodify
+  </sql>
+
+  <select id="selectByPages" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from query_history
+    WHERE user_id = #{user_id,jdbcType=VARCHAR}
+    <if test="last_id != null">
+      and id &lt; #{last_id}
+    </if>
+    <if test ="null != pages and pages.size > 0">
+      and page in
+      <foreach collection="pages" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    <if test="keyword != null">
+      and keyword LIKE "%"#{keyword}"%"
+    </if>
+    ORDER BY id DESC
+    <if test="limit != null">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <delete id="deleteLog">
+    delete from query_history
+    where user_id = #{user_id,jdbcType=VARCHAR}
+    <if test ="null != ids and ids.size > 0">
+      and id in
+      <foreach collection="ids" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </delete>
+
+  <insert id="insertLog" parameterType="la.niub.abcapi.servicecompre.model.QueryHistoryModel">
+    insert into query_history (user_id, keyword, input_from, page)
+    values (#{user_id,jdbcType=VARCHAR},
+            #{keyword,jdbcType=VARCHAR},
+            #{input_from,jdbcType=VARCHAR},
+            #{page,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>

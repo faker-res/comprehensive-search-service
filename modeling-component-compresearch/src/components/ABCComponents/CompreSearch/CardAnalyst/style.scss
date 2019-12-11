@@ -1,0 +1,90 @@
+$markColor : #4A90E2;
+
+:local(.localClass){padding: 20px;background: #fff;
+    .fl{float: left;}
+    .fr{float: right;}
+    .analysterInfo{text-align: center;
+        .tit{font-size: 12px;color: #999;margin-top: 10px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+        .btn_order{display: inline-block;padding: 0 10px;line-height: 22px;border-radius: 11px;background: #F1F3F7;color: #2563C1;text-align: center;font-size: 14px;margin-top: 10px;}
+        .btn_order:hover{background: rgb(222, 226, 233);text-decoration: none;}
+        .mark{font-size: 12px;color: $markColor;margin: 0 5px;}
+        .picWrap{display: inline-block;
+            .pic{display: block;width: 50px;height: 50px;background: url(./images/d_head.png) no-repeat center top;background-size: cover;margin: 0 auto;border-radius: 4px;}
+        }
+        .con{
+            font-size: 20px;color: #000;height: 40px;line-height: 30px;padding-top: 10px;
+            img{
+                width: 118px;
+                height: 36px;
+            }
+        }
+        .con.name{
+            font-size: 24px;color: #2563C1;font-weight: bold;
+            .idcard{color: #999;font-size: 20px;font-weight: normal;vertical-align: bottom;margin-left: 10px;}
+            .idcard:hover{color: $markColor;}
+        }
+        .tit.industry{font-size: 14px;color: #000;}
+        .organPic{font-size: 12px;color: #999;}
+        .tl{text-align: left;}
+    }
+    .recentAnalst{border-top: 1px solid #f4f4f4;margin-top: 20px;padding-top: 20px;
+        > div{width: 50%;padding: 0 10px;transition: all ease .5s;}
+    }
+    .recentAnalst.hideChartAnalyst{
+        > .fl{width: 0;overflow: hidden;padding: 0;display: none;}
+        > .fr{width: 100%;}
+    }
+    > p{text-align: center;padding: 15px 0;
+        .btn_more{color: #999;font-size: 12px;}
+        :hover{color: $markColor;text-decoration: none;}
+    }
+    .analyst-info-footer {
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 20px;
+        > a {
+            color: #666;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            img {
+                margin-left: 4px;
+            }
+            &:hover {
+                color: #2563c1;
+            }
+        }
+        // span {
+        //     display: block;
+        //     margin-left: 5px;
+        //     color: white;
+        //     background: #407cd5;
+        //     border-radius: 50%;
+        //     border: 1px solid #407cd5;
+        //     height: 14px;
+        //     width: 14px;
+        // }
+
+
+        // height: 30px;
+        // line-height: 30px;
+        // font-size: 12px;
+        // >a {
+        //     color: #666;
+        //     cursor: pointer;
+        //     text-decoration: none;
+        //     &:hover {
+        //         color: #2563C1;
+        //     }
+        // }
+    }
+}
+
+.ypeng-antd-popover-contact{
+    .item{
+        > span{color: $markColor;margin-left: 10px;}
+    }
+}

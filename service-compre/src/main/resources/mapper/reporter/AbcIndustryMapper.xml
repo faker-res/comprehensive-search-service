@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IAbcIndustryDao">
+    <resultMap id="SimpleResultMap" type="la.niub.abcapi.servicecompre.model.dao.AbcIndustryDaoModel">
+        <id column="indu_uni_code" property="induUniCode" jdbcType="BIGINT"/>
+        <result column="indu_standard" property="induStandard" jdbcType="BIGINT"/>
+        <result column="indu_code" property="induCode" jdbcType="VARCHAR"/>
+        <result column="indu_name" property="induName" jdbcType="VARCHAR"/>
+        <result column="index_code" property="indexCode" jdbcType="VARCHAR"/>
+        <result column="parent_id" property="parentId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Simple_Column_List">
+        `indu_uni_code`, `indu_standard`, `indu_code`, `indu_name`, `index_code`, `parent_id`
+    </sql>
+
+    <select id="selectByInduCodes" resultMap="SimpleResultMap">
+        SELECT
+        <include refid="Simple_Column_List"/>
+        FROM `abc_industry`
+        WHERE
+        <if test ="null != induCodes">
+            `indu_code` IN
+            <foreach collection="induCodes" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        AND `indu_standard` = 1001014
+        ORDER BY `indu_uni_code` DESC;
+    </select>
+
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AbcIndustryModel">
+        <constructor>
+            <idArg column="indu_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="indu_standard" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="indu_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="index_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="indu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="parent_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="indu_enname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="isvalid" javaType="java.lang.String" jdbcType="CHAR" />
+            <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+            <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="indu_level" javaType="java.lang.Byte" jdbcType="TINYINT" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    indu_uni_code, indu_standard, indu_code, index_code, indu_name, parent_id, indu_enname,
+    isvalid, createtime, updatetime, status, remark, creator, editor, indu_level
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from abc_industry
+        where indu_uni_code = #{indu_uni_code,jdbcType=BIGINT}
+    </select>
+    <select id="selectEntity" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from abc_industry
+        where 1=1
+        <if test="indu_code != null and indu_code != ''">
+            AND indu_code = #{indu_code}
+        </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from abc_industry
+    where indu_uni_code = #{indu_uni_code,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AbcIndustryModel">
+    insert into abc_industry (indu_uni_code, indu_standard, indu_code,
+      index_code, indu_name, parent_id,
+      indu_enname, isvalid, createtime,
+      updatetime, status, remark,
+      creator, editor, indu_level
+      )
+    values (#{indu_uni_code,jdbcType=BIGINT}, #{indu_standard,jdbcType=BIGINT}, #{indu_code,jdbcType=VARCHAR},
+      #{index_code,jdbcType=VARCHAR}, #{indu_name,jdbcType=VARCHAR}, #{parent_id,jdbcType=VARCHAR},
+      #{indu_enname,jdbcType=VARCHAR}, #{isvalid,jdbcType=CHAR}, #{createtime,jdbcType=TIMESTAMP},
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR},
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{indu_level,jdbcType=TINYINT}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AbcIndustryModel">
+        insert into abc_industry
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="indu_uni_code != null">
+                indu_uni_code,
+            </if>
+            <if test="indu_standard != null">
+                indu_standard,
+            </if>
+            <if test="indu_code != null">
+                indu_code,
+            </if>
+            <if test="index_code != null">
+                index_code,
+            </if>
+            <if test="indu_name != null">
+                indu_name,
+            </if>
+            <if test="parent_id != null">
+                parent_id,
+            </if>
+            <if test="indu_enname != null">
+                indu_enname,
+            </if>
+            <if test="isvalid != null">
+                isvalid,
+            </if>
+            <if test="createtime != null">
+                createtime,
+            </if>
+            <if test="updatetime != null">
+                updatetime,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="editor != null">
+                editor,
+            </if>
+            <if test="indu_level != null">
+                indu_level,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="indu_uni_code != null">
+                #{indu_uni_code,jdbcType=BIGINT},
+            </if>
+            <if test="indu_standard != null">
+                #{indu_standard,jdbcType=BIGINT},
+            </if>
+            <if test="indu_code != null">
+                #{indu_code,jdbcType=VARCHAR},
+            </if>
+            <if test="index_code != null">
+                #{index_code,jdbcType=VARCHAR},
+            </if>
+            <if test="indu_name != null">
+                #{indu_name,jdbcType=VARCHAR},
+            </if>
+            <if test="parent_id != null">
+                #{parent_id,jdbcType=VARCHAR},
+            </if>
+            <if test="indu_enname != null">
+                #{indu_enname,jdbcType=VARCHAR},
+            </if>
+            <if test="isvalid != null">
+                #{isvalid,jdbcType=CHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="editor != null">
+                #{editor,jdbcType=VARCHAR},
+            </if>
+            <if test="indu_level != null">
+                #{indu_level,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AbcIndustryModel">
+        update abc_industry
+        <set>
+            <if test="indu_standard != null">
+                indu_standard = #{indu_standard,jdbcType=BIGINT},
+            </if>
+            <if test="indu_code != null">
+                indu_code = #{indu_code,jdbcType=VARCHAR},
+            </if>
+            <if test="index_code != null">
+                index_code = #{index_code,jdbcType=VARCHAR},
+            </if>
+            <if test="indu_name != null">
+                indu_name = #{indu_name,jdbcType=VARCHAR},
+            </if>
+            <if test="parent_id != null">
+                parent_id = #{parent_id,jdbcType=VARCHAR},
+            </if>
+            <if test="indu_enname != null">
+                indu_enname = #{indu_enname,jdbcType=VARCHAR},
+            </if>
+            <if test="isvalid != null">
+                isvalid = #{isvalid,jdbcType=CHAR},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="editor != null">
+                editor = #{editor,jdbcType=VARCHAR},
+            </if>
+            <if test="indu_level != null">
+                indu_level = #{indu_level,jdbcType=TINYINT},
+            </if>
+        </set>
+        where indu_uni_code = #{indu_uni_code,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AbcIndustryModel">
+    update abc_industry
+    set indu_standard = #{indu_standard,jdbcType=BIGINT},
+      indu_code = #{indu_code,jdbcType=VARCHAR},
+      index_code = #{index_code,jdbcType=VARCHAR},
+      indu_name = #{indu_name,jdbcType=VARCHAR},
+      parent_id = #{parent_id,jdbcType=VARCHAR},
+      indu_enname = #{indu_enname,jdbcType=VARCHAR},
+      isvalid = #{isvalid,jdbcType=CHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      indu_level = #{indu_level,jdbcType=TINYINT}
+    where indu_uni_code = #{indu_uni_code,jdbcType=BIGINT}
+  </update>
+    <select id="selectByInduNameOf1001014" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from abc_industry
+        where indu_name = #{induName,jdbcType=VARCHAR} and indu_standard=1001014 and indu_level=1 limit 1
+    </select>
+    <select id="selectByIndexCode" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from abc_industry
+        where index_code = #{indexCode,jdbcType=BIGINT}
+    </select>
+    <resultMap id="reseachIndustryList" type="la.niub.abcapi.servicecompre.model.bo.ResearchIndustryBasicInfoBO">
+        <constructor>
+            <idArg column="indu_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="indu_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </constructor>
+    </resultMap>
+    <select id="selectResearchIndustryList" resultMap="reseachIndustryList">
+        SELECT indu_uni_code, indu_name FROM abc_industry WHERE indu_level = 1 AND indu_standard = 1001014
+    </select>
+    <select id="selectByIndexCodes" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from abc_industry
+        where index_code in
+        <foreach collection="indexCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <select id="selectAllOf1001014" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from abc_industry
+        where indu_standard in (1001014) and indu_level=1
+    </select>
+    <select id="selectByParentIds" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `abc_industry`
+        WHERE
+        `parent_id` IN
+        <foreach collection="induCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

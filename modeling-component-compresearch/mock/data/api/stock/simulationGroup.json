@@ -1,0 +1,59 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "id": 97710,
+            "accumulatedEarning": "-6.64%(20180522)",
+            "combinationName": "环保公用组合",
+            "combinationType": "自由股票组合",
+            "dailyEarning": "-0.20%",
+            "monthEarning": "4.60%",
+            "yearEarning": "-6.64%(20180522)",
+            "referenceIndex": "电力及公用事业"
+        },
+        {
+            "id": 97710,
+            "accumulatedEarning": "-6.64%(20180522)",
+            "combinationName": "休闲服务组合",
+            "combinationType": "自由股票组合",
+            "dailyEarning": "-0.20%",
+            "monthEarning": "4.60%",
+            "yearEarning": "-6.64%(20180522)",
+            "referenceIndex": "钢铁(中信)"
+        },
+        {
+            "id": 97710,
+            "accumulatedEarning": "-6.64%(20180522)",
+            "combinationName": "食品饮料组合",
+            "combinationType": "自由股票组合",
+            "dailyEarning": "-0.20%",
+            "monthEarning": "4.60%",
+            "yearEarning": "-6.64%(20180522)",
+            "referenceIndex": "旅游餐饮(中信)"
+        },
+        {
+            "id": 97710,
+            "accumulatedEarning": "-6.64%(20180522)",
+            "combinationName": "银行组合",
+            "combinationType": "基金助力模拟组合",
+            "dailyEarning": "-0.20%",
+            "monthEarning": "4.60%",
+            "yearEarning": "-6.64%(20180522)",
+            "referenceIndex": "食品饮料(中信)"
+        },
+        {
+            "id": 97710,
+            "accumulatedEarning": "-6.64%(20180522)",
+            "combinationName": "行业配置组合",
+            "combinationType": "自由股票组合",
+            "dailyEarning": "-1.61%",
+            "monthEarning": "-8.85%",
+            "yearEarning": "-8.85%(20180522)",
+            "referenceIndex": "沪深300"
+        }
+    ],
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.INtfJzComTagDao">
+  <select id="getComIdListByTagName" parameterType="string" resultType="int">
+    SELECT
+        com_id
+    FROM
+        ntf_jz_com_tag
+    WHERE
+        tag_name LIKE "%"#{tagName}"%"
+    AND status = 2
+    GROUP BY
+        com_id
+  </select>
+</mapper>

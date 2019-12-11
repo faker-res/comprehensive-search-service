@@ -1,0 +1,101 @@
+/**
+ * @description 个股证券侧边股票列表组件样式
+ * @author kygeng
+ * date: 2018-05-17
+ */
+.abc-side-stock-list-wrap {
+    width: 350px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+    .abc-side-stock-list-header {
+        padding: 15px 20px;
+        width: 100%;
+        height: 50px;
+        color: #333;
+        font-size: 14px;
+        line-height: 21px;
+        // font-weight: bold;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        .more{
+            float: right;
+            color: #97999C;
+            font-size: 12px;
+            display: inline-block;
+            padding-right: 8px;
+            //margin-left: 147px;
+            line-height: 20px;
+            text-decoration:none;
+        }
+        .more:hover{
+           color:#1890ff;
+           text-decoration:none;   
+        }
+    }
+    .abc-side-stock-list-content {
+        width: 100%;
+        .side-stock-list-wrap {
+            padding-bottom: 12px;
+            .ant-list-header {
+                padding: 0;
+            }
+            .side-stock-list-header {
+                padding: 8px 20px 0 20px;
+                width: 100%;
+                height: auto;
+                >span {
+                    display: inline-flex;
+                    font-size: 12px;
+                    color: #666;
+                }
+                .stock-name {
+                    width: 50%;
+                }
+                .stock-price {
+                    width: 25%;
+                }
+                .stock-diff {
+                    width: 25%;
+                }
+            }
+            .side-stock-list-item-wrap {
+                padding: 8px 20px 0 20px;
+                cursor: pointer;
+                .name-code {
+                    width: 50%;
+                    .name {
+                        color: #333;
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 21px;
+                    }
+                    .code {
+                        color: #999;
+                        font-size: 12px;
+                    }
+                }
+                .price {
+                    width: 25%;
+                    color: #666;
+                    &.rise {
+                        color: #d0021b;
+                    }
+                    &.drop {
+                        color: #04a92b;
+                    }
+                }
+                .diff {
+                    width: 25%;
+                    color: #666;
+                    &.rise {
+                        color: #d0021b;
+                    }
+                    &.drop {
+                        color: #04a92b;
+                    }
+                }
+            }
+        }
+    }
+}

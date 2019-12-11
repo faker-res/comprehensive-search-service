@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ILedAchievementRiskDao">
+
+    <select id="getPostInfoByPeoUniCode" resultType="map">
+        SELECT COUNT(DISTINCT com_uni_code) AS comCount, led_name, post_name
+        FROM led_achievement_risk
+        WHERE STATUS!='9'
+        AND peo_uni_code = #{peo_uni_code}
+        GROUP BY led_name, post_name
+    </select>
+
+    <select id="getListedComCountByPeoUniCode" resultType="java.lang.Integer">
+        SELECT COUNT(DISTINCT com_uni_code) AS comCount
+        FROM `led_achievement_risk`
+        WHERE STATUS!='9'
+        AND peo_uni_code = #{peo_uni_code}
+    </select>
+
+    <select id="getComUniCodeListByPeoUniCode" resultType="java.lang.Long">
+        SELECT com_uni_code
+        FROM led_achievement_risk
+        WHERE STATUS!='9'
+        AND peo_uni_code = #{peo_uni_code}
+        GROUP by com_uni_code
+    </select>
+
+    <select id="getComTotalIncomeByPeoUniCode" resultType="java.math.BigDecimal">
+        SELECT SUM(main_income)
+        FROM led_achievement_risk
+        WHERE peo_uni_code = #{peo_uni_code}
+    </select>
+
+    <select id="getHurunRankByPeoUniCode" resultType="java.lang.Integer">
+        SELECT MAX(hurun_rank)
+        FROM led_achievement_risk
+        WHERE peo_uni_code = #{peo_uni_code}
+    </select>
+
+    <select id="getTotalLawsuitNumByPeoUniCode" resultType="java.lang.Integer">
+        select sum(a.lawsuit_num) AS lawsuit_num
+        from (
+            SELECT DISTINCT lawsuit_num
+            FROM led_achievement_risk
+            WHERE peo_uni_code = #{peo_uni_code}
+            GROUP BY com_uni_code) a
+    </select>
+
+    <select id="getGrowthByComUniCode" resultType="java.math.BigDecimal">
+        SELECT DISTINCT total_market_value_growth
+        FROM led_achievement_risk
+        WHERE com_uni_code = #{com_uni_code}
+        limit 1
+    </select>
+
+    <select id="getIncomeAndIncomeYoyByComUniCode" resultType="map">
+        SELECT main_income, main_income_yoy AS incomeYoy, hurun_rank, total_market_value_growth AS marketValueGrowth, lawsuit_num
+        FROM led_achievement_risk
+        WHERE peo_uni_code = #{peo_uni_code}
+        AND com_uni_code = #{com_uni_code}
+        limit 1
+    </select>
+
+</mapper>
+
+

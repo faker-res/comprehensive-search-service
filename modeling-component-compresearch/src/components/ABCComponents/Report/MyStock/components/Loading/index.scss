@@ -1,0 +1,90 @@
+.loading_container{
+  width: 100%;
+  .loading_icon_container{
+    width: initial;
+    height: initial;
+    .loading_icon_list{
+      padding: 25px;
+      width: 110px;
+      height: 110px;
+      background: white;
+      border-radius: 4px;
+      // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    }
+    .spin-dot {
+      position: relative;
+      display: inline-block;
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      i{
+        width: 9px;
+        height: 9px;
+        border-radius: 100%;
+        background-color: #1890ff;
+        -webkit-transform: scale(.75);
+        -ms-transform: scale(.75);
+        transform: scale(.75);
+        display: block;
+        position: absolute;
+        opacity: .3;
+        -webkit-animation: antSpinMove 1s infinite linear alternate;
+        animation: antSpinMove 1s infinite linear alternate;
+        -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+      }
+    }
+    .spin-dot i:first-child {
+      left: 0;
+      top: 0;
+    }
+    .spin-dot i:nth-child(2) {
+      right: 0;
+      top: 0;
+      -webkit-animation-delay: .4s;
+      animation-delay: .4s;
+    }
+    .spin-dot i:nth-child(3) {
+      right: 0;
+      bottom: 0;
+      -webkit-animation-delay: .8s;
+      animation-delay: .8s;
+    }
+    .spin-dot i:nth-child(4) {
+      left: 0;
+      bottom: 0;
+      -webkit-animation-delay: 1.2s;
+      animation-delay: 1.2s;
+    }
+    .spin-dot-spin {
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-animation: antRotate 1.2s infinite linear;
+      animation: antRotate 1.2s infinite linear;
+    }
+  }
+  .loading_content{
+    width: 100%;
+  }
+  .ant-spin-nested-loading > div > .ant-spin .ant-spin-dot{
+    left: initial;
+    height: 50px;
+    background: white;
+  }
+  .ant-spin.loading_content{
+    .ant-spin-dot{
+      left: 0;
+      right: 0;
+    }
+  }
+     
+  
+  .ant-spin-nested-loading{
+    width: 100%;
+  }
+  .ant-list >div:nth-child(2){
+    border-top: 0!important;
+  }
+}

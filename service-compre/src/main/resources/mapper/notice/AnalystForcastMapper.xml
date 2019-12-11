@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystForcastDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AnalystForcastModel">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="report_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="stockcode" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="stockname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="industry_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="publish" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="analyst" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="sac" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="peo_uni_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="rating" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="rating_adjust" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="target_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="target_price_high" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="length_cover" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="reach_days" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="reach_days_average" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="price_diff_day" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="eps_ahead" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="eps_difference" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+        </constructor>
+    </resultMap>
+    <!--<resultMap id="GroupByMap" type="la.niub.abcapi.servicecompre.model.AnalystForcastModel">-->
+        <!--<result column="count" property="count" jdbcType="BIGINT"/>-->
+        <!--<result column="rating" property="rating" jdbcType="VARCHAR" />-->
+    <!--</resultMap>-->
+    <sql id="Base_Column_List">
+    id, report_id, time, stockcode, stockname, industry_id, publish, analyst, sac, peo_uni_code,
+    rating, rating_adjust, target_price, target_price_high, length_cover, reach_days,
+    reach_days_average, price_diff_day, eps_ahead, eps_difference, create_time, update_time
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_forcast
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from analyst_forcast
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastModel">
+    insert into analyst_forcast (id, report_id, time,
+      stockcode, stockname, industry_id,
+      publish, analyst, sac,
+      peo_uni_code, rating, rating_adjust,
+      target_price, target_price_high, length_cover,
+      reach_days, reach_days_average, price_diff_day,
+      eps_ahead, eps_difference, create_time,
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{report_id,jdbcType=BIGINT}, #{time,jdbcType=TIMESTAMP},
+      #{stockcode,jdbcType=VARCHAR}, #{stockname,jdbcType=VARCHAR}, #{industry_id,jdbcType=VARCHAR},
+      #{publish,jdbcType=VARCHAR}, #{analyst,jdbcType=VARCHAR}, #{sac,jdbcType=VARCHAR},
+      #{peo_uni_code,jdbcType=VARCHAR}, #{rating,jdbcType=VARCHAR}, #{rating_adjust,jdbcType=VARCHAR},
+      #{target_price,jdbcType=DECIMAL}, #{target_price_high,jdbcType=DECIMAL}, #{length_cover,jdbcType=INTEGER},
+      #{reach_days,jdbcType=INTEGER}, #{reach_days_average,jdbcType=DECIMAL}, #{price_diff_day,jdbcType=DECIMAL},
+      #{eps_ahead,jdbcType=INTEGER}, #{eps_difference,jdbcType=DECIMAL}, #{create_time,jdbcType=TIMESTAMP},
+      #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastModel">
+        insert into analyst_forcast
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="report_id != null">
+                report_id,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="stockcode != null">
+                stockcode,
+            </if>
+            <if test="stockname != null">
+                stockname,
+            </if>
+            <if test="industry_id != null">
+                industry_id,
+            </if>
+            <if test="publish != null">
+                publish,
+            </if>
+            <if test="analyst != null">
+                analyst,
+            </if>
+            <if test="sac != null">
+                sac,
+            </if>
+            <if test="peo_uni_code != null">
+                peo_uni_code,
+            </if>
+            <if test="rating != null">
+                rating,
+            </if>
+            <if test="rating_adjust != null">
+                rating_adjust,
+            </if>
+            <if test="target_price != null">
+                target_price,
+            </if>
+            <if test="target_price_high != null">
+                target_price_high,
+            </if>
+            <if test="length_cover != null">
+                length_cover,
+            </if>
+            <if test="reach_days != null">
+                reach_days,
+            </if>
+            <if test="reach_days_average != null">
+                reach_days_average,
+            </if>
+            <if test="price_diff_day != null">
+                price_diff_day,
+            </if>
+            <if test="eps_ahead != null">
+                eps_ahead,
+            </if>
+            <if test="eps_difference != null">
+                eps_difference,
+            </if>
+            <if test="create_time != null">
+                create_time,
+            </if>
+            <if test="update_time != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="report_id != null">
+                #{report_id,jdbcType=BIGINT},
+            </if>
+            <if test="time != null">
+                #{time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stockcode != null">
+                #{stockcode,jdbcType=VARCHAR},
+            </if>
+            <if test="stockname != null">
+                #{stockname,jdbcType=VARCHAR},
+            </if>
+            <if test="industry_id != null">
+                #{industry_id,jdbcType=VARCHAR},
+            </if>
+            <if test="publish != null">
+                #{publish,jdbcType=VARCHAR},
+            </if>
+            <if test="analyst != null">
+                #{analyst,jdbcType=VARCHAR},
+            </if>
+            <if test="sac != null">
+                #{sac,jdbcType=VARCHAR},
+            </if>
+            <if test="peo_uni_code != null">
+                #{peo_uni_code,jdbcType=VARCHAR},
+            </if>
+            <if test="rating != null">
+                #{rating,jdbcType=VARCHAR},
+            </if>
+            <if test="rating_adjust != null">
+                #{rating_adjust,jdbcType=VARCHAR},
+            </if>
+            <if test="target_price != null">
+                #{target_price,jdbcType=DECIMAL},
+            </if>
+            <if test="target_price_high != null">
+                #{target_price_high,jdbcType=DECIMAL},
+            </if>
+            <if test="length_cover != null">
+                #{length_cover,jdbcType=INTEGER},
+            </if>
+            <if test="reach_days != null">
+                #{reach_days,jdbcType=INTEGER},
+            </if>
+            <if test="reach_days_average != null">
+                #{reach_days_average,jdbcType=DECIMAL},
+            </if>
+            <if test="price_diff_day != null">
+                #{price_diff_day,jdbcType=DECIMAL},
+            </if>
+            <if test="eps_ahead != null">
+                #{eps_ahead,jdbcType=INTEGER},
+            </if>
+            <if test="eps_difference != null">
+                #{eps_difference,jdbcType=DECIMAL},
+            </if>
+            <if test="create_time != null">
+                #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="update_time != null">
+                #{update_time,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastModel">
+        update analyst_forcast
+        <set>
+            <if test="report_id != null">
+                report_id = #{report_id,jdbcType=BIGINT},
+            </if>
+            <if test="time != null">
+                time = #{time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="stockcode != null">
+                stockcode = #{stockcode,jdbcType=VARCHAR},
+            </if>
+            <if test="stockname != null">
+                stockname = #{stockname,jdbcType=VARCHAR},
+            </if>
+            <if test="industry_id != null">
+                industry_id = #{industry_id,jdbcType=VARCHAR},
+            </if>
+            <if test="publish != null">
+                publish = #{publish,jdbcType=VARCHAR},
+            </if>
+            <if test="analyst != null">
+                analyst = #{analyst,jdbcType=VARCHAR},
+            </if>
+            <if test="sac != null">
+                sac = #{sac,jdbcType=VARCHAR},
+            </if>
+            <if test="peo_uni_code != null">
+                peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+            </if>
+            <if test="rating != null">
+                rating = #{rating,jdbcType=VARCHAR},
+            </if>
+            <if test="rating_adjust != null">
+                rating_adjust = #{rating_adjust,jdbcType=VARCHAR},
+            </if>
+            <if test="target_price != null">
+                target_price = #{target_price,jdbcType=DECIMAL},
+            </if>
+            <if test="target_price_high != null">
+                target_price_high = #{target_price_high,jdbcType=DECIMAL},
+            </if>
+            <if test="length_cover != null">
+                length_cover = #{length_cover,jdbcType=INTEGER},
+            </if>
+            <if test="reach_days != null">
+                reach_days = #{reach_days,jdbcType=INTEGER},
+            </if>
+            <if test="reach_days_average != null">
+                reach_days_average = #{reach_days_average,jdbcType=DECIMAL},
+            </if>
+            <if test="price_diff_day != null">
+                price_diff_day = #{price_diff_day,jdbcType=DECIMAL},
+            </if>
+            <if test="eps_ahead != null">
+                eps_ahead = #{eps_ahead,jdbcType=INTEGER},
+            </if>
+            <if test="eps_difference != null">
+                eps_difference = #{eps_difference,jdbcType=DECIMAL},
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time,jdbcType=TIMESTAMP},
+            </if>
+            <if test="update_time != null">
+                update_time = #{update_time,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastModel">
+    update analyst_forcast
+    set report_id = #{report_id,jdbcType=BIGINT},
+      time = #{time,jdbcType=TIMESTAMP},
+      stockcode = #{stockcode,jdbcType=VARCHAR},
+      stockname = #{stockname,jdbcType=VARCHAR},
+      industry_id = #{industry_id,jdbcType=VARCHAR},
+      publish = #{publish,jdbcType=VARCHAR},
+      analyst = #{analyst,jdbcType=VARCHAR},
+      sac = #{sac,jdbcType=VARCHAR},
+      peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      rating = #{rating,jdbcType=VARCHAR},
+      rating_adjust = #{rating_adjust,jdbcType=VARCHAR},
+      target_price = #{target_price,jdbcType=DECIMAL},
+      target_price_high = #{target_price_high,jdbcType=DECIMAL},
+      length_cover = #{length_cover,jdbcType=INTEGER},
+      reach_days = #{reach_days,jdbcType=INTEGER},
+      reach_days_average = #{reach_days_average,jdbcType=DECIMAL},
+      price_diff_day = #{price_diff_day,jdbcType=DECIMAL},
+      eps_ahead = #{eps_ahead,jdbcType=INTEGER},
+      eps_difference = #{eps_difference,jdbcType=DECIMAL},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByStockCodeAndTime" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" />
+        from analyst_forcast
+        where `stockcode`= #{stockcode,jdbcType=VARCHAR}
+        <if test="startDate != null">
+            AND `time` > #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        order by `time` desc
+    </select>
+    <select id="getRatingByDate" resultType="la.niub.abcapi.servicecompre.model.AnalystForcastWithCount">
+        select `rating`,count(report_id) AS `count`
+        from analyst_forcast
+        where `stockcode`= #{stockcode,jdbcType=VARCHAR}
+        <if test="startDate != null">
+            AND `time` >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND `time` &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        group by rating
+    </select>
+    <select id="getByPeoUniCodeWithCount" resultType="la.niub.abcapi.servicecompre.model.AnalystForcastWithCount">
+        select
+        <include refid="Base_Column_List" />
+        ,
+        count(id) as `count`
+        from `analyst_forcast`
+        where peo_uni_code = #{peoUniCode,jdbcType=VARCHAR}
+        <if test="startDate != null">
+            AND `time` >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND `time` &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        group by stockcode
+        order by `count` desc limit #{limit,jdbcType=INTEGER};
+    </select>
+    <select id="getOtherByPeoUniCodesAndStockCodesWithCount" resultType="la.niub.abcapi.servicecompre.model.AnalystForcastWithCount">
+        select
+        <include refid="Base_Column_List" />
+        ,
+        count(id) as `count`
+        from `analyst_forcast`
+        where peo_uni_code != #{peoUniCode,jdbcType=VARCHAR}
+        and peo_uni_code is not null
+        <if test="peoUniCodes != null and peoUniCodes.size() > 0">
+            and peo_uni_code IN
+            <foreach collection="peoUniCodes" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="stockCodes != null and stockCodes.size() > 0">
+            and stockcode IN
+            <foreach collection="stockCodes" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="startDate != null">
+            AND `time` >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND `time` &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        group by stockcode,peo_uni_code
+        order by `count` desc limit #{limit,jdbcType=INTEGER};
+    </select>
+
+    <select id="getOtherByPeoUniCodeWithCount" resultType="la.niub.abcapi.servicecompre.model.AnalystForcastWithCount">
+        select
+        <include refid="Base_Column_List" />
+        ,
+        count(id) as `count`
+        from `analyst_forcast`
+        where peo_uni_code != #{peoUniCode,jdbcType=VARCHAR}
+        and peo_uni_code is not null
+        <if test="startDate != null">
+            AND `time` >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND `time` &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        group by stockcode,peo_uni_code
+        order by `count` desc limit #{limit,jdbcType=INTEGER};
+    </select>
+
+    <select id="getByPeoUniCodePredictive" resultType="la.niub.abcapi.servicecompre.model.AnalystForcastWithCount">
+        select
+        <include refid="Base_Column_List" />
+        from  analyst_forcast where 1=1
+        <if test="peo_uni_code != null and peo_uni_code != ''">
+           and peo_uni_code = #{peo_uni_code}
+        </if>
+        <if test="peo_uni_code_other != null and peo_uni_code_other != ''">
+            ${peo_uni_code_other}
+        </if>
+        <if test="stockcode != null and stockcode != ''">
+           and stockcode = #{stockcode}
+        </if>
+        <if test="startDate != null">
+            AND time >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND time &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="group_by != null and group_by != ''">
+            ${group_by}
+        </if>
+        <if test="order_by != null and order_by != ''">
+            ${order_by}
+        </if>
+        <if test="limit != null and limit != ''">
+            limit ${limit}
+        </if>
+
+    </select>
+
+    <select id="getByPeoUniCodeStockCode" resultType="String">
+        select distinct stockcode from analyst_forcast where 1=1
+        <if test="peo_uni_code != null and peo_uni_code != ''">
+            and peo_uni_code = #{peo_uni_code}
+        </if>
+        <if test="startDate != null">
+            AND time >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND time &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="limit != null and limit != ''">
+            limit ${limit}
+        </if>
+    </select>
+
+    <select id="getPayStockChart" resultType="map">
+        select  IFNULL(t1.id,'') as id, IFNULL(t1.stockcode,'') as stockcode ,IFNULL(t1.stockname,'') as stockname,IFNULL(t1.industry_id,'')  as industry,
+        IFNULL(t1.target_price,'') as target_price,IFNULL(t2.price_average,'') as price_average,IFNULL(t1.length_cover,'')  as length_cover,
+        IFNULL(t2.length_cover_average,'')  as length_cover_average,IFNULL(t1.reach_days_average,'')  as reach_days_average,
+        IFNULL(t2.reach_days_stock ,'') as reach_days_stock,IFNULL(t1.price_diff_day ,'') as  price_diff_day,IFNULL( t2.price_diff_average ,'') as price_diff_average
+        from analyst_forcast t1,analyst_statistics_stock t2 where t1.stockcode=t2.stockcode
+        <if test="peo_uni_code != null and peo_uni_code != ''">
+            and peo_uni_code = #{peo_uni_code}
+        </if>
+        <if test="startDate != null">
+            AND time >= #{startDate,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endDate != null">
+            AND time &lt; #{endDate,jdbcType=TIMESTAMP}
+        </if>
+        GROUP BY t1.stockcode
+        <if test="order_by != null and order_by != ''">
+            ${order_by}
+        </if>
+        <if test="limits != null and limits != ''">
+              ${limits}
+        </if>
+    </select>
+</mapper>

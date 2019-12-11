@@ -1,0 +1,2072 @@
+{
+    "data": {
+        "current_page": 1,
+        "total_count": 3982,
+        "total_page": 166,
+        "request_id": "a4dedf55-6fbe-495c-8f73-4e72e8049c9e",
+        "unhighlight_fields": "year,is_bitmap,honor,bitmap_ver,source_url,score,index_time,chart_type,id,data_file,image_url,tags,real_id,file_id,image_id,industry_name,company,summary,confidence,pageIndex,publish,time,publish,company,industry_name",
+        "highlight_fields": "author,image_legends,image_title,title",
+        "items": [
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "<font color='red'>小米</font>印度智能手机市占率领先三星",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "CURVE_CHART",
+                "image_legends": "小米,三星",
+                "company": "",
+                "id": "14be8e5c6743ab5ecdf00c52600cbad7!16649834_3_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_3_1.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/3_1.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "<font color='red'>小米</font>印度智能手机市占率领先三星",
+                "tags": "",
+                "real_id": "16649834_3_1_1",
+                "pageIndex": "3",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_3_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>IOT及生活消费品收入103.8亿元",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "IoT与生活消费产品,yoy",
+                "company": "",
+                "id": "b1ca2ff020f53e07b2b28f5c53b9c521!16649834_3_2_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_3_2.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/3_2.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>IOT及生活消费品收入103.8亿元",
+                "tags": "",
+                "real_id": "16649834_3_2_1",
+                "pageIndex": "3",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_3_2",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>海外市场营收占比已达36.3%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "BAR_CHART",
+                "image_legends": "中国大陆,全球其他地区",
+                "company": "",
+                "id": "99f81c1e7f89403cfc3cc5cb751df2c9!16649834_2_3_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_2_3.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/2_3.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>海外市场营收占比已达36.3%",
+                "tags": "",
+                "real_id": "16649834_2_3_1",
+                "pageIndex": "2",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_2_3",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>手机出货量全球市场份额9.3%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "CURVE_CHART",
+                "image_legends": "小米全球市场份额,小米中国市场份额,三星全球市场份额",
+                "company": "",
+                "id": "10d789ee4515285ca0d6710c5f944ae8!16649834_3_0_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_3_0.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/3_0.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>手机出货量全球市场份额9.3%",
+                "tags": "",
+                "real_id": "16649834_3_0_1",
+                "pageIndex": "3",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_3_0",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>手机业务收入占比降至67.4%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "BAR_CHART",
+                "image_legends": "智能手机,互联网服务,其他产品,IoT与生活消费产品",
+                "company": "",
+                "id": "f12958191e63e8e61c4dac8ff035b01e!16649834_1_3_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_1_3.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/1_3.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>手机业务收入占比降至67.4%",
+                "tags": "",
+                "real_id": "16649834_1_3_1",
+                "pageIndex": "1",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_1_3",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>手机业务收入占比降至67.4%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "归母净利润（百万元）,经调整净利润（百万元）",
+                "company": "",
+                "id": "f4d0538fa1f482bbf456d6cc1f9460ef!16649834_1_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_1_1.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/1_1.png",
+                "author": "洪涛,林伟强",
+                "confidence": 0.8983333,
+                "image_title": "2Q18<font color='red'>小米</font>手机业务收入占比降至67.4%",
+                "tags": "",
+                "real_id": "16649834_1_1_1",
+                "pageIndex": "1",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_1_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>互联网服务收入39.6亿元",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "互联网服务（百万元）,yoy",
+                "company": "",
+                "id": "cb32374540429d99337bedfbb7fc3c26!16649834_3_3_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_3_3.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/3_3.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>互联网服务收入39.6亿元",
+                "tags": "",
+                "real_id": "16649834_3_3_1",
+                "pageIndex": "3",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_3_3",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "<font color='red'>小米</font>2Q18三大业务板块均保持高速成长",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "CURVE_CHART",
+                "image_legends": "智能手机,互联网服务,IoT与生活消费产品",
+                "company": "",
+                "id": "4c695b63c158b0680a444d8184e67287!16649834_1_2_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_1_2.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/1_2.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "<font color='red'>小米</font>2Q18三大业务板块均保持高速成长",
+                "tags": "",
+                "real_id": "16649834_1_2_1",
+                "pageIndex": "1",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_1_2",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>广告收入占比提升至62.5%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "BAR_CHART",
+                "image_legends": "广告服务,游戏运营",
+                "company": "",
+                "id": "a23cbdcfed251db611acb21f2a4267b1!16649834_4_0_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_4_0.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/4_0.png",
+                "author": "洪涛,林伟强",
+                "confidence": 0.8983333,
+                "image_title": "2Q18<font color='red'>小米</font>广告收入占比提升至62.5%",
+                "tags": "",
+                "real_id": "16649834_4_0_1",
+                "pageIndex": "4",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_4_0",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>综合毛利率12.49%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "CURVE_CHART",
+                "image_legends": "综合毛利率,智能手机,IoT与生活消费产品,互联网服务（右轴）",
+                "company": "",
+                "id": "8c6e828414926d035c9cc11bc9b67a49!16649834_4_2_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_4_2.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/4_2.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>综合毛利率12.49%",
+                "tags": "",
+                "real_id": "16649834_4_2_1",
+                "pageIndex": "4",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_4_2",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "<font color='red'>小米</font>2Q18营收同比增长68.3%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "营业收入（百万元）,yoy",
+                "company": "",
+                "id": "0e30d57279a45d8ad3d2a93f16b28f49!16649834_1_0_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_1_0.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/1_0.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "<font color='red'>小米</font>2Q18营收同比增长68.3%",
+                "tags": "",
+                "real_id": "16649834_1_0_1",
+                "pageIndex": "1",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_1_0",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>综合毛利率12.49%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "CURVE_CHART",
+                "image_legends": "销售费用,管理费用,研发费用",
+                "company": "",
+                "id": "a7dbf693422bea9949d8899a753c7d8b!16649834_5_0_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_5_0.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/5_0.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>综合毛利率12.49%",
+                "tags": "",
+                "real_id": "16649834_5_0_1",
+                "pageIndex": "5",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_5_0",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "<font color='red'>小米</font>2Q18经营净现金流入74亿元",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "BAR_CHART",
+                "image_legends": "经营净现金流（百万元）,金融业务现金流出,经调整净利润（百万元）",
+                "company": "",
+                "id": "1b9f8fafee7a59bc3759cbdffd1d3bbf!16649834_5_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_5_1.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/5_1.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "<font color='red'>小米</font>2Q18经营净现金流入74亿元",
+                "tags": "",
+                "real_id": "16649834_5_1_1",
+                "pageIndex": "5",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_5_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2Q18<font color='red'>小米</font>手机平均售价952元",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "BAR_CHART",
+                "image_legends": "平均售价（人民币元）",
+                "company": "",
+                "id": "b3d62e8407b75eeb863013c68617ce19!16649834_2_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_2_1.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/2_1.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "2Q18<font color='red'>小米</font>手机平均售价952元",
+                "tags": "",
+                "real_id": "16649834_2_1_1",
+                "pageIndex": "2",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_2_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "<font color='red'>小米</font>2Q18手机销量增长44%",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "智能手机销量（千部）,yoy",
+                "company": "",
+                "id": "d86d3939b5e56030f3a73baa6b1b7a98!16649834_2_0_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_2_0.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/2_0.png",
+                "author": "洪涛,林伟强",
+                "confidence": 1.0,
+                "image_title": "<font color='red'>小米</font>2Q18手机销量增长44%",
+                "tags": "",
+                "real_id": "16649834_2_0_1",
+                "pageIndex": "2",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_2_0",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "<font color='red'>小米</font>手机海外市场出货量已超国内",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "中国证券业分析师金牛奖,新财富最佳分析师",
+                "bitmap_ver": "",
+                "title": "广发证券-商业贸易行业专题研究：<font color='red'>小米</font>集团，海外放量，IOT进击，各版块业务多点开花-180823",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/bc81fa7b088c43ca87c54cd0e8fcd02d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 09:44:33",
+                "chart_type": "BAR_CHART",
+                "image_legends": "中国出货量（百万）",
+                "company": "",
+                "id": "a0f3833855c2c41c75a210f3bc981ccb!16649834_2_2_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/16649834_2_2.json",
+                "industry_name": "商业贸易",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/433b3a0128c6dec4e9adab458e2c074ffa4027c63c2a2608a4e8731b11de9d93/2_2.png",
+                "author": "洪涛,林伟强",
+                "confidence": 0.8475,
+                "image_title": "<font color='red'>小米</font>手机海外市场出货量已超国内",
+                "tags": "",
+                "real_id": "16649834_2_2_1",
+                "pageIndex": "2",
+                "publish": "广发证券",
+                "file_id": 16649834,
+                "time": 1534953600,
+                "image_id": "16649834_2_2",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": " <font color='red'>小米</font>行业领先的运营效率：2017年销售和管理费用占收入比例",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "",
+                "title": "中金公司-<font color='red'>小米</font>集团~W-1810.HK-独一无二的科技公司，具备强大的电商和投资基因-180809",
+                "type": "港台研究",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/e982e3968d5c41f187d9db094f70b70b.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-21 18:58:36",
+                "chart_type": "BAR_CHART",
+                "image_legends": "",
+                "company": "小米集团~W",
+                "id": "3b2f2b0060bf3a203a20905a83fe0886!15782996_18_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/618b244c0a69e0e720d1ffcc923f4db6059103b36c08e75d4f03de7e73c3a8a0/15782996_18_1.json",
+                "industry_name": "电子",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/618b244c0a69e0e720d1ffcc923f4db6059103b36c08e75d4f03de7e73c3a8a0/18_1.png",
+                "author": "黄乐平",
+                "confidence": 1.0,
+                "image_title": " <font color='red'>小米</font>行业领先的运营效率：2017年销售和管理费用占收入比例",
+                "tags": "",
+                "real_id": "15782996_18_1_1",
+                "pageIndex": "18",
+                "publish": "中金公司",
+                "file_id": 15782996,
+                "time": 1533744000,
+                "image_id": "15782996_18_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "图25、<font color='red'>小米</font>2015-2017年IoT与生活消费品板块毛利（亿元）及毛利率（%）",
+                "is_bitmap": "true",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "5",
+                "title": "兴业证券-传媒行业：营收高速增长，调整净利润稳步攀升-180824",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/9ce8c3c33e364aa59de3ad93d5a50de1.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 17:17:24",
+                "chart_type": "BITMAP_CHART",
+                "image_legends": "",
+                "company": "",
+                "id": "52855114ff5b8de59ede44a6060e8d04!16709107_8_Image78_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/44857b111375d708e4ef20c13ceaa0e988faf774c6f49fa2c5e9c42067153e2f/16709107_8_Image78.json",
+                "industry_name": "传媒",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/44857b111375d708e4ef20c13ceaa0e988faf774c6f49fa2c5e9c42067153e2f/8_Image78.png",
+                "author": "丁婉贝,刘跃,邵伟",
+                "confidence": 0.0,
+                "image_title": "图25、<font color='red'>小米</font>2015-2017年IoT与生活消费品板块毛利（亿元）及毛利率（%）",
+                "tags": "",
+                "real_id": "16709107_8_Image78_1",
+                "pageIndex": "8",
+                "publish": "兴业证券",
+                "file_id": 16709107,
+                "time": 1535040000,
+                "image_id": "16709107_8_Image78",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "2015-1Q18<font color='red'>小米</font>手机海外出货量（单位：百万台）",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "",
+                "title": "光大证券-<font color='red'>小米</font>集团-1810.HK-投资价值分析报告：以硬件为入口逐步推进互联网变现的科技巨头-180717",
+                "type": "港股公司研究",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/downloads/2478be46c5f14529b19708572ffe9318.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-21 19:22:20",
+                "chart_type": "BAR_CHART",
+                "image_legends": "小米海外出货量",
+                "company": "小米集团",
+                "id": "0bca23316d4693518d8802690a431890!14477371_13_2_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/5dcadbcbb6cc6aac07656789ec563962e40d8fce323b3cbff92ace161891abf0/14477371_13_2.json",
+                "industry_name": "通信设备",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/5dcadbcbb6cc6aac07656789ec563962e40d8fce323b3cbff92ace161891abf0/13_2.png",
+                "author": "付天姿,秦波,吴柳燕",
+                "confidence": 1.0,
+                "image_title": "2015-1Q18<font color='red'>小米</font>手机海外出货量（单位：百万台）",
+                "tags": "",
+                "real_id": "14477371_13_2_1",
+                "pageIndex": "13",
+                "publish": "光大证券",
+                "file_id": 14477371,
+                "time": 1531756800,
+                "image_id": "14477371_13_2",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "1Q17-1Q18<font color='red'>小米</font>在印度市场的季度出货份额（单位：百万台）",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "",
+                "title": "光大证券-<font color='red'>小米</font>集团-W投资价值分析报告：以硬件为入口逐步推进互联网变现的科技巨头",
+                "type": "",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/downloads/cdb56787d81344758ee1d36c3bda8368.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-21 19:20:36",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "小米出货量,市场份额",
+                "company": "小米集团-W",
+                "id": "d580492b5c3125ad0b2b0c784f90b337!14483331_14_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/6a66663ea777c956e2a9227e0020c0ff6450b036b22245e382b636280a78957a/14483331_14_1.json",
+                "industry_name": "计算机应用",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/6a66663ea777c956e2a9227e0020c0ff6450b036b22245e382b636280a78957a/14_1.png",
+                "author": "付天姿,秦波",
+                "confidence": 1.0,
+                "image_title": "1Q17-1Q18<font color='red'>小米</font>在印度市场的季度出货份额（单位：百万台）",
+                "tags": "",
+                "real_id": "14483331_14_1_1",
+                "pageIndex": "14",
+                "publish": "光大证券",
+                "file_id": 14483331,
+                "time": 1531756800,
+                "image_id": "14483331_14_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": " 格力与<font color='red'>小米</font>的营业收入差距正在缩小",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "",
+                "title": "中金公司-人工智能行业系列主题研究：AI智能家居，<font color='red'>小米</font>、格力谁能成为IoT时代的王者-180815",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/f82b2eb6bcb743d1885b70780514cd9d.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-22 19:09:19",
+                "chart_type": "BAR_CHART",
+                "image_legends": "格力营业收入,小米营业收入",
+                "company": "",
+                "id": "00540b2d05be8b883a31dc24e45baac7!16144676_14_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/4ff181a560f851623de1652ec19bc9fd0c8f402a1d726f733b22f9d4e0ff7b3b/16144676_14_1.json",
+                "industry_name": "",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/4ff181a560f851623de1652ec19bc9fd0c8f402a1d726f733b22f9d4e0ff7b3b/14_1.png",
+                "author": "何伟,黄乐平,胡誉镜",
+                "confidence": 1.0,
+                "image_title": " 格力与<font color='red'>小米</font>的营业收入差距正在缩小",
+                "tags": "人工智能,物联网",
+                "real_id": "16144676_14_1_1",
+                "pageIndex": "14",
+                "publish": "中金公司",
+                "file_id": 16144676,
+                "time": 1534262400,
+                "image_id": "16144676_14_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "图30、<font color='red'>小米</font>2015-2017年互联网服务板块毛利（亿元）及毛利率（%）",
+                "is_bitmap": "true",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "5",
+                "title": "兴业证券-传媒行业：营收高速增长，调整净利润稳步攀升-180824",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/9ce8c3c33e364aa59de3ad93d5a50de1.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 17:17:24",
+                "chart_type": "BITMAP_CHART",
+                "image_legends": "",
+                "company": "",
+                "id": "f00f0a5b06fb02c0bcb7e0821a487177!16709107_10_Image87_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/44857b111375d708e4ef20c13ceaa0e988faf774c6f49fa2c5e9c42067153e2f/16709107_10_Image87.json",
+                "industry_name": "传媒",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/44857b111375d708e4ef20c13ceaa0e988faf774c6f49fa2c5e9c42067153e2f/10_Image87.png",
+                "author": "丁婉贝,刘跃,邵伟",
+                "confidence": 0.0,
+                "image_title": "图30、<font color='red'>小米</font>2015-2017年互联网服务板块毛利（亿元）及毛利率（%）",
+                "tags": "",
+                "real_id": "16709107_10_Image87_1",
+                "pageIndex": "10",
+                "publish": "兴业证券",
+                "file_id": 16709107,
+                "time": 1535040000,
+                "image_id": "16709107_10_Image87",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "1Q17-1Q18<font color='red'>小米</font>在印度市场的季度出货份额（单位：百万台）",
+                "is_bitmap": "",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "",
+                "title": "光大证券-<font color='red'>小米</font>集团-1810.HK-投资价值分析报告：以硬件为入口逐步推进互联网变现的科技巨头-180717",
+                "type": "港股公司研究",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/downloads/2478be46c5f14529b19708572ffe9318.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-21 19:22:20",
+                "chart_type": "COMBO_CHART",
+                "image_legends": "小米出货量,市场份额",
+                "company": "小米集团",
+                "id": "1a3011bedf7ff161516e4cbad2f25bdd!14477371_14_1_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/5dcadbcbb6cc6aac07656789ec563962e40d8fce323b3cbff92ace161891abf0/14477371_14_1.json",
+                "industry_name": "通信设备",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/5dcadbcbb6cc6aac07656789ec563962e40d8fce323b3cbff92ace161891abf0/14_1.png",
+                "author": "付天姿,秦波,吴柳燕",
+                "confidence": 1.0,
+                "image_title": "1Q17-1Q18<font color='red'>小米</font>在印度市场的季度出货份额（单位：百万台）",
+                "tags": "",
+                "real_id": "14477371_14_1_1",
+                "pageIndex": "14",
+                "publish": "光大证券",
+                "file_id": 14477371,
+                "time": 1531756800,
+                "image_id": "14477371_14_1",
+                "owner_type": ""
+            },
+            {
+                "file_url": "",
+                "chart_data": "",
+                "image_title_move": "图9、<font color='red'>小米</font>2015年至今毛利率（%）、营业利润率（%）、净利润率（%）",
+                "is_bitmap": "true",
+                "owner_id": "",
+                "honor": "",
+                "bitmap_ver": "5",
+                "title": "兴业证券-传媒行业：营收高速增长，调整净利润稳步攀升-180824",
+                "type": "行业分析",
+                "source_url": "http://abc-crawler.oss-cn-hangzhou-internal.aliyuncs.com/hibor/9ce8c3c33e364aa59de3ad93d5a50de1.pdf",
+                "thumbnailLink": "",
+                "score": 7.0,
+                "index_time": "2018-08-24 17:17:24",
+                "chart_type": "BITMAP_CHART",
+                "image_legends": "",
+                "company": "",
+                "id": "9388f1155f9a4648d37d92dbd07d2dba!16709107_3_Image46_1",
+                "summary": "",
+                "data_file": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/44857b111375d708e4ef20c13ceaa0e988faf774c6f49fa2c5e9c42067153e2f/16709107_3_Image46.json",
+                "industry_name": "传媒",
+                "image_url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/charts/44857b111375d708e4ef20c13ceaa0e988faf774c6f49fa2c5e9c42067153e2f/3_Image46.png",
+                "author": "丁婉贝,刘跃,邵伟",
+                "confidence": 0.0,
+                "image_title": "图9、<font color='red'>小米</font>2015年至今毛利率（%）、营业利润率（%）、净利润率（%）",
+                "tags": "",
+                "real_id": "16709107_3_Image46_1",
+                "pageIndex": "3",
+                "publish": "兴业证券",
+                "file_id": 16709107,
+                "time": 1535040000,
+                "image_id": "16709107_3_Image46",
+                "owner_type": ""
+            }
+        ],
+        "selected": [],
+        "option": [
+            {
+                "item": [
+                    {
+                        "name": "开润股份",
+                        "count": 286
+                    },
+                    {
+                        "name": "小米集团~W",
+                        "count": 243
+                    },
+                    {
+                        "name": "小米集团",
+                        "count": 228
+                    },
+                    {
+                        "name": "小米集团-W",
+                        "count": 220
+                    },
+                    {
+                        "name": "普路通",
+                        "count": 103
+                    },
+                    {
+                        "name": "小米",
+                        "count": 18
+                    },
+                    {
+                        "name": "九安医疗",
+                        "count": 15
+                    },
+                    {
+                        "name": "金山软件",
+                        "count": 13
+                    },
+                    {
+                        "name": "共达电声",
+                        "count": 12
+                    },
+                    {
+                        "name": "科沃斯",
+                        "count": 10
+                    },
+                    {
+                        "name": "裕同科技",
+                        "count": 10
+                    },
+                    {
+                        "name": "美的集团",
+                        "count": 7
+                    },
+                    {
+                        "name": "乐视网",
+                        "count": 6
+                    },
+                    {
+                        "name": "四川长虹",
+                        "count": 6
+                    },
+                    {
+                        "name": "北京银行",
+                        "count": 5
+                    },
+                    {
+                        "name": "大北农",
+                        "count": 5
+                    },
+                    {
+                        "name": "奋达科技",
+                        "count": 5
+                    },
+                    {
+                        "name": "瑞声科技",
+                        "count": 5
+                    },
+                    {
+                        "name": "长盈精密",
+                        "count": 5
+                    },
+                    {
+                        "name": "三环集团",
+                        "count": 4
+                    },
+                    {
+                        "name": "华策影视",
+                        "count": 4
+                    },
+                    {
+                        "name": "合力泰",
+                        "count": 4
+                    },
+                    {
+                        "name": "海信电器",
+                        "count": 4
+                    },
+                    {
+                        "name": "舜宇光学",
+                        "count": 4
+                    },
+                    {
+                        "name": "蓝思科技",
+                        "count": 4
+                    },
+                    {
+                        "name": "TCL多媒体",
+                        "count": 3
+                    },
+                    {
+                        "name": "安洁科技",
+                        "count": 3
+                    },
+                    {
+                        "name": "欣旺达",
+                        "count": 3
+                    },
+                    {
+                        "name": "比亚迪电子",
+                        "count": 3
+                    },
+                    {
+                        "name": "火炬电子",
+                        "count": 3
+                    },
+                    {
+                        "name": "爱施德",
+                        "count": 3
+                    },
+                    {
+                        "name": "科森科技",
+                        "count": 3
+                    },
+                    {
+                        "name": "联想集团",
+                        "count": 3
+                    },
+                    {
+                        "name": "联络互动",
+                        "count": 3
+                    },
+                    {
+                        "name": "通达集团",
+                        "count": 3
+                    },
+                    {
+                        "name": "闻泰科技",
+                        "count": 3
+                    },
+                    {
+                        "name": "TCL集团",
+                        "count": 2
+                    },
+                    {
+                        "name": "中兴通讯",
+                        "count": 2
+                    },
+                    {
+                        "name": "劲嘉股份",
+                        "count": 2
+                    },
+                    {
+                        "name": "卓翼科技",
+                        "count": 2
+                    },
+                    {
+                        "name": "南极电商",
+                        "count": 2
+                    },
+                    {
+                        "name": "南玻A",
+                        "count": 2
+                    },
+                    {
+                        "name": "安居宝",
+                        "count": 2
+                    },
+                    {
+                        "name": "掌趣科技",
+                        "count": 2
+                    },
+                    {
+                        "name": "歌尔股份",
+                        "count": 2
+                    },
+                    {
+                        "name": "江粉磁材",
+                        "count": 2
+                    },
+                    {
+                        "name": "百度",
+                        "count": 2
+                    },
+                    {
+                        "name": "胜华科技",
+                        "count": 2
+                    },
+                    {
+                        "name": "顺络电子",
+                        "count": 2
+                    },
+                    {
+                        "name": "麦达数字",
+                        "count": 2
+                    },
+                    {
+                        "name": "三七互娱",
+                        "count": 1
+                    },
+                    {
+                        "name": "丘钛科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "东山精密",
+                        "count": 1
+                    },
+                    {
+                        "name": "东方明珠",
+                        "count": 1
+                    },
+                    {
+                        "name": "中科创达",
+                        "count": 1
+                    },
+                    {
+                        "name": "中芯国际",
+                        "count": 1
+                    },
+                    {
+                        "name": "亚马逊",
+                        "count": 1
+                    },
+                    {
+                        "name": "京东方A",
+                        "count": 1
+                    },
+                    {
+                        "name": "亿纬锂能",
+                        "count": 1
+                    },
+                    {
+                        "name": "众泰汽车",
+                        "count": 1
+                    },
+                    {
+                        "name": "兆驰股份",
+                        "count": 1
+                    },
+                    {
+                        "name": "光环新网",
+                        "count": 1
+                    },
+                    {
+                        "name": "凯立德",
+                        "count": 1
+                    },
+                    {
+                        "name": "创维数字",
+                        "count": 1
+                    },
+                    {
+                        "name": "创维数码",
+                        "count": 1
+                    },
+                    {
+                        "name": "创高安防",
+                        "count": 1
+                    },
+                    {
+                        "name": "利和兴",
+                        "count": 1
+                    },
+                    {
+                        "name": "力源信息",
+                        "count": 1
+                    },
+                    {
+                        "name": "博雅互动",
+                        "count": 1
+                    },
+                    {
+                        "name": "合兴包装",
+                        "count": 1
+                    },
+                    {
+                        "name": "国瓷材料",
+                        "count": 1
+                    },
+                    {
+                        "name": "大凌实业",
+                        "count": 1
+                    },
+                    {
+                        "name": "大族激光",
+                        "count": 1
+                    },
+                    {
+                        "name": "天准科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "广东榕泰",
+                        "count": 1
+                    },
+                    {
+                        "name": "得润电子",
+                        "count": 1
+                    },
+                    {
+                        "name": "德赛电池",
+                        "count": 1
+                    },
+                    {
+                        "name": "恒信东方",
+                        "count": 1
+                    },
+                    {
+                        "name": "慈文传媒",
+                        "count": 1
+                    },
+                    {
+                        "name": "拓邦股份",
+                        "count": 1
+                    },
+                    {
+                        "name": "新世纪",
+                        "count": 1
+                    },
+                    {
+                        "name": "新国都",
+                        "count": 1
+                    },
+                    {
+                        "name": "春兴精工",
+                        "count": 1
+                    },
+                    {
+                        "name": "景旺电子",
+                        "count": 1
+                    },
+                    {
+                        "name": "智慧松德",
+                        "count": 1
+                    },
+                    {
+                        "name": "欧菲科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "正业科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "水晶光电",
+                        "count": 1
+                    },
+                    {
+                        "name": "汇顶科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "深天马A",
+                        "count": 1
+                    },
+                    {
+                        "name": "深科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "湖北宜化",
+                        "count": 1
+                    },
+                    {
+                        "name": "瓦力科技",
+                        "count": 1
+                    },
+                    {
+                        "name": "田中精机",
+                        "count": 1
+                    },
+                    {
+                        "name": "电连技术",
+                        "count": 1
+                    },
+                    {
+                        "name": "穗晶光电",
+                        "count": 1
+                    },
+                    {
+                        "name": "红旗连锁",
+                        "count": 1
+                    },
+                    {
+                        "name": "网易",
+                        "count": 1
+                    },
+                    {
+                        "name": "美图公司",
+                        "count": 1
+                    }
+                ],
+                "type": "company_s",
+                "showname": "公司",
+                "multiValued": true
+            },
+            {
+                "item": [
+                    {
+                        "name": "家用电器",
+                        "count": 512
+                    },
+                    {
+                        "name": "电子",
+                        "count": 291
+                    },
+                    {
+                        "name": "其他纺织",
+                        "count": 286
+                    },
+                    {
+                        "name": "商业贸易",
+                        "count": 205
+                    },
+                    {
+                        "name": "计算机应用",
+                        "count": 164
+                    },
+                    {
+                        "name": "一般零售",
+                        "count": 150
+                    },
+                    {
+                        "name": "传媒",
+                        "count": 143
+                    },
+                    {
+                        "name": "综合",
+                        "count": 124
+                    },
+                    {
+                        "name": "通信",
+                        "count": 100
+                    },
+                    {
+                        "name": "物流",
+                        "count": 96
+                    },
+                    {
+                        "name": "元件",
+                        "count": 92
+                    },
+                    {
+                        "name": "纺织服装",
+                        "count": 77
+                    },
+                    {
+                        "name": "通信设备",
+                        "count": 67
+                    },
+                    {
+                        "name": "电子制造",
+                        "count": 29
+                    },
+                    {
+                        "name": "畜禽养殖",
+                        "count": 27
+                    },
+                    {
+                        "name": "计算机",
+                        "count": 27
+                    },
+                    {
+                        "name": "IT服务",
+                        "count": 23
+                    },
+                    {
+                        "name": "机械设备",
+                        "count": 22
+                    },
+                    {
+                        "name": "电子系统组装",
+                        "count": 20
+                    },
+                    {
+                        "name": "电子零部件制造",
+                        "count": 18
+                    },
+                    {
+                        "name": "互联网传媒",
+                        "count": 17
+                    },
+                    {
+                        "name": "医疗器械",
+                        "count": 15
+                    },
+                    {
+                        "name": "彩电",
+                        "count": 15
+                    },
+                    {
+                        "name": "包装印刷",
+                        "count": 14
+                    },
+                    {
+                        "name": "证券",
+                        "count": 13
+                    },
+                    {
+                        "name": "有线电视网络",
+                        "count": 12
+                    },
+                    {
+                        "name": "LED",
+                        "count": 9
+                    },
+                    {
+                        "name": "其他稀有小金属",
+                        "count": 9
+                    },
+                    {
+                        "name": "多元金融",
+                        "count": 8
+                    },
+                    {
+                        "name": "显示器件",
+                        "count": 8
+                    },
+                    {
+                        "name": "互联网信息服务",
+                        "count": 7
+                    },
+                    {
+                        "name": "小家电",
+                        "count": 7
+                    },
+                    {
+                        "name": "移动互联网服务",
+                        "count": 7
+                    },
+                    {
+                        "name": "空调",
+                        "count": 7
+                    },
+                    {
+                        "name": "被动元件",
+                        "count": 7
+                    },
+                    {
+                        "name": "专业连锁",
+                        "count": 6
+                    },
+                    {
+                        "name": "其它专用机械",
+                        "count": 6
+                    },
+                    {
+                        "name": "其它通用机械",
+                        "count": 6
+                    },
+                    {
+                        "name": "计算机设备",
+                        "count": 6
+                    },
+                    {
+                        "name": "银行",
+                        "count": 6
+                    },
+                    {
+                        "name": "其他互联网服务",
+                        "count": 5
+                    },
+                    {
+                        "name": "半导体",
+                        "count": 5
+                    },
+                    {
+                        "name": "影视动漫",
+                        "count": 5
+                    },
+                    {
+                        "name": "文化传媒",
+                        "count": 5
+                    },
+                    {
+                        "name": "轻工制造",
+                        "count": 5
+                    },
+                    {
+                        "name": "饲料",
+                        "count": 5
+                    },
+                    {
+                        "name": "其他电子",
+                        "count": 4
+                    },
+                    {
+                        "name": "工控自动化",
+                        "count": 4
+                    },
+                    {
+                        "name": "汽车",
+                        "count": 4
+                    },
+                    {
+                        "name": "其他休闲服务",
+                        "count": 3
+                    },
+                    {
+                        "name": "金属制品",
+                        "count": 3
+                    },
+                    {
+                        "name": "交通运输",
+                        "count": 2
+                    },
+                    {
+                        "name": "光学元件",
+                        "count": 2
+                    },
+                    {
+                        "name": "农业综合",
+                        "count": 2
+                    },
+                    {
+                        "name": "玻璃制造",
+                        "count": 2
+                    },
+                    {
+                        "name": "电气设备",
+                        "count": 2
+                    },
+                    {
+                        "name": "磁性材料",
+                        "count": 2
+                    },
+                    {
+                        "name": "终端设备",
+                        "count": 2
+                    },
+                    {
+                        "name": "营销服务",
+                        "count": 2
+                    },
+                    {
+                        "name": "通信传输设备",
+                        "count": 2
+                    },
+                    {
+                        "name": "休闲服务",
+                        "count": 1
+                    },
+                    {
+                        "name": "保险",
+                        "count": 1
+                    },
+                    {
+                        "name": "公用事业",
+                        "count": 1
+                    },
+                    {
+                        "name": "其他化学制品",
+                        "count": 1
+                    },
+                    {
+                        "name": "其它电源设备",
+                        "count": 1
+                    },
+                    {
+                        "name": "其它视听器材",
+                        "count": 1
+                    },
+                    {
+                        "name": "农林牧渔",
+                        "count": 1
+                    },
+                    {
+                        "name": "医药生物",
+                        "count": 1
+                    },
+                    {
+                        "name": "印制电路板",
+                        "count": 1
+                    },
+                    {
+                        "name": "印刷包装机械",
+                        "count": 1
+                    },
+                    {
+                        "name": "多业态零售",
+                        "count": 1
+                    },
+                    {
+                        "name": "改性塑料",
+                        "count": 1
+                    },
+                    {
+                        "name": "文娱用品",
+                        "count": 1
+                    },
+                    {
+                        "name": "无机盐",
+                        "count": 1
+                    },
+                    {
+                        "name": "氯碱",
+                        "count": 1
+                    },
+                    {
+                        "name": "汽车零部件",
+                        "count": 1
+                    },
+                    {
+                        "name": "白色家电",
+                        "count": 1
+                    },
+                    {
+                        "name": "航空运输",
+                        "count": 1
+                    },
+                    {
+                        "name": "超市",
+                        "count": 1
+                    },
+                    {
+                        "name": "通信运营",
+                        "count": 1
+                    },
+                    {
+                        "name": "通信配套服务",
+                        "count": 1
+                    },
+                    {
+                        "name": "通用机械",
+                        "count": 1
+                    },
+                    {
+                        "name": "造纸",
+                        "count": 1
+                    },
+                    {
+                        "name": "金属非金属新材料",
+                        "count": 1
+                    },
+                    {
+                        "name": "集成电路",
+                        "count": 1
+                    },
+                    {
+                        "name": "非银金融",
+                        "count": 1
+                    },
+                    {
+                        "name": "食品饮料",
+                        "count": 1
+                    }
+                ],
+                "type": "industry_s",
+                "showname": "行业",
+                "multiValued": true
+            },
+            {
+                "item": [
+                    {
+                        "name": "柱状图",
+                        "count": 1308
+                    },
+                    {
+                        "name": "其他",
+                        "count": 1078
+                    },
+                    {
+                        "name": "流程图",
+                        "count": 574
+                    },
+                    {
+                        "name": "折线图",
+                        "count": 564
+                    },
+                    {
+                        "name": "饼图",
+                        "count": 396
+                    },
+                    {
+                        "name": "表格",
+                        "count": 37
+                    },
+                    {
+                        "name": "面积图",
+                        "count": 14
+                    },
+                    {
+                        "name": "K线图",
+                        "count": 7
+                    },
+                    {
+                        "name": "散点图",
+                        "count": 2
+                    },
+                    {
+                        "name": "雷达图",
+                        "count": 2
+                    }
+                ],
+                "type": "chart_type_cn",
+                "showname": "类型",
+                "multiValued": true
+            },
+            {
+                "item": [
+                    {
+                        "name": "广发证券",
+                        "count": 370
+                    },
+                    {
+                        "name": "西南证券",
+                        "count": 366
+                    },
+                    {
+                        "name": "国盛证券",
+                        "count": 245
+                    },
+                    {
+                        "name": "天风证券",
+                        "count": 206
+                    },
+                    {
+                        "name": "招商证券",
+                        "count": 200
+                    },
+                    {
+                        "name": "中信证券",
+                        "count": 188
+                    },
+                    {
+                        "name": "光大证券",
+                        "count": 187
+                    },
+                    {
+                        "name": "中信建投",
+                        "count": 178
+                    },
+                    {
+                        "name": "兴业证券",
+                        "count": 155
+                    },
+                    {
+                        "name": "国金证券",
+                        "count": 154
+                    },
+                    {
+                        "name": "长江证券",
+                        "count": 140
+                    },
+                    {
+                        "name": "国泰君安",
+                        "count": 138
+                    },
+                    {
+                        "name": "申万宏源",
+                        "count": 133
+                    },
+                    {
+                        "name": "海通证券",
+                        "count": 120
+                    },
+                    {
+                        "name": "中金公司",
+                        "count": 107
+                    },
+                    {
+                        "name": "东吴证券",
+                        "count": 104
+                    },
+                    {
+                        "name": "方正证券",
+                        "count": 95
+                    },
+                    {
+                        "name": "安信证券",
+                        "count": 86
+                    },
+                    {
+                        "name": "华泰证券",
+                        "count": 81
+                    },
+                    {
+                        "name": "国信证券",
+                        "count": 74
+                    },
+                    {
+                        "name": "东方证券",
+                        "count": 48
+                    },
+                    {
+                        "name": "平安证券",
+                        "count": 37
+                    },
+                    {
+                        "name": "华创证券",
+                        "count": 35
+                    },
+                    {
+                        "name": "中泰证券",
+                        "count": 33
+                    },
+                    {
+                        "name": "极光大数据",
+                        "count": 26
+                    },
+                    {
+                        "name": "互联网实验室",
+                        "count": 25
+                    },
+                    {
+                        "name": "华金证券",
+                        "count": 24
+                    },
+                    {
+                        "name": "民生证券",
+                        "count": 20
+                    },
+                    {
+                        "name": "中投证券",
+                        "count": 14
+                    },
+                    {
+                        "name": "广证恒生",
+                        "count": 14
+                    },
+                    {
+                        "name": "移动数据研究中心",
+                        "count": 14
+                    },
+                    {
+                        "name": "艾瑞咨询",
+                        "count": 14
+                    },
+                    {
+                        "name": "友盟+",
+                        "count": 13
+                    },
+                    {
+                        "name": "QuestMobile",
+                        "count": 12
+                    },
+                    {
+                        "name": "Trustdata",
+                        "count": 12
+                    },
+                    {
+                        "name": "360",
+                        "count": 11
+                    },
+                    {
+                        "name": "小米",
+                        "count": 11
+                    },
+                    {
+                        "name": "ChinaVenture",
+                        "count": 10
+                    },
+                    {
+                        "name": "浙商证券",
+                        "count": 10
+                    },
+                    {
+                        "name": "财通证券",
+                        "count": 10
+                    },
+                    {
+                        "name": "东兴证券",
+                        "count": 9
+                    },
+                    {
+                        "name": "东北证券",
+                        "count": 9
+                    },
+                    {
+                        "name": "中银国际",
+                        "count": 9
+                    },
+                    {
+                        "name": "群益证券",
+                        "count": 9
+                    },
+                    {
+                        "name": "TalkingData",
+                        "count": 8
+                    },
+                    {
+                        "name": "国海证券",
+                        "count": 8
+                    },
+                    {
+                        "name": "招商证券（香港）",
+                        "count": 8
+                    },
+                    {
+                        "name": "新时代证券",
+                        "count": 8
+                    },
+                    {
+                        "name": "新浪微博数据中心",
+                        "count": 8
+                    },
+                    {
+                        "name": "SDCC",
+                        "count": 7
+                    },
+                    {
+                        "name": "信达证券",
+                        "count": 7
+                    },
+                    {
+                        "name": "国联证券",
+                        "count": 7
+                    },
+                    {
+                        "name": "易观智库",
+                        "count": 7
+                    },
+                    {
+                        "name": "东方财富证券",
+                        "count": 6
+                    },
+                    {
+                        "name": "赛诺市场研究",
+                        "count": 6
+                    },
+                    {
+                        "name": "ArchSummit",
+                        "count": 5
+                    },
+                    {
+                        "name": "DEAS",
+                        "count": 5
+                    },
+                    {
+                        "name": "华南投顾",
+                        "count": 5
+                    },
+                    {
+                        "name": "南华金融控股（香港）",
+                        "count": 5
+                    },
+                    {
+                        "name": "艾媒咨询",
+                        "count": 4
+                    },
+                    {
+                        "name": "齐鲁证券",
+                        "count": 4
+                    },
+                    {
+                        "name": "HAITONG SECURITIES CO LTD",
+                        "count": 3
+                    },
+                    {
+                        "name": "HUATAI SECURITIES",
+                        "count": 3
+                    },
+                    {
+                        "name": "IPE",
+                        "count": 3
+                    },
+                    {
+                        "name": "SOUTHWEST SECURITIES",
+                        "count": 3
+                    },
+                    {
+                        "name": "Syntun",
+                        "count": 3
+                    },
+                    {
+                        "name": "中国数据库技术大会",
+                        "count": 3
+                    },
+                    {
+                        "name": "博览财经",
+                        "count": 3
+                    },
+                    {
+                        "name": "太平洋证券",
+                        "count": 3
+                    },
+                    {
+                        "name": "头条指数",
+                        "count": 3
+                    },
+                    {
+                        "name": "小米科技",
+                        "count": 3
+                    },
+                    {
+                        "name": "弘则研究",
+                        "count": 3
+                    },
+                    {
+                        "name": "民族证券",
+                        "count": 3
+                    },
+                    {
+                        "name": "渤海证券",
+                        "count": 3
+                    },
+                    {
+                        "name": "财富证券",
+                        "count": 3
+                    },
+                    {
+                        "name": "CHANGJIANG SECURITIES CO., LTD",
+                        "count": 2
+                    },
+                    {
+                        "name": "DataEye",
+                        "count": 2
+                    },
+                    {
+                        "name": "Deloitte",
+                        "count": 2
+                    },
+                    {
+                        "name": "INDUSTRIAL SECURITIES",
+                        "count": 2
+                    },
+                    {
+                        "name": "PricewaterhouseCoopers",
+                        "count": 2
+                    },
+                    {
+                        "name": "SINOLINK SECURITIES CO.,LTD",
+                        "count": 2
+                    },
+                    {
+                        "name": "UBS RESEARCH",
+                        "count": 2
+                    },
+                    {
+                        "name": "万联证券",
+                        "count": 2
+                    },
+                    {
+                        "name": "上海证券",
+                        "count": 2
+                    },
+                    {
+                        "name": "人人都是产品经理",
+                        "count": 2
+                    },
+                    {
+                        "name": "元大投顾",
+                        "count": 2
+                    },
+                    {
+                        "name": "华融证券",
+                        "count": 2
+                    },
+                    {
+                        "name": "山西证券",
+                        "count": 2
+                    },
+                    {
+                        "name": "恒大经济研究院",
+                        "count": 2
+                    },
+                    {
+                        "name": "新浪网",
+                        "count": 2
+                    },
+                    {
+                        "name": "清科",
+                        "count": 2
+                    },
+                    {
+                        "name": "联讯证券",
+                        "count": 2
+                    },
+                    {
+                        "name": "AWS SUMMIT",
+                        "count": 1
+                    },
+                    {
+                        "name": "Analysys",
+                        "count": 1
+                    },
+                    {
+                        "name": "CBNData",
+                        "count": 1
+                    },
+                    {
+                        "name": "CHINA GALAXY SECURITIES CO., LTD",
+                        "count": 1
+                    },
+                    {
+                        "name": "CHINA MERCHANTS SECURITIES(HK) CO., LTD",
+                        "count": 1
+                    },
+                    {
+                        "name": "DataStory",
+                        "count": 1
+                    },
+                    {
+                        "name": "HONGYUAN SECURITIES CO., LTD",
+                        "count": 1
+                    },
+                    {
+                        "name": "MobData",
+                        "count": 1
+                    }
+                ],
+                "type": "publish_s",
+                "showname": "发布机构",
+                "multiValued": true
+            },
+            {
+                "item": [
+                    {
+                        "name": "一周内",
+                        "count": 65
+                    },
+                    {
+                        "name": "一月内",
+                        "count": 271
+                    },
+                    {
+                        "name": "一季度内",
+                        "count": 1628
+                    },
+                    {
+                        "name": "半年内",
+                        "count": 2688
+                    },
+                    {
+                        "name": "一年内",
+                        "count": 3026
+                    }
+                ],
+                "type": "time_area",
+                "showname": "时间",
+                "multiValued": false
+            }
+        ]
+    },
+    "code": 200,
+    "message": ""
+}

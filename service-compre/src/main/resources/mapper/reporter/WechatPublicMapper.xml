@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IWechatPublicDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.WechatPublicModel">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="classify" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="public_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="public_account" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="public_image" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="public_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="public_authentication" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="public_tags" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="qr_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="month_count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="source" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="createtime" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="updatetime" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="lable" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="follower" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="tags" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="ranking" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="reading" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, classify, public_name, public_account, public_image, public_summary, public_authentication,
+    public_tags, qr_code, month_count, source, createtime, updatetime, lable, follower,
+    tags, ranking, reading
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from wechat_public
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wechat_public
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.WechatPublicModel">
+    insert into wechat_public (id, classify, public_name,
+      public_account, public_image, public_summary,
+      public_authentication, public_tags, qr_code,
+      month_count, source, createtime,
+      updatetime, lable, follower,
+      tags, ranking, reading
+      )
+    values (#{id,jdbcType=BIGINT}, #{classify,jdbcType=VARCHAR}, #{public_name,jdbcType=VARCHAR},
+      #{public_account,jdbcType=VARCHAR}, #{public_image,jdbcType=VARCHAR}, #{public_summary,jdbcType=VARCHAR},
+      #{public_authentication,jdbcType=VARCHAR}, #{public_tags,jdbcType=VARCHAR}, #{qr_code,jdbcType=VARCHAR},
+      #{month_count,jdbcType=INTEGER}, #{source,jdbcType=INTEGER}, #{createtime,jdbcType=INTEGER},
+      #{updatetime,jdbcType=INTEGER}, #{lable,jdbcType=VARCHAR}, #{follower,jdbcType=INTEGER},
+      #{tags,jdbcType=VARCHAR}, #{ranking,jdbcType=INTEGER}, #{reading,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.WechatPublicModel">
+        insert into wechat_public
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="classify != null">
+                classify,
+            </if>
+            <if test="public_name != null">
+                public_name,
+            </if>
+            <if test="public_account != null">
+                public_account,
+            </if>
+            <if test="public_image != null">
+                public_image,
+            </if>
+            <if test="public_summary != null">
+                public_summary,
+            </if>
+            <if test="public_authentication != null">
+                public_authentication,
+            </if>
+            <if test="public_tags != null">
+                public_tags,
+            </if>
+            <if test="qr_code != null">
+                qr_code,
+            </if>
+            <if test="month_count != null">
+                month_count,
+            </if>
+            <if test="source != null">
+                source,
+            </if>
+            <if test="createtime != null">
+                createtime,
+            </if>
+            <if test="updatetime != null">
+                updatetime,
+            </if>
+            <if test="lable != null">
+                lable,
+            </if>
+            <if test="follower != null">
+                follower,
+            </if>
+            <if test="tags != null">
+                tags,
+            </if>
+            <if test="ranking != null">
+                ranking,
+            </if>
+            <if test="reading != null">
+                reading,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="classify != null">
+                #{classify,jdbcType=VARCHAR},
+            </if>
+            <if test="public_name != null">
+                #{public_name,jdbcType=VARCHAR},
+            </if>
+            <if test="public_account != null">
+                #{public_account,jdbcType=VARCHAR},
+            </if>
+            <if test="public_image != null">
+                #{public_image,jdbcType=VARCHAR},
+            </if>
+            <if test="public_summary != null">
+                #{public_summary,jdbcType=VARCHAR},
+            </if>
+            <if test="public_authentication != null">
+                #{public_authentication,jdbcType=VARCHAR},
+            </if>
+            <if test="public_tags != null">
+                #{public_tags,jdbcType=VARCHAR},
+            </if>
+            <if test="qr_code != null">
+                #{qr_code,jdbcType=VARCHAR},
+            </if>
+            <if test="month_count != null">
+                #{month_count,jdbcType=INTEGER},
+            </if>
+            <if test="source != null">
+                #{source,jdbcType=INTEGER},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=INTEGER},
+            </if>
+            <if test="lable != null">
+                #{lable,jdbcType=VARCHAR},
+            </if>
+            <if test="follower != null">
+                #{follower,jdbcType=INTEGER},
+            </if>
+            <if test="tags != null">
+                #{tags,jdbcType=VARCHAR},
+            </if>
+            <if test="ranking != null">
+                #{ranking,jdbcType=INTEGER},
+            </if>
+            <if test="reading != null">
+                #{reading,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.WechatPublicModel">
+        update wechat_public
+        <set>
+            <if test="classify != null">
+                classify = #{classify,jdbcType=VARCHAR},
+            </if>
+            <if test="public_name != null">
+                public_name = #{public_name,jdbcType=VARCHAR},
+            </if>
+            <if test="public_account != null">
+                public_account = #{public_account,jdbcType=VARCHAR},
+            </if>
+            <if test="public_image != null">
+                public_image = #{public_image,jdbcType=VARCHAR},
+            </if>
+            <if test="public_summary != null">
+                public_summary = #{public_summary,jdbcType=VARCHAR},
+            </if>
+            <if test="public_authentication != null">
+                public_authentication = #{public_authentication,jdbcType=VARCHAR},
+            </if>
+            <if test="public_tags != null">
+                public_tags = #{public_tags,jdbcType=VARCHAR},
+            </if>
+            <if test="qr_code != null">
+                qr_code = #{qr_code,jdbcType=VARCHAR},
+            </if>
+            <if test="month_count != null">
+                month_count = #{month_count,jdbcType=INTEGER},
+            </if>
+            <if test="source != null">
+                source = #{source,jdbcType=INTEGER},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime,jdbcType=INTEGER},
+            </if>
+            <if test="lable != null">
+                lable = #{lable,jdbcType=VARCHAR},
+            </if>
+            <if test="follower != null">
+                follower = #{follower,jdbcType=INTEGER},
+            </if>
+            <if test="tags != null">
+                tags = #{tags,jdbcType=VARCHAR},
+            </if>
+            <if test="ranking != null">
+                ranking = #{ranking,jdbcType=INTEGER},
+            </if>
+            <if test="reading != null">
+                reading = #{reading,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.WechatPublicModel">
+    update wechat_public
+    set classify = #{classify,jdbcType=VARCHAR},
+      public_name = #{public_name,jdbcType=VARCHAR},
+      public_account = #{public_account,jdbcType=VARCHAR},
+      public_image = #{public_image,jdbcType=VARCHAR},
+      public_summary = #{public_summary,jdbcType=VARCHAR},
+      public_authentication = #{public_authentication,jdbcType=VARCHAR},
+      public_tags = #{public_tags,jdbcType=VARCHAR},
+      qr_code = #{qr_code,jdbcType=VARCHAR},
+      month_count = #{month_count,jdbcType=INTEGER},
+      source = #{source,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=INTEGER},
+      updatetime = #{updatetime,jdbcType=INTEGER},
+      lable = #{lable,jdbcType=VARCHAR},
+      follower = #{follower,jdbcType=INTEGER},
+      tags = #{tags,jdbcType=VARCHAR},
+      ranking = #{ranking,jdbcType=INTEGER},
+      reading = #{reading,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="getByAccount" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM wechat_public WHERE `public_account` = #{account,jdbcType=VARCHAR};
+    </select>
+    <select id="getByRandom" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM wechat_public WHERE `id` != #{id,jdbcType=BIGINT} ORDER BY rand() limit #{limit,jdbcType=INTEGER};
+    </select>
+    <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from wechat_public
+        where public_name = #{name,jdbcType=VARCHAR} limit 1
+    </select>
+    <select id="getLikeTags" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from wechat_public
+        where
+        <foreach collection="tags" item="item" index="index"
+                 open="(" separator=" OR " close=")">
+            tags like "%"#{item,jdbcType=VARCHAR}"%"
+            <!--find_in_set(#{item,jdbcType=VARCHAR},tags)-->
+        </foreach>
+    </select>
+    <select id="getByClassifyOrderByFollower" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from wechat_public
+        where classify = #{classify,jdbcType=VARCHAR} order by follower desc limit #{limit,jdbcType=INTEGER}
+    </select>
+    <select id="getListByIds" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        from wechat_public
+        WHERE 1
+        <if test ="null != ids and ids.size > 0">
+            and id in
+            <foreach collection="ids" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        ORDER BY id asc;
+    </select>
+    <select id="getListByNames" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        from wechat_public
+        WHERE 1
+        <if test ="null != names and names.size > 0">
+            and public_name in
+            <foreach collection="names" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        ORDER BY id asc;
+    </select>
+
+    <select id="getTagByTagPrefix" parameterType="string" resultType="string">
+        (
+          SELECT
+            public_tags
+          FROM
+            wechat_public
+          <where>
+            public_tags IS NOT NULL AND public_tags != ''
+            <if test="_parameter != null and _parameter != ''">
+                  AND (public_tags like #{tag_prefix,jdbcType=VARCHAR}"%" OR public_tags LIKE "%,"#{tag_prefix,jdbcType=VARCHAR}"%")
+            </if>
+          </where>
+        )
+        UNION
+        (
+          SELECT
+            theme_name
+          FROM
+            theme_mapping
+          <where>
+              <if test="_parameter != null and _parameter != ''">
+                  theme_name like #{tag_prefix,jdbcType=VARCHAR}"%"
+              </if>
+          </where>
+          GROUP BY theme_name
+        )
+    </select>
+
+    <select id="getAllClassify" resultType="string">
+        SELECT
+            IFNULL(classify,'未知')
+        FROM
+            wechat_public
+        GROUP BY
+            classify
+        ORDER BY classify is NULL, COUNT(*) DESC
+    </select>
+
+    <select id="getAccountByTagListAndClassiftAndName" resultType="string">
+      (
+        SELECT
+          public_account
+        FROM
+          wechat_public
+        <where>
+            <foreach collection="tagList" item="item" open="(" separator=" OR " close=")">
+                public_tags like #{item,jdbcType=VARCHAR}",%"
+                OR public_tags like "%,"#{item,jdbcType=VARCHAR}",%"
+                OR public_tags like "%,"#{item,jdbcType=VARCHAR}
+                OR public_tags = #{item,jdbcType=VARCHAR}
+            </foreach>
+        </where>
+      )
+      UNION
+      (
+        SELECT
+          public_account
+        FROM
+          theme_mapping
+        <where>
+            <foreach collection="tagList" item="item" open="(" separator=" OR " close=")">
+                theme_name = #{item,jdbcType=VARCHAR}
+            </foreach>
+        </where>
+        GROUP BY public_account
+      )
+    </select>
+
+    <select id="getCountByAccountList" resultType="int">
+        SELECT
+          COUNT(*)
+        FROM
+          wechat_public
+        <where>
+            <if test="wechatAccountList != null and wechatAccountList.size() > 0">
+                public_account IN
+                <foreach collection="wechatAccountList" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+
+            <if test="classify != null and classify != '' and classify != '未知'">
+                AND classify = #{classify}
+            </if>
+
+            <if test="classify == '未知'">
+                AND classify IS NULL
+            </if>
+
+            <if test="public_name != null and public_name != ''">
+                AND public_name = #{public_name}
+            </if>
+        </where>
+    </select>
+
+    <select id="getListByAccountList" resultType="la.niub.abcapi.servicecompre.model.WechatPublicMoreModel">
+        SELECT
+            *
+        FROM
+            (
+                SELECT
+                    wp.id,
+                    wp.public_name,
+                    wp.public_account,
+                    wp.public_image,
+                    wp.classify,
+                    wp.month_count,
+                    wp.follower,
+                    wp.public_tags,
+                    wp.qr_code,
+                    GROUP_CONCAT(tm.theme_name) theme_name
+                FROM
+                    wechat_public wp
+                LEFT JOIN theme_mapping tm ON wp.public_account = tm.public_account
+                GROUP BY
+                    wp.public_account
+            ) t
+        <where>
+            <if test="wechatAccountList != null and wechatAccountList.size() > 0">
+                public_account IN
+                <foreach collection="wechatAccountList" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+
+            <if test="classify != null and classify != '' and classify != '未知'">
+                AND classify = #{classify}
+            </if>
+
+            <if test="classify == '未知'">
+                AND classify IS NULL
+            </if>
+
+            <if test="public_name != null and public_name != ''">
+                AND public_name = #{public_name}
+            </if>
+        </where>
+        ORDER BY ${order}
+        limit #{index}, #{limit}
+    </select>
+</mapper>

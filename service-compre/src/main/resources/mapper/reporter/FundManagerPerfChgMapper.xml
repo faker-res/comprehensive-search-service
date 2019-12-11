@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundManagerPerfChgDao">
+
+    <select id="getInfoByDate" resultType="map">
+        SELECT *
+        FROM (SELECT sec_uni_code, peo_uni_code, trade_date,  annual_yield, sharpe_ratio, ir, treynor_ratio, jenson_ratio, alpha
+                FROM fund_manager_perf_chg
+                WHERE trade_date >= #{startDate}
+                AND trade_date &lt; #{endDate}
+                    ORDER BY trade_date DESC) a
+        GROUP BY sec_uni_code, peo_uni_code
+    </select>
+
+    <select id="getByPeoUniCodeAndSecUniCodeAndDate" resultType="la.niub.abcapi.servicecompre.model.FundManagerPerfChgModel">
+        SELECT
+            annual_yield,
+            benchmark_annual_yield,
+            alpha,
+            ir,
+            ir_pct
+        FROM
+            fund_manager_perf_chg
+        WHERE
+            peo_uni_code = #{peo_uni_code}
+        AND sec_uni_code = #{sec_uni_code}
+        ORDER BY
+            ABS(DATEDIFF(#{end_date}, trade_date)) ASC,
+            trade_date DESC
+        LIMIT 1
+    </select>
+</mapper>

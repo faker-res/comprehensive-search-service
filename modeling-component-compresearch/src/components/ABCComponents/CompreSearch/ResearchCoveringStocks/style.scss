@@ -1,0 +1,281 @@
+@import '../../../../theme/common.scss';
+.ResearchCoveringStocks-container{
+    width: 100%;
+    height: 299px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.03);
+    .title{
+        height:47.74px;
+        line-height:47.74px;
+        color: rgba(51, 51, 51, 1);
+        font-size: 15px;
+        font-weight: bold;
+        text-align: left;
+        font-family: PingFangSC-Medium;
+        border-bottom:1px solid rgba(242, 242, 242, 1);
+        text-indent:27px;
+    }
+    .AnalystCard-content{
+        padding: 0px 23px;
+        .AnalystCard-up{
+            .up-left{
+                float:left;
+                // display:inline-block;
+                .Analyst-image{
+                    margin-right:10px;
+                    vertical-align: top;
+                    width: 90px;
+                    height: 120px;
+                    display:inline-block;
+                    img{
+                        position:relative;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .Analyst-info{
+                    display:inline-block;
+                    .Analyst-info-item{
+                        margin:12px 0 0 0;
+                        color: #999999ba;
+                       .Analyst-tag{
+                            color:white;
+                            height: 24px;
+                            border-radius: 2px;
+                            background-color: rgba(56, 96, 157, 1);
+                            margin-right:10px;
+                            padding:2px 16px;
+                        } 
+                    }
+                    .Analyst-name-container{
+                        height: 30px;
+                        line-height: 30px;
+                    }
+                    .Analyst-name{
+                        color: rgba(64, 124, 213, 1);
+                        font-size: 22px;
+                        text-align: left;
+                        font-family: PingFangSC-Medium;
+                    }
+                    .Analyst-optional{
+                        display:inline-block;
+                        width: 55px;
+                        border-radius: 47px;
+                        background-color: rgba(243, 248, 255, 1);
+                        height: 21.83px;
+                        line-height: 21.83px;
+                        color: rgba(56, 96, 157, 1);
+                        font-size: 14px;
+                        text-align: center;
+                        margin-left:20px;
+                        font-family: PingFangSC-Regular;
+                    }
+                }
+            }
+            .up-right{
+                float:right;
+                // display:inline-block;
+                padding: 20px 0;
+                .up-right-item{
+                    margin: 11px 0;
+                    height:30px;
+                    line-height:30px;
+                    .Analyst-index-value{
+                        min-width: 160px;
+                        text-align:center;
+                        display:inline-block;
+                        height: 28px;
+                        line-height: 28px;
+                        color: rgba(0, 0, 0, 1);
+                        font-size: 20px;
+                        text-align: center;
+                        font-family: PingFangSC-Regular;
+                        .time{
+                            font-size: 12px;
+                            color: #4A90E2;
+                            margin: 0 5px;
+                        }
+                    }
+                    .Analyst-index-value:first-child{
+                        .img{
+                            width:100px;
+                            height:30px;
+                            // border:1px solid;
+                            text-align: center;
+                            display: inline-block;
+                            img{
+                                position:relative;
+                                width: 100%;
+                                height: 100%; 
+                            }
+                        }
+                    }
+                    .Analyst-index-value:last-child{
+                        margin-right:0;
+                    }
+                    .Analyst-index-name{
+                        min-width: 160px;
+                        text-align:center;
+                        display:inline-block;
+                        height: 17px;
+                        line-height: 17px;
+                        color: rgba(102, 102, 102, 1);
+                        font-size: 12px;
+                        text-align: center;
+                        font-family: PingFangSC-Regular;
+                    }
+                    .Analyst-index-name:last-child{
+                        margin-right:0;
+                    }
+                }
+            }
+        }
+        .AnalystCard-down{
+            clear:both;
+            width: 847px;
+            border-top: 1px solid rgba(244, 244, 244, 1);
+            margin-top:20.34px;
+            padding: 15px 0px 15px 0px;
+            .down-title{
+                font-weight:bolder;
+                height: 20px;
+                line-height: 20px;
+                color: rgba(51, 51, 51, 1);
+                font-size: 14px;
+                text-align: left;
+                font-family: PingFangSC-Semibold;
+            }
+            .down-left{
+                float:left;
+                width:354px;
+                padding-right:18px;
+                
+                .down-left-up{
+                    .introduce{
+                        height: 65px;
+                        line-height: 20px;
+                        color: rgba(102, 102, 102, 1);
+                        font-size: 13px;
+                        text-align: left;
+                        font-family: PingFangSC-Regular;
+                        margin-top:5px;
+                        overflow:auto;
+                    }
+                }
+            }
+            .devider{
+                height:1px;
+                width:354px;
+                margin:14px 0;
+                border-bottom:1px solid rgba(244, 244, 244, 1);
+            }
+            .down-right{
+                float: left;
+                .ant-layout{
+                    background:#fff!important;
+                }
+                // .down-left-down{
+                //     width:354px;
+                    .down-left-down-item{
+                        // margin:5px 0;
+                        margin-left:16px;
+                        height: 23px;
+                        line-height: 23px;
+                        color: rgba(102, 102, 102, 1);
+                        font-size: 13px;
+                        text-align: left;
+                        font-family: PingFangSC-Regular;
+                    }
+                // }
+                .ant-timeline{
+                    // height: 255px;
+                    width:490px;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    padding-left: 20px;
+                    padding-top: 7px;
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #eeeeee;
+                    };
+                    .ant-timeline-item{
+                        padding:0;
+                    }
+                }
+                .ant-timeline:hover {
+                    &::-webkit-scrollbar-thumb {
+                        background-color: rgba( 0, 0, 0, 0.1);
+                    };
+                }
+                .ant-timeline-item-head{
+                    background: #DCE2E9;
+                    width: 8px;
+                    height: 8px;
+                }
+                .ant-timeline-item-head-custom{
+                    border-radius:50%;
+                    width: 23px;
+                    height: 23px;
+                }
+                .ant-timeline-item-tail {
+                    position: absolute;
+                    left: 4px;
+                    top: 0.75em;
+                    height: 100%;
+                    border-left: 1px solid #e8e8e8;
+                }
+                .anticon-clock-circle-o:before {
+                    color: #fff;
+                }
+                .work-item{
+                    width:430px;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
+                    height: 23px;
+                    line-height: 23px;
+                    color: rgba(51, 51, 51, 1);
+                    font-size: 14px;
+                    text-align: left;
+                    font-family: PingFangSC-Medium;
+                    display: inline-block;
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        text-decoration: none;
+                        color: $color-link;
+                    }
+                    &:visited {
+                        text-decoration: none;
+                        color: $color-text-secondary;
+                    }
+                }
+                .tip{
+                    margin-top:6px;
+                    >.anticon {
+                        &.anticon-profile {
+                            color: $color-link;
+                        }
+                        &.anticon-weibo {
+                            color: $color-weibo;
+                        }
+                        &.anticon-wechat {
+                            color: $color-wechat;
+                        }
+                    }
+                }
+                .active-title{
+                    // margin-top:6px;
+                    font-weight: bolder;
+                    width: 112.51px;
+                    // height: 20px;
+                    // line-height: 20px;
+                    color: rgba(51, 51, 51, 1);
+                    font-size: 14px;
+                    // text-align: left;
+                    font-family: PingFangSC-Medium;
+                }
+            }
+        }  
+    }
+}

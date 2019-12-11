@@ -1,0 +1,31 @@
+@mixin align-items($value) {
+  align-items: $value
+}
+
+// 正方形
+@mixin rect($size) {
+  width: $size;
+  height: $size;
+}
+
+// 高度和行高一致
+@mixin line-as-height($height) {
+  height: $height;
+  line-height: $height;
+}
+
+// 覆盖antd的menu样式
+@mixin overwrite-left-menu-style {
+  .ant-menu-inline .ant-menu-submenu-title {
+    padding-right: 0;
+
+    .ant-menu-submenu-arrow {
+      display: none;
+    }
+  }
+
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: rgba(63, 124, 213, 1);
+    color: #fff;
+  }
+}

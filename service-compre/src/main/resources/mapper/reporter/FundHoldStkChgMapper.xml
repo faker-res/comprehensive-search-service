@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundHoldStkChgDao">
+  <sql id="Base_Column_List">
+    id, fund_uni_code, end_date, stk_uni_code, stk_code, hold_stk_amt_chg, hold_ratio_for_float_stk, 
+    hold_stk_value_stk_ratio, createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="getLastEndDate" parameterType="java.lang.Long" resultType="java.util.Date">
+    select
+    max(end_date)
+    from fund_hold_stk_chg
+    where stk_uni_code = #{secUniCode,jdbcType=BIGINT}
+  </select>
+  <select id="getYearRecords" resultType="la.niub.abcapi.servicecompre.model.FundHoldStkChgModel">
+    select a.fund_uni_code, a.hold_stk_amt_chg, a.hold_ratio_for_float_stk, a.end_date, a.hold_stk_value_stk_ratio,
+    b.hold_sec_amount, b.hold_sec_value, b.sec_value_net_ratio,
+    c.sec_name,c.sec_code
+    from fund_hold_stk_chg as a, fund_invest_detail as b, sec_basic_info as c
+    where a.stk_uni_code = b.inv_sec_uni_code
+    and a.fund_uni_code = b.sec_uni_code
+    and a.fund_uni_code = c.sec_uni_code
+    and a.end_date = b.end_date
+    and a.stk_uni_code = #{secUniCode,jdbcType=BIGINT}
+    and a.end_date = #{endDate,jdbcType=DATE}
+    <if test="orderField != null">
+      ORDER BY #{orderField,jdbcType=VARCHAR} DESC
+    </if>
+    <if test="limit != 0">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+    <if test="offset != 0">
+      offset #{offset,jdbcType=INTEGER}
+    </if>
+  </select>
+</mapper>

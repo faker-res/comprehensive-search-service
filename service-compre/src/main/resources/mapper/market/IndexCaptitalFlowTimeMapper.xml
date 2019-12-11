@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.market.IIndexCaptitalFlowTimeDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.IndexCaptitalFlowTimeModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="index_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="trade_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="index_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="main_in_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="main_out_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="main_netin_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="main_net_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sup_in_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sup_out_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sup_net_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sup_in_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sup_out_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sup_netin_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="big_in_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="big_out_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="big_net_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="big_in_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="big_out_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="big_netin_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="mid_in_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="mid_out_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="mid_net_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="mid_in_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="mid_out_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="mid_netin_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sma_in_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sma_out_volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sma_net_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sma_in_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sma_out_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sma_netin_flow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, index_uni_code, trade_date, index_code, main_in_flow, main_out_flow, main_netin_flow, 
+    main_net_rate, sup_in_volume, sup_out_volume, sup_net_rate, sup_in_flow, sup_out_flow, 
+    sup_netin_flow, big_in_volume, big_out_volume, big_net_rate, big_in_flow, big_out_flow, 
+    big_netin_flow, mid_in_volume, mid_out_volume, mid_net_rate, mid_in_flow, mid_out_flow, 
+    mid_netin_flow, sma_in_volume, sma_out_volume, sma_net_rate, sma_in_flow, sma_out_flow, 
+    sma_netin_flow, createtime, updatetime, status, creator, editor, come_source, push_search, 
+    push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from index_captital_flow_time
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_captital_flow_time
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.IndexCaptitalFlowTimeModel">
+    insert into index_captital_flow_time (id, index_uni_code, trade_date, 
+      index_code, main_in_flow, main_out_flow, 
+      main_netin_flow, main_net_rate, sup_in_volume, 
+      sup_out_volume, sup_net_rate, sup_in_flow, 
+      sup_out_flow, sup_netin_flow, big_in_volume, 
+      big_out_volume, big_net_rate, big_in_flow, 
+      big_out_flow, big_netin_flow, mid_in_volume, 
+      mid_out_volume, mid_net_rate, mid_in_flow, 
+      mid_out_flow, mid_netin_flow, sma_in_volume, 
+      sma_out_volume, sma_net_rate, sma_in_flow, 
+      sma_out_flow, sma_netin_flow, createtime, 
+      updatetime, status, creator, 
+      editor, come_source, push_search, 
+      push_product)
+    values (#{id,jdbcType=BIGINT}, #{index_uni_code,jdbcType=BIGINT}, #{trade_date,jdbcType=TIMESTAMP}, 
+      #{index_code,jdbcType=VARCHAR}, #{main_in_flow,jdbcType=DECIMAL}, #{main_out_flow,jdbcType=DECIMAL}, 
+      #{main_netin_flow,jdbcType=DECIMAL}, #{main_net_rate,jdbcType=DECIMAL}, #{sup_in_volume,jdbcType=DECIMAL}, 
+      #{sup_out_volume,jdbcType=DECIMAL}, #{sup_net_rate,jdbcType=DECIMAL}, #{sup_in_flow,jdbcType=DECIMAL}, 
+      #{sup_out_flow,jdbcType=DECIMAL}, #{sup_netin_flow,jdbcType=DECIMAL}, #{big_in_volume,jdbcType=DECIMAL}, 
+      #{big_out_volume,jdbcType=DECIMAL}, #{big_net_rate,jdbcType=DECIMAL}, #{big_in_flow,jdbcType=DECIMAL}, 
+      #{big_out_flow,jdbcType=DECIMAL}, #{big_netin_flow,jdbcType=DECIMAL}, #{mid_in_volume,jdbcType=DECIMAL}, 
+      #{mid_out_volume,jdbcType=DECIMAL}, #{mid_net_rate,jdbcType=DECIMAL}, #{mid_in_flow,jdbcType=DECIMAL}, 
+      #{mid_out_flow,jdbcType=DECIMAL}, #{mid_netin_flow,jdbcType=DECIMAL}, #{sma_in_volume,jdbcType=DECIMAL}, 
+      #{sma_out_volume,jdbcType=DECIMAL}, #{sma_net_rate,jdbcType=DECIMAL}, #{sma_in_flow,jdbcType=DECIMAL}, 
+      #{sma_out_flow,jdbcType=DECIMAL}, #{sma_netin_flow,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, 
+      #{push_product,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.IndexCaptitalFlowTimeModel">
+    insert into index_captital_flow_time
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="index_uni_code != null">
+        index_uni_code,
+      </if>
+      <if test="trade_date != null">
+        trade_date,
+      </if>
+      <if test="index_code != null">
+        index_code,
+      </if>
+      <if test="main_in_flow != null">
+        main_in_flow,
+      </if>
+      <if test="main_out_flow != null">
+        main_out_flow,
+      </if>
+      <if test="main_netin_flow != null">
+        main_netin_flow,
+      </if>
+      <if test="main_net_rate != null">
+        main_net_rate,
+      </if>
+      <if test="sup_in_volume != null">
+        sup_in_volume,
+      </if>
+      <if test="sup_out_volume != null">
+        sup_out_volume,
+      </if>
+      <if test="sup_net_rate != null">
+        sup_net_rate,
+      </if>
+      <if test="sup_in_flow != null">
+        sup_in_flow,
+      </if>
+      <if test="sup_out_flow != null">
+        sup_out_flow,
+      </if>
+      <if test="sup_netin_flow != null">
+        sup_netin_flow,
+      </if>
+      <if test="big_in_volume != null">
+        big_in_volume,
+      </if>
+      <if test="big_out_volume != null">
+        big_out_volume,
+      </if>
+      <if test="big_net_rate != null">
+        big_net_rate,
+      </if>
+      <if test="big_in_flow != null">
+        big_in_flow,
+      </if>
+      <if test="big_out_flow != null">
+        big_out_flow,
+      </if>
+      <if test="big_netin_flow != null">
+        big_netin_flow,
+      </if>
+      <if test="mid_in_volume != null">
+        mid_in_volume,
+      </if>
+      <if test="mid_out_volume != null">
+        mid_out_volume,
+      </if>
+      <if test="mid_net_rate != null">
+        mid_net_rate,
+      </if>
+      <if test="mid_in_flow != null">
+        mid_in_flow,
+      </if>
+      <if test="mid_out_flow != null">
+        mid_out_flow,
+      </if>
+      <if test="mid_netin_flow != null">
+        mid_netin_flow,
+      </if>
+      <if test="sma_in_volume != null">
+        sma_in_volume,
+      </if>
+      <if test="sma_out_volume != null">
+        sma_out_volume,
+      </if>
+      <if test="sma_net_rate != null">
+        sma_net_rate,
+      </if>
+      <if test="sma_in_flow != null">
+        sma_in_flow,
+      </if>
+      <if test="sma_out_flow != null">
+        sma_out_flow,
+      </if>
+      <if test="sma_netin_flow != null">
+        sma_netin_flow,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="index_uni_code != null">
+        #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="trade_date != null">
+        #{trade_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="index_code != null">
+        #{index_code,jdbcType=VARCHAR},
+      </if>
+      <if test="main_in_flow != null">
+        #{main_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="main_out_flow != null">
+        #{main_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="main_netin_flow != null">
+        #{main_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="main_net_rate != null">
+        #{main_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_in_volume != null">
+        #{sup_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_out_volume != null">
+        #{sup_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_net_rate != null">
+        #{sup_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_in_flow != null">
+        #{sup_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_out_flow != null">
+        #{sup_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_netin_flow != null">
+        #{sup_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="big_in_volume != null">
+        #{big_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="big_out_volume != null">
+        #{big_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="big_net_rate != null">
+        #{big_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="big_in_flow != null">
+        #{big_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="big_out_flow != null">
+        #{big_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="big_netin_flow != null">
+        #{big_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_in_volume != null">
+        #{mid_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_out_volume != null">
+        #{mid_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_net_rate != null">
+        #{mid_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_in_flow != null">
+        #{mid_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_out_flow != null">
+        #{mid_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_netin_flow != null">
+        #{mid_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_in_volume != null">
+        #{sma_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_out_volume != null">
+        #{sma_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_net_rate != null">
+        #{sma_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_in_flow != null">
+        #{sma_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_out_flow != null">
+        #{sma_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_netin_flow != null">
+        #{sma_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.IndexCaptitalFlowTimeModel">
+    update index_captital_flow_time
+    <set>
+      <if test="index_uni_code != null">
+        index_uni_code = #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="trade_date != null">
+        trade_date = #{trade_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="index_code != null">
+        index_code = #{index_code,jdbcType=VARCHAR},
+      </if>
+      <if test="main_in_flow != null">
+        main_in_flow = #{main_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="main_out_flow != null">
+        main_out_flow = #{main_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="main_netin_flow != null">
+        main_netin_flow = #{main_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="main_net_rate != null">
+        main_net_rate = #{main_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_in_volume != null">
+        sup_in_volume = #{sup_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_out_volume != null">
+        sup_out_volume = #{sup_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_net_rate != null">
+        sup_net_rate = #{sup_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_in_flow != null">
+        sup_in_flow = #{sup_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_out_flow != null">
+        sup_out_flow = #{sup_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sup_netin_flow != null">
+        sup_netin_flow = #{sup_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="big_in_volume != null">
+        big_in_volume = #{big_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="big_out_volume != null">
+        big_out_volume = #{big_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="big_net_rate != null">
+        big_net_rate = #{big_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="big_in_flow != null">
+        big_in_flow = #{big_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="big_out_flow != null">
+        big_out_flow = #{big_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="big_netin_flow != null">
+        big_netin_flow = #{big_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_in_volume != null">
+        mid_in_volume = #{mid_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_out_volume != null">
+        mid_out_volume = #{mid_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_net_rate != null">
+        mid_net_rate = #{mid_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_in_flow != null">
+        mid_in_flow = #{mid_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_out_flow != null">
+        mid_out_flow = #{mid_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="mid_netin_flow != null">
+        mid_netin_flow = #{mid_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_in_volume != null">
+        sma_in_volume = #{sma_in_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_out_volume != null">
+        sma_out_volume = #{sma_out_volume,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_net_rate != null">
+        sma_net_rate = #{sma_net_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_in_flow != null">
+        sma_in_flow = #{sma_in_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_out_flow != null">
+        sma_out_flow = #{sma_out_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="sma_netin_flow != null">
+        sma_netin_flow = #{sma_netin_flow,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.IndexCaptitalFlowTimeModel">
+    update index_captital_flow_time
+    set index_uni_code = #{index_uni_code,jdbcType=BIGINT},
+      trade_date = #{trade_date,jdbcType=TIMESTAMP},
+      index_code = #{index_code,jdbcType=VARCHAR},
+      main_in_flow = #{main_in_flow,jdbcType=DECIMAL},
+      main_out_flow = #{main_out_flow,jdbcType=DECIMAL},
+      main_netin_flow = #{main_netin_flow,jdbcType=DECIMAL},
+      main_net_rate = #{main_net_rate,jdbcType=DECIMAL},
+      sup_in_volume = #{sup_in_volume,jdbcType=DECIMAL},
+      sup_out_volume = #{sup_out_volume,jdbcType=DECIMAL},
+      sup_net_rate = #{sup_net_rate,jdbcType=DECIMAL},
+      sup_in_flow = #{sup_in_flow,jdbcType=DECIMAL},
+      sup_out_flow = #{sup_out_flow,jdbcType=DECIMAL},
+      sup_netin_flow = #{sup_netin_flow,jdbcType=DECIMAL},
+      big_in_volume = #{big_in_volume,jdbcType=DECIMAL},
+      big_out_volume = #{big_out_volume,jdbcType=DECIMAL},
+      big_net_rate = #{big_net_rate,jdbcType=DECIMAL},
+      big_in_flow = #{big_in_flow,jdbcType=DECIMAL},
+      big_out_flow = #{big_out_flow,jdbcType=DECIMAL},
+      big_netin_flow = #{big_netin_flow,jdbcType=DECIMAL},
+      mid_in_volume = #{mid_in_volume,jdbcType=DECIMAL},
+      mid_out_volume = #{mid_out_volume,jdbcType=DECIMAL},
+      mid_net_rate = #{mid_net_rate,jdbcType=DECIMAL},
+      mid_in_flow = #{mid_in_flow,jdbcType=DECIMAL},
+      mid_out_flow = #{mid_out_flow,jdbcType=DECIMAL},
+      mid_netin_flow = #{mid_netin_flow,jdbcType=DECIMAL},
+      sma_in_volume = #{sma_in_volume,jdbcType=DECIMAL},
+      sma_out_volume = #{sma_out_volume,jdbcType=DECIMAL},
+      sma_net_rate = #{sma_net_rate,jdbcType=DECIMAL},
+      sma_in_flow = #{sma_in_flow,jdbcType=DECIMAL},
+      sma_out_flow = #{sma_out_flow,jdbcType=DECIMAL},
+      sma_netin_flow = #{sma_netin_flow,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getLastTradeDate" resultType="java.util.Date">
+    select
+    max(trade_date)
+    from index_captital_flow_time
+  </select>
+  <select id="selectHeatByIndexCodesAndTradeDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_captital_flow_time
+    where index_code in
+    <foreach collection="indexCodes" item="item" index="index"
+             open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    and trade_date = #{tradeDate,jdbcType=TIMESTAMP}
+    order by main_netin_flow desc
+    limit #{limit,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectRealtimeByIndexUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_captital_flow_time
+    where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+    and trade_date &gt;=
+    (
+    select CONCAT(DATE_FORMAT(max(trade_date), "%Y-%m-%d"), " 09:00:00") from index_captital_flow_time where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+    )
+    and trade_date &lt;=
+    (
+    select CONCAT(DATE_FORMAT(max(trade_date), "%Y-%m-%d"), " 15:00:00") from index_captital_flow_time where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+    )
+    order by trade_date asc
+  </select>
+  <select id="selectHeatByIndexCodesAfterTradeDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from (select
+    <include refid="Base_Column_List"/>
+    from index_captital_flow_time
+    where index_code in
+    <foreach collection="indexCodes" item="item" index="index"
+             open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    and trade_date >= #{tradeDate,jdbcType=DATE}
+    order by trade_date desc) a
+    group by index_code
+    order by main_netin_flow desc
+    limit #{limit,jdbcType=INTEGER}
+  </select>
+</mapper>

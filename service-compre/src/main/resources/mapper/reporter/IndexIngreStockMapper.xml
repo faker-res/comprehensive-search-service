@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IIndexIngreStockDao">
+    <select id="selectSecCodeByIndexId" resultType="java.lang.String">
+       SELECT sec_code FROM index_ingre_stock WHERE index_id = #{index_id} AND out_date IS NULL;
+    </select>
+    <select id="selectMarkBySecCode" resultType="map">
+        select  b.pub_org_name as index_type, b.index_code, b.index_name,a.in_date,a.out_date,a.id from index_ingre_stock a join index_basic_info b on a.index_id=b.index_id
+        where  b.remark!='概念板块指数' and  b.pub_org_code in (1000000581,3386536,626019,506811,497585,497584,341039,255549,1583)
+        <if test="sec_code != null">
+          and  sec_code =#{sec_code}
+        </if>
+        <if test="qsql != null">
+            ${qsql}
+        </if>
+        <if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="limit != null and limit != 0">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+    <select id="selectNotionBySecCode" resultType="map">
+        select  b.index_type, b.index_code, b.index_name,a.in_date,a.sec_code,b.index_uni_code,a.id from index_ingre_stock a join index_basic_info b on a.index_id=b.index_id
+        where  b.remark='概念板块指数'
+        <if test="sec_code != null">
+           and sec_code =#{sec_code}
+        </if>
+        <if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="limit != null and limit != 0">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+
+    <select id="getMarkCount" parameterType="map" resultType="long">
+        select  count(1) from index_ingre_stock a join index_basic_info b on a.index_id=b.index_id
+        where  b.remark!='概念板块指数' and  b.pub_org_code in (1000000581,3386536,626019,506811,497585,497584,341039,255549,1583)
+        <if test="sec_code != null">
+           and sec_code =#{sec_code}
+        </if>
+        <if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="limit != null and limit != 0">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+    <select id="getNotionCount"  parameterType="map" resultType="long">
+        select count(1) from index_ingre_stock a join index_basic_info b on a.index_id=b.index_id
+        where  b.remark='概念板块指数'
+        <if test="sec_code != null">
+            and sec_code =#{sec_code}
+        </if>
+        <if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="limit != null and limit != 0">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+</mapper>

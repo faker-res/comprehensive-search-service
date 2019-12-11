@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundManagerStatDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerStatModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_manager_tot_days" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fund_manager_beg_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="comp_count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fund_manager_avg_days" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="present_comp_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="present_comp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="present_comp_days" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="present_comp_beg_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="present_comp_fund_count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="job_hopping_freq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fund_manage_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tenure_avg_annual_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="avg_ir" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="avg_ir_pct" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tenure_avg_annual_yield_index" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hs_300_index_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="csi_universal_index_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, peo_uni_code, fund_manager_name, fund_manager_tot_days, fund_manager_beg_date, 
+    fund_count, comp_count, fund_manager_avg_days, present_comp_code, present_comp_name, 
+    present_comp_days, present_comp_beg_date, present_comp_fund_count, job_hopping_freq, 
+    fund_manage_nav, tenure_avg_annual_yield, avg_ir, avg_ir_pct, tenure_avg_annual_yield_index, 
+    hs_300_index_yield, csi_universal_index_yield, createtime, updatetime, status, creator, 
+    editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_manager_stat
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_manager_stat
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundManagerStatModel">
+    insert into fund_manager_stat (id, peo_uni_code, fund_manager_name, 
+      fund_manager_tot_days, fund_manager_beg_date, 
+      fund_count, comp_count, fund_manager_avg_days, 
+      present_comp_code, present_comp_name, present_comp_days, 
+      present_comp_beg_date, present_comp_fund_count, 
+      job_hopping_freq, fund_manage_nav, tenure_avg_annual_yield, 
+      avg_ir, avg_ir_pct, tenure_avg_annual_yield_index, 
+      hs_300_index_yield, csi_universal_index_yield, 
+      createtime, updatetime, status, 
+      creator, editor)
+    values (#{id,jdbcType=BIGINT}, #{peo_uni_code,jdbcType=BIGINT}, #{fund_manager_name,jdbcType=VARCHAR}, 
+      #{fund_manager_tot_days,jdbcType=DECIMAL}, #{fund_manager_beg_date,jdbcType=DATE}, 
+      #{fund_count,jdbcType=INTEGER}, #{comp_count,jdbcType=INTEGER}, #{fund_manager_avg_days,jdbcType=DECIMAL}, 
+      #{present_comp_code,jdbcType=BIGINT}, #{present_comp_name,jdbcType=VARCHAR}, #{present_comp_days,jdbcType=INTEGER}, 
+      #{present_comp_beg_date,jdbcType=DATE}, #{present_comp_fund_count,jdbcType=INTEGER}, 
+      #{job_hopping_freq,jdbcType=DECIMAL}, #{fund_manage_nav,jdbcType=DECIMAL}, #{tenure_avg_annual_yield,jdbcType=DECIMAL}, 
+      #{avg_ir,jdbcType=DECIMAL}, #{avg_ir_pct,jdbcType=DECIMAL}, #{tenure_avg_annual_yield_index,jdbcType=DECIMAL}, 
+      #{hs_300_index_yield,jdbcType=DECIMAL}, #{csi_universal_index_yield,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerStatModel">
+    insert into fund_manager_stat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="fund_manager_name != null">
+        fund_manager_name,
+      </if>
+      <if test="fund_manager_tot_days != null">
+        fund_manager_tot_days,
+      </if>
+      <if test="fund_manager_beg_date != null">
+        fund_manager_beg_date,
+      </if>
+      <if test="fund_count != null">
+        fund_count,
+      </if>
+      <if test="comp_count != null">
+        comp_count,
+      </if>
+      <if test="fund_manager_avg_days != null">
+        fund_manager_avg_days,
+      </if>
+      <if test="present_comp_code != null">
+        present_comp_code,
+      </if>
+      <if test="present_comp_name != null">
+        present_comp_name,
+      </if>
+      <if test="present_comp_days != null">
+        present_comp_days,
+      </if>
+      <if test="present_comp_beg_date != null">
+        present_comp_beg_date,
+      </if>
+      <if test="present_comp_fund_count != null">
+        present_comp_fund_count,
+      </if>
+      <if test="job_hopping_freq != null">
+        job_hopping_freq,
+      </if>
+      <if test="fund_manage_nav != null">
+        fund_manage_nav,
+      </if>
+      <if test="tenure_avg_annual_yield != null">
+        tenure_avg_annual_yield,
+      </if>
+      <if test="avg_ir != null">
+        avg_ir,
+      </if>
+      <if test="avg_ir_pct != null">
+        avg_ir_pct,
+      </if>
+      <if test="tenure_avg_annual_yield_index != null">
+        tenure_avg_annual_yield_index,
+      </if>
+      <if test="hs_300_index_yield != null">
+        hs_300_index_yield,
+      </if>
+      <if test="csi_universal_index_yield != null">
+        csi_universal_index_yield,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_manager_name != null">
+        #{fund_manager_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_manager_tot_days != null">
+        #{fund_manager_tot_days,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_manager_beg_date != null">
+        #{fund_manager_beg_date,jdbcType=DATE},
+      </if>
+      <if test="fund_count != null">
+        #{fund_count,jdbcType=INTEGER},
+      </if>
+      <if test="comp_count != null">
+        #{comp_count,jdbcType=INTEGER},
+      </if>
+      <if test="fund_manager_avg_days != null">
+        #{fund_manager_avg_days,jdbcType=DECIMAL},
+      </if>
+      <if test="present_comp_code != null">
+        #{present_comp_code,jdbcType=BIGINT},
+      </if>
+      <if test="present_comp_name != null">
+        #{present_comp_name,jdbcType=VARCHAR},
+      </if>
+      <if test="present_comp_days != null">
+        #{present_comp_days,jdbcType=INTEGER},
+      </if>
+      <if test="present_comp_beg_date != null">
+        #{present_comp_beg_date,jdbcType=DATE},
+      </if>
+      <if test="present_comp_fund_count != null">
+        #{present_comp_fund_count,jdbcType=INTEGER},
+      </if>
+      <if test="job_hopping_freq != null">
+        #{job_hopping_freq,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_manage_nav != null">
+        #{fund_manage_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="tenure_avg_annual_yield != null">
+        #{tenure_avg_annual_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="avg_ir != null">
+        #{avg_ir,jdbcType=DECIMAL},
+      </if>
+      <if test="avg_ir_pct != null">
+        #{avg_ir_pct,jdbcType=DECIMAL},
+      </if>
+      <if test="tenure_avg_annual_yield_index != null">
+        #{tenure_avg_annual_yield_index,jdbcType=DECIMAL},
+      </if>
+      <if test="hs_300_index_yield != null">
+        #{hs_300_index_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="csi_universal_index_yield != null">
+        #{csi_universal_index_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerStatModel">
+    update fund_manager_stat
+    <set>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_manager_name != null">
+        fund_manager_name = #{fund_manager_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_manager_tot_days != null">
+        fund_manager_tot_days = #{fund_manager_tot_days,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_manager_beg_date != null">
+        fund_manager_beg_date = #{fund_manager_beg_date,jdbcType=DATE},
+      </if>
+      <if test="fund_count != null">
+        fund_count = #{fund_count,jdbcType=INTEGER},
+      </if>
+      <if test="comp_count != null">
+        comp_count = #{comp_count,jdbcType=INTEGER},
+      </if>
+      <if test="fund_manager_avg_days != null">
+        fund_manager_avg_days = #{fund_manager_avg_days,jdbcType=DECIMAL},
+      </if>
+      <if test="present_comp_code != null">
+        present_comp_code = #{present_comp_code,jdbcType=BIGINT},
+      </if>
+      <if test="present_comp_name != null">
+        present_comp_name = #{present_comp_name,jdbcType=VARCHAR},
+      </if>
+      <if test="present_comp_days != null">
+        present_comp_days = #{present_comp_days,jdbcType=INTEGER},
+      </if>
+      <if test="present_comp_beg_date != null">
+        present_comp_beg_date = #{present_comp_beg_date,jdbcType=DATE},
+      </if>
+      <if test="present_comp_fund_count != null">
+        present_comp_fund_count = #{present_comp_fund_count,jdbcType=INTEGER},
+      </if>
+      <if test="job_hopping_freq != null">
+        job_hopping_freq = #{job_hopping_freq,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_manage_nav != null">
+        fund_manage_nav = #{fund_manage_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="tenure_avg_annual_yield != null">
+        tenure_avg_annual_yield = #{tenure_avg_annual_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="avg_ir != null">
+        avg_ir = #{avg_ir,jdbcType=DECIMAL},
+      </if>
+      <if test="avg_ir_pct != null">
+        avg_ir_pct = #{avg_ir_pct,jdbcType=DECIMAL},
+      </if>
+      <if test="tenure_avg_annual_yield_index != null">
+        tenure_avg_annual_yield_index = #{tenure_avg_annual_yield_index,jdbcType=DECIMAL},
+      </if>
+      <if test="hs_300_index_yield != null">
+        hs_300_index_yield = #{hs_300_index_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="csi_universal_index_yield != null">
+        csi_universal_index_yield = #{csi_universal_index_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundManagerStatModel">
+    update fund_manager_stat
+    set peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      fund_manager_name = #{fund_manager_name,jdbcType=VARCHAR},
+      fund_manager_tot_days = #{fund_manager_tot_days,jdbcType=DECIMAL},
+      fund_manager_beg_date = #{fund_manager_beg_date,jdbcType=DATE},
+      fund_count = #{fund_count,jdbcType=INTEGER},
+      comp_count = #{comp_count,jdbcType=INTEGER},
+      fund_manager_avg_days = #{fund_manager_avg_days,jdbcType=DECIMAL},
+      present_comp_code = #{present_comp_code,jdbcType=BIGINT},
+      present_comp_name = #{present_comp_name,jdbcType=VARCHAR},
+      present_comp_days = #{present_comp_days,jdbcType=INTEGER},
+      present_comp_beg_date = #{present_comp_beg_date,jdbcType=DATE},
+      present_comp_fund_count = #{present_comp_fund_count,jdbcType=INTEGER},
+      job_hopping_freq = #{job_hopping_freq,jdbcType=DECIMAL},
+      fund_manage_nav = #{fund_manage_nav,jdbcType=DECIMAL},
+      tenure_avg_annual_yield = #{tenure_avg_annual_yield,jdbcType=DECIMAL},
+      avg_ir = #{avg_ir,jdbcType=DECIMAL},
+      avg_ir_pct = #{avg_ir_pct,jdbcType=DECIMAL},
+      tenure_avg_annual_yield_index = #{tenure_avg_annual_yield_index,jdbcType=DECIMAL},
+      hs_300_index_yield = #{hs_300_index_yield,jdbcType=DECIMAL},
+      csi_universal_index_yield = #{csi_universal_index_yield,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPeoUniCodes" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    from fund_manager_stat
+    WHERE 1
+    <if test ="null != peoUniCodes">
+     AND `peo_uni_code` IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    ORDER BY `id` ASC ;
+  </select>
+  <select id="getRankByFundManageNav" resultType="java.lang.Long">
+    SELECT peo_uni_code
+    FROM fund_manager_stat
+    WHERE fund_manage_nav>0 order by fund_manage_nav desc
+  </select>
+</mapper>

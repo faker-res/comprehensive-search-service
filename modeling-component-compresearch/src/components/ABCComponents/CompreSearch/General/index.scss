@@ -1,0 +1,36 @@
+.abc-comprehensive-search-result-box {
+    // width: ;
+    // margin-top: 20px;
+
+    .compwarp {
+        margin-bottom: 30px;
+    }
+
+    .search-result-list {
+        display: block;
+        padding: 20px;
+        background-color: #fff;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 6px 1px rgba(0,0,0,.03);
+        border: 1px solid #eee;
+
+        &>div {
+            &:last-child {
+                .compwarp {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .ant-pagination-prev,
+    .ant-pagination-next {
+        .ant-pagination-item {
+            padding: 0px 5px;
+            margin-top: -2px;
+        }
+    }
+    .search-result-empty {
+        height: 300px;
+    }
+}

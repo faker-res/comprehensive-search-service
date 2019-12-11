@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IAllSearchTablesDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AllSearchTablesModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="tab_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tab_ICON" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tab_Name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tab_ShortName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tab_EngName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category_Code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="isImportant" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="display_Order" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="tab_ICON_Freq" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tab_ID, tab_ICON, tab_Name, tab_ShortName, tab_EngName, category_Code, isImportant, 
+    display_Order, tab_ICON_Freq
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from all_SearchTables
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from all_SearchTables
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AllSearchTablesModel">
+    insert into all_SearchTables (id, tab_ID, tab_ICON, 
+      tab_Name, tab_ShortName, tab_EngName, 
+      category_Code, isImportant, display_Order, 
+      tab_ICON_Freq)
+    values (#{id,jdbcType=INTEGER}, #{tab_ID,jdbcType=VARCHAR}, #{tab_ICON,jdbcType=VARCHAR}, 
+      #{tab_Name,jdbcType=VARCHAR}, #{tab_ShortName,jdbcType=VARCHAR}, #{tab_EngName,jdbcType=VARCHAR}, 
+      #{category_Code,jdbcType=VARCHAR}, #{isImportant,jdbcType=INTEGER}, #{display_Order,jdbcType=INTEGER}, 
+      #{tab_ICON_Freq,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AllSearchTablesModel">
+    insert into all_SearchTables
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tab_ID != null">
+        tab_ID,
+      </if>
+      <if test="tab_ICON != null">
+        tab_ICON,
+      </if>
+      <if test="tab_Name != null">
+        tab_Name,
+      </if>
+      <if test="tab_ShortName != null">
+        tab_ShortName,
+      </if>
+      <if test="tab_EngName != null">
+        tab_EngName,
+      </if>
+      <if test="category_Code != null">
+        category_Code,
+      </if>
+      <if test="isImportant != null">
+        isImportant,
+      </if>
+      <if test="display_Order != null">
+        display_Order,
+      </if>
+      <if test="tab_ICON_Freq != null">
+        tab_ICON_Freq,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tab_ID != null">
+        #{tab_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_ICON != null">
+        #{tab_ICON,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_Name != null">
+        #{tab_Name,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_ShortName != null">
+        #{tab_ShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_EngName != null">
+        #{tab_EngName,jdbcType=VARCHAR},
+      </if>
+      <if test="category_Code != null">
+        #{category_Code,jdbcType=VARCHAR},
+      </if>
+      <if test="isImportant != null">
+        #{isImportant,jdbcType=INTEGER},
+      </if>
+      <if test="display_Order != null">
+        #{display_Order,jdbcType=INTEGER},
+      </if>
+      <if test="tab_ICON_Freq != null">
+        #{tab_ICON_Freq,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AllSearchTablesModel">
+    update all_SearchTables
+    <set>
+      <if test="tab_ID != null">
+        tab_ID = #{tab_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_ICON != null">
+        tab_ICON = #{tab_ICON,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_Name != null">
+        tab_Name = #{tab_Name,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_ShortName != null">
+        tab_ShortName = #{tab_ShortName,jdbcType=VARCHAR},
+      </if>
+      <if test="tab_EngName != null">
+        tab_EngName = #{tab_EngName,jdbcType=VARCHAR},
+      </if>
+      <if test="category_Code != null">
+        category_Code = #{category_Code,jdbcType=VARCHAR},
+      </if>
+      <if test="isImportant != null">
+        isImportant = #{isImportant,jdbcType=INTEGER},
+      </if>
+      <if test="display_Order != null">
+        display_Order = #{display_Order,jdbcType=INTEGER},
+      </if>
+      <if test="tab_ICON_Freq != null">
+        tab_ICON_Freq = #{tab_ICON_Freq,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AllSearchTablesModel">
+    update all_SearchTables
+    set tab_ID = #{tab_ID,jdbcType=VARCHAR},
+      tab_ICON = #{tab_ICON,jdbcType=VARCHAR},
+      tab_Name = #{tab_Name,jdbcType=VARCHAR},
+      tab_ShortName = #{tab_ShortName,jdbcType=VARCHAR},
+      tab_EngName = #{tab_EngName,jdbcType=VARCHAR},
+      category_Code = #{category_Code,jdbcType=VARCHAR},
+      isImportant = #{isImportant,jdbcType=INTEGER},
+      display_Order = #{display_Order,jdbcType=INTEGER},
+      tab_ICON_Freq = #{tab_ICON_Freq,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByTabIds" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from all_SearchTables
+    where tab_ID in
+    <foreach collection="tabIds" index="index" item="item" open="(" separator="," close=")">
+      #{item,jdbcType=VARCHAR}
+    </foreach>
+  </select>
+    <select id="selectByCateCodes" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from all_SearchTables
+        where category_Code in
+        <foreach collection="cateCodes" index="index" item="item" open="(" separator="," close=")">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+        and isImportant=1 order by category_Code asc,display_Order asc
+    </select>
+    <select id="selectOtherTables" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from all_SearchTables
+        where isImportant=0
+        <if test="cateCodes != null and cateCodes.size > 0">
+            or (category_Code in
+            <foreach collection="cateCodes" index="index" item="item" open="(" separator="," close=")">
+                #{item,jdbcType=VARCHAR}
+            </foreach>
+            and isImportant=1)
+        </if>
+        order by isImportant desc,display_Order asc
+    </select>
+</mapper>

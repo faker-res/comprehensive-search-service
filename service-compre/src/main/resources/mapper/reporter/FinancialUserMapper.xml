@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFinancialUserDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    <constructor>
+      <idArg column="user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="foreign_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="nationality" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="nation" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="birthplace" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="birthdate" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="occupation" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="graduate_school" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="native_place" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="achievement" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="head" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="other" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="domain" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tags" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="follower" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="reading" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_name, foreign_name, nationality, nation, birthplace, birthdate, occupation, 
+    graduate_school, native_place, achievement, head, other, domain, tags, follower, reading
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from financial_user
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from financial_user
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    insert into financial_user (user_id, user_name, foreign_name, 
+      nationality, nation, birthplace, 
+      birthdate, occupation, graduate_school, 
+      native_place, achievement, head, 
+      other, domain)
+    values (#{user_id,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR}, #{foreign_name,jdbcType=VARCHAR}, 
+      #{nationality,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{birthplace,jdbcType=VARCHAR}, 
+      #{birthdate,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, #{graduate_school,jdbcType=VARCHAR}, 
+      #{native_place,jdbcType=VARCHAR}, #{achievement,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, 
+      #{other,jdbcType=VARCHAR}, #{domain,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    insert into financial_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="user_name != null">
+        user_name,
+      </if>
+      <if test="foreign_name != null">
+        foreign_name,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="birthplace != null">
+        birthplace,
+      </if>
+      <if test="birthdate != null">
+        birthdate,
+      </if>
+      <if test="occupation != null">
+        occupation,
+      </if>
+      <if test="graduate_school != null">
+        graduate_school,
+      </if>
+      <if test="native_place != null">
+        native_place,
+      </if>
+      <if test="achievement != null">
+        achievement,
+      </if>
+      <if test="head != null">
+        head,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user_id != null">
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null">
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="foreign_name != null">
+        #{foreign_name,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthplace != null">
+        #{birthplace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="graduate_school != null">
+        #{graduate_school,jdbcType=VARCHAR},
+      </if>
+      <if test="native_place != null">
+        #{native_place,jdbcType=VARCHAR},
+      </if>
+      <if test="achievement != null">
+        #{achievement,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    update financial_user
+    <set>
+      <if test="user_name != null">
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="foreign_name != null">
+        foreign_name = #{foreign_name,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="birthplace != null">
+        birthplace = #{birthplace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        birthdate = #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="graduate_school != null">
+        graduate_school = #{graduate_school,jdbcType=VARCHAR},
+      </if>
+      <if test="native_place != null">
+        native_place = #{native_place,jdbcType=VARCHAR},
+      </if>
+      <if test="achievement != null">
+        achievement = #{achievement,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="domain != null">
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    update financial_user
+    set user_name = #{user_name,jdbcType=VARCHAR},
+      foreign_name = #{foreign_name,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      birthplace = #{birthplace,jdbcType=VARCHAR},
+      birthdate = #{birthdate,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      graduate_school = #{graduate_school,jdbcType=VARCHAR},
+      native_place = #{native_place,jdbcType=VARCHAR},
+      achievement = #{achievement,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      other = #{other,jdbcType=VARCHAR},
+      domain = #{domain,jdbcType=VARCHAR}
+    where user_id = #{user_id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getFinanceVipListByUserIdAndDomain" resultType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    SELECT
+      user_id,
+      user_name,
+      head,
+      tags,
+      IFNULL(follower, 0) follower
+    FROM `financial_user`
+    <where>
+      user_id != #{user_id,jdbcType=VARCHAR}
+      <if test="domain != null and domain != ''">
+        AND domain = #{domain,jdbcType=VARCHAR}
+      </if>
+    </where>
+    ORDER BY follower DESC, user_id DESC
+    <if test="limit != null and limit > 0">
+      limit #{limit}
+    </if>
+  </select>
+
+  <select id="getLikeTags" resultType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    SELECT
+      user_id,
+      user_name,
+      head,
+      tags,
+      IFNULL(follower, 0) follower
+    FROM `financial_user`
+    <where>
+      user_id != #{user_id,jdbcType=VARCHAR} AND
+      <foreach collection="tags" item="item" index="index"
+               open="(" separator=" OR " close=")">
+        tags like "%"#{item,jdbcType=VARCHAR}"%"
+      </foreach>
+    </where>
+  </select>
+
+  <select id="getTagByTagPrefix" resultType="string">
+    (
+      SELECT
+        tags
+      FROM `financial_user`
+      <where>
+        tags IS NOT NULL
+        <if test="_parameter != null and _parameter != ''">
+          AND (tags like #{tag_prefix,jdbcType=VARCHAR}"%" OR tags LIKE "%,"#{tag_prefix,jdbcType=VARCHAR}"%")
+        </if>
+      </where>
+    )
+    UNION
+    (
+      SELECT
+        domain
+      FROM `financial_user`
+      <where>
+        domain IS NOT NULL
+        <if test="_parameter != null and _parameter != ''">
+          AND domain like "%"#{tag_prefix,jdbcType=VARCHAR}"%"
+        </if>
+      </where>
+      GROUP BY domain
+    )
+  </select>
+
+  <select id="getListCountByTagAndNameAndNamePrefix" resultType="int">
+    SELECT
+        COUNT(*)
+    FROM
+        financial_user
+    <where>
+      <if test="tagList != null and tagList.size() > 0">
+        <foreach collection="tagList" item="item" index="index"
+                 open="(" separator=" OR " close=")">
+          tags like "%"#{item,jdbcType=VARCHAR}"%" OR domain = #{item,jdbcType=VARCHAR}
+        </foreach>
+      </if>
+
+      <if test="name != null and name != ''">
+        AND user_name = #{name}
+      </if>
+
+      <if test="name_py_prefix != null and name_py_prefix != ''">
+        AND name_prefix = #{name_py_prefix}
+      </if>
+    </where>
+  </select>
+
+  <select id="getListByTagAndNameAndNamePrefix" resultType="la.niub.abcapi.servicecompre.model.FinancialUserModel">
+    SELECT
+      user_id,
+      user_name,
+      head,
+      tags,
+      domain,
+      IFNULL(reading, 0) reading,
+      IFNULL(follower, 0) follower
+    FROM
+    financial_user
+    <where>
+      <if test="tagList != null and tagList.size() > 0">
+        <foreach collection="tagList" item="item" open="(" separator=" OR " close=")">
+          tags like "%"#{item,jdbcType=VARCHAR}"%" OR domain LIKE #{item,jdbcType=VARCHAR}
+        </foreach>
+      </if>
+
+      <if test="name != null and name != ''">
+        AND user_name = #{name}
+      </if>
+
+      <if test="name_py_prefix != null and name_py_prefix != ''">
+        AND name_prefix = #{name_py_prefix}
+      </if>
+    </where>
+    ORDER BY ${order}
+    limit #{index}, #{limit}
+  </select>
+
+  <select id="getAllFinanceVip" resultType="map">
+    SELECT
+      user_id,
+      user_name
+    FROM
+      financial_user
+  </select>
+
+  <select id="getFinanceVipListByUserIdList" resultType="map">
+    SELECT
+      user_id,
+      user_name
+    FROM
+      financial_user
+    WHERE user_id IN
+    <foreach collection="userIdList" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

@@ -1,0 +1,223 @@
+@import "../../theme/common.scss";
+.ThemeCard-container {
+	width: 870px;
+	border-radius: 2px;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.03);
+	border: 1px solid rgba(238, 238, 238, 1);
+	margin-bottom: 15px;
+	.title {
+		height: 47.74px;
+		line-height: 47.74px;
+		color: rgba(51, 51, 51, 1);
+		font-size: 15px;
+		font-weight: bold;
+		text-align: left;
+		font-family: PingFangSC-Medium;
+		border-bottom: 1px solid rgba(242, 242, 242, 1);
+		text-indent: 27px;
+	}
+	.card-content {
+		padding: 18.23px 27px;
+		.stock-title {
+			height: 40px;
+			line-height: 40px;
+			overflow: hidden;
+			.stock-name {
+				overflow: hidden;
+				width: 260px;
+				vertical-align: middle;
+				color: rgba(56, 96, 157, 1);
+				font-size: 24px;
+				text-align: left;
+				font-family: PingFangSC-Semibold;
+			}
+			.stock-time {
+				display: inline-block;
+				width: 191px;
+				color: rgba(102, 102, 102, 1);
+				font-size: 12px;
+				text-align: left;
+				font-family: PingFangSC-Regular;
+				margin-left: 17px;
+			}
+		}
+		.stock-title-tip {
+			margin-top: 13px;
+			.rise,
+			.drop {
+				font-size: 30px;
+			}
+			&.rise .stock-index1,
+			&.rise .stock-index2,
+			&.rise .anticon {
+				color: rgba(206, 85, 66, 1);
+			}
+			&.drop .stock-index1,
+			&.drop .stock-index2,
+			&.drop .anticon {
+				color: #04a92b;
+			}
+			.stock-index1 {
+				width: 92px;
+				height: 36px;
+				line-height: 37px;
+				color: rgba(206, 85, 66, 1);
+				font-size: 30px;
+				text-align: center;
+				font-family: HelveticaNeue-Medium;
+			}
+			.arrow {
+				display: inline-block;
+				margin-top: -16px;
+				margin-left: 10px;
+			}
+			.stock-index2 {
+				width: 67px;
+				height: 25px;
+				line-height: 25px;
+				color: rgba(206, 85, 66, 1);
+				font-size: 18px;
+				text-align: center;
+				font-family: PingFangSC-Medium;
+				margin-left: 17px;
+			}
+			.stock-rise {
+				color: #d0021b;
+				font-size: 13px;
+				margin-left: 127px;
+			}
+			.stock-down {
+				color: #04a92b;
+				font-size: 13px;
+				margin-left: 29px;
+			}
+			.stock-up-flat {
+				color: rgba(93, 93, 93, 1);
+				font-size: 13px;
+				margin-left: 29px;
+			}
+		}
+		.stock-card-chart-container {
+			margin-top: 22.7px;
+			overflow: hidden;
+			.stock-chart {
+				display: inline-block;
+				width: 547px;
+				.nodata {
+					width: 547px;
+					height: 268px;
+					text-align: center;
+					padding: 114px;
+				}
+			}
+			.stock-chart-tip {
+				margin-top: -14px;
+				float: right;
+				padding: 0 10px;
+				border-left: 1px solid rgba(246, 246, 246, 1);
+				.rise {
+					color: #d0021b;
+				}
+				.drop {
+					color: #04a92b;
+				}
+				p {
+					height: 17px;
+					width: 224px;
+					line-height: 17px;
+					color: rgba(93, 93, 93, 1);
+					font-size: 12px;
+					text-align: left;
+					font-family: PingFangSC-Regular;
+					margin-bottom: 9px;
+				}
+				.ThemeCard-up {
+					.tip-name {
+						float: left;
+					}
+					.tip-value {
+						float: right;
+						&.rise {
+							color: #d0021b;
+						}
+						&.drop {
+							color: #04a92b;
+						}
+					}
+				}
+				.divider {
+					width: 234px;
+					height: 1px;
+					border-bottom: 1px dashed rgba(233, 233, 233, 1);
+				}
+				.ThemeCard-down {
+					.tip-name {
+						float: left;
+						display: inline-block;
+					}
+					.tip-value {
+						float: right;
+						display: inline-block;
+					}
+					.left {
+						p {
+							width: 103px;
+							height: 17px;
+							line-height: 17px;
+							color: rgba(93, 93, 93, 1);
+							font-size: 12px;
+							text-align: left;
+							font-family: PingFangSC-Regular;
+						}
+						display: inline-block;
+					}
+					.right {
+						p {
+							width: 119px;
+							height: 17px;
+							line-height: 17px;
+							color: rgba(93, 93, 93, 1);
+							font-size: 12px;
+							text-align: left;
+							font-family: PingFangSC-Regular;
+						}
+						display: inline-block;
+						.tip-name {
+							margin-left: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.footer {
+		text-align: center;
+		.ThemeCard-container-more-info {
+			font-size: 14px;
+			font-weight: bold;
+			color: #666;
+			text-decoration: none;
+			img {
+				margin-left: 4px;
+			}
+			&:hover,
+			&:active,
+			&:focus {
+				color: $color-link;
+			}
+			&:visited {
+				color: $color-text-caption;
+			}
+		}
+		.anticon-right-circle-o:before {
+			margin-left: 5px;
+			color: white;
+			background: #407cd5;
+			border-radius: 50%;
+			border: 1px solid #407cd5;
+			height: 14px;
+			width: 14px;
+		}
+	}
+}

@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecStrucAlterDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecStrucAlterModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="chan_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="decl_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="chan_reason" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chng_cause" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="total_shares" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="a_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="b_t_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ploat_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="A_ploat_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="b_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="h_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="s_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="n_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="oth_float_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tot_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="n_ploat_share_a" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="n_ploat_share_b" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tot_state_leg_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="state_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="state_leg_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="dom_leg_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="dom_natu_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fore_rest" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fore_leg_res" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fore_natu_res" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="man_res" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pref_res" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="stra_place_res" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fund_place_res" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tot_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tot_state_leg_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="state_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="state_leg_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="dom_leg_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="rais_leg_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="inner_staff_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="man_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="trans_nfloat" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="other_demo_sharehold" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, com_uni_code, chan_date, decl_date, chan_reason, chng_cause, total_shares, a_share, 
+    b_t_share, ploat_share, A_ploat_share, b_share,
+    h_share, s_share, n_share, oth_float_share, tot_rest, n_ploat_share_a,
+    n_ploat_share_b, tot_state_leg_rest, state_rest, state_leg_rest, dom_leg_rest, dom_natu_rest, 
+    fore_rest, fore_leg_res, fore_natu_res,
+    man_res, pref_res, stra_place_res, fund_place_res,
+    tot_nfloat, tot_state_leg_nfloat, state_nfloat, state_leg_nfloat, dom_leg_nfloat,
+    rais_leg_nfloat, inner_staff_nfloat, man_nfloat, trans_nfloat,
+    createtime, updatetime, status, creator, editor, come_source,
+    other_demo_sharehold
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_struc_alter
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sec_struc_alter
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecStrucAlterModel">
+    insert into sec_struc_alter (id, com_uni_code, chan_date, 
+      decl_date, chan_reason, chng_cause, 
+      total_shares, a_share, b_t_share, 
+      ploat_share, A_ploat_share,
+      b_share, h_share,
+      s_share, n_share,
+      oth_float_share, tot_rest, n_ploat_share_a, 
+      n_ploat_share_b, tot_state_leg_rest, state_rest, 
+      state_leg_rest, dom_leg_rest, dom_natu_rest, 
+      fore_rest, fore_leg_res, fore_natu_res,
+      man_res, pref_res,
+      stra_place_res, fund_place_res,
+      tot_nfloat, tot_state_leg_nfloat,
+      state_nfloat, state_leg_nfloat, dom_leg_nfloat,
+      rais_leg_nfloat,
+      inner_staff_nfloat, man_nfloat,
+      trans_nfloat, createtime,
+      updatetime, status,
+      creator, editor, come_source, 
+      other_demo_sharehold
+      )
+    values (#{id,jdbcType=INTEGER}, #{com_uni_code,jdbcType=BIGINT}, #{chan_date,jdbcType=TIMESTAMP}, 
+      #{decl_date,jdbcType=DATE}, #{chan_reason,jdbcType=VARCHAR}, #{chng_cause,jdbcType=VARCHAR}, 
+      #{total_shares,jdbcType=DECIMAL}, #{a_share,jdbcType=DECIMAL}, #{b_t_share,jdbcType=DECIMAL}, 
+      #{ploat_share,jdbcType=DECIMAL}, #{a_ploat_share,jdbcType=DECIMAL}, #{b_share,jdbcType=DECIMAL}, #{h_share,jdbcType=DECIMAL},
+      #{s_share,jdbcType=DECIMAL}, #{n_share,jdbcType=DECIMAL},
+      #{oth_float_share,jdbcType=DECIMAL}, #{tot_rest,jdbcType=DECIMAL}, #{n_ploat_share_a,jdbcType=DECIMAL}, 
+      #{n_ploat_share_b,jdbcType=DECIMAL}, #{tot_state_leg_rest,jdbcType=DECIMAL}, #{state_rest,jdbcType=DECIMAL}, 
+      #{state_leg_rest,jdbcType=DECIMAL}, #{dom_leg_rest,jdbcType=DECIMAL}, #{dom_natu_rest,jdbcType=DECIMAL}, 
+      #{fore_rest,jdbcType=DECIMAL}, #{fore_leg_res,jdbcType=DECIMAL}, #{fore_natu_res,jdbcType=DECIMAL},
+      #{man_res,jdbcType=DECIMAL}, #{pref_res,jdbcType=DECIMAL},
+      #{stra_place_res,jdbcType=DECIMAL}, #{fund_place_res,jdbcType=DECIMAL},
+      #{tot_nfloat,jdbcType=DECIMAL}, #{tot_state_leg_nfloat,jdbcType=DECIMAL},
+      #{state_nfloat,jdbcType=DECIMAL}, #{state_leg_nfloat,jdbcType=DECIMAL}, #{dom_leg_nfloat,jdbcType=DECIMAL},
+      #{rais_leg_nfloat,jdbcType=DECIMAL},
+      #{inner_staff_nfloat,jdbcType=DECIMAL}, #{man_nfloat,jdbcType=DECIMAL},
+      #{trans_nfloat,jdbcType=DECIMAL},#{createtime,jdbcType=TIMESTAMP},
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR},
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, 
+      #{other_demo_sharehold,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecStrucAlterModel">
+    insert into sec_struc_alter
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="com_uni_code != null">
+        com_uni_code,
+      </if>
+      <if test="chan_date != null">
+        chan_date,
+      </if>
+      <if test="decl_date != null">
+        decl_date,
+      </if>
+      <if test="chan_reason != null">
+        chan_reason,
+      </if>
+      <if test="chng_cause != null">
+        chng_cause,
+      </if>
+      <if test="total_shares != null">
+        total_shares,
+      </if>
+      <if test="a_share != null">
+        a_share,
+      </if>
+      <if test="b_t_share != null">
+        b_t_share,
+      </if>
+      <if test="ploat_share != null">
+        ploat_share,
+      </if>
+      <if test="a_ploat_share != null">
+        A_ploat_share,
+      </if>
+      <if test="b_share != null">
+        b_share,
+      </if>
+      <if test="h_share != null">
+        h_share,
+      </if>
+      <if test="s_share != null">
+        s_share,
+      </if>
+      <if test="n_share != null">
+        n_share,
+      </if>
+      <if test="oth_float_share != null">
+        oth_float_share,
+      </if>
+      <if test="tot_rest != null">
+        tot_rest,
+      </if>
+      <if test="n_ploat_share_a != null">
+        n_ploat_share_a,
+      </if>
+      <if test="n_ploat_share_b != null">
+        n_ploat_share_b,
+      </if>
+      <if test="tot_state_leg_rest != null">
+        tot_state_leg_rest,
+      </if>
+      <if test="state_rest != null">
+        state_rest,
+      </if>
+      <if test="state_leg_rest != null">
+        state_leg_rest,
+      </if>
+      <if test="dom_leg_rest != null">
+        dom_leg_rest,
+      </if>
+      <if test="dom_natu_rest != null">
+        dom_natu_rest,
+      </if>
+      <if test="fore_rest != null">
+        fore_rest,
+      </if>
+      <if test="fore_leg_res != null">
+        fore_leg_res,
+      </if>
+      <if test="fore_natu_res != null">
+        fore_natu_res,
+      </if>
+      <if test="man_res != null">
+        man_res,
+      </if>
+      <if test="pref_res != null">
+        pref_res,
+      </if>
+      <if test="stra_place_res != null">
+        stra_place_res,
+      </if>
+      <if test="fund_place_res != null">
+        fund_place_res,
+      </if>
+      <if test="tot_nfloat != null">
+        tot_nfloat,
+      </if>
+      <if test="tot_state_leg_nfloat != null">
+        tot_state_leg_nfloat,
+      </if>
+      <if test="state_nfloat != null">
+        state_nfloat,
+      </if>
+      <if test="state_leg_nfloat != null">
+        state_leg_nfloat,
+      </if>
+      <if test="dom_leg_nfloat != null">
+        dom_leg_nfloat,
+      </if>
+      <if test="rais_leg_nfloat != null">
+        rais_leg_nfloat,
+      </if>
+      <if test="inner_staff_nfloat != null">
+        inner_staff_nfloat,
+      </if>
+      <if test="man_nfloat != null">
+        man_nfloat,
+      </if>
+      <if test="trans_nfloat != null">
+        trans_nfloat,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="other_demo_sharehold != null">
+        other_demo_sharehold,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="com_uni_code != null">
+        #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="chan_date != null">
+        #{chan_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="decl_date != null">
+        #{decl_date,jdbcType=DATE},
+      </if>
+      <if test="chan_reason != null">
+        #{chan_reason,jdbcType=VARCHAR},
+      </if>
+      <if test="chng_cause != null">
+        #{chng_cause,jdbcType=VARCHAR},
+      </if>
+      <if test="total_shares != null">
+        #{total_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="a_share != null">
+        #{a_share,jdbcType=DECIMAL},
+      </if>
+      <if test="b_t_share != null">
+        #{b_t_share,jdbcType=DECIMAL},
+      </if>
+      <if test="ploat_share != null">
+        #{ploat_share,jdbcType=DECIMAL},
+      </if>
+      <if test="a_ploat_share != null">
+        #{a_ploat_share,jdbcType=DECIMAL},
+      </if>
+      <if test="b_share != null">
+        #{b_share,jdbcType=DECIMAL},
+      </if>
+      <if test="h_share != null">
+        #{h_share,jdbcType=DECIMAL},
+      </if>
+      <if test="s_share != null">
+        #{s_share,jdbcType=DECIMAL},
+      </if>
+      <if test="n_share != null">
+        #{n_share,jdbcType=DECIMAL},
+      </if>
+      <if test="oth_float_share != null">
+        #{oth_float_share,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_rest != null">
+        #{tot_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="n_ploat_share_a != null">
+        #{n_ploat_share_a,jdbcType=DECIMAL},
+      </if>
+      <if test="n_ploat_share_b != null">
+        #{n_ploat_share_b,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_state_leg_rest != null">
+        #{tot_state_leg_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="state_rest != null">
+        #{state_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="state_leg_rest != null">
+        #{state_leg_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="dom_leg_rest != null">
+        #{dom_leg_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="dom_natu_rest != null">
+        #{dom_natu_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="fore_rest != null">
+        #{fore_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="fore_leg_res != null">
+        #{fore_leg_res,jdbcType=DECIMAL},
+      </if>
+      <if test="fore_natu_res != null">
+        #{fore_natu_res,jdbcType=DECIMAL},
+      </if>
+      <if test="man_res != null">
+        #{man_res,jdbcType=DECIMAL},
+      </if>
+      <if test="pref_res != null">
+        #{pref_res,jdbcType=DECIMAL},
+      </if>
+      <if test="stra_place_res != null">
+        #{stra_place_res,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_place_res != null">
+        #{fund_place_res,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_nfloat != null">
+        #{tot_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_state_leg_nfloat != null">
+        #{tot_state_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="state_nfloat != null">
+        #{state_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="state_leg_nfloat != null">
+        #{state_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="dom_leg_nfloat != null">
+        #{dom_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="rais_leg_nfloat != null">
+        #{rais_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="inner_staff_nfloat != null">
+        #{inner_staff_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="man_nfloat != null">
+        #{man_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="trans_nfloat != null">
+        #{trans_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="other_demo_sharehold != null">
+        #{other_demo_sharehold,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecStrucAlterModel">
+    update sec_struc_alter
+    <set>
+      <if test="com_uni_code != null">
+        com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="chan_date != null">
+        chan_date = #{chan_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="decl_date != null">
+        decl_date = #{decl_date,jdbcType=DATE},
+      </if>
+      <if test="chan_reason != null">
+        chan_reason = #{chan_reason,jdbcType=VARCHAR},
+      </if>
+      <if test="chng_cause != null">
+        chng_cause = #{chng_cause,jdbcType=VARCHAR},
+      </if>
+      <if test="total_shares != null">
+        total_shares = #{total_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="a_share != null">
+        a_share = #{a_share,jdbcType=DECIMAL},
+      </if>
+      <if test="b_t_share != null">
+        b_t_share = #{b_t_share,jdbcType=DECIMAL},
+      </if>
+      <if test="ploat_share != null">
+        ploat_share = #{ploat_share,jdbcType=DECIMAL},
+      </if>
+      <if test="a_ploat_share != null">
+        A_ploat_share = #{a_ploat_share,jdbcType=DECIMAL},
+      </if>
+      <if test="b_share != null">
+        b_share = #{b_share,jdbcType=DECIMAL},
+      </if>
+      <if test="h_share != null">
+        h_share = #{h_share,jdbcType=DECIMAL},
+      </if>
+      <if test="s_share != null">
+        s_share = #{s_share,jdbcType=DECIMAL},
+      </if>
+      <if test="n_share != null">
+        n_share = #{n_share,jdbcType=DECIMAL},
+      </if>
+      <if test="oth_float_share != null">
+        oth_float_share = #{oth_float_share,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_rest != null">
+        tot_rest = #{tot_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="n_ploat_share_a != null">
+        n_ploat_share_a = #{n_ploat_share_a,jdbcType=DECIMAL},
+      </if>
+      <if test="n_ploat_share_b != null">
+        n_ploat_share_b = #{n_ploat_share_b,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_state_leg_rest != null">
+        tot_state_leg_rest = #{tot_state_leg_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="state_rest != null">
+        state_rest = #{state_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="state_leg_rest != null">
+        state_leg_rest = #{state_leg_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="dom_leg_rest != null">
+        dom_leg_rest = #{dom_leg_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="dom_natu_rest != null">
+        dom_natu_rest = #{dom_natu_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="fore_rest != null">
+        fore_rest = #{fore_rest,jdbcType=DECIMAL},
+      </if>
+      <if test="fore_leg_res != null">
+        fore_leg_res = #{fore_leg_res,jdbcType=DECIMAL},
+      </if>
+      <if test="fore_natu_res != null">
+        fore_natu_res = #{fore_natu_res,jdbcType=DECIMAL},
+      </if>
+      <if test="man_res != null">
+        man_res = #{man_res,jdbcType=DECIMAL},
+      </if>
+      <if test="pref_res != null">
+        pref_res = #{pref_res,jdbcType=DECIMAL},
+      </if>
+      <if test="stra_place_res != null">
+        stra_place_res = #{stra_place_res,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_place_res != null">
+        fund_place_res = #{fund_place_res,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_nfloat != null">
+        tot_nfloat = #{tot_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_state_leg_nfloat != null">
+        tot_state_leg_nfloat = #{tot_state_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="state_nfloat != null">
+        state_nfloat = #{state_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="state_leg_nfloat != null">
+        state_leg_nfloat = #{state_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="dom_leg_nfloat != null">
+        dom_leg_nfloat = #{dom_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="rais_leg_nfloat != null">
+        rais_leg_nfloat = #{rais_leg_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="inner_staff_nfloat != null">
+        inner_staff_nfloat = #{inner_staff_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="man_nfloat != null">
+        man_nfloat = #{man_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="trans_nfloat != null">
+        trans_nfloat = #{trans_nfloat,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="other_demo_sharehold != null">
+        other_demo_sharehold = #{other_demo_sharehold,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecStrucAlterModel">
+    update sec_struc_alter
+    set com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      chan_date = #{chan_date,jdbcType=TIMESTAMP},
+      decl_date = #{decl_date,jdbcType=DATE},
+      chan_reason = #{chan_reason,jdbcType=VARCHAR},
+      chng_cause = #{chng_cause,jdbcType=VARCHAR},
+      total_shares = #{total_shares,jdbcType=DECIMAL},
+      a_share = #{a_share,jdbcType=DECIMAL},
+      b_t_share = #{b_t_share,jdbcType=DECIMAL},
+      ploat_share = #{ploat_share,jdbcType=DECIMAL},
+      A_ploat_share = #{a_ploat_share,jdbcType=DECIMAL},
+      b_share = #{b_share,jdbcType=DECIMAL},
+      h_share = #{h_share,jdbcType=DECIMAL},
+      s_share = #{s_share,jdbcType=DECIMAL},
+      n_share = #{n_share,jdbcType=DECIMAL},
+      oth_float_share = #{oth_float_share,jdbcType=DECIMAL},
+      tot_rest = #{tot_rest,jdbcType=DECIMAL},
+      n_ploat_share_a = #{n_ploat_share_a,jdbcType=DECIMAL},
+      n_ploat_share_b = #{n_ploat_share_b,jdbcType=DECIMAL},
+      tot_state_leg_rest = #{tot_state_leg_rest,jdbcType=DECIMAL},
+      state_rest = #{state_rest,jdbcType=DECIMAL},
+      state_leg_rest = #{state_leg_rest,jdbcType=DECIMAL},
+      dom_leg_rest = #{dom_leg_rest,jdbcType=DECIMAL},
+      dom_natu_rest = #{dom_natu_rest,jdbcType=DECIMAL},
+      fore_rest = #{fore_rest,jdbcType=DECIMAL},
+      fore_leg_res = #{fore_leg_res,jdbcType=DECIMAL},
+      fore_natu_res = #{fore_natu_res,jdbcType=DECIMAL},
+      man_res = #{man_res,jdbcType=DECIMAL},
+      pref_res = #{pref_res,jdbcType=DECIMAL},
+      stra_place_res = #{stra_place_res,jdbcType=DECIMAL},
+      fund_place_res = #{fund_place_res,jdbcType=DECIMAL},
+      tot_nfloat = #{tot_nfloat,jdbcType=DECIMAL},
+      tot_state_leg_nfloat = #{tot_state_leg_nfloat,jdbcType=DECIMAL},
+      state_nfloat = #{state_nfloat,jdbcType=DECIMAL},
+      state_leg_nfloat = #{state_leg_nfloat,jdbcType=DECIMAL},
+      dom_leg_nfloat = #{dom_leg_nfloat,jdbcType=DECIMAL},
+      rais_leg_nfloat = #{rais_leg_nfloat,jdbcType=DECIMAL},
+      inner_staff_nfloat = #{inner_staff_nfloat,jdbcType=DECIMAL},
+      man_nfloat = #{man_nfloat,jdbcType=DECIMAL},
+      trans_nfloat = #{trans_nfloat,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      other_demo_sharehold = #{other_demo_sharehold,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByComUniCode" parameterType="java.lang.Long" resultType="la.niub.abcapi.servicecompre.model.SecStrucAlterModel">
+    select
+    <include refid="Base_Column_List" />
+    from sec_struc_alter
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} order by chan_date desc limit 1
+  </select>
+</mapper>

@@ -1,0 +1,53 @@
+.tabs_container{
+  position: relative;
+    .ant-tabs-nav .ant-tabs-tab {
+      color: #000000;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 12px 0;
+      float: left;
+      &:hover{
+        color: #000000;
+      }
+    }
+    .ant-tabs-nav .ant-tabs-tab-disabled {
+      color: rgba(0, 0, 0, 0.25);
+    }
+    .ant-tabs-bar{
+      height: 45px;
+      line-height: 45px;
+      opacity: 0.88;
+      background: #F8F8F8;
+      margin: 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .ant-tabs-nav-scroll{
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding-left: 23px;
+    }
+    .ant-tabs-nav-container, .ant-tabs-nav-wrap, .ant-tabs-nav-scroll{
+      height: 45px;
+    }
+    .ant-card-bordered{
+      border: 0;
+    }
+    .ant-card-body{
+      width: 302px;
+      margin-left: -1px;
+    };
+    .tabs_title{
+    position: absolute;
+    top: 0;
+    padding-left: 23px;
+    color: #000000;;
+    font-weight: bold;
+    margin-top: 12px;
+    z-index: 1;
+  };
+  //7.30 白洋洋添加，解决行业深度下有一条数据显示格式有问题
+  .ant-list-item-content-single{
+    width: 100%;
+  };
+}

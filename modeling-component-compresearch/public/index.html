@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!-- 环境变量，部署jenkins时脚本指定 -->
+    <script src="%PUBLIC_URL%/env.js"></script>
+    <!-- sso库引用 -->
+    <script>window.abc_sso_terminal = '401';</script>
+    <script>
+      var loginType = 'sso';
+      // 默认sso登陆
+      if (loginType === 'sso') {
+        //  sso库引用 
+        document.write('<script src="%PUBLIC_URL%/abc-sso.js?v=1536292436827"><\/script>');
+      } else {
+  
+      }
+    </script>
+    <!-- <script src="%PUBLIC_URL%/static/vendor/jsencrypt.min.js"></script> -->
+    <title>谋定投研_AI驱动的智能投研平台</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <script type="text/javascript" src="//at.alicdn.com/t/font_752282_1r56m4whltq.js"></script>
+  </body>
+</html>

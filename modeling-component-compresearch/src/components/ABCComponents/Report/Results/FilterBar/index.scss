@@ -1,0 +1,53 @@
+.abc-search-filterbar {
+    // padding: 0 30px;
+    // background-color: #FDFDFD;
+    width: 500px;
+    float: left;
+    .filter-item {
+        position: relative;
+        display: inline-block;
+        height: 47px;
+        line-height: 47px;
+        padding: 0 20px;
+        user-select: none;
+        color: #333333;
+        font-size: 12px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            height: 20px;
+            margin-top: -10px;
+            background-color: #E0E0E0;
+            width: 1px;  
+        }
+        &:last-child::after {
+            display: none;
+        }
+        .ant-select-selection {
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .ant-checkbox-checked + span {
+            color: #3F87F4;
+        }
+        .ant-checkbox-checked .ant-checkbox-inner {
+            background-color: #3F87F4;
+            border-color: #3F87F4;
+        }
+        .ant-checkbox + span {
+            padding-left: 10px;
+            padding-right: 0;
+        }
+        .ant-checkbox-wrapper {
+            font-size: 12px;
+
+            .ant-checkbox {
+                top: -2px;
+            }
+        }
+    }
+}

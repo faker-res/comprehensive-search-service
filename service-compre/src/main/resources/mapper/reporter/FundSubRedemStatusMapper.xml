@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundSubRedemStatusDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundSubRedemStatusModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="sub_redem_status" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="status_begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="status_end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, announcement_date, sub_redem_status, status_begin_date, status_end_date, 
+    remark, createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_sub_redem_status
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_sub_redem_status
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundSubRedemStatusModel">
+    insert into fund_sub_redem_status (id, sec_uni_code, announcement_date, 
+      sub_redem_status, status_begin_date, status_end_date, 
+      remark, createtime, updatetime, 
+      status, creator, editor
+      )
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{sub_redem_status,jdbcType=BIGINT}, #{status_begin_date,jdbcType=DATE}, #{status_end_date,jdbcType=DATE}, 
+      #{remark,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundSubRedemStatusModel">
+    insert into fund_sub_redem_status
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="sub_redem_status != null">
+        sub_redem_status,
+      </if>
+      <if test="status_begin_date != null">
+        status_begin_date,
+      </if>
+      <if test="status_end_date != null">
+        status_end_date,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="sub_redem_status != null">
+        #{sub_redem_status,jdbcType=BIGINT},
+      </if>
+      <if test="status_begin_date != null">
+        #{status_begin_date,jdbcType=DATE},
+      </if>
+      <if test="status_end_date != null">
+        #{status_end_date,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundSubRedemStatusModel">
+    update fund_sub_redem_status
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="sub_redem_status != null">
+        sub_redem_status = #{sub_redem_status,jdbcType=BIGINT},
+      </if>
+      <if test="status_begin_date != null">
+        status_begin_date = #{status_begin_date,jdbcType=DATE},
+      </if>
+      <if test="status_end_date != null">
+        status_end_date = #{status_end_date,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundSubRedemStatusModel">
+    update fund_sub_redem_status
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      sub_redem_status = #{sub_redem_status,jdbcType=BIGINT},
+      status_begin_date = #{status_begin_date,jdbcType=DATE},
+      status_end_date = #{status_end_date,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectBySecUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_sub_redem_status
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} limit 1
+  </select>
+</mapper>

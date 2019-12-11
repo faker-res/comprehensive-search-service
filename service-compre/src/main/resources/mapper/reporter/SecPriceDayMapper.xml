@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecPriceDayDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecPriceDayModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="trade_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="pre_close_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="open_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="close_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="high_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="low_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="amount" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="trade_num" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ_range" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="turn" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="limit_up_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="limit_down_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="power_factor_1" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="power_factor_2" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="amplitude" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, trade_date, pre_close_price, open_price, close_price, high_price, 
+    low_price, volume, amount, trade_num, differ, differ_range, turn, limit_up_price, 
+    limit_down_price, createtime, updatetime, status, remark, creator, editor, come_source, 
+    power_factor_1, power_factor_2, amplitude
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_price_day
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sec_price_day
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecPriceDayModel">
+    insert into sec_price_day (id, sec_uni_code, trade_date, 
+      pre_close_price, open_price, close_price, 
+      high_price, low_price, volume, 
+      amount, trade_num, differ, 
+      differ_range, turn, limit_up_price, 
+      limit_down_price, createtime, updatetime, 
+      status, remark, creator, 
+      editor, come_source, power_factor_1, 
+      power_factor_2, amplitude)
+    values (#{id,jdbcType=INTEGER}, #{sec_uni_code,jdbcType=BIGINT}, #{trade_date,jdbcType=TIMESTAMP}, 
+      #{pre_close_price,jdbcType=DECIMAL}, #{open_price,jdbcType=DECIMAL}, #{close_price,jdbcType=DECIMAL}, 
+      #{high_price,jdbcType=DECIMAL}, #{low_price,jdbcType=DECIMAL}, #{volume,jdbcType=DECIMAL}, 
+      #{amount,jdbcType=DECIMAL}, #{trade_num,jdbcType=DECIMAL}, #{differ,jdbcType=DECIMAL}, 
+      #{differ_range,jdbcType=DECIMAL}, #{turn,jdbcType=DECIMAL}, #{limit_up_price,jdbcType=DECIMAL}, 
+      #{limit_down_price,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, #{power_factor_1,jdbcType=DECIMAL}, 
+      #{power_factor_2,jdbcType=DECIMAL}, #{amplitude,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecPriceDayModel">
+    insert into sec_price_day
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="trade_date != null">
+        trade_date,
+      </if>
+      <if test="pre_close_price != null">
+        pre_close_price,
+      </if>
+      <if test="open_price != null">
+        open_price,
+      </if>
+      <if test="close_price != null">
+        close_price,
+      </if>
+      <if test="high_price != null">
+        high_price,
+      </if>
+      <if test="low_price != null">
+        low_price,
+      </if>
+      <if test="volume != null">
+        volume,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="trade_num != null">
+        trade_num,
+      </if>
+      <if test="differ != null">
+        differ,
+      </if>
+      <if test="differ_range != null">
+        differ_range,
+      </if>
+      <if test="turn != null">
+        turn,
+      </if>
+      <if test="limit_up_price != null">
+        limit_up_price,
+      </if>
+      <if test="limit_down_price != null">
+        limit_down_price,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="power_factor_1 != null">
+        power_factor_1,
+      </if>
+      <if test="power_factor_2 != null">
+        power_factor_2,
+      </if>
+      <if test="amplitude != null">
+        amplitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="trade_date != null">
+        #{trade_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pre_close_price != null">
+        #{pre_close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="open_price != null">
+        #{open_price,jdbcType=DECIMAL},
+      </if>
+      <if test="close_price != null">
+        #{close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="high_price != null">
+        #{high_price,jdbcType=DECIMAL},
+      </if>
+      <if test="low_price != null">
+        #{low_price,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="trade_num != null">
+        #{trade_num,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="differ_range != null">
+        #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="turn != null">
+        #{turn,jdbcType=DECIMAL},
+      </if>
+      <if test="limit_up_price != null">
+        #{limit_up_price,jdbcType=DECIMAL},
+      </if>
+      <if test="limit_down_price != null">
+        #{limit_down_price,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="power_factor_1 != null">
+        #{power_factor_1,jdbcType=DECIMAL},
+      </if>
+      <if test="power_factor_2 != null">
+        #{power_factor_2,jdbcType=DECIMAL},
+      </if>
+      <if test="amplitude != null">
+        #{amplitude,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecPriceDayModel">
+    update sec_price_day
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="trade_date != null">
+        trade_date = #{trade_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pre_close_price != null">
+        pre_close_price = #{pre_close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="open_price != null">
+        open_price = #{open_price,jdbcType=DECIMAL},
+      </if>
+      <if test="close_price != null">
+        close_price = #{close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="high_price != null">
+        high_price = #{high_price,jdbcType=DECIMAL},
+      </if>
+      <if test="low_price != null">
+        low_price = #{low_price,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        volume = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="trade_num != null">
+        trade_num = #{trade_num,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        differ = #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="differ_range != null">
+        differ_range = #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="turn != null">
+        turn = #{turn,jdbcType=DECIMAL},
+      </if>
+      <if test="limit_up_price != null">
+        limit_up_price = #{limit_up_price,jdbcType=DECIMAL},
+      </if>
+      <if test="limit_down_price != null">
+        limit_down_price = #{limit_down_price,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="power_factor_1 != null">
+        power_factor_1 = #{power_factor_1,jdbcType=DECIMAL},
+      </if>
+      <if test="power_factor_2 != null">
+        power_factor_2 = #{power_factor_2,jdbcType=DECIMAL},
+      </if>
+      <if test="amplitude != null">
+        amplitude = #{amplitude,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecPriceDayModel">
+    update sec_price_day
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      trade_date = #{trade_date,jdbcType=TIMESTAMP},
+      pre_close_price = #{pre_close_price,jdbcType=DECIMAL},
+      open_price = #{open_price,jdbcType=DECIMAL},
+      close_price = #{close_price,jdbcType=DECIMAL},
+      high_price = #{high_price,jdbcType=DECIMAL},
+      low_price = #{low_price,jdbcType=DECIMAL},
+      volume = #{volume,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=DECIMAL},
+      trade_num = #{trade_num,jdbcType=DECIMAL},
+      differ = #{differ,jdbcType=DECIMAL},
+      differ_range = #{differ_range,jdbcType=DECIMAL},
+      turn = #{turn,jdbcType=DECIMAL},
+      limit_up_price = #{limit_up_price,jdbcType=DECIMAL},
+      limit_down_price = #{limit_down_price,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      power_factor_1 = #{power_factor_1,jdbcType=DECIMAL},
+      power_factor_2 = #{power_factor_2,jdbcType=DECIMAL},
+      amplitude = #{amplitude,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getNewestRecord" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_price_day
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} order by trade_date desc limit 1
+  </select>
+
+    <select id="getRecordsBySecUniCode" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sec_price_day
+        where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+        <if test="startTime != null">
+            and trade_date>=#{startTime,jdbcType=TIMESTAMP}
+        </if><if test="endTime != null">
+        and trade_date&lt;=#{endTime,jdbcType=TIMESTAMP}
+    </if>
+        and status!=9
+        order by trade_date asc
+    </select>
+
+  <select id="getPriceList" resultType="la.niub.abcapi.servicecompre.model.SecPriceDayModel">
+    select `close_price`,`trade_date`,`differ`,`differ_range`
+    from sec_price_day
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and trade_date >= #{start_time,jdbcType=VARCHAR} order by trade_date asc
+  </select>
+
+  <select id="getRecords" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_price_day
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+    <if test="startTime != null">
+      and trade_date>=#{startTime,jdbcType=TIMESTAMP}
+    </if>
+  </select>
+
+  <select id="getClosePriceBySecUniCode" resultType="java.math.BigDecimal">
+      SELECT close_price
+      FROM sec_price_day
+      WHERE sec_uni_code = #{sec_uni_code}
+      ORDER BY trade_date DESC
+      LIMIT 1
+  </select>
+
+  <select id="getDay" parameterType="map" resultType="map">
+    select  a.trade_date,a.open_price,a.high_price,a.low_price,a.close_price,a.differ,
+    a.differ_range,a.volume,a.amount,a.turn,b.pelyr,b.pbmrq,b.pcf_ttm,b.psttm,b.total_shares,b.total_market_value,
+    b.float_shares,freefloat_market_value
+    from sec_price_day a,normal_valuation_index b where a.sec_uni_code=b.sec_uni_code
+    <if test="start_time != null and start_time!='' ">
+      and a.trade_date &gt; #{start_time}
+    </if>
+    <if test="end_time != null and end_time!='' ">
+      and a.trade_date  &lt;= #{end_time}
+    </if>
+    <if test="code != null">
+      and a.sec_uni_code = #{code}
+    </if>
+    group by a.trade_date
+    <if test="orderby != null">
+      ${orderby}
+    </if>
+    <if test="limit != null and limit != 0">
+      LIMIT ${limit} OFFSET ${offset}
+    </if>
+  </select>
+
+  <select id="getCount" parameterType="map" resultType="long">
+    select  count(distinct a.trade_date)
+    from sec_price_day a,normal_valuation_index b where a.sec_uni_code=b.sec_uni_code
+    <if test="start_time != null and start_time!='' ">
+      and a.trade_date &gt; #{start_time}
+    </if>
+    <if test="end_time != null and end_time!='' ">
+      and a.trade_date  &lt;= #{end_time}
+    </if>
+    <if test="code != null">
+      and a.sec_uni_code = #{code}
+    </if>
+  </select>
+
+</mapper>

@@ -1,0 +1,13 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": {
+        "sum": 38628,
+        "thisYear": 21600,
+        "lastYear": 38584,
+        "beforeLastYear": 49503
+    },
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IHiborAnalystDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.HiborAnalystModel">
+    <constructor>
+      <idArg column="added_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="analyst" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sac" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    added_id, id, analyst, name, sac, email, tel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hibor_analyst
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from hibor_analyst
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.HiborAnalystModel">
+    insert into hibor_analyst (added_id, id, analyst, 
+      name, sac, email, tel
+      )
+    values (#{added_id,jdbcType=BIGINT}, #{id,jdbcType=BIGINT}, #{analyst,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sac,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.HiborAnalystModel">
+    insert into hibor_analyst
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="added_id != null">
+        added_id,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="analyst != null">
+        analyst,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sac != null">
+        sac,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="added_id != null">
+        #{added_id,jdbcType=BIGINT},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="analyst != null">
+        #{analyst,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sac != null">
+        #{sac,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.HiborAnalystModel">
+    update hibor_analyst
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="analyst != null">
+        analyst = #{analyst,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sac != null">
+        sac = #{sac,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.HiborAnalystModel">
+    update hibor_analyst
+    set id = #{id,jdbcType=BIGINT},
+      analyst = #{analyst,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      sac = #{sac,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR}
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </update>
+  <select id="selectPeoByIds" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from hibor_analyst
+    where
+    <if test ="null != reportIds">
+      id IN
+      <foreach collection="reportIds" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+</mapper>

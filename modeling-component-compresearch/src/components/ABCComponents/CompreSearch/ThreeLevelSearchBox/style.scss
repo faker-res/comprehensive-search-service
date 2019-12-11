@@ -1,0 +1,146 @@
+@import '../../../../theme/common.scss';
+
+.three-level-search-box {
+  $block: &;
+  position: relative;
+  z-index: 100;
+
+  &__container, .ant-input-suffix {
+    display: flex;
+    min-height: 100%;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  // 重置搜索框样式
+  &, .ant-input-search, .ant-input-search-button, button {
+    height: auto;
+    min-height: 34px;
+  }
+
+  // 重置搜索框样式
+  .ant-input {
+    padding-left: 38px !important;
+    padding-right: 128px !important;
+    color: $color-text-base;
+  }
+
+  // 重置搜索按钮样式
+  .ant-btn {
+    min-width: 84px;
+    padding: 0 25px;
+  }
+
+  // 图标样式
+  &__icon-suffix, &__icon-prefix {
+    font-size: 16px;
+    color: $color-icon-base;
+  }
+
+  // 后缀图标样式
+  &__icon-suffix {
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    position: relative;
+    margin-right: 14px;
+    cursor: pointer;
+    
+    &:hover {
+      color: darken($color-icon-base, 10%);
+    }
+
+    &:active {
+      top: 0px;
+      margin-right: 15px;
+      font-size: 14px;
+    }
+  }
+
+  // 清空按钮
+  &__btn-empty {
+    display: none;
+
+    #{$block}.is-show-btn-empty & {
+      display: inline-flex;
+    }
+  }
+
+  // 搜索建议下拉菜单
+  &__suggestions-container {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    top: 38px;
+    top: calc(100% + 4px);
+    z-index: 500;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(0,0,0,.65);
+    max-height: 400px;
+    overflow: auto;
+  }
+
+  &__section-container + &__section-container {
+    border-top: 1px solid #f6f6f6;
+  }
+
+  &__section-title {
+    position: relative;
+    color: rgba(0,0,0,.45);
+    padding: 0 12px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px
+  }
+
+  &__suggestion {
+    position: relative;
+    display: block;
+    padding: 5px 20px;
+    line-height: 22px;
+    font-weight: 400;
+    color: rgba(0,0,0,.65);
+    cursor: pointer;
+    @include text-ellipsis;
+
+    & > * {
+      @include text-ellipsis;
+    }
+
+    &:hover {
+      background-color: #e6f7ff;
+    }
+  }
+
+  &__suggestion--highlighted {
+    background-color: #e6f7ff;
+  }
+
+  // 搜索历史相关操作按钮
+  &__action-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 16px;
+    color: $color-icon-base;
+    cursor: pointer;
+  }
+
+  &__btn-remove-history-item {
+    display: none;
+  }
+
+  &__suggestion:hover .three-level-search-box__btn-remove-history-item {
+    display: inline-block;
+  }
+}

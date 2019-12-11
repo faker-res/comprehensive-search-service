@@ -1,0 +1,86 @@
+.favorite {
+    width: 350px;
+    .header {
+        padding-bottom: 10px;
+        font-size: 12px;
+        color: #333333;
+        .title {
+            font-weight: 700;
+            margin-right: 10px;
+        }
+    }
+    .body {
+        .new-tag {
+            width: 120px; // margin-top: 3px;
+            height: 26px;
+            line-height: 26px;
+        }
+        .hasTags{
+            margin-top: 10px;
+        }
+        .ant-select-selection--multiple .ant-select-selection__choice{
+            max-width: 142px;
+        }
+    }
+    .footer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        .ant-btn {
+            width: 88px;
+            height: 30px;
+            background: #FFFFFF;
+            border: 1px solid #D8D8D8;
+        }
+        .save {
+            background: #407CD5;
+            border: 1px solid #407CD5;
+            font-size: 12px;
+            color: #FFFFFF;
+            margin-left: 10px;
+        }
+    }
+    .tag-wrap {
+       margin-top: 10px;
+    }
+    .ant-tag {
+        background: rgba(245, 245, 245, 0.5);
+        border: 1px solid #DDDDDD;
+        border-radius: 2px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 12px;
+        color: #666666;
+        margin-right: 4px; // margin-top: 3px;
+        
+    }
+    .hasTags {
+        // height: 26px;
+        .ant-tag {
+            border: 0;
+            margin-bottom: 3px;
+        }
+    }
+    .tag-wrap.active {
+        border-color: #407CD5;
+    }
+
+    
+}
+
+.fav-container {
+    cursor: pointer;
+    color: #6e7378;
+    font-size: 12px;
+    margin-right: 32px; 
+    align-items: center;
+    height: 14px;
+    line-height: 14px;
+
+    .fav-icon {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        margin-top: -2px;
+    }
+}

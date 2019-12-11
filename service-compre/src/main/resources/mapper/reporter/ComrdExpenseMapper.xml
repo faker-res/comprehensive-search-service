@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComrdExpenseDao">
+    <sql id="Com_rd_expense_Column_List">
+id,com_uni_code,end_date,decl_date,reporttype,currency_code,rd_total,rd_capi,rd_capi_propor,rese_dev,description,status,createtime,updatetime,come_source
+    </sql>
+
+	<select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.ComrdExpenseModel">
+        SELECT <include refid="Com_rd_expense_Column_List"/> FROM com_rd_expense WHERE 1=1
+		<if test="id != null and id != ''">
+			AND id = #{id}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND com_uni_code = #{com_uni_code}
+		</if>
+		<if test="end_date != null and end_date != ''">
+			AND end_date = #{end_date}
+		</if>
+		<if test="start_time != null and start_time != ''">
+			AND end_date &gt;= #{start_time}
+		</if>
+		<if test="end_time != null and end_time != ''">
+			AND end_date &lt;= #{end_time}
+		</if>
+		<if test="decl_date != null and decl_date != ''">
+			AND decl_date = #{decl_date}
+		</if>
+		<if test="reporttype != null and reporttype != ''">
+			AND reporttype = #{reporttype}
+		</if>
+		<if test="currency_code != null and currency_code != ''">
+			AND currency_code = #{currency_code}
+		</if>
+		<if test="rd_total != null and rd_total != ''">
+			AND rd_total = #{rd_total}
+		</if>
+		<if test="rd_capi != null and rd_capi != ''">
+			AND rd_capi = #{rd_capi}
+		</if>
+		<if test="rd_capi_propor != null and rd_capi_propor != ''">
+			AND rd_capi_propor = #{rd_capi_propor}
+		</if>
+		<if test="rese_dev != null and rese_dev != ''">
+			AND rese_dev = #{rese_dev}
+		</if>
+		<if test="description != null and description != ''">
+			AND description = #{description}
+		</if>
+		<if test="status != null and status != ''">
+			AND status = #{status}
+		</if>
+		<if test="createtime != null and createtime != ''">
+			AND createtime = #{createtime}
+		</if>
+		<if test="updatetime != null and updatetime != ''">
+			AND updatetime = #{updatetime}
+		</if>
+		<if test="come_source != null and come_source != ''">
+			AND come_source = #{come_source}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND com_uni_code = #{com_uni_code}
+		</if>
+		<if test="orderby != null and orderby!= ''">
+            ${orderby}
+        </if>
+        <if test="limit != null and offset != null">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+        SELECT COUNT(1) FROM Com_rd_expense WHERE 1=1
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="com_uni_code != null and com_uni_code != ''">
+				AND com_uni_code = #{com_uni_code}
+			</if>
+			<if test="end_date != null and end_date != ''">
+				AND end_date = #{end_date}
+			</if>
+			<if test="decl_date != null and decl_date != ''">
+				AND decl_date = #{decl_date}
+			</if>
+			<if test="reporttype != null and reporttype != ''">
+				AND reporttype = #{reporttype}
+			</if>
+			<if test="currency_code != null and currency_code != ''">
+				AND currency_code = #{currency_code}
+			</if>
+			<if test="rd_total != null and rd_total != ''">
+				AND rd_total = #{rd_total}
+			</if>
+			<if test="rd_capi != null and rd_capi != ''">
+				AND rd_capi = #{rd_capi}
+			</if>
+			<if test="rd_capi_propor != null and rd_capi_propor != ''">
+				AND rd_capi_propor = #{rd_capi_propor}
+			</if>
+			<if test="rese_dev != null and rese_dev != ''">
+				AND rese_dev = #{rese_dev}
+			</if>
+			<if test="description != null and description != ''">
+				AND description = #{description}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="createtime != null and createtime != ''">
+				AND createtime = #{createtime}
+			</if>
+			<if test="updatetime != null and updatetime != ''">
+				AND updatetime = #{updatetime}
+			</if>
+			<if test="come_source != null and come_source != ''">
+				AND come_source = #{come_source}
+			</if>
+    </select>
+	
+</mapper>
+

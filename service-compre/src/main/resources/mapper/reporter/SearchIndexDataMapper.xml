@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISearchIndexDataDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SearchIndexDataModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="keyword_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="index_type" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="search_index" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="media_index" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="data_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="data_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="initia_source_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, keyword_id, index_type, search_index, media_index, data_time, data_source, initia_source_url, 
+    createtime, updatetime, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from search_index_data
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from search_index_data
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexDataModel">
+    insert into search_index_data (id, keyword_id, index_type, 
+      search_index, media_index, data_time, 
+      data_source, initia_source_url, createtime, 
+      updatetime, status)
+    values (#{id,jdbcType=BIGINT}, #{keyword_id,jdbcType=BIGINT}, #{index_type,jdbcType=CHAR}, 
+      #{search_index,jdbcType=DECIMAL}, #{media_index,jdbcType=DECIMAL}, #{data_time,jdbcType=DATE}, 
+      #{data_source,jdbcType=VARCHAR}, #{initia_source_url,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexDataModel">
+    insert into search_index_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="keyword_id != null">
+        keyword_id,
+      </if>
+      <if test="index_type != null">
+        index_type,
+      </if>
+      <if test="search_index != null">
+        search_index,
+      </if>
+      <if test="media_index != null">
+        media_index,
+      </if>
+      <if test="data_time != null">
+        data_time,
+      </if>
+      <if test="data_source != null">
+        data_source,
+      </if>
+      <if test="initia_source_url != null">
+        initia_source_url,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="keyword_id != null">
+        #{keyword_id,jdbcType=BIGINT},
+      </if>
+      <if test="index_type != null">
+        #{index_type,jdbcType=CHAR},
+      </if>
+      <if test="search_index != null">
+        #{search_index,jdbcType=DECIMAL},
+      </if>
+      <if test="media_index != null">
+        #{media_index,jdbcType=DECIMAL},
+      </if>
+      <if test="data_time != null">
+        #{data_time,jdbcType=DATE},
+      </if>
+      <if test="data_source != null">
+        #{data_source,jdbcType=VARCHAR},
+      </if>
+      <if test="initia_source_url != null">
+        #{initia_source_url,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexDataModel">
+    update search_index_data
+    <set>
+      <if test="keyword_id != null">
+        keyword_id = #{keyword_id,jdbcType=BIGINT},
+      </if>
+      <if test="index_type != null">
+        index_type = #{index_type,jdbcType=CHAR},
+      </if>
+      <if test="search_index != null">
+        search_index = #{search_index,jdbcType=DECIMAL},
+      </if>
+      <if test="media_index != null">
+        media_index = #{media_index,jdbcType=DECIMAL},
+      </if>
+      <if test="data_time != null">
+        data_time = #{data_time,jdbcType=DATE},
+      </if>
+      <if test="data_source != null">
+        data_source = #{data_source,jdbcType=VARCHAR},
+      </if>
+      <if test="initia_source_url != null">
+        initia_source_url = #{initia_source_url,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SearchIndexDataModel">
+    update search_index_data
+    set keyword_id = #{keyword_id,jdbcType=BIGINT},
+      index_type = #{index_type,jdbcType=CHAR},
+      search_index = #{search_index,jdbcType=DECIMAL},
+      media_index = #{media_index,jdbcType=DECIMAL},
+      data_time = #{data_time,jdbcType=DATE},
+      data_source = #{data_source,jdbcType=VARCHAR},
+      initia_source_url = #{initia_source_url,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByKeywordId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from search_index_data
+    where keyword_id = #{keywordId,jdbcType=BIGINT} order by id desc
+    <if test="limit != null">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+  </select>
+
+  <select id="selectByKeywordIdAndDate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from search_index_data
+    where `keyword_id` = #{keywordId,jdbcType=BIGINT}
+    AND `data_time` >= #{beginDate, jdbcType=DATE}
+    order by id desc
+  </select>
+
+  <select id="selectByKeywordIdAndStartDate" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from search_index_data
+    where `keyword_id` = #{keywordId,jdbcType=BIGINT}
+    AND `data_time` >= #{startDate}
+    order by data_time desc
+  </select>
+</mapper>

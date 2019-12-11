@@ -1,0 +1,11 @@
+{
+  "defaultLanguage": "zh-cn",
+  "supportedLanguages": {
+    "zh-cn": "中文",
+    "en": "EN"
+  },
+  "defaultNS": "translations",
+  "NSList": [
+    "translations"
+  ]
+}

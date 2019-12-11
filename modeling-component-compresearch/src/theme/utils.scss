@@ -1,0 +1,27 @@
+%flex {
+  display: flex
+}
+
+%flex-space-between {
+  justify-content: space-between;
+}
+
+%text-center {
+  text-align: center;
+}
+
+%pointer {
+  cursor: pointer;
+}
+
+%align-items-center {
+  @include align-items(center)
+}
+
+%circle {
+  border-radius: 50%;
+}
+
+%full-width {
+  width: 100%;
+}

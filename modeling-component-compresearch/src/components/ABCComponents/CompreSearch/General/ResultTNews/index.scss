@@ -1,0 +1,73 @@
+@import '../theme/common.scss';
+$baseColor:#F8F8F8;
+$whiteColor:#fff;
+.ResultReport {
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    .title{
+        font-size: 18px;
+        margin-bottom: 20px;
+        color:#333333;
+        span{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .highLight{color: #dd4b39;}
+        &:hover{color: #287ddc;}
+        .result_num{font-size: 14px;margin: 10px 0 20px;
+            span{color: #287ddc;}
+        }
+    }
+    .ResultReportCon {
+        background-color: #ffffff;
+        border-radius: 0px;
+        width: 100%;
+        height: 100%;
+        // padding-left: 10px;
+        ul {
+            li {
+                position: relative;
+                &:last-child{margin-bottom: 0;}
+                .ResultReportConlistCon {
+                    display: inline-block;
+                    vertical-align: top;
+                    overflow: hidden;
+                    .leftbox{
+                        float: left;
+                        max-width: 740px;
+                        margin-right: 10px;
+                        font-size: 15px;
+                        color: #333333;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                        span{
+                            cursor: pointer;
+                            margin-right: 5px;
+                            //color: #495c79;
+                            //background-color: #f3f5f8;
+                        }
+                        a{
+                            color: #333333;
+                            &:hover{color: #287ddc;}
+                            i{font-style: normal;}
+                        }
+
+                    }
+                    .rightbox{
+                        float: left;
+                        width: 80px;
+                        span{
+                            color: #3D5C7F;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}

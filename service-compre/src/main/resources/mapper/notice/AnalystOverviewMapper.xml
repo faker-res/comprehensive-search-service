@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystOverviewDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.dao.AnalystOverviewDaoModel">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="org_id" property="orgId" jdbcType="VARCHAR"/>
+        <result column="securities_analyst" property="securitiesAnalyst" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`, `org_id`, `securities_analyst`
+    </sql>
+
+    <select id="selectByOrgId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `analyst_overview`
+        where `org_uni_code`=#{orgUniCode,jdbcType=INTEGER}
+        ORDER BY `id` DESC limit 1
+    </select>
+
+</mapper>

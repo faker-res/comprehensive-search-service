@@ -1,0 +1,186 @@
+.allAnalystBox {
+    .ant-card-head-wrapper {
+        .ant-card-head-title {
+            color: rgba(51, 51, 51, 1);
+            font-size: 14px;
+            font-family: PingFangSC-Medium;
+        }
+        .ant-card-extra {
+            span {
+                color: rgba(143, 150, 157, 1);
+                font-size: 12px;
+                font-family: PingFangSC-Regular;
+                b {
+                    color: #5D93F0;
+                }
+            }
+        }
+    }
+    .orderByType {
+        margin-bottom: 20px;
+        a {
+            color: #828A92;
+            text-decoration: none;
+            font-size: 12px;
+            &:after {
+                content: '';
+                display: inline-block;
+                width: 1px;
+                background-color: #828A92;
+                height: 10px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            &:last-child {
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    width: 0px;
+                    background-color: #828A92;
+                    height: 10px;
+                    margin-right: 10px;
+                    margin-left: 10px;
+                }
+            }
+            &.active {
+                color: #407CD5;
+            }
+        }
+    }
+    ul {
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #F0F0F0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            &:last-child {
+                border-bottom: 1px solid #F0F0F0;
+            }
+            .personNamePic {
+                flex: 1 1;
+                display: flex;
+                .personPic {
+                    width: 64px;
+                    height: 54px;
+                    padding-right: 10px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .personName {
+                    flex: 2 1;
+                    h3 {
+                        a {
+                            color: rgba(0, 0, 0, 1);
+                            font-size: 18px;
+                            font-family: PingFangSC-Medium;
+                            text-decoration: none;
+                        }
+                    }
+                    p {
+                        span {
+                            color: rgba(134, 142, 149, 1);
+                            font-size: 12px;
+                            font-family: PingFangSC-Regular;
+                            // cursor: pointer;
+                            &:first-child {
+                                &:after {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 1px;
+                                    background-color: #DDDDDD;
+                                    height: 10px;
+                                    margin-right: 10px;
+                                    margin-left: 10px;
+                                }
+                            }
+                            a{
+                                color: rgba(134, 142, 149, 1);
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    width: 1px;
+                    background-color: #EBEBEB;
+                    height: 50px;
+                }
+            }
+            .personIndex {
+                flex: 2 1;
+                display: flex;
+                .reportTotal,
+                .awardTotal,
+                .treasureTotal,
+                .reachDays {
+                    flex: 1 1;
+                    text-align: center;
+                    b {
+                        color: rgba(0, 0, 0, 1);
+                        font-size: 18px;
+                        font-family: PingFangSC-Regular;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        small {
+                            font-weight: normal;
+                            margin-left: 5px;
+                            font-size: 12px;
+                            font-family: PingFangSC-Regular;
+                            a {
+                                text-decoration: none;
+                                color: #407CD5;
+                            }
+                        }
+                    }
+                    p {
+                        color: rgba(134, 142, 149, 1);
+                        font-size: 12px;
+                        font-family: PingFangSC-Regular;
+                    }
+                }
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    width: 1px;
+                    background-color: #EBEBEB;
+                    height: 50px;
+                }
+            }
+            .personDesc {
+                flex: 1 1;
+                text-align: center;
+                a {
+                    color: rgba(51, 51, 51, 1);
+                    font-size: 12px;
+                    font-family: PingFangSC-Regular;
+                }
+            }
+        }
+    }
+    .page {
+        margin-top: 20px;
+        .ant-pagination {
+            display: flex;
+            justify-content: flex-end;
+            li {
+                border: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                display: inline-block;
+                &.ant-pagination-item {
+                    border: 1px solid #d9d9d9;
+                    &.ant-pagination-item-active {
+                        border-color: #1890ff;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.INormalValuationIndexDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.NormalValuationIndexModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="account_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="total_market_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="total_shares" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="freefloat_market_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="float_shares" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="pe" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pelyr" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pettm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pb" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pbmrq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pcf" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pcf_ttm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ps" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="psttm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, account_date, total_market_value, total_shares, freefloat_market_value, 
+    float_shares, pe, pelyr, pettm, pb, pbmrq, pcf, pcf_ttm, ps, psttm, createtime, updatetime, 
+    status, remark, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from normal_valuation_index
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from normal_valuation_index
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.NormalValuationIndexModel">
+    insert into normal_valuation_index (id, sec_uni_code, account_date, 
+      total_market_value, total_shares, freefloat_market_value, 
+      float_shares, pe, pelyr, 
+      pettm, pb, pbmrq, pcf, 
+      pcf_ttm, ps, psttm, 
+      createtime, updatetime, status, 
+      remark, creator, editor
+      )
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{account_date,jdbcType=TIMESTAMP}, 
+      #{total_market_value,jdbcType=DECIMAL}, #{total_shares,jdbcType=DECIMAL}, #{freefloat_market_value,jdbcType=DECIMAL}, 
+      #{float_shares,jdbcType=DECIMAL}, #{pe,jdbcType=DECIMAL}, #{pelyr,jdbcType=DECIMAL}, 
+      #{pettm,jdbcType=DECIMAL}, #{pb,jdbcType=DECIMAL}, #{pbmrq,jdbcType=DECIMAL}, #{pcf,jdbcType=DECIMAL}, 
+      #{pcf_ttm,jdbcType=DECIMAL}, #{ps,jdbcType=DECIMAL}, #{psttm,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.NormalValuationIndexModel">
+    insert into normal_valuation_index
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="account_date != null">
+        account_date,
+      </if>
+      <if test="total_market_value != null">
+        total_market_value,
+      </if>
+      <if test="total_shares != null">
+        total_shares,
+      </if>
+      <if test="freefloat_market_value != null">
+        freefloat_market_value,
+      </if>
+      <if test="float_shares != null">
+        float_shares,
+      </if>
+      <if test="pe != null">
+        pe,
+      </if>
+      <if test="pelyr != null">
+        pelyr,
+      </if>
+      <if test="pettm != null">
+        pettm,
+      </if>
+      <if test="pb != null">
+        pb,
+      </if>
+      <if test="pbmrq != null">
+        pbmrq,
+      </if>
+      <if test="pcf != null">
+        pcf,
+      </if>
+      <if test="pcf_ttm != null">
+        pcf_ttm,
+      </if>
+      <if test="ps != null">
+        ps,
+      </if>
+      <if test="psttm != null">
+        psttm,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="account_date != null">
+        #{account_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="total_market_value != null">
+        #{total_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="total_shares != null">
+        #{total_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="freefloat_market_value != null">
+        #{freefloat_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="float_shares != null">
+        #{float_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="pe != null">
+        #{pe,jdbcType=DECIMAL},
+      </if>
+      <if test="pelyr != null">
+        #{pelyr,jdbcType=DECIMAL},
+      </if>
+      <if test="pettm != null">
+        #{pettm,jdbcType=DECIMAL},
+      </if>
+      <if test="pb != null">
+        #{pb,jdbcType=DECIMAL},
+      </if>
+      <if test="pbmrq != null">
+        #{pbmrq,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf != null">
+        #{pcf,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf_ttm != null">
+        #{pcf_ttm,jdbcType=DECIMAL},
+      </if>
+      <if test="ps != null">
+        #{ps,jdbcType=DECIMAL},
+      </if>
+      <if test="psttm != null">
+        #{psttm,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.NormalValuationIndexModel">
+    update normal_valuation_index
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="account_date != null">
+        account_date = #{account_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="total_market_value != null">
+        total_market_value = #{total_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="total_shares != null">
+        total_shares = #{total_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="freefloat_market_value != null">
+        freefloat_market_value = #{freefloat_market_value,jdbcType=DECIMAL},
+      </if>
+      <if test="float_shares != null">
+        float_shares = #{float_shares,jdbcType=DECIMAL},
+      </if>
+      <if test="pe != null">
+        pe = #{pe,jdbcType=DECIMAL},
+      </if>
+      <if test="pelyr != null">
+        pelyr = #{pelyr,jdbcType=DECIMAL},
+      </if>
+      <if test="pettm != null">
+        pettm = #{pettm,jdbcType=DECIMAL},
+      </if>
+      <if test="pb != null">
+        pb = #{pb,jdbcType=DECIMAL},
+      </if>
+      <if test="pbmrq != null">
+        pbmrq = #{pbmrq,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf != null">
+        pcf = #{pcf,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf_ttm != null">
+        pcf_ttm = #{pcf_ttm,jdbcType=DECIMAL},
+      </if>
+      <if test="ps != null">
+        ps = #{ps,jdbcType=DECIMAL},
+      </if>
+      <if test="psttm != null">
+        psttm = #{psttm,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.NormalValuationIndexModel">
+    update normal_valuation_index
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      account_date = #{account_date,jdbcType=TIMESTAMP},
+      total_market_value = #{total_market_value,jdbcType=DECIMAL},
+      total_shares = #{total_shares,jdbcType=DECIMAL},
+      freefloat_market_value = #{freefloat_market_value,jdbcType=DECIMAL},
+      float_shares = #{float_shares,jdbcType=DECIMAL},
+      pe = #{pe,jdbcType=DECIMAL},
+      pelyr = #{pelyr,jdbcType=DECIMAL},
+      pettm = #{pettm,jdbcType=DECIMAL},
+      pb = #{pb,jdbcType=DECIMAL},
+      pbmrq = #{pbmrq,jdbcType=DECIMAL},
+      pcf = #{pcf,jdbcType=DECIMAL},
+      pcf_ttm = #{pcf_ttm,jdbcType=DECIMAL},
+      ps = #{ps,jdbcType=DECIMAL},
+      psttm = #{psttm,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getMaxData" parameterType="java.lang.Long" resultType="java.util.Date">
+    select
+    max(account_date)
+    from normal_valuation_index
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+  </select>
+    <select id="getRecord" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from normal_valuation_index
+        where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+        <if test="accountDate != null">
+            and account_date = #{accountDate,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+  <select id="buildRecordsByAccountDateWithSecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from normal_valuation_index
+    where account_date &lt;= #{accountDate,jdbcType=TIMESTAMP} and sec_uni_code in
+      <foreach collection="secUniCode" index="index" item="item" open="(" separator="," close=")">
+          #{item,jdbcType=BIGINT}
+      </foreach>
+    group by sec_uni_code order by total_market_value desc limit #{limit,jdbcType=INTEGER}
+  </select>
+  <select id="getValuationBySecUniCode" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from normal_valuation_index
+    where `sec_uni_code`=#{sec_uni_code,jdbcType=INTEGER} ORDER BY account_date DESC LIMIT 1
+  </select>
+  <select id="getSecUniCodeByAccountDateWithSecUniCode" resultType="long">
+    select
+    distinct sec_uni_code
+    from normal_valuation_index
+    where account_date=#{accountDate,jdbcType=TIMESTAMP} and sec_uni_code in
+    <foreach collection="secUniCode" index="index" item="item" open="(" separator="," close=")">
+      #{item,jdbcType=BIGINT}
+    </foreach>
+    order by total_market_value desc limit #{limit,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectPepbBySecUniCodeList" resultType="la.niub.abcapi.servicecompre.model.bo.theme.PepbDistBO">
+    SELECT  sec_uni_code,pe,pb,MAX(account_date) account_date
+    FROM normal_valuation_index
+    WHERE sec_uni_code IN
+                    <foreach collection="sec_uni_code_list" separator="," open="(" close=")" item="sec_uni_code">
+                      #{sec_uni_code}
+                    </foreach>
+    GROUP BY sec_uni_code;
+  </select>
+
+  <select id="selectAccountDateBySecUniCode" resultType="java.util.Date">
+    SELECT max(account_date)
+    FROM normal_valuation_index
+    where sec_uni_code = #{sec_uni_code}
+  </select>
+
+  <select id="selectPepbDistBySecUniCodeAndAccountDate" resultType="la.niub.abcapi.servicecompre.model.bo.theme.PepbDistBO">
+    SELECT  sec_uni_code,pe,pb, account_date
+    FROM normal_valuation_index
+    WHERE sec_uni_code = #{sec_uni_code}
+    AND account_date = #{account_date}
+    limit 1
+  </select>
+
+  <select id="selectMarketValueBySecUniCodeAndAccountDate" resultType="java.math.BigDecimal">
+    SELECT  total_market_value
+    FROM normal_valuation_index
+    WHERE sec_uni_code = #{sec_uni_code}
+    AND account_date = #{account_date}
+    limit 1
+  </select>
+
+    <select id="selectBySecUniCodesAfterAccountDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from (select
+        <include refid="Base_Column_List"/>
+        from normal_valuation_index
+        where sec_uni_code in
+        <foreach collection="secUniCodes" index="index" item="item" open="(" separator="," close=")">
+            #{item,jdbcType=BIGINT}
+        </foreach>
+        and account_date >= #{accountDate,jdbcType=TIMESTAMP}
+        order by account_date asc ) a
+        group by sec_uni_code
+    </select>
+
+
+  <select id="getSecUniCodeForTopNBySecUniCodeList" resultType="java.math.BigInteger">
+    SELECT
+        sec_uni_code
+    FROM
+        `normal_valuation_index`
+    WHERE
+        STATUS != '9'
+    AND account_date = (
+        SELECT
+            MAX(account_date)
+        FROM
+            `normal_valuation_index`
+        WHERE
+            STATUS != '9'
+    )
+    AND sec_uni_code IN
+    <foreach collection="secUniCodeList" separator="," open="(" close=")" item="secUniCode">
+      #{secUniCode}
+    </foreach>
+    ORDER BY
+        total_market_value DESC
+    LIMIT #{limit};
+  </select>
+  <select id="getLastAccountDateBefore" resultType="date">
+    select max(account_date)
+    from normal_valuation_index
+    where account_date&lt;=#{accountDate,jdbcType=TIMESTAMP}
+  </select>
+    <select id="selectBySecUniCodeAndTradeDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from normal_valuation_index
+        where
+        <foreach collection="secUniCodeAndDate" item="item" index="index"
+                 open="(" separator=" OR " close=")">
+            (sec_uni_code=#{index,jdbcType=BIGINT} and account_date=#{item,jdbcType=TIMESTAMP})
+        </foreach>
+    </select>
+
+  <select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.NormalValuationIndexModel">
+    select
+    <include refid="Base_Column_List"/>
+    from normal_valuation_index where 1=1
+    <if test="start_time != null and start_time != ''">
+      AND account_date &gt;= #{start_time}
+    </if>
+    <if test="end_time != null and end_time != ''">
+      AND account_date &lt;= #{end_time}
+    </if>
+    <if test="account_date != null and account_date != ''">
+      AND account_date = #{account_date}
+    </if>
+    <if test="sec_uni_code != null">
+      and sec_uni_code = #{sec_uni_code}
+    </if>
+    <if test="orderby != null">
+        ${orderby}
+    </if>
+    <if test="limit != null and offset != null">
+      LIMIT ${limit} OFFSET ${offset}
+    </if>
+  </select>
+</mapper>

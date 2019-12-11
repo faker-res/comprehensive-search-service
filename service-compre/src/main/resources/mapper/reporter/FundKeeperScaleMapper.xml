@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundKeeperScaleDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_keeper_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_keeper_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="plate_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plate_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_quantity" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fund_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fund_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="groupByFundKeeper" type="la.niub.abcapi.servicecompre.model.FundKeeperScaleGroupByFundKeeperModel">
+    <result column="fund_keeper_code" property="fund_keeper_code" jdbcType="BIGINT"/>
+    <result column="plate_name" property="plate_name" jdbcType="VARCHAR"/>
+    <result column="fund_quantity" property="fund_quantity" jdbcType="INTEGER"/>
+    <result column="fund_share" property="fund_share" jdbcType="DECIMAL"/>
+    <result column="end_date" property="end_date" jdbcType="DATE"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, fund_keeper_code, fund_keeper_name, end_date, plate_code, plate_name, fund_quantity, 
+    fund_share, fund_nav, createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_keeper_scale
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_keeper_scale
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+    insert into fund_keeper_scale (id, fund_keeper_code, fund_keeper_name, 
+      end_date, plate_code, plate_name, 
+      fund_quantity, fund_share, fund_nav, 
+      createtime, updatetime, status, 
+      creator, editor)
+    values (#{id,jdbcType=BIGINT}, #{fund_keeper_code,jdbcType=BIGINT}, #{fund_keeper_name,jdbcType=VARCHAR}, 
+      #{end_date,jdbcType=DATE}, #{plate_code,jdbcType=VARCHAR}, #{plate_name,jdbcType=VARCHAR}, 
+      #{fund_quantity,jdbcType=INTEGER}, #{fund_share,jdbcType=DECIMAL}, #{fund_nav,jdbcType=DECIMAL}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+    insert into fund_keeper_scale
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="fund_keeper_code != null">
+        fund_keeper_code,
+      </if>
+      <if test="fund_keeper_name != null">
+        fund_keeper_name,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="plate_code != null">
+        plate_code,
+      </if>
+      <if test="plate_name != null">
+        plate_name,
+      </if>
+      <if test="fund_quantity != null">
+        fund_quantity,
+      </if>
+      <if test="fund_share != null">
+        fund_share,
+      </if>
+      <if test="fund_nav != null">
+        fund_nav,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_code != null">
+        #{fund_keeper_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_name != null">
+        #{fund_keeper_name,jdbcType=VARCHAR},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="plate_code != null">
+        #{plate_code,jdbcType=VARCHAR},
+      </if>
+      <if test="plate_name != null">
+        #{plate_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_quantity != null">
+        #{fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="fund_share != null">
+        #{fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_nav != null">
+        #{fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+    update fund_keeper_scale
+    <set>
+      <if test="fund_keeper_code != null">
+        fund_keeper_code = #{fund_keeper_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_name != null">
+        fund_keeper_name = #{fund_keeper_name,jdbcType=VARCHAR},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="plate_code != null">
+        plate_code = #{plate_code,jdbcType=VARCHAR},
+      </if>
+      <if test="plate_name != null">
+        plate_name = #{plate_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_quantity != null">
+        fund_quantity = #{fund_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="fund_share != null">
+        fund_share = #{fund_share,jdbcType=DECIMAL},
+      </if>
+      <if test="fund_nav != null">
+        fund_nav = #{fund_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+    update fund_keeper_scale
+    set fund_keeper_code = #{fund_keeper_code,jdbcType=BIGINT},
+      fund_keeper_name = #{fund_keeper_name,jdbcType=VARCHAR},
+      end_date = #{end_date,jdbcType=DATE},
+      plate_code = #{plate_code,jdbcType=VARCHAR},
+      plate_name = #{plate_name,jdbcType=VARCHAR},
+      fund_quantity = #{fund_quantity,jdbcType=INTEGER},
+      fund_share = #{fund_share,jdbcType=DECIMAL},
+      fund_nav = #{fund_nav,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByFundKeeperName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_keeper_scale
+    where fund_keeper_name = #{fundKeeperName,jdbcType=VARCHAR} order by end_date desc limit 1
+  </select>
+  <select id="selectByFundKeeperCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_keeper_scale
+    where fund_keeper_code = #{fundKeeperCode,jdbcType=BIGINT} and plate_name='全部' order by end_date desc limit 1
+  </select>
+  <select id="getRankByFunNav" resultType="java.lang.Long">
+    SELECT fund_keeper_code
+    FROM fund_keeper_scale
+    WHERE plate_name='全部' and end_date=(select max(end_date) from fund_keeper_scale) and fund_nav>0
+    GROUP BY fund_keeper_code order by fund_nav desc
+  </select>
+
+  <select id="selectByYearGroupByKeeper" resultMap="groupByFundKeeper">
+
+    select fund_keeper_code, plate_name, fund_quantity, fund_share, max(end_date) as end_date  from (
+    select fund_keeper_code, plate_name, fund_quantity, fund_share, end_date from fund_keeper_scale
+    where plate_name = "全部"
+    and end_date &gt;= #{beginDate,jdbcType=DATE}
+    and end_date &lt;= #{endDate,jdbcType=DATE}
+    ) t
+    group by t.fund_keeper_code;
+  </select>
+
+  <select id="getPlateCodeAndNameByComUniCode" parameterType="java.lang.Long" resultType="map">
+    (
+        SELECT
+            a.plate_code,
+            SUBSTRING_INDEX(a.plate_name, '基金', 1) plate_name
+        FROM
+            fund_keeper_scale a
+        JOIN (
+            SELECT
+                fund_keeper_code CODE,
+                plate_name TYPE,
+                MAX(end_date) DATE
+            FROM
+                fund_keeper_scale
+            GROUP BY
+                fund_keeper_code,
+                plate_name
+        ) b ON a.fund_keeper_code = b.CODE
+        AND a.plate_name = b.type
+        AND a.end_date = b.date
+        where a.fund_keeper_code = #{com_uni_code}
+    )
+    UNION
+    (
+      SELECT
+          a.plate_code,
+          SUBSTRING_INDEX(a.plate_name, '基金', 1) plate_name
+      FROM
+          fund_manager_chg a
+      JOIN (
+          SELECT
+              fund_keeper_code CODE,
+              plate_name TYPE,
+              MAX(end_date) DATE
+          FROM
+              fund_manager_chg
+          GROUP BY
+              fund_keeper_code,
+              plate_name
+      ) b ON a.fund_keeper_code = b.CODE
+      AND a.plate_name = b.type
+      AND a.end_date = b.date
+      where a.fund_keeper_code = #{com_uni_code}
+    )
+    ORDER BY plate_code ASC
+  </select>
+
+  <select id="getAllFundCompanyByPlateCode" parameterType="string" resultType="la.niub.abcapi.servicecompre.model.response.FundCompanyAchievementsInfoItemResponse">
+    SELECT
+        x.mana_uni_code com_uni_code,
+        x.org_name,
+        y.fund_quantity,
+        y.fund_nav,
+        z.fund_manager_quantity
+    FROM
+        (
+            SELECT DISTINCT
+                fund_basic_info.mana_uni_code,
+                org_basic_info.org_name,
+                org_basic_info.`org_sname`
+            FROM
+                org_basic_info,
+                fund_basic_info
+            WHERE
+                fund_basic_info.mana_uni_code = org_basic_info.com_uni_code
+            AND fund_basic_info.mana_uni_code NOT IN (
+                '162716',
+                '196074',
+                '485754',
+                '485753',
+                '181033',
+                '165873',
+                '220917',
+                '462942',
+                '0'
+            )
+        ) x
+    LEFT JOIN (
+        SELECT
+            a.fund_keeper_code,
+            a.fund_keeper_name,
+            a.fund_quantity,
+            a.fund_nav
+        FROM
+            fund_keeper_scale a
+        JOIN (
+            SELECT
+                fund_keeper_code CODE,
+                plate_name TYPE,
+                MAX(end_date) DATE
+            FROM
+                fund_keeper_scale
+            GROUP BY
+                fund_keeper_code,
+                plate_name
+        ) b ON a.fund_keeper_code = b. CODE
+        AND a.plate_name = b.type
+        AND a.end_date = b.date
+        WHERE
+            plate_code = #{plate_code}
+    ) y ON x.mana_uni_code = y.fund_keeper_code
+    LEFT JOIN (
+        SELECT
+            a.fund_keeper_code,
+            a.fund_manager_quantity
+        FROM
+            fund_manager_chg a
+        JOIN (
+            SELECT
+                fund_keeper_code CODE,
+                plate_name TYPE,
+                MAX(end_date) DATE
+            FROM
+                fund_manager_chg
+            GROUP BY
+                fund_keeper_code,
+                plate_name
+        ) b ON a.fund_keeper_code = b. CODE
+        AND a.plate_name = b.type
+        AND a.end_date = b.date
+        WHERE
+            plate_code = #{plate_code}
+    ) z ON x.mana_uni_code = z.fund_keeper_code
+  </select>
+
+    <select id="getFundQuantityOrNavByTime" resultType="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+        SELECT
+            end_date,
+            ${field}
+        FROM
+          fund_keeper_scale
+        WHERE
+        fund_keeper_code = #{com_uni_code}
+        AND plate_code = #{plate_code}
+        AND end_date &gt;= #{startTime}
+        AND end_date &lt; #{endTime}
+        ORDER BY end_date ASC
+    </select>
+
+  <select id="getTopTenScaleCom" resultType="map">
+    SELECT  DISTINCT fund_basic_info.mana_uni_code fund_keeper_code,SUBSTRING_INDEX(org_basic_info.`org_sname`, '基金',1) org_sname , f.fund_nav
+    FROM  org_basic_info,fund_basic_info
+    LEFT JOIN (SELECT a.fund_keeper_code , c.org_sname, a.fund_nav
+          FROM fund_keeper_scale a,(SELECT fund_keeper_code CODE,plate_name TYPE,MAX(end_date) DATE
+                                    FROM fund_keeper_scale
+                                    GROUP BY fund_keeper_code,plate_name) b, org_basic_info c
+          WHERE a.plate_code='1001001'
+          AND a.fund_keeper_code=b.code
+          AND a.plate_name=b.type
+          AND a.end_date=b.date
+          AND a.fund_keeper_code = c.com_uni_code) f ON f.fund_keeper_code = fund_basic_info.mana_uni_code
+    WHERE fund_basic_info.mana_uni_code=org_basic_info.com_uni_code
+    AND fund_basic_info.mana_uni_code NOT IN('162716','196074','485754','485753','181033','165873','220917','462942','0')
+    AND fund_keeper_code != #{comUniCode}
+    ORDER BY fund_nav IS NULL, fund_nav DESC
+    LIMIT 10
+  </select>
+
+  <select id="getRankingByComUniCode" resultType="java.lang.Integer">
+    SELECT ranking
+    FROM (SELECT d.fund_keeper_code, d.org_sname, (@rowno:=@rowno+1) ranking
+           FROM (SELECT  DISTINCT fund_basic_info.mana_uni_code fund_keeper_code,org_basic_info.`org_sname` , f.fund_nav
+                  FROM  org_basic_info,fund_basic_info
+                  LEFT JOIN (SELECT a.fund_keeper_code , c.org_sname, a.fund_nav
+                        FROM fund_keeper_scale a,(SELECT fund_keeper_code CODE,plate_name TYPE,MAX(end_date) DATE
+                        FROM fund_keeper_scale
+                        GROUP BY fund_keeper_code,plate_name) b, org_basic_info c
+                        WHERE a.plate_code='1001001'
+                        AND a.fund_keeper_code=b.code
+                        AND a.plate_name=b.type
+                        AND a.end_date=b.date
+                        AND a.fund_keeper_code = c.com_uni_code) f ON f.fund_keeper_code = fund_basic_info.mana_uni_code
+                  WHERE fund_basic_info.mana_uni_code=org_basic_info.com_uni_code
+                  AND fund_basic_info.mana_uni_code NOT IN('162716','196074','485754','485753','181033','165873','220917','462942','0')
+        ) d, (SELECT (@rowno:=0)) e
+        ORDER BY fund_nav IS NULL, fund_nav DESC) a
+    WHERE fund_keeper_code = #{comUniCode}
+    limit 1
+  </select>
+
+  <select id="getComparableFundCom" resultType="map">
+    SELECT * FROM (
+          SELECT  DISTINCT fund_basic_info.mana_uni_code fund_keeper_code,SUBSTRING_INDEX(org_basic_info.`org_sname`, '基金',1) org_sname , f.fund_nav
+          FROM  org_basic_info,fund_basic_info
+          LEFT JOIN (SELECT a.fund_keeper_code , c.org_sname, a.fund_nav
+                FROM fund_keeper_scale a,(SELECT fund_keeper_code CODE,plate_name TYPE,MAX(end_date) DATE
+                FROM fund_keeper_scale
+                GROUP BY fund_keeper_code,plate_name) b, org_basic_info c
+                WHERE a.plate_code='1001001'
+                AND a.fund_keeper_code=b.code
+                AND a.plate_name=b.type
+                AND a.end_date=b.date
+                AND a.fund_keeper_code = c.com_uni_code) f ON f.fund_keeper_code = fund_basic_info.mana_uni_code
+          WHERE fund_basic_info.mana_uni_code=org_basic_info.com_uni_code
+          AND fund_basic_info.mana_uni_code NOT IN('162716','196074','485754','485753','181033','165873','220917','462942','0')
+      ORDER BY fund_nav IS NULL, fund_nav DESC
+      LIMIT #{offset}, #{limit}) e
+    where e.fund_keeper_code != #{comUniCode}
+    ORDER BY fund_nav IS NULL, fund_nav DESC
+  </select>
+
+  <select id="getFundComTotalCount" resultType="java.lang.Integer">
+    SELECT COUNT(1)
+    FROM (SELECT  DISTINCT fund_basic_info.mana_uni_code
+	FROM  org_basic_info,fund_basic_info
+	WHERE fund_basic_info.mana_uni_code=org_basic_info.com_uni_code
+	AND fund_basic_info.mana_uni_code NOT IN('162716','196074','485754','485753','181033','165873','220917','462942','0')) a
+  </select>
+
+    <select id="getFundCompanyByPlateCode" parameterType="string" resultType="la.niub.abcapi.servicecompre.model.FundKeeperScaleModel">
+        SELECT
+            a.fund_keeper_code,
+            a.fund_quantity,
+            a.fund_nav
+        FROM
+            fund_keeper_scale a
+        JOIN (
+            SELECT
+                fund_keeper_code CODE,
+                plate_name TYPE,
+                MAX(end_date) DATE
+            FROM
+                fund_keeper_scale
+            GROUP BY
+                fund_keeper_code,
+                plate_name
+        ) b ON a.fund_keeper_code = b. CODE
+        AND a.plate_name = b.type
+        AND a.end_date = b.date
+        WHERE
+            plate_code = #{plate_code}
+    </select>
+</mapper>

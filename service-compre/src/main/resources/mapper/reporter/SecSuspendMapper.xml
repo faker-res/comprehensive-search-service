@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecSuspendDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecSuspendModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="data_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="susp_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="stat_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="susp_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stp_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stp_reason" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="suspend_dates" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="suspend_tdates" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, data_date, susp_date, stat_date, susp_time, stp_type, stp_reason, 
+    suspend_dates, suspend_tdates, createtime, updatetime, status, remark, creator, editor, 
+    come_source
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_suspend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sec_suspend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecSuspendModel">
+    insert into sec_suspend (id, sec_uni_code, data_date, 
+      susp_date, stat_date, susp_time, 
+      stp_type, stp_reason, suspend_dates, 
+      suspend_tdates, createtime, updatetime, 
+      status, remark, creator, 
+      editor, come_source)
+    values (#{id,jdbcType=INTEGER}, #{sec_uni_code,jdbcType=BIGINT}, #{data_date,jdbcType=TIMESTAMP}, 
+      #{susp_date,jdbcType=TIMESTAMP}, #{stat_date,jdbcType=TIMESTAMP}, #{susp_time,jdbcType=VARCHAR}, 
+      #{stp_type,jdbcType=BIGINT}, #{stp_reason,jdbcType=VARCHAR}, #{suspend_dates,jdbcType=INTEGER}, 
+      #{suspend_tdates,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecSuspendModel">
+    insert into sec_suspend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="data_date != null">
+        data_date,
+      </if>
+      <if test="susp_date != null">
+        susp_date,
+      </if>
+      <if test="stat_date != null">
+        stat_date,
+      </if>
+      <if test="susp_time != null">
+        susp_time,
+      </if>
+      <if test="stp_type != null">
+        stp_type,
+      </if>
+      <if test="stp_reason != null">
+        stp_reason,
+      </if>
+      <if test="suspend_dates != null">
+        suspend_dates,
+      </if>
+      <if test="suspend_tdates != null">
+        suspend_tdates,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="data_date != null">
+        #{data_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="susp_date != null">
+        #{susp_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stat_date != null">
+        #{stat_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="susp_time != null">
+        #{susp_time,jdbcType=VARCHAR},
+      </if>
+      <if test="stp_type != null">
+        #{stp_type,jdbcType=BIGINT},
+      </if>
+      <if test="stp_reason != null">
+        #{stp_reason,jdbcType=VARCHAR},
+      </if>
+      <if test="suspend_dates != null">
+        #{suspend_dates,jdbcType=INTEGER},
+      </if>
+      <if test="suspend_tdates != null">
+        #{suspend_tdates,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecSuspendModel">
+    update sec_suspend
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="data_date != null">
+        data_date = #{data_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="susp_date != null">
+        susp_date = #{susp_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stat_date != null">
+        stat_date = #{stat_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="susp_time != null">
+        susp_time = #{susp_time,jdbcType=VARCHAR},
+      </if>
+      <if test="stp_type != null">
+        stp_type = #{stp_type,jdbcType=BIGINT},
+      </if>
+      <if test="stp_reason != null">
+        stp_reason = #{stp_reason,jdbcType=VARCHAR},
+      </if>
+      <if test="suspend_dates != null">
+        suspend_dates = #{suspend_dates,jdbcType=INTEGER},
+      </if>
+      <if test="suspend_tdates != null">
+        suspend_tdates = #{suspend_tdates,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecSuspendModel">
+    update sec_suspend
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      data_date = #{data_date,jdbcType=TIMESTAMP},
+      susp_date = #{susp_date,jdbcType=TIMESTAMP},
+      stat_date = #{stat_date,jdbcType=TIMESTAMP},
+      susp_time = #{susp_time,jdbcType=VARCHAR},
+      stp_type = #{stp_type,jdbcType=BIGINT},
+      stp_reason = #{stp_reason,jdbcType=VARCHAR},
+      suspend_dates = #{suspend_dates,jdbcType=INTEGER},
+      suspend_tdates = #{suspend_tdates,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_suspend
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and susp_date >= #{date,jdbcType=VARCHAR} and stat_date &lt;= #{date,jdbcType=VARCHAR}
+  </select>
+  <select id="getRecordBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_suspend
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} order by data_date desc limit 1
+  </select>
+</mapper>

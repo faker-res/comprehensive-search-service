@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IHiborAuthorCountDao">
+
+  <select id="getReportNumByPeoUniCodesAndTime" resultType="la.niub.abcapi.servicecompre.model.HiborAuthorCountModel">
+    select count(id) as report_num,peo_uni_code from hibor_author_count
+    where
+    <if test ="null != peoUniCodes">
+      peo_uni_code IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    <if test ="null != r_time">
+      AND `r_time` > #{r_time,jdbcType=INTEGER}
+    </if>
+    GROUP BY peo_uni_code ORDER BY report_num DESC
+    <if test ="0 != limit and null != limit">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+
+  </select>
+
+  <select id="getReportNumByPeoUniCodeAndTime" resultType="java.lang.Integer">
+    select count(id)
+    from hibor_author_count
+    where peo_uni_code = #{peoUniCode,jdbcType=VARCHAR}
+    AND `r_time` > #{r_time,jdbcType=INTEGER}
+  </select>
+
+</mapper>

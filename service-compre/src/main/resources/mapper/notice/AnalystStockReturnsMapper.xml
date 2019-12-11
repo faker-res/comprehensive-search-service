@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystStockReturnsDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AnalystStockReturnsModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="peo_uni_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stockcode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="s_year" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="first_report_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="start_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="end_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="stock_returns" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, peo_uni_code, stockcode, s_year, first_report_date, start_price, end_price, stock_returns, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from analyst_stock_returns
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from analyst_stock_returns
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AnalystStockReturnsModel">
+    insert into analyst_stock_returns (id, peo_uni_code, stockcode, 
+      s_year, first_report_date, start_price, 
+      end_price, stock_returns, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{peo_uni_code,jdbcType=VARCHAR}, #{stockcode,jdbcType=VARCHAR}, 
+      #{s_year,jdbcType=INTEGER}, #{first_report_date,jdbcType=TIMESTAMP}, #{start_price,jdbcType=DECIMAL}, 
+      #{end_price,jdbcType=DECIMAL}, #{stock_returns,jdbcType=DECIMAL}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystStockReturnsModel">
+    insert into analyst_stock_returns
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="stockcode != null">
+        stockcode,
+      </if>
+      <if test="s_year != null">
+        s_year,
+      </if>
+      <if test="first_report_date != null">
+        first_report_date,
+      </if>
+      <if test="start_price != null">
+        start_price,
+      </if>
+      <if test="end_price != null">
+        end_price,
+      </if>
+      <if test="stock_returns != null">
+        stock_returns,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=VARCHAR},
+      </if>
+      <if test="stockcode != null">
+        #{stockcode,jdbcType=VARCHAR},
+      </if>
+      <if test="s_year != null">
+        #{s_year,jdbcType=INTEGER},
+      </if>
+      <if test="first_report_date != null">
+        #{first_report_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="start_price != null">
+        #{start_price,jdbcType=DECIMAL},
+      </if>
+      <if test="end_price != null">
+        #{end_price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock_returns != null">
+        #{stock_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystStockReturnsModel">
+    update analyst_stock_returns
+    <set>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      </if>
+      <if test="stockcode != null">
+        stockcode = #{stockcode,jdbcType=VARCHAR},
+      </if>
+      <if test="s_year != null">
+        s_year = #{s_year,jdbcType=INTEGER},
+      </if>
+      <if test="first_report_date != null">
+        first_report_date = #{first_report_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="start_price != null">
+        start_price = #{start_price,jdbcType=DECIMAL},
+      </if>
+      <if test="end_price != null">
+        end_price = #{end_price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock_returns != null">
+        stock_returns = #{stock_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AnalystStockReturnsModel">
+    update analyst_stock_returns
+    set peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      stockcode = #{stockcode,jdbcType=VARCHAR},
+      s_year = #{s_year,jdbcType=INTEGER},
+      first_report_date = #{first_report_date,jdbcType=TIMESTAMP},
+      start_price = #{start_price,jdbcType=DECIMAL},
+      end_price = #{end_price,jdbcType=DECIMAL},
+      stock_returns = #{stock_returns,jdbcType=DECIMAL},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPeoUniCodesAndStockCodesAndYear" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_stock_returns
+    where 1=1
+      <if test="null != peoUniCodes and peoUniCodes.size() > 0">
+          and peo_uni_code IN
+          <foreach collection="peoUniCodes" item="item" index="index"
+                   open="(" separator="," close=")">
+              #{item}
+          </foreach>
+      </if>
+      <if test="null != stockCodes and stockCodes.size() > 0">
+          and stockcode IN
+          <foreach collection="stockCodes" item="item" index="index"
+                   open="(" separator="," close=")">
+              #{item}
+          </foreach>
+      </if>
+      and s_year = #{year,jdbcType=INTEGER}
+  </select>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComBalanceYoyDao">
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, report_type, principles, consolidation, currency_code, 
+    announcement_date, report_format, cash, trading_fin_assets, rec_note, rec_account, 
+    prepay, rec_interest, rec_dividend, other_rec_account, inventory, non_current_asset, 
+    other_current_asset, current_assets_special_subjects, current_asset_of_balance, total_current_asset, 
+    available_sale_asset, held_investment, long_rec_account, long_equity_investment, 
+    invest_house, fix_asset, building, balance_account_asset, fix_asset_dispose, product_asset, 
+    oil_asset, intangible_asset, develop_cost, goodwill, long_defer_cost, tax_asset, 
+    other_noncurrent_asset, noncurrent_asset_special_subjects, noncurrent_asset_of_balance, 
+    total_noncurrent_asset, cash_depo_cenbank, depo_other_bank, expensive_mental, disassemble_fund, 
+    derivat_fin_asset, buy_fin_asset, loan_advance, other_asset, rec_loan_account, recei_premium, 
+    receivable_subrogation, recei_dividend_payment, recei_unearned_r, recei_claims_r, 
+    recei_life_r, recei_long_health_r, insurer_impawn_loan, fixed_time_deposit, save_capital_deposit, 
+    independ_account_assets, customer_funds_deposit, settlement_provisions, customer_payment, 
+    refundable_deposits, transaction_fee, asset_special_subject, asset_balance_subject, 
+    total_asset, short_borrow, transation_fin_borrow, pay_note, pay_account, prepay_account, 
+    pay_salary, pay_tax_balance, pay_interest, pay_dividend, other_pay_account, non_current_borrow, 
+    other_current_borrow, current_lia_special_subjects, current_lia_balance_subjects, 
+    total_current_liabilities, long_borrow, pay_bonds, long_pay_account, term_pay_account, 
+    pre_bonds, deferred_income, other_noncurrent_bonds, non_current_lia_special_subjects, 
+    non_current_lia_balance_subjects, total_non_current_liabilities, borrow_central, 
+    peer_other_fin_depo_pay, borrow_fund, derivat_fin_liabilities, sell_fin_asset, absorb_depo, 
+    other_liabilities, advance_insurance, payable_fee, pay_account_rein, compensation_payable, 
+    policy_dividend_payable, insurer_deposit_investment, unearned_premium_reserve, outstanding_claim_reserve, 
+    life_insurance_reserve, long_health_insurance_lr, independ_liabilities, pledged_loan, 
+    agent_trading_secrity, act_underwrite_securities, liabilities_special_subjects, liabilities_balance_subjects, 
+    total_liabilities, rec_capital, capital_reserve, treasury_stock, special_reserve, 
+    earn_reserve, general_normal_preparation, general_risk_preparation, nopay_profit, 
+    translation_reserve, shareholders_equity_special_subject, shareholders_equity_balance_subject, 
+    total_account_parent_equity, monority_holder_equity, total_account_equity, total_account_equity_and_lia, 
+    whether_published, special_case_description, total_number_of_shares, recei_dividend_contract, 
+    absorb_depo_and_interbank, insur_contract_reserves, deferred_income_current_lia, 
+    short_term_bonds_payable, non_current_lia_deferred_income, deposits_received, financial_capital, 
+    receivables, short_term_financing, payables, other_comprehensive_income, long_term_pay_for_employees, 
+    other_equity_instruments, preferred_stock, permanent_debt, come_source, createtime, 
+    updatetime, status, remark, creator, editor
+  </sql>
+  <select id="getTopNRecords" resultType="la.niub.abcapi.servicecompre.model.ComBalanceYoyModel">
+    select 
+    <include refid="Base_Column_List" />
+    from com_balance_yoy
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+</mapper>

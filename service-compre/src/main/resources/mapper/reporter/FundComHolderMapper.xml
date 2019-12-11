@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundComHolderDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundComHolderModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="shareholder_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="shareholder_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shareholder_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="hold_shr_vol" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="hold_shr_prop" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="serial_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="source_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, org_uni_code, announcement_date, begin_date, end_date, shareholder_code, shareholder_name, 
+    shareholder_type, hold_shr_vol, hold_shr_prop, serial_number, source_id, createtime, 
+    updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_com_holder
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_com_holder
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundComHolderModel">
+    insert into fund_com_holder (id, org_uni_code, announcement_date, 
+      begin_date, end_date, shareholder_code, 
+      shareholder_name, shareholder_type, hold_shr_vol, 
+      hold_shr_prop, serial_number, source_id, 
+      createtime, updatetime, status, 
+      creator, editor)
+    values (#{id,jdbcType=BIGINT}, #{org_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, #{shareholder_code,jdbcType=BIGINT}, 
+      #{shareholder_name,jdbcType=VARCHAR}, #{shareholder_type,jdbcType=VARCHAR}, #{hold_shr_vol,jdbcType=DECIMAL}, 
+      #{hold_shr_prop,jdbcType=DECIMAL}, #{serial_number,jdbcType=VARCHAR}, #{source_id,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundComHolderModel">
+    insert into fund_com_holder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="org_uni_code != null">
+        org_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="shareholder_code != null">
+        shareholder_code,
+      </if>
+      <if test="shareholder_name != null">
+        shareholder_name,
+      </if>
+      <if test="shareholder_type != null">
+        shareholder_type,
+      </if>
+      <if test="hold_shr_vol != null">
+        hold_shr_vol,
+      </if>
+      <if test="hold_shr_prop != null">
+        hold_shr_prop,
+      </if>
+      <if test="serial_number != null">
+        serial_number,
+      </if>
+      <if test="source_id != null">
+        source_id,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="org_uni_code != null">
+        #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="shareholder_code != null">
+        #{shareholder_code,jdbcType=BIGINT},
+      </if>
+      <if test="shareholder_name != null">
+        #{shareholder_name,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholder_type != null">
+        #{shareholder_type,jdbcType=VARCHAR},
+      </if>
+      <if test="hold_shr_vol != null">
+        #{hold_shr_vol,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_shr_prop != null">
+        #{hold_shr_prop,jdbcType=DECIMAL},
+      </if>
+      <if test="serial_number != null">
+        #{serial_number,jdbcType=VARCHAR},
+      </if>
+      <if test="source_id != null">
+        #{source_id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundComHolderModel">
+    update fund_com_holder
+    <set>
+      <if test="org_uni_code != null">
+        org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="shareholder_code != null">
+        shareholder_code = #{shareholder_code,jdbcType=BIGINT},
+      </if>
+      <if test="shareholder_name != null">
+        shareholder_name = #{shareholder_name,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholder_type != null">
+        shareholder_type = #{shareholder_type,jdbcType=VARCHAR},
+      </if>
+      <if test="hold_shr_vol != null">
+        hold_shr_vol = #{hold_shr_vol,jdbcType=DECIMAL},
+      </if>
+      <if test="hold_shr_prop != null">
+        hold_shr_prop = #{hold_shr_prop,jdbcType=DECIMAL},
+      </if>
+      <if test="serial_number != null">
+        serial_number = #{serial_number,jdbcType=VARCHAR},
+      </if>
+      <if test="source_id != null">
+        source_id = #{source_id,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundComHolderModel">
+    update fund_com_holder
+    set org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      shareholder_code = #{shareholder_code,jdbcType=BIGINT},
+      shareholder_name = #{shareholder_name,jdbcType=VARCHAR},
+      shareholder_type = #{shareholder_type,jdbcType=VARCHAR},
+      hold_shr_vol = #{hold_shr_vol,jdbcType=DECIMAL},
+      hold_shr_prop = #{hold_shr_prop,jdbcType=DECIMAL},
+      serial_number = #{serial_number,jdbcType=VARCHAR},
+      source_id = #{source_id,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByOrgUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_com_holder
+    where org_uni_code = #{orgUniCode,jdbcType=BIGINT} order by begin_date desc,hold_shr_prop desc limit #{limit,jdbcType=INTEGER}
+  </select>
+  <select id="getLastByOrgUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_com_holder
+    where org_uni_code = #{orgUniCode,jdbcType=BIGINT}
+      and begin_date=(select max(begin_date) from fund_com_holder where org_uni_code = #{orgUniCode,jdbcType=BIGINT})
+      order by hold_shr_prop desc limit #{limit,jdbcType=INTEGER}
+  </select>
+</mapper>

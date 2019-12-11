@@ -1,0 +1,76 @@
+{
+    "code": 200,
+    "data": {
+        "basic_info": {
+            "average_days": 21738,
+            "dept_id": 1,
+            "dept_name": 1,
+            "direction": "煤炭开采、采掘、环保",
+            "email": "",
+            "head_percent": 66586,
+            "honor_num": "3",
+            "id": "59931989",
+            "image": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/sac.net_845f7ba0-ef21-35b7-b71b-7c73b1cd453b.jpg",
+            "name": "安鹏",
+            "organ": "广发证券",
+            "organ_logo": "logo/ca8858ff525e4bdf9810a64c8547fb43.png",
+            "rank": "1",
+            "read_num": 1,
+            "report_num": "395",
+            "report_num_rate": "0.80",
+            "resume": [
+                {
+                    "company_name": "测试内容55qu",
+                    "position": "测试内容5f4i",
+                    "start_time": 11070
+                }
+            ],
+            "summary": "测试内容8fs1",
+            "tel": "",
+            "time": "2017"
+        },
+        "dynamic": [
+            {
+                "category": "宏观经济",
+                "id": "动态ID",
+                "source": "研报|微信|微博|公众号",
+                "time": "1524326400",
+                "title": "研报标题"
+            },
+            {
+                "category": "宏观经济",
+                "id": "动态ID",
+                "source": "研报|微信|微博|公众号",
+                "time": "1524326400",
+                "title": "研报标题"
+            }
+        ],
+        "report_stocks": [
+            {
+                "abc_code": "000001.SZ",
+                "current_price": "13.26",
+                "last_time": "1524326400",
+                "sec_name": "平安银行",
+                "total": "5",
+                "zdf": "0.000754716981132"
+            },
+            {
+                "abc_code": "000001.SZ",
+                "current_price": "13.26",
+                "last_time": "1524326400",
+                "sec_name": "平安银行",
+                "total": "5",
+                "zdf": "0.000754716981132"
+            },
+            {
+                "abc_code": "000001.SZ",
+                "current_price": "13.26",
+                "last_time": "1524326400",
+                "sec_name": "平安银行",
+                "total": "5",
+                "zdf": "0.000754716981132"
+            }
+        ]
+    },
+    "message": ""
+}

@@ -1,0 +1,45 @@
+{
+    "code": 200,
+    "msg": "1ZXbX9eiit",
+    "data": [
+        {
+            "totalIncome": 0.0014,
+            "name": "wGcmG4Zkcu",
+            "dayIncome": 0.0012,
+            "monthIncome": 0.0011,
+            "yearIncome": 0.0015,
+            "type": "twZjcgnVJs",
+            "referTo": "4OfOVZode8",
+            "dayAbove": 0.0009,
+            "monthAbove": 0.0008,
+            "yearAbove": 0.0008,
+            "totalAbove": 0.0009
+        },
+        {
+            "type": "lg6PPg1hDh",
+            "totalIncome": 0.0014,
+            "dayIncome": 0.0012,
+            "monthIncome": 0.0011,
+            "yearIncome": 0.0015,
+            "name": "RWfokclSTa",
+            "referTo": "DdzyPllIc6",
+            "dayAbove": 0.0009,
+            "monthAbove": 0.0008,
+            "yearAbove": 0.0008,
+            "totalAbove": 0.0009
+        },
+        {
+            "name": "kXKItU8GXb",
+            "type": "qFXCjG8qmQ",
+            "dayIncome": 0.0012,
+            "monthIncome": 0.0011,
+            "yearIncome": 0.0015,
+            "totalIncome": 0.0014,
+            "referTo": "1rSICmAl8U",
+            "dayAbove": 0.0009,
+            "monthAbove": 0.0008,
+            "yearAbove": 0.0008,
+            "totalAbove": 0.0009
+        }
+    ]
+}

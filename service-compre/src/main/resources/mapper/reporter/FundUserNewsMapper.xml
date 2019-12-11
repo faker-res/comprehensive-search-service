@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundUserNewsDao">
+
+   <select id="getNewCountByPeoUniCodeAndStartDate" resultType="map">
+        SELECT fund_user_news.date, news_num
+        FROM fund_user_news
+        WHERE fund_user_id = #{peo_uni_code}
+        AND fund_user_news.date >= #{startDate}
+        ORDER BY fund_user_news.date
+   </select>
+
+
+</mapper>
+
+

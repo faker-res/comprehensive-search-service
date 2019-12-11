@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComBasicInfoDao">
+    <sql id="Com_basic_info_Column_List">
+        com_uni_code,com_name,com_ename,com_sname,com_spell,com_espell,com_type,fin_repo_type,com_type_name,concept,major_product_type,major_product_name,build_time,board_chair_man,legal_rp,uni_credit,busi_number,gen_manager,rg_capital,currency_type,main_saler,acc_firm,law_firm,legal_adv,industry_code,busi_mainscope,run_scope,nati_name,prov_name,city_name,regist_add,office_add,office_postcode,tel_number,contact_fax,contact_mail,company_website,secretary,secretary_tel,secretary_mail,secretary_rep,contacts,contacts_tel,contacts_mail,total_staff,domestic_listing,com_intro,createtime,updatetime,status,remark,creator,editor,come_source,qhqm_id
+    </sql>
+
+    <select id="selectComCountOfCityAndProvCode" resultType="la.niub.abcapi.servicecompre.model.bo.theme.ComCountOfCityBO">
+        SELECT city_name AS city_code, COUNT(com_uni_code) AS 'count'
+        FROM com_basic_info
+        WHERE com_uni_code IN
+          <foreach collection="com_uni_code_list" item="com_uni_code" open="(" close=")" separator=",">
+              #{com_uni_code}
+          </foreach>
+        AND prov_name = #{prov_code}
+        GROUP BY city_name
+        ORDER BY COUNT(com_uni_code) DESC
+        limit 5
+    </select>
+
+    <select id="selectComTotalCount" resultType="java.lang.Integer">
+        SELECT COUNT(com_uni_code) AS 'count'
+        FROM com_basic_info
+        WHERE com_uni_code IN
+        <foreach collection="com_uni_code_list" item="com_uni_code" open="(" close=")" separator=",">
+            #{com_uni_code}
+        </foreach>
+    </select>
+
+    <select id="selectProvNameListByComCountOfCity" resultType="java.lang.String">
+        SELECT prov_name AS prov_code
+        FROM com_basic_info
+        WHERE com_uni_code IN
+        <foreach collection="com_uni_code_list" item="com_uni_code" open="(" close=")" separator=",">
+            #{com_uni_code}
+        </foreach>
+        GROUP BY prov_name
+    </select>
+
+    <select id="selectMaxCountInCity" resultType="la.niub.abcapi.servicecompre.model.bo.theme.ComCountOfCityBO">
+        SELECT city_name AS city_code, COUNT(com_uni_code) AS 'count'
+        FROM com_basic_info
+        WHERE com_uni_code IN
+        <foreach collection="com_uni_code_list" item="com_uni_code" open="(" close=")" separator=",">
+            #{com_uni_code}
+        </foreach>
+        AND city_name is NOT NULL
+        GROUP BY city_name
+        ORDER BY COUNT(com_uni_code) DESC
+        limit 1
+    </select>
+
+    <select id="selectComSnameByComUniCodeList" resultType="java.lang.String">
+        SELECT com_sname
+        FROM com_basic_info
+        WHERE com_uni_code IN
+            <foreach collection="com_uni_code_list" separator="," open="(" close=")" item="com_uni_code">
+                #{com_uni_code}
+            </foreach>
+    </select>
+
+    <select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.CombasicinfoModel">
+        SELECT <include refid="Com_basic_info_Column_List"/> FROM com_basic_info WHERE 1=1
+        <if test="com_uni_code != null and com_uni_code != ''">
+            AND com_uni_code = #{com_uni_code}
+        </if>
+        <if test="com_name != null and com_name != ''">
+            AND com_name = #{com_name}
+        </if>
+        <if test="com_ename != null and com_ename != ''">
+            AND com_ename = #{com_ename}
+        </if>
+        <if test="com_sname != null and com_sname != ''">
+            AND com_sname = #{com_sname}
+        </if>
+        <if test="com_spell != null and com_spell != ''">
+            AND com_spell = #{com_spell}
+        </if>
+        <if test="com_espell != null and com_espell != ''">
+            AND com_espell = #{com_espell}
+        </if>
+        <if test="com_type != null and com_type != ''">
+            AND com_type = #{com_type}
+        </if>
+        <if test="fin_repo_type != null and fin_repo_type != ''">
+            AND fin_repo_type = #{fin_repo_type}
+        </if>
+        <if test="com_type_name != null and com_type_name != ''">
+            AND com_type_name = #{com_type_name}
+        </if>
+        <if test="concept != null and concept != ''">
+            AND concept = #{concept}
+        </if>
+        <if test="major_product_type != null and major_product_type != ''">
+            AND major_product_type = #{major_product_type}
+        </if>
+        <if test="major_product_name != null and major_product_name != ''">
+            AND major_product_name = #{major_product_name}
+        </if>
+        <if test="build_time != null and build_time != ''">
+            AND build_time = #{build_time}
+        </if>
+        <if test="board_chair_man != null and board_chair_man != ''">
+            AND board_chair_man = #{board_chair_man}
+        </if>
+        <if test="legal_rp != null and legal_rp != ''">
+            AND legal_rp = #{legal_rp}
+        </if>
+        <if test="uni_credit != null and uni_credit != ''">
+            AND uni_credit = #{uni_credit}
+        </if>
+        <if test="busi_number != null and busi_number != ''">
+            AND busi_number = #{busi_number}
+        </if>
+        <if test="gen_manager != null and gen_manager != ''">
+            AND gen_manager = #{gen_manager}
+        </if>
+        <if test="rg_capital != null and rg_capital != ''">
+            AND rg_capital = #{rg_capital}
+        </if>
+        <if test="currency_type != null and currency_type != ''">
+            AND currency_type = #{currency_type}
+        </if>
+        <if test="main_saler != null and main_saler != ''">
+            AND main_saler = #{main_saler}
+        </if>
+        <if test="acc_firm != null and acc_firm != ''">
+            AND acc_firm = #{acc_firm}
+        </if>
+        <if test="law_firm != null and law_firm != ''">
+            AND law_firm = #{law_firm}
+        </if>
+        <if test="legal_adv != null and legal_adv != ''">
+            AND legal_adv = #{legal_adv}
+        </if>
+        <if test="industry_code != null and industry_code != ''">
+            AND industry_code = #{industry_code}
+        </if>
+        <if test="busi_mainscope != null and busi_mainscope != ''">
+            AND busi_mainscope = #{busi_mainscope}
+        </if>
+        <if test="run_scope != null and run_scope != ''">
+            AND run_scope = #{run_scope}
+        </if>
+        <if test="nati_name != null and nati_name != ''">
+            AND nati_name = #{nati_name}
+        </if>
+        <if test="prov_name != null and prov_name != ''">
+            AND prov_name = #{prov_name}
+        </if>
+        <if test="city_name != null and city_name != ''">
+            AND city_name = #{city_name}
+        </if>
+        <if test="regist_add != null and regist_add != ''">
+            AND regist_add = #{regist_add}
+        </if>
+        <if test="office_add != null and office_add != ''">
+            AND office_add = #{office_add}
+        </if>
+        <if test="office_postcode != null and office_postcode != ''">
+            AND office_postcode = #{office_postcode}
+        </if>
+        <if test="tel_number != null and tel_number != ''">
+            AND tel_number = #{tel_number}
+        </if>
+        <if test="contact_fax != null and contact_fax != ''">
+            AND contact_fax = #{contact_fax}
+        </if>
+        <if test="contact_mail != null and contact_mail != ''">
+            AND contact_mail = #{contact_mail}
+        </if>
+        <if test="company_website != null and company_website != ''">
+            AND company_website = #{company_website}
+        </if>
+        <if test="secretary != null and secretary != ''">
+            AND secretary = #{secretary}
+        </if>
+        <if test="secretary_tel != null and secretary_tel != ''">
+            AND secretary_tel = #{secretary_tel}
+        </if>
+        <if test="secretary_mail != null and secretary_mail != ''">
+            AND secretary_mail = #{secretary_mail}
+        </if>
+        <if test="secretary_rep != null and secretary_rep != ''">
+            AND secretary_rep = #{secretary_rep}
+        </if>
+        <if test="contacts != null and contacts != ''">
+            AND contacts = #{contacts}
+        </if>
+        <if test="contacts_tel != null and contacts_tel != ''">
+            AND contacts_tel = #{contacts_tel}
+        </if>
+        <if test="contacts_mail != null and contacts_mail != ''">
+            AND contacts_mail = #{contacts_mail}
+        </if>
+        <if test="total_staff != null and total_staff != ''">
+            AND total_staff = #{total_staff}
+        </if>
+        <if test="domestic_listing != null and domestic_listing != ''">
+            AND domestic_listing = #{domestic_listing}
+        </if>
+        <if test="com_intro != null and com_intro != ''">
+            AND com_intro = #{com_intro}
+        </if>
+        <if test="createtime != null and createtime != ''">
+            AND createtime = #{createtime}
+        </if>
+        <if test="updatetime != null and updatetime != ''">
+            AND updatetime = #{updatetime}
+        </if>
+        <if test="status != null and status != ''">
+            AND status = #{status}
+        </if>
+        <if test="remark != null and remark != ''">
+            AND remark = #{remark}
+        </if>
+        <if test="creator != null and creator != ''">
+            AND creator = #{creator}
+        </if>
+        <if test="editor != null and editor != ''">
+            AND editor = #{editor}
+        </if>
+        <if test="come_source != null and come_source != ''">
+            AND come_source = #{come_source}
+        </if>
+        <if test="qhqm_id != null and qhqm_id != ''">
+            AND qhqm_id = #{qhqm_id}
+        </if>
+        <if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="startPageNum != null and perPageNum != null">
+            LIMIT ${perPageNum} OFFSET ${startPageNum}
+        </if>
+    </select>
+</mapper>
+
+

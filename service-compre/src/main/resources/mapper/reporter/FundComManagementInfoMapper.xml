@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundComManagementInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="post" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sex_par" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="birth_day" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="high_edu" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="post" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sex_par" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="birth_day" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="high_edu" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="data_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="back_gro" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, org_uni_code, announcement_date, begin_date, end_date, peo_uni_code, name, post, 
+    sex_par, birth_day, high_edu, data_source, remark, createtime, updatetime, status, 
+    creator, editor
+  </sql>
+  <sql id="Blob_Column_List">
+    back_gro
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from fund_com_management_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_com_management_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    insert into fund_com_management_info (id, org_uni_code, announcement_date, 
+      begin_date, end_date, peo_uni_code, 
+      name, post, sex_par, 
+      birth_day, high_edu, data_source, 
+      remark, createtime, updatetime, 
+      status, creator, editor, 
+      back_gro)
+    values (#{id,jdbcType=BIGINT}, #{org_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, #{peo_uni_code,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{post,jdbcType=BIGINT}, #{sex_par,jdbcType=TINYINT}, 
+      #{birth_day,jdbcType=VARCHAR}, #{high_edu,jdbcType=VARCHAR}, #{data_source,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{back_gro,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    insert into fund_com_management_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="org_uni_code != null">
+        org_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="post != null">
+        post,
+      </if>
+      <if test="sex_par != null">
+        sex_par,
+      </if>
+      <if test="birth_day != null">
+        birth_day,
+      </if>
+      <if test="high_edu != null">
+        high_edu,
+      </if>
+      <if test="data_source != null">
+        data_source,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="back_gro != null">
+        back_gro,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="org_uni_code != null">
+        #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        #{post,jdbcType=BIGINT},
+      </if>
+      <if test="sex_par != null">
+        #{sex_par,jdbcType=TINYINT},
+      </if>
+      <if test="birth_day != null">
+        #{birth_day,jdbcType=VARCHAR},
+      </if>
+      <if test="high_edu != null">
+        #{high_edu,jdbcType=VARCHAR},
+      </if>
+      <if test="data_source != null">
+        #{data_source,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="back_gro != null">
+        #{back_gro,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    update fund_com_management_info
+    <set>
+      <if test="org_uni_code != null">
+        org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null">
+        post = #{post,jdbcType=BIGINT},
+      </if>
+      <if test="sex_par != null">
+        sex_par = #{sex_par,jdbcType=TINYINT},
+      </if>
+      <if test="birth_day != null">
+        birth_day = #{birth_day,jdbcType=VARCHAR},
+      </if>
+      <if test="high_edu != null">
+        high_edu = #{high_edu,jdbcType=VARCHAR},
+      </if>
+      <if test="data_source != null">
+        data_source = #{data_source,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="back_gro != null">
+        back_gro = #{back_gro,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    update fund_com_management_info
+    set org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      post = #{post,jdbcType=BIGINT},
+      sex_par = #{sex_par,jdbcType=TINYINT},
+      birth_day = #{birth_day,jdbcType=VARCHAR},
+      high_edu = #{high_edu,jdbcType=VARCHAR},
+      data_source = #{data_source,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      back_gro = #{back_gro,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundComManagementInfoModel">
+    update fund_com_management_info
+    set org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      post = #{post,jdbcType=BIGINT},
+      sex_par = #{sex_par,jdbcType=TINYINT},
+      birth_day = #{birth_day,jdbcType=VARCHAR},
+      high_edu = #{high_edu,jdbcType=VARCHAR},
+      data_source = #{data_source,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="findBigBossByOrgUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select a.* from fund_com_management_info a
+    JOIN system_const b
+    ON a.post=b.system_uni_code
+    AND b.system_name='董事长'
+    AND a.org_uni_code = #{orgUniCode,jdbcType=BIGINT}
+    ORDER BY begin_date desc
+    limit 1
+  </select>
+  <select id="findBossByOrgUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select a.* from fund_com_management_info a
+    JOIN system_const b
+    ON a.post=b.system_uni_code
+    AND b.system_name='总经理'
+    AND a.org_uni_code = #{orgUniCode,jdbcType=BIGINT}
+    ORDER BY begin_date desc
+    limit 1
+  </select>
+</mapper>

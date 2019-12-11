@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IAllTableGroupsDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AllTableGroupsModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="category_Name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category_Code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="isDisplay" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="display_Order" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="grp_ICON" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, category_Name, category_Code, isDisplay, display_Order, grp_ICON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from all_TableGroups
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from all_TableGroups
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AllTableGroupsModel">
+    insert into all_TableGroups (id, category_Name, category_Code, 
+      isDisplay, display_Order, grp_ICON
+      )
+    values (#{id,jdbcType=INTEGER}, #{category_Name,jdbcType=VARCHAR}, #{category_Code,jdbcType=VARCHAR}, 
+      #{isDisplay,jdbcType=INTEGER}, #{display_Order,jdbcType=INTEGER}, #{grp_ICON,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AllTableGroupsModel">
+    insert into all_TableGroups
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="category_Name != null">
+        category_Name,
+      </if>
+      <if test="category_Code != null">
+        category_Code,
+      </if>
+      <if test="isDisplay != null">
+        isDisplay,
+      </if>
+      <if test="display_Order != null">
+        display_Order,
+      </if>
+      <if test="grp_ICON != null">
+        grp_ICON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="category_Name != null">
+        #{category_Name,jdbcType=VARCHAR},
+      </if>
+      <if test="category_Code != null">
+        #{category_Code,jdbcType=VARCHAR},
+      </if>
+      <if test="isDisplay != null">
+        #{isDisplay,jdbcType=INTEGER},
+      </if>
+      <if test="display_Order != null">
+        #{display_Order,jdbcType=INTEGER},
+      </if>
+      <if test="grp_ICON != null">
+        #{grp_ICON,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AllTableGroupsModel">
+    update all_TableGroups
+    <set>
+      <if test="category_Name != null">
+        category_Name = #{category_Name,jdbcType=VARCHAR},
+      </if>
+      <if test="category_Code != null">
+        category_Code = #{category_Code,jdbcType=VARCHAR},
+      </if>
+      <if test="isDisplay != null">
+        isDisplay = #{isDisplay,jdbcType=INTEGER},
+      </if>
+      <if test="display_Order != null">
+        display_Order = #{display_Order,jdbcType=INTEGER},
+      </if>
+      <if test="grp_ICON != null">
+        grp_ICON = #{grp_ICON,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AllTableGroupsModel">
+    update all_TableGroups
+    set category_Name = #{category_Name,jdbcType=VARCHAR},
+      category_Code = #{category_Code,jdbcType=VARCHAR},
+      isDisplay = #{isDisplay,jdbcType=INTEGER},
+      display_Order = #{display_Order,jdbcType=INTEGER},
+      grp_ICON = #{grp_ICON,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectDisplay" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from all_TableGroups
+    where isDisplay=1 order by display_Order
+  </select>
+    <select id="selectNotDisplay" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from all_TableGroups
+        where isDisplay=0
+    </select>
+</mapper>

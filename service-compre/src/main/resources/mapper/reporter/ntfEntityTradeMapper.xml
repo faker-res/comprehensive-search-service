@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IntfEntityTradeDao">
+  <sql id="Base_Column_List">
+    id, com_id, com_uni_code, com_name, stat_date, trade_pic, trade_name, reg_no, trade_status, 
+    come_source, createtime, updatetime, editor, remark, status,trade_type
+  </sql>
+  <select id="selectByComUniCode" resultType="la.niub.abcapi.servicecompre.model.ntfEntityTradeModel">
+    select stat_date,trade_pic,trade_name,reg_no,trade_status,trade_type
+    from ntf_entity_trade
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    order by stat_date desc
+    <if test="limit != null">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+    <if test="offset != null">
+      offset #{offset,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="getCount" resultType="java.lang.Integer">
+    select count(id)
+    from ntf_entity_trade
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+  </select>
+</mapper>

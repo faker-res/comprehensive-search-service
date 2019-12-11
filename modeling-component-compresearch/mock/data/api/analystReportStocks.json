@@ -1,0 +1,30 @@
+{
+    "code": 200,
+    "data": [
+        {
+            "abc_code": "000001.SZ",
+            "current_price": "13.26",
+            "last_time": "1524326400",
+            "sec_name": "平安银行",
+            "total": "5",
+            "zdf": "0.000754716981132"
+        },
+        {
+            "abc_code": "000001.SZ",
+            "current_price": "13.26",
+            "last_time": "1524326400",
+            "sec_name": "平安银行",
+            "total": "5",
+            "zdf": "0.000754716981132"
+        },
+        {
+            "abc_code": "000001.SZ",
+            "current_price": "13.26",
+            "last_time": "1524326400",
+            "sec_name": "平安银行",
+            "total": "5",
+            "zdf": "0.000754716981132"
+        }
+    ],
+    "message": "IG9nHLrYIf"
+}

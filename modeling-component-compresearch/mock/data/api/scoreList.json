@@ -1,0 +1,38 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [{
+            "name": "VwF6tIg059",
+            "scoreCategory": "zYp5FxjYJY",
+            "industryCoverage": "ZiJwMyljf1",
+            "researchReportNum": "5gDovftSBz",
+            "investCoverage": "T8ZyvDw3db",
+            "groupRate": "ItRRTFgRvv",
+            "directorScore": "pgL4BlFAnB",
+            "scoreDate": "1533137406146"
+        },
+        {
+            "name": "2BNeZ9qbcy",
+            "scoreCategory": "n67djoOYL7",
+            "industryCoverage": "ezlI2T6H28",
+            "researchReportNum": "QIJo5WLptp",
+            "investCoverage": "rhzwYvduQ0",
+            "groupRate": "gjRwi1YXJq",
+            "directorScore": "BhMiOjDECe",
+            "scoreDate": "1533136626708"
+        },
+        {
+            "name": "UyUGAJSJJT",
+            "scoreCategory": "L5vjjsS1gl",
+            "industryCoverage": "KLCYBDpXXf",
+            "researchReportNum": "8kUUHxhf13",
+            "investCoverage": "WOqfQM0mjX",
+            "groupRate": "1ogSjvXZfl",
+            "directorScore": "HmobncuSW2",
+            "scoreDate": "1533137143883"
+        }
+    ],
+    "pageSize": 8296,
+    "currentPage": 26672,
+    "totalCount": 90355
+}

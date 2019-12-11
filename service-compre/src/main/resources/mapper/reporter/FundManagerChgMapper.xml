@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundManagerChgDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_keeper_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_keeper_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="plate_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="plate_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_manager_quantity" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="groupByFundKeeper" type="la.niub.abcapi.servicecompre.model.FundMangerChgGroupByFundKeeperModel">
+      <result column="fund_keeper_code" property="fund_keeper_code" jdbcType="BIGINT"/>
+      <result column="plate_name" property="plate_name" jdbcType="VARCHAR"/>
+      <result column="fund_manager_quantity" property="fund_manager_quantity" jdbcType="INTEGER"/>
+      <result column="end_date" property="end_date" jdbcType="DATE"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, fund_keeper_code, fund_keeper_name, end_date, plate_code, plate_name, fund_manager_quantity, 
+    createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_manager_chg
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_manager_chg
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    insert into fund_manager_chg (id, fund_keeper_code, fund_keeper_name, 
+      end_date, plate_code, plate_name, 
+      fund_manager_quantity, createtime, updatetime, 
+      status, creator, editor
+      )
+    values (#{id,jdbcType=BIGINT}, #{fund_keeper_code,jdbcType=BIGINT}, #{fund_keeper_name,jdbcType=VARCHAR}, 
+      #{end_date,jdbcType=DATE}, #{plate_code,jdbcType=VARCHAR}, #{plate_name,jdbcType=VARCHAR}, 
+      #{fund_manager_quantity,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    insert into fund_manager_chg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="fund_keeper_code != null">
+        fund_keeper_code,
+      </if>
+      <if test="fund_keeper_name != null">
+        fund_keeper_name,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="plate_code != null">
+        plate_code,
+      </if>
+      <if test="plate_name != null">
+        plate_name,
+      </if>
+      <if test="fund_manager_quantity != null">
+        fund_manager_quantity,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_code != null">
+        #{fund_keeper_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_name != null">
+        #{fund_keeper_name,jdbcType=VARCHAR},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="plate_code != null">
+        #{plate_code,jdbcType=VARCHAR},
+      </if>
+      <if test="plate_name != null">
+        #{plate_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_manager_quantity != null">
+        #{fund_manager_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    update fund_manager_chg
+    <set>
+      <if test="fund_keeper_code != null">
+        fund_keeper_code = #{fund_keeper_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_keeper_name != null">
+        fund_keeper_name = #{fund_keeper_name,jdbcType=VARCHAR},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="plate_code != null">
+        plate_code = #{plate_code,jdbcType=VARCHAR},
+      </if>
+      <if test="plate_name != null">
+        plate_name = #{plate_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_manager_quantity != null">
+        fund_manager_quantity = #{fund_manager_quantity,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    update fund_manager_chg
+    set fund_keeper_code = #{fund_keeper_code,jdbcType=BIGINT},
+      fund_keeper_name = #{fund_keeper_name,jdbcType=VARCHAR},
+      end_date = #{end_date,jdbcType=DATE},
+      plate_code = #{plate_code,jdbcType=VARCHAR},
+      plate_name = #{plate_name,jdbcType=VARCHAR},
+      fund_manager_quantity = #{fund_manager_quantity,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByFundKeeperName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_manager_chg
+    where fund_keeper_name = #{fundKeeperName,jdbcType=VARCHAR} order by end_date desc limit 1
+  </select>
+  <select id="selectByFundKeeperCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_manager_chg
+    where fund_keeper_code = #{fundKeeperCode,jdbcType=BIGINT} and plate_name='全部' order by end_date desc limit 1
+  </select>
+  <select id="selectByYearGroupByFundKeeper" resultMap="groupByFundKeeper">
+    select t.fund_keeper_code, t.plate_name, t.fund_manager_quantity, max(t.end_date) as end_date
+    from (select fund_keeper_code, plate_name, fund_manager_quantity,  end_date from fund_manager_chg
+    where plate_name ="全部"
+    and end_date &gt;= #{beginDate,jdbcType=DATE}
+    and end_date &lt;= #{endDate,jdbcType=DATE} ) t
+    group by t.fund_keeper_code
+  </select>
+
+  <select id="getFundManagerQuantityByTime" resultType="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    SELECT
+	    end_date,
+	    fund_manager_quantity
+    FROM
+      fund_manager_chg
+    WHERE
+      fund_keeper_code = #{com_uni_code}
+    AND plate_code = #{plate_code}
+    AND end_date &gt;= #{startTime}
+    AND end_date &lt; #{endTime}
+    ORDER BY end_date ASC
+  </select>
+
+  <select id="getFundCompanyByPlateCode" parameterType="string" resultType="la.niub.abcapi.servicecompre.model.FundManagerChgModel">
+    SELECT
+        a.fund_keeper_code,
+        a.fund_manager_quantity
+    FROM
+        fund_manager_chg a
+    JOIN (
+        SELECT
+            fund_keeper_code CODE,
+            plate_name TYPE,
+            MAX(end_date) DATE
+        FROM
+            fund_manager_chg
+        GROUP BY
+            fund_keeper_code,
+            plate_name
+    ) b ON a.fund_keeper_code = b. CODE
+    AND a.plate_name = b.type
+    AND a.end_date = b.date
+    WHERE
+        plate_code = #{plate_code}
+  </select>
+</mapper>

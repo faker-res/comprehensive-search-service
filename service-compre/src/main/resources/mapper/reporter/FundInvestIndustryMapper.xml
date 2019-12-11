@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundInvestIndustryDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundInvestIndustryModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="indu_standard" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="indu_published_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="indu_published_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="indu_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_net_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="active_inv_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="active_inv_net_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="index_inv_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="index_inv_net_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_chg_3m" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_chg_ratio_3m" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_chg_6m" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_chg_ratio_6m" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_chg_1y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="indu_value_chg_ratio_1y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, announcement_date, end_date, indu_standard, indu_published_code, 
+    indu_published_name, indu_value, indu_value_net_ratio, active_inv_value, active_inv_net_ratio, 
+    index_inv_value, index_inv_net_ratio, indu_value_chg_3m, indu_value_chg_ratio_3m, 
+    indu_value_chg_6m, indu_value_chg_ratio_6m, indu_value_chg_1y, indu_value_chg_ratio_1y, 
+    createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_invest_industry
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_invest_industry
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundInvestIndustryModel">
+    insert into fund_invest_industry (id, sec_uni_code, announcement_date, 
+      end_date, indu_standard, indu_published_code, 
+      indu_published_name, indu_value, indu_value_net_ratio, 
+      active_inv_value, active_inv_net_ratio, 
+      index_inv_value, index_inv_net_ratio, indu_value_chg_3m, 
+      indu_value_chg_ratio_3m, indu_value_chg_6m, 
+      indu_value_chg_ratio_6m, indu_value_chg_1y, 
+      indu_value_chg_ratio_1y, createtime, 
+      updatetime, status, creator, 
+      editor)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{end_date,jdbcType=DATE}, #{indu_standard,jdbcType=BIGINT}, #{indu_published_code,jdbcType=VARCHAR}, 
+      #{indu_published_name,jdbcType=VARCHAR}, #{indu_value,jdbcType=DECIMAL}, #{indu_value_net_ratio,jdbcType=DECIMAL}, 
+      #{active_inv_value,jdbcType=DECIMAL}, #{active_inv_net_ratio,jdbcType=DECIMAL}, 
+      #{index_inv_value,jdbcType=DECIMAL}, #{index_inv_net_ratio,jdbcType=DECIMAL}, #{indu_value_chg_3m,jdbcType=DECIMAL}, 
+      #{indu_value_chg_ratio_3m,jdbcType=DECIMAL}, #{indu_value_chg_6m,jdbcType=DECIMAL}, 
+      #{indu_value_chg_ratio_6m,jdbcType=DECIMAL}, #{indu_value_chg_1y,jdbcType=DECIMAL}, 
+      #{indu_value_chg_ratio_1y,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundInvestIndustryModel">
+    insert into fund_invest_industry
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="indu_standard != null">
+        indu_standard,
+      </if>
+      <if test="indu_published_code != null">
+        indu_published_code,
+      </if>
+      <if test="indu_published_name != null">
+        indu_published_name,
+      </if>
+      <if test="indu_value != null">
+        indu_value,
+      </if>
+      <if test="indu_value_net_ratio != null">
+        indu_value_net_ratio,
+      </if>
+      <if test="active_inv_value != null">
+        active_inv_value,
+      </if>
+      <if test="active_inv_net_ratio != null">
+        active_inv_net_ratio,
+      </if>
+      <if test="index_inv_value != null">
+        index_inv_value,
+      </if>
+      <if test="index_inv_net_ratio != null">
+        index_inv_net_ratio,
+      </if>
+      <if test="indu_value_chg_3m != null">
+        indu_value_chg_3m,
+      </if>
+      <if test="indu_value_chg_ratio_3m != null">
+        indu_value_chg_ratio_3m,
+      </if>
+      <if test="indu_value_chg_6m != null">
+        indu_value_chg_6m,
+      </if>
+      <if test="indu_value_chg_ratio_6m != null">
+        indu_value_chg_ratio_6m,
+      </if>
+      <if test="indu_value_chg_1y != null">
+        indu_value_chg_1y,
+      </if>
+      <if test="indu_value_chg_ratio_1y != null">
+        indu_value_chg_ratio_1y,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="indu_standard != null">
+        #{indu_standard,jdbcType=BIGINT},
+      </if>
+      <if test="indu_published_code != null">
+        #{indu_published_code,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_published_name != null">
+        #{indu_published_name,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_value != null">
+        #{indu_value,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_net_ratio != null">
+        #{indu_value_net_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="active_inv_value != null">
+        #{active_inv_value,jdbcType=DECIMAL},
+      </if>
+      <if test="active_inv_net_ratio != null">
+        #{active_inv_net_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="index_inv_value != null">
+        #{index_inv_value,jdbcType=DECIMAL},
+      </if>
+      <if test="index_inv_net_ratio != null">
+        #{index_inv_net_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_3m != null">
+        #{indu_value_chg_3m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_ratio_3m != null">
+        #{indu_value_chg_ratio_3m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_6m != null">
+        #{indu_value_chg_6m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_ratio_6m != null">
+        #{indu_value_chg_ratio_6m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_1y != null">
+        #{indu_value_chg_1y,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_ratio_1y != null">
+        #{indu_value_chg_ratio_1y,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundInvestIndustryModel">
+    update fund_invest_industry
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="indu_standard != null">
+        indu_standard = #{indu_standard,jdbcType=BIGINT},
+      </if>
+      <if test="indu_published_code != null">
+        indu_published_code = #{indu_published_code,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_published_name != null">
+        indu_published_name = #{indu_published_name,jdbcType=VARCHAR},
+      </if>
+      <if test="indu_value != null">
+        indu_value = #{indu_value,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_net_ratio != null">
+        indu_value_net_ratio = #{indu_value_net_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="active_inv_value != null">
+        active_inv_value = #{active_inv_value,jdbcType=DECIMAL},
+      </if>
+      <if test="active_inv_net_ratio != null">
+        active_inv_net_ratio = #{active_inv_net_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="index_inv_value != null">
+        index_inv_value = #{index_inv_value,jdbcType=DECIMAL},
+      </if>
+      <if test="index_inv_net_ratio != null">
+        index_inv_net_ratio = #{index_inv_net_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_3m != null">
+        indu_value_chg_3m = #{indu_value_chg_3m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_ratio_3m != null">
+        indu_value_chg_ratio_3m = #{indu_value_chg_ratio_3m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_6m != null">
+        indu_value_chg_6m = #{indu_value_chg_6m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_ratio_6m != null">
+        indu_value_chg_ratio_6m = #{indu_value_chg_ratio_6m,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_1y != null">
+        indu_value_chg_1y = #{indu_value_chg_1y,jdbcType=DECIMAL},
+      </if>
+      <if test="indu_value_chg_ratio_1y != null">
+        indu_value_chg_ratio_1y = #{indu_value_chg_ratio_1y,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundInvestIndustryModel">
+    update fund_invest_industry
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      indu_standard = #{indu_standard,jdbcType=BIGINT},
+      indu_published_code = #{indu_published_code,jdbcType=VARCHAR},
+      indu_published_name = #{indu_published_name,jdbcType=VARCHAR},
+      indu_value = #{indu_value,jdbcType=DECIMAL},
+      indu_value_net_ratio = #{indu_value_net_ratio,jdbcType=DECIMAL},
+      active_inv_value = #{active_inv_value,jdbcType=DECIMAL},
+      active_inv_net_ratio = #{active_inv_net_ratio,jdbcType=DECIMAL},
+      index_inv_value = #{index_inv_value,jdbcType=DECIMAL},
+      index_inv_net_ratio = #{index_inv_net_ratio,jdbcType=DECIMAL},
+      indu_value_chg_3m = #{indu_value_chg_3m,jdbcType=DECIMAL},
+      indu_value_chg_ratio_3m = #{indu_value_chg_ratio_3m,jdbcType=DECIMAL},
+      indu_value_chg_6m = #{indu_value_chg_6m,jdbcType=DECIMAL},
+      indu_value_chg_ratio_6m = #{indu_value_chg_ratio_6m,jdbcType=DECIMAL},
+      indu_value_chg_1y = #{indu_value_chg_1y,jdbcType=DECIMAL},
+      indu_value_chg_ratio_1y = #{indu_value_chg_ratio_1y,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getLastEndDate" parameterType="java.lang.Long" resultType="java.util.Date">
+    select
+    max(end_date)
+    from fund_invest_industry
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+  </select>
+  <select id="selectByEndDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_invest_industry
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and end_date = #{endDate,jdbcType=DATE} and indu_published_code != "TOT" and not isnull(indu_value) order by indu_value desc limit #{limit,jdbcType=INTEGER}
+  </select>
+    <select id="selectTotalByEndDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from fund_invest_industry
+        where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and end_date = #{endDate,jdbcType=DATE} and indu_published_code = "TOT" limit 1
+    </select>
+    <select id="getPeriodByIndustryCodes" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from fund_invest_industry
+        where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and end_date >= #{endDate,jdbcType=DATE}
+        and indu_published_code in
+        <foreach collection="industryCodes" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+  <!--<select id="getPeriodByEndDate" resultMap="BaseResultMap">-->
+    <!--select-->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from fund_invest_industry-->
+    <!--where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and end_date >= #{endDate,jdbcType=DATE}-->
+      <!--and indu_published_code != "TOT" order by indu_value desc limit #{limit,jdbcType=INTEGER}-->
+  <!--</select>-->
+  <select id="getLastEndDateBefore" resultType="java.util.Date">
+    select
+    max(end_date)
+    from fund_invest_industry
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} and end_date &lt;= #{endDate,jdbcType=DATE}
+  </select>
+  <select id="getLastMultiEndDate" resultType="java.util.Date">
+    select
+    end_date
+    from fund_invest_industry
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT} group by end_date order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+</mapper>

@@ -1,0 +1,27 @@
+{
+    "code": 200,
+    "message": "请求成功",
+    "data": [
+        {
+            "dynamicId": "1",
+            "publishTime": "1532760464970",
+            "title": "北信源(300352)：研发创新不断加强，持续领跑终端安全市场",
+            "iconUri": "WKnxMy0KKj",
+            "desc": "安信证券 | 业绩点评"
+        },
+        {
+            "dynamicId": "1",
+            "publishTime": "1532760464970",
+            "title": "北信源(300352)：研发创新不断加强，持续领跑终端安全市场",
+            "iconUri": "NduB8VTDUW",
+            "desc": "安信证券 | 业绩点评"
+        },
+        {
+            "dynamicId": "1",
+            "publishTime": "1532760464970",
+            "title": "北信源(300352)：研发创新不断加强，持续领跑终端安全市场",
+            "iconUri": "HKPiSzjlxo",
+            "desc": "安信证券 | 业绩点评"
+        }
+    ]
+}

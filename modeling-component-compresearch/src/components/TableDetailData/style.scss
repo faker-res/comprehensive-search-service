@@ -1,0 +1,13 @@
+:local(.localClass){padding: 20px;background: #fff;
+    > table{border-collapse: collapse;line-height: 140%;border-bottom: 1px solid #f0f0f0;
+         tr{
+             th,  td{border: 0;padding: 5px 15px;color: #757575;font-size: 12px;}
+             th{ text-align: left;color: #333;}
+             td{}
+        }
+         tr.odd td{background: #f7f8fa;}
+         tr.even td{background: #fff;}
+         tr.even:last-child td{border-bottom: 1px solid #f0f0f0;}
+         tr.head-flag th, tr.head-flag td{background: #949cb3;color: #fff;border: 1px solid rgba(212, 212, 212, 0.25);}
+    }
+}

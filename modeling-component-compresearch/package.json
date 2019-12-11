@@ -1,0 +1,325 @@
+{
+    "name": "invest-research",
+    "version": "0.0.1",
+    "private": false,
+    "main": "index.js",
+    "dependencies": {
+        "@antv/g6": "^2.1.4-beta.2",
+        "abc-category-menu": "^1.0.8",
+        "abc-chart-editor": "^0.9.41",
+        "abc-data-table-card": "^1.0.0",
+        "abc-filter-panel": "^1.1.4",
+        "antd": "3.7.2",
+        "autoprefixer": "7.1.6",
+        "axios": "^0.18.0",
+        "babel-core": "6.26.0",
+        "babel-jest": "20.0.3",
+        "babel-loader": "7.1.2",
+        "babel-polyfill": "^6.26.0",
+        "babel-preset-react-app": "^3.1.1",
+        "babel-runtime": "6.26.0",
+        "case-sensitive-paths-webpack-plugin": "2.1.1",
+        "chalk": "1.1.3",
+        "classnames": "^2.2.6",
+        "clipboard": "^2.0.1",
+        "copy-to-clipboard": "^3.0.8",
+        "css-loader": "0.28.7",
+        "data-viewer": "^1.1.40",
+        "dotenv": "4.0.0",
+        "dotenv-expand": "4.2.0",
+        "eslint": "4.10.0",
+        "eslint-config-react-app": "^2.1.0",
+        "eslint-loader": "1.9.0",
+        "eslint-plugin-flowtype": "2.39.1",
+        "extract-text-webpack-plugin": "3.0.2",
+        "file-loader": "1.1.5",
+        "fs-extra": "3.0.1",
+        "graceful-fs": "^4.1.11",
+        "highcharts": "^6.2.0",
+        "html-webpack-plugin": "2.29.0",
+        "i18next": "^12.0.0",
+        "i18next-browser-languagedetector": "^2.2.3",
+        "i18next-xhr-backend": "^1.5.1",
+        "intersection-observer": "^0.5.0",
+        "jest": "20.0.4",
+        "js-cookie": "^2.2.0",
+        "less": "^2.7.3",
+        "less-loader": "^4.1.0",
+        "lodash": "^4.17.10",
+        "md5": "^2.2.1",
+        "memoize-one": "^4.0.0",
+        "mobx": "^4.2.1",
+        "mobx-react": "^5.1.2",
+        "mobx-react-devtools": "^5.0.1",
+        "moment": "^2.20.1",
+        "mongodb-extjson": "^3.0.3",
+        "node-sass": "^4.7.2",
+        "numeral": "^2.0.6",
+        "object-assign": "4.1.1",
+        "pinyin-engine": "^1.1.0",
+        "postcss-flexbugs-fixes": "3.2.0",
+        "postcss-loader": "2.0.8",
+        "promise": "8.0.1",
+        "prop-types": "^15.6.2",
+        "qrcode-react": "^0.1.16",
+        "query-string": "^5.1.1",
+        "querystringify": "^2.0.0",
+        "raf": "3.4.0",
+        "react": "^16.3.2",
+        "react-autosuggest": "^9.3.4",
+        "react-big-calendar": "^0.18.0",
+        "react-custom-scrollbars": "^4.2.1",
+        "react-dev-utils": "^5.0.1",
+        "react-dom": "^16.3.2",
+        "react-helmet": "^5.2.0",
+        "react-highcharts": "^16.0.2",
+        "react-highlight-words": "^0.14.0",
+        "react-i18next": "^7.13.0",
+        "react-infinite-scroller": "^1.2.0",
+        "react-intersection-observer": "^6.1.1",
+        "react-lines-ellipsis": "^0.13.2",
+        "react-marquee": "^1.0.0",
+        "react-router": "^2.5.2",
+        "react-router-dom": "^4.2.2",
+        "react-rte": "^0.16.1",
+        "reconnectingwebsocket": "^1.0.0",
+        "resolve": "1.6.0",
+        "sass-loader": "^6.0.6",
+        "smooth-scrollbar": "^8.3.0",
+        "style-loader": "0.19.0",
+        "styled-components": "^4.2.0",
+        "sw-precache-webpack-plugin": "0.11.4",
+        "swiper": "^4.4.1",
+        "twemoji": "^11.0.1",
+        "url-loader": "0.6.2",
+        "url-search-params-polyfill": "^4.0.1",
+        "uuid": "^3.3.2",
+        "water-mark-oc": "^1.1.0",
+        "webpack": "3.8.1",
+        "webpack-dev-server": "2.9.4",
+        "webpack-manifest-plugin": "1.3.2",
+        "webpack-merge": "^4.1.2",
+        "whatwg-fetch": "2.0.3",
+        "xlsx": "^0.14.0"
+    },
+    "scripts": {
+        "mock": "node scripts/express-server.js",
+        "start": "node scripts/start.js",
+        "pre": "node scripts/pre.js",
+        "build": "node scripts/build.js",
+        "mock-server": "node build/scripts/server.js",
+        "dll": "webpack --config ./config/webpack.dll.config.js --progress",
+        "pack": "node_modules/.bin/webpack --config ./config/webpack.config.pack.js",
+        "analyzer": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.prod.js --progress --progress --profile --json > ./public/webpack.stats.json && webpack-bundle-analyzer ./public/webpack.stats.json",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx}": [
+            "eslint --fix",
+            "git add"
+        ]
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,mjs}"
+        ],
+        "setupFiles": [
+            "<rootDir>/config/polyfills.js"
+        ],
+        "testMatch": [
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+            "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
+        ],
+        "testEnvironment": "node",
+        "testURL": "http://localhost",
+        "transform": {
+            "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+            "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+            "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+        },
+        "transformIgnorePatterns": [
+            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+        ],
+        "moduleNameMapper": {
+            "^react-native$": "react-native-web"
+        },
+        "moduleFileExtensions": [
+            "web.js",
+            "js",
+            "json",
+            "web.jsx",
+            "jsx",
+            "node",
+            "mjs"
+        ]
+    },
+    "babel": {
+        "plugins": [
+            "transform-decorators-legacy",
+            [
+                "import",
+                {
+                    "libraryName": "antd",
+                    "libraryDirectory": "es",
+                    "style": "css"
+                }
+            ]
+        ],
+        "presets": [
+            "react-app"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "devDependencies": {
+        "add-asset-html-webpack-plugin": "^2.1.3",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-import": "^1.8.0",
+        "babel-plugin-transform-decorators-legacy": "^1.3.5",
+        "babel-preset-mobx": "^1.0.2",
+        "compression-webpack-plugin": "^1.1.11",
+        "connect-history-api-fallback": "^1.5.0",
+        "cross-env": "^5.2.0",
+        "eslint": "^3.19.0",
+        "eslint-config-airbnb": "^15.0.1",
+        "eslint-friendly-formatter": "^3.0.0",
+        "eslint-loader": "^1.7.1",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-jsx-a11y": "^5.0.3",
+        "eslint-plugin-react": "^7.0.1",
+        "express": "^4.16.3",
+        "globule": "^1.2.1",
+        "http-proxy-middleware": "^0.18.0",
+        "husky": "^0.14.3",
+        "lint-staged": "^7.2.0",
+        "nei": "^3.7.4",
+        "path-to-regexp": "^2.2.1",
+        "querystring": "^0.2.0",
+        "react-loadable": "^5.4.0",
+        "react-router-loader": "^0.5.4",
+        "rimraf": "^2.6.2",
+        "strip-json-comments": "^2.0.1",
+        "webpack-bundle-analyzer": "^2.13.1",
+        "webpack-dev-middleware": "^2.0.4",
+        "yargs": "^12.0.1"
+    },
+    "proxy": {
+        "/api/platform": {
+            "target": "https://api-invest.modeling.ai",
+            "changeOrigin": true
+        },
+        "/api/notice": {
+            "target": "https://api-invest.modeling.ai",
+            "changeOrigin": true
+        },
+        "/api/seller": {
+            "target": "https://api-invest.modeling.ai",
+            "changeOrigin": true
+        },
+        "/search-api/event/wechat": {
+            "target": "http://wechat-pre.analyst.ai",
+            "changeOrigin": true
+        },
+        "/invest-dc-inner-api": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/uc": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resourceapi": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/search-api": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resapi/mail/list": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resapi/mail/delete": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resapi/mail/disable": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resapi/mail/enable": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resapi/mail/update": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/resapi": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/api/compre/stock/stock-card": {
+            "target": "http://api-dev.analyst.ai",
+            "changeOrigin": true
+        },
+        "/api/compre/search/card": {
+            "target": "http://api-dev.analyst.ai",
+            "changeOrigin": true
+        },
+        "/api/compre/siderbar": {
+            "target": "http://api-dev.analyst.ai",
+            "changeOrigin": true
+        },
+        "/api/compre/card": {
+            "target": "http://api-dev.analyst.ai",
+            "changeOrigin": true
+        },
+        "/api/compre/kline": {
+            "target": "http://api-dev.analyst.ai",
+            "changeOrigin": true
+        },
+        "/api/compre/timeline": {
+            "target": "http://api-dev.analyst.ai",
+            "changeOrigin": true
+        },
+        "/api": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/api/report/": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/api/report/report-detail": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/api/report/industry": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/wechatapi": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/invest-research-api": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/invest-trader-mark": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        },
+        "/wiki": {
+            "target": "https://kg-test.eversight.ai",
+            "changeOrigin": true
+        },
+        "/invest-dc-inner-api/industry/relatedCompany": {
+            "target": "https://tour-pre.modeling.ai/",
+            "changeOrigin": true
+        }
+    }
+}

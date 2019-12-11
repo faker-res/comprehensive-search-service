@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFinancialIndicatorDataNewDao">
+
+  <select id="getIndicatorValue" resultType="java.lang.String">
+    select indicator_value from financial_indicator_data_new where `data_id`=#{data_id,jdbcType=VARCHAR} limit 1
+  </select>
+</mapper>

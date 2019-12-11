@@ -1,0 +1,48 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "totalIncome": 0.0014,
+            "name": "2018-环保公用",
+            "dayIncome": 0.0012,
+            "monthIncome": 0.0011,
+            "yearIncome": 0.0015,
+            "type": "张超",
+            "referTo": "电力及公用事业",
+            "dayAbove": 0.0009,
+            "monthAbove": 0.0008,
+            "yearAbove": 0.0008,
+            "totalAbove": 0.0009
+        },
+        {
+            "type": "张超",
+            "totalIncome": 0.0014,
+            "dayIncome": 0.0012,
+            "monthIncome": 0.0011,
+            "yearIncome": 0.0015,
+            "name": "2018-环保公用",
+            "referTo": "电力及公用事业",
+            "dayAbove": 0.0009,
+            "monthAbove": 0.0008,
+            "yearAbove": 0.0008,
+            "totalAbove": 0.0009
+        },
+        {
+            "name": "2018-环保公用",
+            "type": "张超",
+            "dayIncome": 0.0012,
+            "monthIncome": 0.0011,
+            "yearIncome": 0.0015,
+            "totalIncome": 0.0014,
+            "referTo": "电力及公用事业",
+            "dayAbove": 0.0009,
+            "monthAbove": 0.0008,
+            "yearAbove": 0.0008,
+            "totalAbove": 0.0009
+        }
+    ],
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

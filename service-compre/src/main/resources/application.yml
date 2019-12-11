@@ -1,0 +1,106 @@
+server:
+  port: 8591
+
+spring:
+  application:
+    name: service-compre
+  profiles:
+    active: "@spring.profiles.active@"
+#  cloud:
+#    loadbalancer:
+#      retry:
+#        enabled: true #开启重试机制
+#  mvc:
+#    throwExceptionIfNoHandlerFound: true
+#  resources:
+#    addMappings: false
+  cache:
+    type: redis
+#  aop:
+#    proxyTargetClass: true
+
+
+eureka:
+  environment: ${spring.profiles.active}
+  instance:
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port} #默认值是${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${server.port}}
+    hostname: ${spring.cloud.client.ipAddress} #主机名，可以为${spring.cloud.client.ipAddress}，或可以为指定域名
+    preferIpAddress: true #用ip做hostname时，本项应设为true；用域名做hostname时，本项应设为false
+#    metadataMap:
+#      cluster: default #所属集群
+    leaseRenewalIntervalInSeconds: 5 #续约更新时间间隔（默认30秒）
+    leaseExpirationDurationInSeconds: 16 #续约到期时间（默认90秒）
+  client:
+    registerWithEureka: true #实例是否在eureka服务器上注册自己的信息以供其他服务发现，默认为true
+    fetchRegistry: true #此客户端是否获取eureka服务器注册表上的注册信息，默认为true
+    registryFetchIntervalSeconds: 5 #间隔多久去拉取服务注册信息,默认为30秒
+    healthcheck:
+      enabled: true
+
+management:
+  security:
+    enabled: false #关闭验证
+
+endpoints:
+  shutdown:
+    enabled: true #开启微服务的优雅关闭
+    sensitive: false #禁用密码验证
+
+feign:
+  hystrix:
+    enabled: true
+#  httpclient:
+#    enabled: true
+  okhttp:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mimeTypes: text/xml,text/plain,application/xml,application/json
+      minRequestSize: 2048
+    response:
+      enabled: true
+
+ribbon:
+  ConnectTimeout: 500 #ribbon请求连接的超时时间
+  ReadTimeout: 10000 #请求处理的超时时间
+  OkToRetryOnAllOperations: false #对所有操作请求都进行重试，无论是连接超时或者返回超时都进行重试，默认false只重试连接超时
+  MaxAutoRetries: 0 #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 2 #重试负载均衡其他的实例最大重试次数,不包括首次server
+  ServerListRefreshInterval: 5000 #ribbon刷新实例列表时间间隔,默认为30秒
+
+hystrix:
+  command:
+    default:
+#      coreSize: 10 #线程池核心线程数，默认值为10
+#      maxQueueSize: #该参数表示配置线程值等待队列长度,默认值:-1，建议值:-1表示不等待直接拒绝
+#      queueSizeRejectionThreshold: 5 #等待队列超过阈值后开始拒绝线程请求，默认值为5
+      execution:
+        isolation:
+#          strategy: THREAD #隔离策略，THREAD|SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 10000 #隔离策略的超时时间，默认值是1000
+#            interruptOnTimeout: true #发生超时是是否中断线程，默认是true
+#            interruptOnCancel: false #取消时是否中断线程，默认是false
+#          semaphore:
+#            maxConcurrentRequests: 100 #1秒时间窗口内的事务/查询/请求，即允许的并发数，当请求达到或超过该设置值后，其其余就会被拒绝。默认值是100
+#        timeout:
+#          enabled: true #是否开启超时，默认是true
+#      circuitBreaker:
+#        requestVolumeThreshold: 10 #熔断器在整个统计时间内是否开启的阀值，默认20次
+#        sleepWindowInMilliseconds: 5 #熔断器默认工作时间,默认值为5秒
+#        errorThresholdPercentage: 50 #熔断器错误阈值，默认为50%
+#        forceOpen: false #熔断器强制开关，如果设置为true则表示强制打开熔断器，所有请求都会拒绝，默认为false
+#        forceClosed: false #与forceOpen正好相反
+
+
+
+
+#mybatis:
+#  type-aliases-package: la.niub.abcapi.servicecompre.dao
+#  mapper-locations: classpath:mapper/*.xml
+
+
+
+logging:
+  config: classpath:log4j2.xml

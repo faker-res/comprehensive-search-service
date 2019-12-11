@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IMarketReportDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.MarketReportModel">
+    <constructor>
+      <idArg column="added_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="uploaduser" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="rating" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="typetitle" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stockname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sharecontent" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filetype" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="file_size" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="shareurl" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sharetitle" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publish_power" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="author" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publish" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="file_pages" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="stockcode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shareimg" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="file_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="industryname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="file_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_at" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_at" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_flag" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="chart_version" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="table_version" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="content_version" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="content_related_version" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="analyst" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="category_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="industry_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="tag" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    added_id, id, uploaduser, rating, typetitle, stockname, sharecontent, filetype, file_size, 
+    shareurl, sharetitle, publish_power, author, publish, file_pages, stockcode, shareimg, 
+    title, file_url, time, industryname, file_path, create_at, update_at, source, push_flag, 
+    chart_version, table_version, content_version, content_related_version, status, analyst, 
+    category_id, industry_id, tag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from market_report
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from market_report
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.MarketReportModel">
+    insert into market_report (added_id, id, uploaduser, 
+      rating, typetitle, stockname, 
+      sharecontent, filetype, file_size, 
+      shareurl, sharetitle, publish_power, 
+      author, publish, file_pages, 
+      stockcode, shareimg, title, 
+      file_url, time, industryname, 
+      file_path, create_at, update_at, 
+      source, push_flag, chart_version, 
+      table_version, content_version, content_related_version, 
+      status, analyst, category_id, 
+      industry_id, tag)
+    values (#{added_id,jdbcType=BIGINT}, #{id,jdbcType=BIGINT}, #{uploaduser,jdbcType=VARCHAR}, 
+      #{rating,jdbcType=VARCHAR}, #{typetitle,jdbcType=VARCHAR}, #{stockname,jdbcType=VARCHAR}, 
+      #{sharecontent,jdbcType=VARCHAR}, #{filetype,jdbcType=VARCHAR}, #{file_size,jdbcType=BIGINT}, 
+      #{shareurl,jdbcType=VARCHAR}, #{sharetitle,jdbcType=VARCHAR}, #{publish_power,jdbcType=BIGINT}, 
+      #{author,jdbcType=VARCHAR}, #{publish,jdbcType=VARCHAR}, #{file_pages,jdbcType=BIGINT}, 
+      #{stockcode,jdbcType=VARCHAR}, #{shareimg,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{file_url,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, #{industryname,jdbcType=VARCHAR}, 
+      #{file_path,jdbcType=VARCHAR}, #{create_at,jdbcType=TIMESTAMP}, #{update_at,jdbcType=TIMESTAMP}, 
+      #{source,jdbcType=VARCHAR}, #{push_flag,jdbcType=BIT}, #{chart_version,jdbcType=INTEGER}, 
+      #{table_version,jdbcType=INTEGER}, #{content_version,jdbcType=INTEGER}, #{content_related_version,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{analyst,jdbcType=VARCHAR}, #{category_id,jdbcType=VARCHAR}, 
+      #{industry_id,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.MarketReportModel">
+    insert into market_report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="added_id != null">
+        added_id,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uploaduser != null">
+        uploaduser,
+      </if>
+      <if test="rating != null">
+        rating,
+      </if>
+      <if test="typetitle != null">
+        typetitle,
+      </if>
+      <if test="stockname != null">
+        stockname,
+      </if>
+      <if test="sharecontent != null">
+        sharecontent,
+      </if>
+      <if test="filetype != null">
+        filetype,
+      </if>
+      <if test="file_size != null">
+        file_size,
+      </if>
+      <if test="shareurl != null">
+        shareurl,
+      </if>
+      <if test="sharetitle != null">
+        sharetitle,
+      </if>
+      <if test="publish_power != null">
+        publish_power,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="publish != null">
+        publish,
+      </if>
+      <if test="file_pages != null">
+        file_pages,
+      </if>
+      <if test="stockcode != null">
+        stockcode,
+      </if>
+      <if test="shareimg != null">
+        shareimg,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="file_url != null">
+        file_url,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="industryname != null">
+        industryname,
+      </if>
+      <if test="file_path != null">
+        file_path,
+      </if>
+      <if test="create_at != null">
+        create_at,
+      </if>
+      <if test="update_at != null">
+        update_at,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="push_flag != null">
+        push_flag,
+      </if>
+      <if test="chart_version != null">
+        chart_version,
+      </if>
+      <if test="table_version != null">
+        table_version,
+      </if>
+      <if test="content_version != null">
+        content_version,
+      </if>
+      <if test="content_related_version != null">
+        content_related_version,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="analyst != null">
+        analyst,
+      </if>
+      <if test="category_id != null">
+        category_id,
+      </if>
+      <if test="industry_id != null">
+        industry_id,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="added_id != null">
+        #{added_id,jdbcType=BIGINT},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="uploaduser != null">
+        #{uploaduser,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null">
+        #{rating,jdbcType=VARCHAR},
+      </if>
+      <if test="typetitle != null">
+        #{typetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="stockname != null">
+        #{stockname,jdbcType=VARCHAR},
+      </if>
+      <if test="sharecontent != null">
+        #{sharecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="filetype != null">
+        #{filetype,jdbcType=VARCHAR},
+      </if>
+      <if test="file_size != null">
+        #{file_size,jdbcType=BIGINT},
+      </if>
+      <if test="shareurl != null">
+        #{shareurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sharetitle != null">
+        #{sharetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="publish_power != null">
+        #{publish_power,jdbcType=BIGINT},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publish != null">
+        #{publish,jdbcType=VARCHAR},
+      </if>
+      <if test="file_pages != null">
+        #{file_pages,jdbcType=BIGINT},
+      </if>
+      <if test="stockcode != null">
+        #{stockcode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareimg != null">
+        #{shareimg,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="file_url != null">
+        #{file_url,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="industryname != null">
+        #{industryname,jdbcType=VARCHAR},
+      </if>
+      <if test="file_path != null">
+        #{file_path,jdbcType=VARCHAR},
+      </if>
+      <if test="create_at != null">
+        #{create_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_at != null">
+        #{update_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_flag != null">
+        #{push_flag,jdbcType=BIT},
+      </if>
+      <if test="chart_version != null">
+        #{chart_version,jdbcType=INTEGER},
+      </if>
+      <if test="table_version != null">
+        #{table_version,jdbcType=INTEGER},
+      </if>
+      <if test="content_version != null">
+        #{content_version,jdbcType=INTEGER},
+      </if>
+      <if test="content_related_version != null">
+        #{content_related_version,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="analyst != null">
+        #{analyst,jdbcType=VARCHAR},
+      </if>
+      <if test="category_id != null">
+        #{category_id,jdbcType=VARCHAR},
+      </if>
+      <if test="industry_id != null">
+        #{industry_id,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.MarketReportModel">
+    update market_report
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="uploaduser != null">
+        uploaduser = #{uploaduser,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null">
+        rating = #{rating,jdbcType=VARCHAR},
+      </if>
+      <if test="typetitle != null">
+        typetitle = #{typetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="stockname != null">
+        stockname = #{stockname,jdbcType=VARCHAR},
+      </if>
+      <if test="sharecontent != null">
+        sharecontent = #{sharecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="filetype != null">
+        filetype = #{filetype,jdbcType=VARCHAR},
+      </if>
+      <if test="file_size != null">
+        file_size = #{file_size,jdbcType=BIGINT},
+      </if>
+      <if test="shareurl != null">
+        shareurl = #{shareurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sharetitle != null">
+        sharetitle = #{sharetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="publish_power != null">
+        publish_power = #{publish_power,jdbcType=BIGINT},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="publish != null">
+        publish = #{publish,jdbcType=VARCHAR},
+      </if>
+      <if test="file_pages != null">
+        file_pages = #{file_pages,jdbcType=BIGINT},
+      </if>
+      <if test="stockcode != null">
+        stockcode = #{stockcode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareimg != null">
+        shareimg = #{shareimg,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="file_url != null">
+        file_url = #{file_url,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="industryname != null">
+        industryname = #{industryname,jdbcType=VARCHAR},
+      </if>
+      <if test="file_path != null">
+        file_path = #{file_path,jdbcType=VARCHAR},
+      </if>
+      <if test="create_at != null">
+        create_at = #{create_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_at != null">
+        update_at = #{update_at,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_flag != null">
+        push_flag = #{push_flag,jdbcType=BIT},
+      </if>
+      <if test="chart_version != null">
+        chart_version = #{chart_version,jdbcType=INTEGER},
+      </if>
+      <if test="table_version != null">
+        table_version = #{table_version,jdbcType=INTEGER},
+      </if>
+      <if test="content_version != null">
+        content_version = #{content_version,jdbcType=INTEGER},
+      </if>
+      <if test="content_related_version != null">
+        content_related_version = #{content_related_version,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="analyst != null">
+        analyst = #{analyst,jdbcType=VARCHAR},
+      </if>
+      <if test="category_id != null">
+        category_id = #{category_id,jdbcType=VARCHAR},
+      </if>
+      <if test="industry_id != null">
+        industry_id = #{industry_id,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.MarketReportModel">
+    update market_report
+    set id = #{id,jdbcType=BIGINT},
+      uploaduser = #{uploaduser,jdbcType=VARCHAR},
+      rating = #{rating,jdbcType=VARCHAR},
+      typetitle = #{typetitle,jdbcType=VARCHAR},
+      stockname = #{stockname,jdbcType=VARCHAR},
+      sharecontent = #{sharecontent,jdbcType=VARCHAR},
+      filetype = #{filetype,jdbcType=VARCHAR},
+      file_size = #{file_size,jdbcType=BIGINT},
+      shareurl = #{shareurl,jdbcType=VARCHAR},
+      sharetitle = #{sharetitle,jdbcType=VARCHAR},
+      publish_power = #{publish_power,jdbcType=BIGINT},
+      author = #{author,jdbcType=VARCHAR},
+      publish = #{publish,jdbcType=VARCHAR},
+      file_pages = #{file_pages,jdbcType=BIGINT},
+      stockcode = #{stockcode,jdbcType=VARCHAR},
+      shareimg = #{shareimg,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      file_url = #{file_url,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      industryname = #{industryname,jdbcType=VARCHAR},
+      file_path = #{file_path,jdbcType=VARCHAR},
+      create_at = #{create_at,jdbcType=TIMESTAMP},
+      update_at = #{update_at,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=VARCHAR},
+      push_flag = #{push_flag,jdbcType=BIT},
+      chart_version = #{chart_version,jdbcType=INTEGER},
+      table_version = #{table_version,jdbcType=INTEGER},
+      content_version = #{content_version,jdbcType=INTEGER},
+      content_related_version = #{content_related_version,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      analyst = #{analyst,jdbcType=VARCHAR},
+      category_id = #{category_id,jdbcType=VARCHAR},
+      industry_id = #{industry_id,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR}
+    where added_id = #{added_id,jdbcType=BIGINT}
+  </update>
+  <select id="selectById" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from market_report
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+</mapper>

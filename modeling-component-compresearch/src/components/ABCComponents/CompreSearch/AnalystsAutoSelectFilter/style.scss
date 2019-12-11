@@ -1,0 +1,15 @@
+.AnalystsAutoSelectFilter-contaniner {
+	display: flex;
+	height: 32px;
+	line-height: 32px;
+	flex-direction: row;
+	.label{
+		display:inline-block;
+		font-weight:bolder;
+		margin-right:12px;
+		color: rgba(51, 51, 51, 1);
+		font-size: 12px;
+		text-align: left;
+		font-family: PingFangSC-Regular;
+	}
+}

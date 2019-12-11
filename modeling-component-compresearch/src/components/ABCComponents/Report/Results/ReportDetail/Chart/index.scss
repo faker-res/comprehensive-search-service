@@ -1,0 +1,28 @@
+.abc-report-detail-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+
+    .base-info-box {
+        margin-bottom: 20px;
+        padding: 20px 20px 50px;
+        background: #fff;
+        min-height: 548px;
+        max-width: 1200px;
+        margin: 0px auto;
+        min-height: 548px;
+        display: block;
+    }
+
+    .abc-c-chart-card {
+        text-align: left;
+        margin: 20px auto 10px;
+    }
+
+    .abc-bottom-loading {
+        clear: both;
+    }
+}

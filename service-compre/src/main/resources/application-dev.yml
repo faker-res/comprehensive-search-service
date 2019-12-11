@@ -1,0 +1,184 @@
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://registercenter.researchreport.cn:8000/eureka/
+
+solr:
+  common_search_api: http://121.40.171.237:8086/common_search/newCommonSearch
+  card_search_api: http://121.40.171.237:8086/common_search/cardSearch
+  card_finance_api: http://116.62.41.106:9011/finance/participle/languageQueryResult4Analysis
+  card_finance2_api: http://116.62.41.106:9011/share/multidimensionalAnalysis
+  bitmap_import_task: http://121.40.131.65:8800/api/bitmap/import_task/v2/
+  bitmap_parse_state: http://121.40.131.65:8800/api/bitmap/parse_state/v2/
+  bitmap_push_solr: http://121.40.171.237:8086/chart_update/
+rbac:
+  serviceHost: http://auth-api-dev.analyst.ai
+  client_key: ff77c8a0acfab17e84f8c08db6208d11
+  app_secret: acfab17e84f8c08d
+#  accessMap: 301-102=/data/chart/detail,301-103=/data/table/detail
+  accessMap:
+spring:
+  datasource:
+    reporter:
+      driverClassName: com.mysql.jdbc.Driver
+      username: ps_reportor
+      password: e51b537570ba
+      url: jdbc:mysql://10.11.255.110:31306/r_reportor?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+      #线上测试
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: lxie
+#      password: 097f85009540
+#      url: jdbc:mysql://120.26.12.152:3306/r_reportor?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+      #线上正式
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: test
+#      password: 845cf0385974
+#      url: jdbc:mysql://47.97.33.54:3306/r_reportor?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+    notice:
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: core_doc
+#      password: Uvowse230w23sr2
+#      url: jdbc:mysql://10.11.255.60:3306/core_doc?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+      #线上测试
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: xwu_nj
+#      password: OlzhredLja7s
+#      url: jdbc:mysql://120.26.12.152:3306/core_doc?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+      #线上正式
+      driverClassName: com.mysql.jdbc.Driver
+      username: xwu_nj
+      password: OlzhredLja7s
+      url: jdbc:mysql://121.41.26.224:3306/core_doc?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+    market:
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: root
+#      password: 123456
+#      url: jdbc:mysql://114.55.36.183:3306/bootdo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+      #线上正式
+      driverClassName: com.mysql.jdbc.Driver
+      username: xwu_nj
+      password: OlzhredLja7s
+      url: jdbc:mysql://118.31.119.65:3306/market_price?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+
+    marketprice:
+        driverClassName: com.mysql.jdbc.Driver
+        username: xwu_nj
+        password: OlzhredLja7s
+        url: jdbc:mysql://118.31.119.65:3306/market_price?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+        timeoutSeconds: 30
+
+  redis:
+#    database: 15
+#    host: 10.11.255.73
+#    port: 6379
+#    password: owCkicLw02ILCwZb
+#    timeout: 1000
+    pool:
+      max-active: 8
+      max-wait: 1000
+      max-idle: 8
+    default:
+      host: 10.11.255.108
+      port: 6380
+      password:
+      database: 0
+      timeout: 1000
+    market:
+      host: 10.11.255.108
+      port: 6380
+      password:
+      database: 1
+      timeout: 1000
+    industryTime:
+      host: 10.11.255.108
+      port: 6380
+      password:
+      database: 1
+      timeout: 1000
+    industryRealTime:
+      host: 10.11.255.108
+      port: 6380
+      password:
+      database: 1
+      timeout: 1000
+  data:
+    mongodb:
+      notice:
+        uri: mongodb://search:neZu2A&Ug=Fr@10.11.255.122:27017/cr_data
+        timeout: 30000
+      stock:
+        uri: mongodb://10.15.0.30:27017/research
+        timeout: 30000
+
+feign:
+  client:
+    apiBestNews:
+      name: api-bestNews
+      url: http://118.25.39.225:8082/api/mainpage/bestNews
+    apiRecommendNews:
+      name: api-recommendNews
+      url: http://118.25.39.225:8082/api/mainpage/recommendNewsList
+    solrNotice:
+      name: solr-notice
+      url: http://116.62.35.63:8080/solrweb/raaNoticeSearch
+    apiReportFieldFacet:
+      name: api-reportFieldFacet
+      url: http://116.62.35.63:8080/solrweb/raaPublicGroupReportStock
+    solrReport:
+      name: solr-report
+      url: http://116.62.35.63:8080/solrweb/raaPublicReport
+    wechatArticle:
+      name: wechat-article
+      url: http://121.40.171.237:8086/news_search
+    dataSearch:
+      name: data-search
+      url: http://118.178.226.204:8080/solrweb2/dataSearchMul
+    edbSearch:
+      name: edb-search
+      url: http://118.178.226.204:8080/solrweb2/edbSearch
+    dataChart:
+      name: solr-dataChart
+      url: http://121.40.171.237:8086/chart_hello
+#      url: http://114.55.39.209:8080/solrweb/chartSearch2
+#      url: http://121.40.171.237:8086/chart_hello
+#      url: http://120.26.49.59:8086/chart_hello
+    dataTable:
+      name: solr-dataTable
+#      url: http://120.26.93.73:8081/solr/tableSearch
+      url: http://116.62.35.63:8081/solr/tableSearch
+#      url: http://118.31.119.171:8081/solr/tableSearch
+    dataTableSingle:
+      name: solr-dataTableSingle
+#      url: http://101.37.118.30:8081/solr/tableSearch
+      url: http://116.62.35.63:8081/solr/tableSearch
+#      url: http://118.31.119.171:8081/solr/tableSearch
+    searchTag:
+      name: search-tag
+      url: http://116.62.24.147:8081
+    apiNews:
+      name: api-news
+      url : http://121.40.171.237:8086/news_search
+    userCenterChart:
+      name: solr-userCenterChart
+      url: http://120.26.10.27:8080/chartSearch/chartSearch
+    parsingSend:
+      name: parsing-send
+      url: http://10.11.255.124:8800/api/bitmap/import_task
+    noticeSearch2:
+      name: notice-search2
+#      url: http://116.62.28.188:8090/solrweb/notice/search2.do
+      url: http://114.55.174.20:8090/solrweb/notice/search2.do
+    myStock:
+      name: service-mystock
+      url: http://api.researchreport.cn/api/openms/subscriptions/pure
+oss:
+  file_server_host: http://abc-crawler.oss-cn-hangzhou.aliyuncs.com

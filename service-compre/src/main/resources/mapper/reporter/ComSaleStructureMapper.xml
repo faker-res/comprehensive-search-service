@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComSaleStructureDao">
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, reporttype, project_type, project_name, project_norm_name, 
+    income, income_rate, cost, cost_rate, gros_prof, gros_prof_marg, gros_prof_rate, 
+    createtime, updatetime, status, remark, creator, editor, come_source
+  </sql>
+  <select id="getTopReportDate" resultType="la.niub.abcapi.servicecompre.model.ComSaleStructureModel">
+    select DISTINCT(end_date) from com_sale_structure
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+  <select id="getRecordsByDate" resultType="la.niub.abcapi.servicecompre.model.ComSaleStructureModel">
+    select <include refid="Base_Column_List" />
+    from com_sale_structure
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    and end_date = #{endDate,jdbcType=TIMESTAMP}
+    and status != 9
+  </select>
+</mapper>

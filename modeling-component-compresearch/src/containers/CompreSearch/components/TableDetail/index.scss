@@ -1,0 +1,51 @@
+/**
+ * @description 数据表结果页样式
+ * @author wsh
+ * date: 2018-06-07
+ */
+
+ @import '../../common.scss';
+ html,body{
+   background-color: #F8F8F8 !important;
+ }
+ .page-table-search {
+   background-color: #F8F8F8;
+   .fixed{
+     position: fixed;
+     bottom:0;
+     left:0;
+     right:0;
+     z-index: 999;
+   }
+   main{
+     width: 1200px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     //min-height: 820px;
+     padding-top: 35px;
+     padding-bottom: 40px;
+     .totalcount{
+       margin-bottom: 15px;
+     }
+     .resultlist{
+ 
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       flex-wrap:wrap;
+       .resultlist-item{
+         width: 590px;
+         margin-bottom: 20px;
+       }
+     }
+     .footLoadingWarp{
+       margin-bottom: 20px;
+     }
+ 
+ 
+   }
+ 
+ }
+ 

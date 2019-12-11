@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystForcastIndexDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AnalystForcastIndexModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="report_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="pe" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="year" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sp" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tp" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="np" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="parent_np" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="roe" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="roa" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="eps" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="dps" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="cps" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="bvps" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ebit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ebitda" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ev_ebitda" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="equity" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <resultMap id="GroupByMap" type="la.niub.abcapi.servicecompre.model.AnalystForcastIndexModel">
+    <result column="eps_avg" property="eps_avg" jdbcType="DECIMAL"/>
+    <result column="year" property="year" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, report_id, time, pe, year, income, sp, cost, tp, np, parent_np, roe, roa, eps, 
+    dps, cps, bvps, ebit, ebitda, ev_ebitda, equity, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from analyst_forcast_index
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from analyst_forcast_index
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastIndexModel">
+    insert into analyst_forcast_index (id, report_id, time, 
+      pe, year, income, sp, 
+      cost, tp, np, parent_np, 
+      roe, roa, eps, dps, 
+      cps, bvps, ebit, ebitda, 
+      ev_ebitda, equity, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{report_id,jdbcType=BIGINT}, #{time,jdbcType=TIMESTAMP}, 
+      #{pe,jdbcType=DECIMAL}, #{year,jdbcType=VARCHAR}, #{income,jdbcType=DECIMAL}, #{sp,jdbcType=DECIMAL}, 
+      #{cost,jdbcType=DECIMAL}, #{tp,jdbcType=DECIMAL}, #{np,jdbcType=DECIMAL}, #{parent_np,jdbcType=DECIMAL}, 
+      #{roe,jdbcType=DECIMAL}, #{roa,jdbcType=DECIMAL}, #{eps,jdbcType=DECIMAL}, #{dps,jdbcType=DECIMAL}, 
+      #{cps,jdbcType=DECIMAL}, #{bvps,jdbcType=DECIMAL}, #{ebit,jdbcType=DECIMAL}, #{ebitda,jdbcType=DECIMAL}, 
+      #{ev_ebitda,jdbcType=DECIMAL}, #{equity,jdbcType=DECIMAL}, #{create_time,jdbcType=TIMESTAMP}, 
+      #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastIndexModel">
+    insert into analyst_forcast_index
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="report_id != null">
+        report_id,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="pe != null">
+        pe,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="income != null">
+        income,
+      </if>
+      <if test="sp != null">
+        sp,
+      </if>
+      <if test="cost != null">
+        cost,
+      </if>
+      <if test="tp != null">
+        tp,
+      </if>
+      <if test="np != null">
+        np,
+      </if>
+      <if test="parent_np != null">
+        parent_np,
+      </if>
+      <if test="roe != null">
+        roe,
+      </if>
+      <if test="roa != null">
+        roa,
+      </if>
+      <if test="eps != null">
+        eps,
+      </if>
+      <if test="dps != null">
+        dps,
+      </if>
+      <if test="cps != null">
+        cps,
+      </if>
+      <if test="bvps != null">
+        bvps,
+      </if>
+      <if test="ebit != null">
+        ebit,
+      </if>
+      <if test="ebitda != null">
+        ebitda,
+      </if>
+      <if test="ev_ebitda != null">
+        ev_ebitda,
+      </if>
+      <if test="equity != null">
+        equity,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="report_id != null">
+        #{report_id,jdbcType=BIGINT},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pe != null">
+        #{pe,jdbcType=DECIMAL},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null">
+        #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="sp != null">
+        #{sp,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="tp != null">
+        #{tp,jdbcType=DECIMAL},
+      </if>
+      <if test="np != null">
+        #{np,jdbcType=DECIMAL},
+      </if>
+      <if test="parent_np != null">
+        #{parent_np,jdbcType=DECIMAL},
+      </if>
+      <if test="roe != null">
+        #{roe,jdbcType=DECIMAL},
+      </if>
+      <if test="roa != null">
+        #{roa,jdbcType=DECIMAL},
+      </if>
+      <if test="eps != null">
+        #{eps,jdbcType=DECIMAL},
+      </if>
+      <if test="dps != null">
+        #{dps,jdbcType=DECIMAL},
+      </if>
+      <if test="cps != null">
+        #{cps,jdbcType=DECIMAL},
+      </if>
+      <if test="bvps != null">
+        #{bvps,jdbcType=DECIMAL},
+      </if>
+      <if test="ebit != null">
+        #{ebit,jdbcType=DECIMAL},
+      </if>
+      <if test="ebitda != null">
+        #{ebitda,jdbcType=DECIMAL},
+      </if>
+      <if test="ev_ebitda != null">
+        #{ev_ebitda,jdbcType=DECIMAL},
+      </if>
+      <if test="equity != null">
+        #{equity,jdbcType=DECIMAL},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastIndexModel">
+    update analyst_forcast_index
+    <set>
+      <if test="report_id != null">
+        report_id = #{report_id,jdbcType=BIGINT},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pe != null">
+        pe = #{pe,jdbcType=DECIMAL},
+      </if>
+      <if test="year != null">
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null">
+        income = #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="sp != null">
+        sp = #{sp,jdbcType=DECIMAL},
+      </if>
+      <if test="cost != null">
+        cost = #{cost,jdbcType=DECIMAL},
+      </if>
+      <if test="tp != null">
+        tp = #{tp,jdbcType=DECIMAL},
+      </if>
+      <if test="np != null">
+        np = #{np,jdbcType=DECIMAL},
+      </if>
+      <if test="parent_np != null">
+        parent_np = #{parent_np,jdbcType=DECIMAL},
+      </if>
+      <if test="roe != null">
+        roe = #{roe,jdbcType=DECIMAL},
+      </if>
+      <if test="roa != null">
+        roa = #{roa,jdbcType=DECIMAL},
+      </if>
+      <if test="eps != null">
+        eps = #{eps,jdbcType=DECIMAL},
+      </if>
+      <if test="dps != null">
+        dps = #{dps,jdbcType=DECIMAL},
+      </if>
+      <if test="cps != null">
+        cps = #{cps,jdbcType=DECIMAL},
+      </if>
+      <if test="bvps != null">
+        bvps = #{bvps,jdbcType=DECIMAL},
+      </if>
+      <if test="ebit != null">
+        ebit = #{ebit,jdbcType=DECIMAL},
+      </if>
+      <if test="ebitda != null">
+        ebitda = #{ebitda,jdbcType=DECIMAL},
+      </if>
+      <if test="ev_ebitda != null">
+        ev_ebitda = #{ev_ebitda,jdbcType=DECIMAL},
+      </if>
+      <if test="equity != null">
+        equity = #{equity,jdbcType=DECIMAL},
+      </if>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AnalystForcastIndexModel">
+    update analyst_forcast_index
+    set report_id = #{report_id,jdbcType=BIGINT},
+      time = #{time,jdbcType=TIMESTAMP},
+      pe = #{pe,jdbcType=DECIMAL},
+      year = #{year,jdbcType=VARCHAR},
+      income = #{income,jdbcType=DECIMAL},
+      sp = #{sp,jdbcType=DECIMAL},
+      cost = #{cost,jdbcType=DECIMAL},
+      tp = #{tp,jdbcType=DECIMAL},
+      np = #{np,jdbcType=DECIMAL},
+      parent_np = #{parent_np,jdbcType=DECIMAL},
+      roe = #{roe,jdbcType=DECIMAL},
+      roa = #{roa,jdbcType=DECIMAL},
+      eps = #{eps,jdbcType=DECIMAL},
+      dps = #{dps,jdbcType=DECIMAL},
+      cps = #{cps,jdbcType=DECIMAL},
+      bvps = #{bvps,jdbcType=DECIMAL},
+      ebit = #{ebit,jdbcType=DECIMAL},
+      ebitda = #{ebitda,jdbcType=DECIMAL},
+      ev_ebitda = #{ev_ebitda,jdbcType=DECIMAL},
+      equity = #{equity,jdbcType=DECIMAL},
+      create_time = #{create_time,jdbcType=TIMESTAMP},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getEps" resultMap="GroupByMap">
+    SELECT avg(eps) as `eps_avg`,`year`
+    from analyst_forcast as a, analyst_forcast_index as b
+    where a.`stockcode`= #{stockcode,jdbcType=VARCHAR}
+    and a.report_id = b.report_id
+    and b.year in ("2016E","2017E","2018E","2019E")
+    group by `year`
+  </select>
+</mapper>

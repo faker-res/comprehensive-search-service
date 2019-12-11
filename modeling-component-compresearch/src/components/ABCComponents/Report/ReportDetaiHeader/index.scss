@@ -1,0 +1,68 @@
+.abc-report-detail-header {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: #363a46;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+
+    .ant-layout-header {
+        position: relative;
+        background: #363a46;
+        .ant-menu-horizontal > .ant-menu-item {
+            color: #fff;
+            background: transparent;
+            border-bottom: none;
+        }
+        .ant-menu-horizontal > .ant-menu-item-selected {
+            color: #3F7CD5;
+            background: transparent;
+        }
+    }
+    .m-logo {
+        position: absolute;
+        top: 0;
+        left: 50px;
+        bottom: 0;
+
+        .iconfont {
+            font-size: 42px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+    
+    .header-filetitle {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 30%;
+        margin-left: 235px;
+        line-height: 30px;
+        color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .header-right {
+        float: right;
+        background: transparent;
+        .ant-menu {
+            background: transparent;
+            border: none;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .m-logo .iconfont {
+        width: 100px;
+    }
+    .header-filetitle {
+        max-width: 25%;
+        margin-left: 180px;
+    }
+}

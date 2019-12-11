@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IThemeMappingDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.ThemeMappingModel">
+        <id column="theme_index" property="themeIndex" jdbcType="BIGINT"/>
+        <result column="theme_name" property="themeName" jdbcType="VARCHAR"/>
+        <result column="public_name" property="publicName" jdbcType="VARCHAR"/>
+        <result column="public_account" property="publicAccount" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `theme_index`, `theme_name`, `public_name`, `public_account`
+    </sql>
+
+    <select id="selectByThemeNameAndLimit" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `theme_mapping`
+        WHERE `theme_name` = #{themeName,jdbcType=VARCHAR}
+        <!--limit #{limit,jdbcType=BIGINT};-->
+    </select>
+</mapper>

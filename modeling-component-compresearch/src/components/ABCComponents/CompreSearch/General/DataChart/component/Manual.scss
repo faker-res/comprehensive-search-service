@@ -1,0 +1,43 @@
+.manual{
+    text-align: center;
+    padding-top: 30%;
+    position: absolute;
+    left: 0;
+    top:0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #333;
+    .manual-con{
+        p{
+            margin-top: 10px;
+        }
+    }
+    .manual-button{
+        margin-top: 40px;
+        span{
+            display: inline-block;
+            width: 120px;
+            height: 30px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            margin: 0 10px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            &:last-child{
+                background-color: rgb(36, 156, 211);
+                border-color: rgb(36, 156, 211);
+                color: #fff;
+                a{
+                    color: #fff;
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

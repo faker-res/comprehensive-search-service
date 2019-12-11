@@ -1,0 +1,79 @@
+{
+	"code": 200,
+	"message": "ok",
+	"data": [
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{
+			"name": "关于股票调仓入库申请",
+			"type": "股票池入库",
+			"memo": "该股票近期上涨势头良好，建议买入",
+			"submitter": "李达宁",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		}
+	],
+	"pageSize": 12,
+	"currentPage": 1,
+	"totalCount": 1200
+}

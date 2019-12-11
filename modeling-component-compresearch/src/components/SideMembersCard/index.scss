@@ -1,0 +1,117 @@
+/**
+ * @description 分析师成员卡片样式
+ * @author kygeng
+ * date: 2018-05-15
+ */
+
+@import '../../theme/common.scss';
+.abc-side-members-card-wrap {
+    width: 350px;
+    background: $fill-base;
+    border: 1px solid $border-color-secondary;
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+    .abc-side-members-card-header {
+        padding: 16px 20px;
+        width: 100%;
+        height: 50px;
+        border-bottom: 1px solid #eeeeee;
+        .title-wrap {
+            .title {
+                color: $color-text-base;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .desc {
+                margin-left: 8px;
+                padding-left: 8px;
+                font-size: 12px;
+                color: $color-text-caption;
+                border-left: 1px solid $border-color-secondary;
+            }
+        }
+        .header-extrad {
+            padding: 8px;
+            cursor: pointer;
+            .anticon-right {
+                font-size: 12px;
+                color: $color-text-secondary;
+            }
+            &-a{
+                color: #999999;
+                font-size: 12px;
+                display: inline-block;
+                position: relative;
+                z-index: 1;
+                line-height: 20px;
+                text-decoration:none;
+                i {
+                    color: #999999;
+                    font-size: 12px;
+                }
+            }
+            &-a:hover{
+                color:#1890ff;
+                text-decoration:none;
+                i {
+                    color:#1890ff;
+                }
+            }
+        }
+    }
+    .abc-side-members-card-content {
+        padding: 8px;
+        width: 100%;
+        .abc-side-members-card-item {
+            position: relative;
+            width: 50%;
+            height: 147px;
+            cursor: pointer;
+            border-radius: 4px;
+            &:hover {
+                background-color: rgba($fill-tap, 0.3);
+            }
+            .imgwarp{
+              position: absolute;
+              left: 50%;
+              top: 17px;
+              margin-left: -25px;
+              width: 50px;
+              height: 50px;
+              border-radius: 4px;
+              overflow: hidden;
+            }
+            .avatar {
+                max-width: 100%;
+            }
+            .name {
+                position: absolute;
+                left: 50%;
+                top: 74px;
+                transform: translateX(-50%);
+                color: $color-text-base;
+                font-size: 14px;
+            }
+            .company,
+            .desc {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                display: inline-block;
+                max-width: 100%;
+                font-size: 12px;
+                color: $color-text-caption;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-break: break-all;
+            }
+            .company {
+                top: 97px;
+            }
+            .desc {
+                top: 117px;
+            }
+        }
+    }
+}

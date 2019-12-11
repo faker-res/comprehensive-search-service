@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IUserWechatAccountDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    <constructor>
+      <idArg column="account_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="head" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="account_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="brief" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="verify" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="author" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    account_id, user_id, head, account_name, brief, verify, type, author
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_wechat_account
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_wechat_account
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    insert into user_wechat_account (account_id, user_id, head,
+      account_name, brief, verify,
+      type, author)
+    values (#{account_id,jdbcType=VARCHAR}, #{user_id,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR},
+      #{account_name,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, #{verify,jdbcType=VARCHAR},
+      #{type,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    insert into user_wechat_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="account_id != null">
+        account_id,
+      </if>
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="head != null">
+        head,
+      </if>
+      <if test="account_name != null">
+        account_name,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="verify != null">
+        verify,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="account_id != null">
+        #{account_id,jdbcType=VARCHAR},
+      </if>
+      <if test="user_id != null">
+        #{user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="account_name != null">
+        #{account_name,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        #{verify,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    update user_wechat_account
+    <set>
+      <if test="user_id != null">
+        user_id = #{user_id,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="account_name != null">
+        account_name = #{account_name,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        verify = #{verify,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    update user_wechat_account
+    set user_id = #{user_id,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      account_name = #{account_name,jdbcType=VARCHAR},
+      brief = #{brief,jdbcType=VARCHAR},
+      verify = #{verify,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR}
+    where account_id = #{account_id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByUserIdAndType" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM `user_wechat_account`
+    WHERE `user_id` = #{userId,jdbcType=VARCHAR}
+    AND `type` = #{type,jdbcType=VARCHAR}
+    ORDER  BY `account_id` ASC ;
+  </select>
+  <select id="selectByAuthorAndType" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM `user_wechat_account`
+    WHERE `type` = #{type,jdbcType=VARCHAR}
+      AND `author` like concat('%',#{author,jdbcType=VARCHAR},'%');
+  </select>
+
+  <select id="selectByUserIdListAndType" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM `user_wechat_account`
+    WHERE
+    <if test="fvIdList != null and fvIdList.size() == 1">
+      `user_id` =
+      <foreach collection="fvIdList" item="fvId">
+        #{fvId}
+      </foreach>
+    </if>
+    <if test="fvIdList != null and fvIdList.size() > 1">
+      `user_id` IN
+      <foreach collection="fvIdList" item="fvId" open="(" separator="," close=")">
+        #{fvId}
+      </foreach>
+    </if>
+    AND `type` = #{type,jdbcType=VARCHAR}
+    ORDER  BY `account_id` ASC ;
+  </select>
+
+  <select id="selectByType" parameterType="string" resultType="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    SELECT
+        user_id,
+        account_name
+    FROM
+        user_wechat_account
+    WHERE
+        type = #{type}
+    AND user_id IN (
+        SELECT
+            user_id
+        FROM
+            financial_user
+    )
+  </select>
+
+  <select id="selectAllByUserIdListAndType" resultType="la.niub.abcapi.servicecompre.model.UserWechatAccountModel">
+    SELECT
+        account_name,
+        head
+    FROM
+        user_wechat_account
+    WHERE
+        type = #{type}
+    AND user_id IN
+    <if test="userIdList != null and userIdList.size() > 0">
+      <foreach collection="userIdList" item="userId" open="(" separator="," close=")">
+        #{userId}
+      </foreach>
+    </if>
+    <if test="userIdList == null or userIdList.size() == 0">
+      (
+        SELECT
+          user_id
+        FROM
+          financial_user
+      )
+    </if>
+  </select>
+</mapper>

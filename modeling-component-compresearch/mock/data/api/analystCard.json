@@ -1,0 +1,31 @@
+{
+    "code": 200,
+    "data": {
+        "basic_info": {
+            "direction": "煤炭开采、采掘、环保",
+            "email": "StD5gy@n5b02.qdb",
+            "honor_num": "3",
+            "id": "59931989",
+            "image": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/sac.net_845f7ba0-ef21-35b7-b71b-7c73b1cd453b.jpg",
+            "name": "安鹏",
+            "organ": "广发证券",
+            "organ_logo": "logo/ca8858ff525e4bdf9810a64c8547fb43.png",
+            "rank": "1",
+            "report_num": "395",
+            "report_num_rate": "0.80",
+            "tel": "OFARLnpmpI",
+            "time": "2017"
+        },
+        "dynamic|2": [
+            64156,
+            false,
+            false
+        ],
+        "report_stocks|3": [
+            false,
+            "R8Fh6QQjA7",
+            79452
+        ]
+    },
+    "message": "yS0Dumkg0A"
+}

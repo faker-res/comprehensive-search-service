@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IOrgBasicInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.OrgBasicInfoModel">
+    <constructor>
+      <idArg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_ename" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_espell" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_capital" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="currency_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="build_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="eco_nature" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_nature" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="regist_add" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="office_add" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contact_add" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_web" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="legal_rp" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gen_manager" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contact_tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contact_fax" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="official_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="license" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="start_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="cutoff_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="reason" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="la.niub.abcapi.servicecompre.model.OrgBasicInfoWithBLOBs">
+    <constructor>
+      <idArg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="org_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_ename" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_espell" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_capital" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="currency_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="build_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="eco_nature" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_nature" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="regist_add" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="office_add" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contact_add" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_web" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="legal_rp" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gen_manager" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contact_tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="contact_fax" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="email" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="official_number" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="license" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="start_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="cutoff_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="reason" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="org_profile" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="main_business" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    org_uni_code, com_uni_code, org_type, org_name, org_sname, org_ename, org_espell, 
+    org_capital, currency_type, build_time, eco_nature, com_nature, regist_add, office_add, 
+    contact_add, org_web, legal_rp, gen_manager, contact_tel, contact_fax, email, official_number, 
+    license, start_date, cutoff_date, reason, createtime, updatetime, status, remark, 
+    creator, editor, come_source,accountant,lawyer
+  </sql>
+  <sql id="Blob_Column_List">
+    org_profile, main_business
+  </sql>
+  <select id="selectByPrimaryKeyWithBLOBs" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from org_basic_info
+    where org_uni_code = #{org_uni_code,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from org_basic_info
+    where org_uni_code = #{org_uni_code,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.OrgBasicInfoWithBLOBs">
+    insert into org_basic_info (org_uni_code, com_uni_code, org_type, 
+      org_name, org_sname, org_ename, 
+      org_espell, org_capital, currency_type, 
+      build_time, eco_nature, com_nature, 
+      regist_add, office_add, contact_add, 
+      org_web, legal_rp, gen_manager, 
+      contact_tel, contact_fax, email, 
+      official_number, license, start_date, 
+      cutoff_date, reason, createtime, 
+      updatetime, status, remark, 
+      creator, editor, come_source, 
+      org_profile, main_business)
+    values (#{org_uni_code,jdbcType=BIGINT}, #{com_uni_code,jdbcType=BIGINT}, #{org_type,jdbcType=BIGINT}, 
+      #{org_name,jdbcType=VARCHAR}, #{org_sname,jdbcType=VARCHAR}, #{org_ename,jdbcType=VARCHAR}, 
+      #{org_espell,jdbcType=VARCHAR}, #{org_capital,jdbcType=DECIMAL}, #{currency_type,jdbcType=BIGINT}, 
+      #{build_time,jdbcType=TIMESTAMP}, #{eco_nature,jdbcType=BIGINT}, #{com_nature,jdbcType=BIGINT}, 
+      #{regist_add,jdbcType=VARCHAR}, #{office_add,jdbcType=VARCHAR}, #{contact_add,jdbcType=VARCHAR}, 
+      #{org_web,jdbcType=VARCHAR}, #{legal_rp,jdbcType=VARCHAR}, #{gen_manager,jdbcType=VARCHAR}, 
+      #{contact_tel,jdbcType=VARCHAR}, #{contact_fax,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{official_number,jdbcType=VARCHAR}, #{license,jdbcType=INTEGER}, #{start_date,jdbcType=TIMESTAMP}, 
+      #{cutoff_date,jdbcType=TIMESTAMP}, #{reason,jdbcType=BIGINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, 
+      #{org_profile,jdbcType=LONGVARCHAR}, #{main_business,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.OrgBasicInfoWithBLOBs">
+    insert into org_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="org_uni_code != null">
+        org_uni_code,
+      </if>
+      <if test="com_uni_code != null">
+        com_uni_code,
+      </if>
+      <if test="org_type != null">
+        org_type,
+      </if>
+      <if test="org_name != null">
+        org_name,
+      </if>
+      <if test="org_sname != null">
+        org_sname,
+      </if>
+      <if test="org_ename != null">
+        org_ename,
+      </if>
+      <if test="org_espell != null">
+        org_espell,
+      </if>
+      <if test="org_capital != null">
+        org_capital,
+      </if>
+      <if test="currency_type != null">
+        currency_type,
+      </if>
+      <if test="build_time != null">
+        build_time,
+      </if>
+      <if test="eco_nature != null">
+        eco_nature,
+      </if>
+      <if test="com_nature != null">
+        com_nature,
+      </if>
+      <if test="regist_add != null">
+        regist_add,
+      </if>
+      <if test="office_add != null">
+        office_add,
+      </if>
+      <if test="contact_add != null">
+        contact_add,
+      </if>
+      <if test="org_web != null">
+        org_web,
+      </if>
+      <if test="legal_rp != null">
+        legal_rp,
+      </if>
+      <if test="gen_manager != null">
+        gen_manager,
+      </if>
+      <if test="contact_tel != null">
+        contact_tel,
+      </if>
+      <if test="contact_fax != null">
+        contact_fax,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="official_number != null">
+        official_number,
+      </if>
+      <if test="license != null">
+        license,
+      </if>
+      <if test="start_date != null">
+        start_date,
+      </if>
+      <if test="cutoff_date != null">
+        cutoff_date,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="org_profile != null">
+        org_profile,
+      </if>
+      <if test="main_business != null">
+        main_business,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="org_uni_code != null">
+        #{org_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="com_uni_code != null">
+        #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="org_type != null">
+        #{org_type,jdbcType=BIGINT},
+      </if>
+      <if test="org_name != null">
+        #{org_name,jdbcType=VARCHAR},
+      </if>
+      <if test="org_sname != null">
+        #{org_sname,jdbcType=VARCHAR},
+      </if>
+      <if test="org_ename != null">
+        #{org_ename,jdbcType=VARCHAR},
+      </if>
+      <if test="org_espell != null">
+        #{org_espell,jdbcType=VARCHAR},
+      </if>
+      <if test="org_capital != null">
+        #{org_capital,jdbcType=DECIMAL},
+      </if>
+      <if test="currency_type != null">
+        #{currency_type,jdbcType=BIGINT},
+      </if>
+      <if test="build_time != null">
+        #{build_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eco_nature != null">
+        #{eco_nature,jdbcType=BIGINT},
+      </if>
+      <if test="com_nature != null">
+        #{com_nature,jdbcType=BIGINT},
+      </if>
+      <if test="regist_add != null">
+        #{regist_add,jdbcType=VARCHAR},
+      </if>
+      <if test="office_add != null">
+        #{office_add,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_add != null">
+        #{contact_add,jdbcType=VARCHAR},
+      </if>
+      <if test="org_web != null">
+        #{org_web,jdbcType=VARCHAR},
+      </if>
+      <if test="legal_rp != null">
+        #{legal_rp,jdbcType=VARCHAR},
+      </if>
+      <if test="gen_manager != null">
+        #{gen_manager,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_tel != null">
+        #{contact_tel,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_fax != null">
+        #{contact_fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="official_number != null">
+        #{official_number,jdbcType=VARCHAR},
+      </if>
+      <if test="license != null">
+        #{license,jdbcType=INTEGER},
+      </if>
+      <if test="start_date != null">
+        #{start_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cutoff_date != null">
+        #{cutoff_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="org_profile != null">
+        #{org_profile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="main_business != null">
+        #{main_business,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.OrgBasicInfoWithBLOBs">
+    update org_basic_info
+    <set>
+      <if test="com_uni_code != null">
+        com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="org_type != null">
+        org_type = #{org_type,jdbcType=BIGINT},
+      </if>
+      <if test="org_name != null">
+        org_name = #{org_name,jdbcType=VARCHAR},
+      </if>
+      <if test="org_sname != null">
+        org_sname = #{org_sname,jdbcType=VARCHAR},
+      </if>
+      <if test="org_ename != null">
+        org_ename = #{org_ename,jdbcType=VARCHAR},
+      </if>
+      <if test="org_espell != null">
+        org_espell = #{org_espell,jdbcType=VARCHAR},
+      </if>
+      <if test="org_capital != null">
+        org_capital = #{org_capital,jdbcType=DECIMAL},
+      </if>
+      <if test="currency_type != null">
+        currency_type = #{currency_type,jdbcType=BIGINT},
+      </if>
+      <if test="build_time != null">
+        build_time = #{build_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eco_nature != null">
+        eco_nature = #{eco_nature,jdbcType=BIGINT},
+      </if>
+      <if test="com_nature != null">
+        com_nature = #{com_nature,jdbcType=BIGINT},
+      </if>
+      <if test="regist_add != null">
+        regist_add = #{regist_add,jdbcType=VARCHAR},
+      </if>
+      <if test="office_add != null">
+        office_add = #{office_add,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_add != null">
+        contact_add = #{contact_add,jdbcType=VARCHAR},
+      </if>
+      <if test="org_web != null">
+        org_web = #{org_web,jdbcType=VARCHAR},
+      </if>
+      <if test="legal_rp != null">
+        legal_rp = #{legal_rp,jdbcType=VARCHAR},
+      </if>
+      <if test="gen_manager != null">
+        gen_manager = #{gen_manager,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_tel != null">
+        contact_tel = #{contact_tel,jdbcType=VARCHAR},
+      </if>
+      <if test="contact_fax != null">
+        contact_fax = #{contact_fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="official_number != null">
+        official_number = #{official_number,jdbcType=VARCHAR},
+      </if>
+      <if test="license != null">
+        license = #{license,jdbcType=INTEGER},
+      </if>
+      <if test="start_date != null">
+        start_date = #{start_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cutoff_date != null">
+        cutoff_date = #{cutoff_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="org_profile != null">
+        org_profile = #{org_profile,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="main_business != null">
+        main_business = #{main_business,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where org_uni_code = #{org_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="la.niub.abcapi.servicecompre.model.OrgBasicInfoWithBLOBs">
+    update org_basic_info
+    set com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      org_type = #{org_type,jdbcType=BIGINT},
+      org_name = #{org_name,jdbcType=VARCHAR},
+      org_sname = #{org_sname,jdbcType=VARCHAR},
+      org_ename = #{org_ename,jdbcType=VARCHAR},
+      org_espell = #{org_espell,jdbcType=VARCHAR},
+      org_capital = #{org_capital,jdbcType=DECIMAL},
+      currency_type = #{currency_type,jdbcType=BIGINT},
+      build_time = #{build_time,jdbcType=TIMESTAMP},
+      eco_nature = #{eco_nature,jdbcType=BIGINT},
+      com_nature = #{com_nature,jdbcType=BIGINT},
+      regist_add = #{regist_add,jdbcType=VARCHAR},
+      office_add = #{office_add,jdbcType=VARCHAR},
+      contact_add = #{contact_add,jdbcType=VARCHAR},
+      org_web = #{org_web,jdbcType=VARCHAR},
+      legal_rp = #{legal_rp,jdbcType=VARCHAR},
+      gen_manager = #{gen_manager,jdbcType=VARCHAR},
+      contact_tel = #{contact_tel,jdbcType=VARCHAR},
+      contact_fax = #{contact_fax,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      official_number = #{official_number,jdbcType=VARCHAR},
+      license = #{license,jdbcType=INTEGER},
+      start_date = #{start_date,jdbcType=TIMESTAMP},
+      cutoff_date = #{cutoff_date,jdbcType=TIMESTAMP},
+      reason = #{reason,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      org_profile = #{org_profile,jdbcType=LONGVARCHAR},
+      main_business = #{main_business,jdbcType=LONGVARCHAR}
+    where org_uni_code = #{org_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.OrgBasicInfoModel">
+    update org_basic_info
+    set com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      org_type = #{org_type,jdbcType=BIGINT},
+      org_name = #{org_name,jdbcType=VARCHAR},
+      org_sname = #{org_sname,jdbcType=VARCHAR},
+      org_ename = #{org_ename,jdbcType=VARCHAR},
+      org_espell = #{org_espell,jdbcType=VARCHAR},
+      org_capital = #{org_capital,jdbcType=DECIMAL},
+      currency_type = #{currency_type,jdbcType=BIGINT},
+      build_time = #{build_time,jdbcType=TIMESTAMP},
+      eco_nature = #{eco_nature,jdbcType=BIGINT},
+      com_nature = #{com_nature,jdbcType=BIGINT},
+      regist_add = #{regist_add,jdbcType=VARCHAR},
+      office_add = #{office_add,jdbcType=VARCHAR},
+      contact_add = #{contact_add,jdbcType=VARCHAR},
+      org_web = #{org_web,jdbcType=VARCHAR},
+      legal_rp = #{legal_rp,jdbcType=VARCHAR},
+      gen_manager = #{gen_manager,jdbcType=VARCHAR},
+      contact_tel = #{contact_tel,jdbcType=VARCHAR},
+      contact_fax = #{contact_fax,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      official_number = #{official_number,jdbcType=VARCHAR},
+      license = #{license,jdbcType=INTEGER},
+      start_date = #{start_date,jdbcType=TIMESTAMP},
+      cutoff_date = #{cutoff_date,jdbcType=TIMESTAMP},
+      reason = #{reason,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR}
+    where org_uni_code = #{org_uni_code,jdbcType=BIGINT}
+  </update>
+  <select id="selectByOrgName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from org_basic_info
+    where org_name = #{orgName,jdbcType=VARCHAR} limit 1
+  </select>
+  <select id="selectByOrgNameWithBLOBs" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+      select
+      <include refid="Base_Column_List" />
+      ,
+      <include refid="Blob_Column_List" />
+      from org_basic_info
+      where org_name = #{orgName,jdbcType=VARCHAR} limit 1
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from org_basic_info
+      where org_uni_code = #{org_uni_code,jdbcType=BIGINT} limit 1
+  </select>
+  <select id="selectByComUniCode" parameterType="java.lang.Long" resultType="la.niub.abcapi.servicecompre.model.OrgBasicInfoModel">
+    select
+    <include refid="Base_Column_List" />
+    from org_basic_info
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} limit 1;
+  </select>
+    <select id="selectByComUniCodeWithBLOBs" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List" />
+        from org_basic_info
+        where com_uni_code = #{comUniCode,jdbcType=BIGINT} limit 1;
+    </select>
+</mapper>

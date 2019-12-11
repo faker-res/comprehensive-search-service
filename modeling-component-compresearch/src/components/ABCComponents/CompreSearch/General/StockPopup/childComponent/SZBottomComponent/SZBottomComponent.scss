@@ -1,0 +1,31 @@
+.SZBottomComponent {
+    span {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        width: 49%;
+        &:nth-child(2) {
+            display: inline-block;
+            width: 1px;
+            background-color: #E7E7E7;
+            height: 5vh;
+            margin-top: 7px;
+        }
+        p {
+            margin: 15px 0;
+            &:first-child {
+                font-size: 13px;
+                font-family: PingFangSC-Medium;
+                color: rgba(74, 74, 74, 1);
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+            &:nth-child(2) {
+                font-size: 12px;
+                font-family: PingFangSC-Regular;
+                color: rgba(171, 171, 171, 1);
+                margin-top: 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IIndexRangeChanDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.IndexRangeChanModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="index_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="period" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="trade_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="differ_range" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, index_uni_code, period, trade_date, differ_range, createtime, updatetime, status, 
+    creator, editor, come_source, push_search, push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from index_range_chan
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_range_chan
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.IndexRangeChanModel">
+    insert into index_range_chan (id, index_uni_code, period, 
+      trade_date, differ_range, createtime, 
+      updatetime, status, creator, 
+      editor, come_source, push_search, 
+      push_product)
+    values (#{id,jdbcType=BIGINT}, #{index_uni_code,jdbcType=BIGINT}, #{period,jdbcType=BIGINT}, 
+      #{trade_date,jdbcType=DATE}, #{differ_range,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, 
+      #{push_product,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.IndexRangeChanModel">
+    insert into index_range_chan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="index_uni_code != null">
+        index_uni_code,
+      </if>
+      <if test="period != null">
+        period,
+      </if>
+      <if test="trade_date != null">
+        trade_date,
+      </if>
+      <if test="differ_range != null">
+        differ_range,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="index_uni_code != null">
+        #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="period != null">
+        #{period,jdbcType=BIGINT},
+      </if>
+      <if test="trade_date != null">
+        #{trade_date,jdbcType=DATE},
+      </if>
+      <if test="differ_range != null">
+        #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.IndexRangeChanModel">
+    update index_range_chan
+    <set>
+      <if test="index_uni_code != null">
+        index_uni_code = #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="period != null">
+        period = #{period,jdbcType=BIGINT},
+      </if>
+      <if test="trade_date != null">
+        trade_date = #{trade_date,jdbcType=DATE},
+      </if>
+      <if test="differ_range != null">
+        differ_range = #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.IndexRangeChanModel">
+    update index_range_chan
+    set index_uni_code = #{index_uni_code,jdbcType=BIGINT},
+      period = #{period,jdbcType=BIGINT},
+      trade_date = #{trade_date,jdbcType=DATE},
+      differ_range = #{differ_range,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getRecordsByDate" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_range_chan
+    where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+    <if test="tradeDate != null">
+      and trade_date = #{tradeDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test ="null != periods">
+      and period IN
+      <foreach collection="periods" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+  <select id="getRecord5Day" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_range_chan
+    where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+      and trade_date = #{tradeDate,jdbcType=TIMESTAMP}
+      and period = 1524004001 limit 1
+  </select>
+    <select id="getRecord20Day" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from index_range_chan
+        where index_uni_code = #{indexUniCode,jdbcType=BIGINT}
+        and trade_date = #{tradeDate,jdbcType=TIMESTAMP}
+        and period = 1524004003 limit 1
+    </select>
+  <select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.IndexRangeChanModel">
+    SELECT <include refid="Base_Column_List"/> FROM index_range_chan WHERE 1=1
+    <if test="id != null and id != ''">
+      AND id = #{id}
+    </if>
+    <if test="index_uni_code != null and index_uni_code != ''">
+      AND index_uni_code = #{index_uni_code}
+    </if>
+    <if test="period != null and period != ''">
+      AND period = #{period}
+    </if>
+    <if test="trade_date != null and trade_date != ''">
+      AND trade_date = #{trade_date}
+    </if>
+    <if test="differ_range != null and differ_range != ''">
+      AND differ_range = #{differ_range}
+    </if>
+    <if test="createtime != null and createtime != ''">
+      AND createtime = #{createtime}
+    </if>
+    <if test="updatetime != null and updatetime != ''">
+      AND updatetime = #{updatetime}
+    </if>
+    <if test="status != null and status != ''">
+      AND status = #{status}
+    </if>
+    <if test="come_source != null and come_source != ''">
+      AND come_source = #{come_source}
+    </if>
+    <if test="push_search != null and push_search != ''">
+      AND push_search = #{push_search}
+    </if>
+    <if test="push_product != null and push_product != ''">
+      AND push_product = #{push_product}
+    </if>
+    <if test="orderByField != null and orderByField != ''">
+      ORDER BY ${orderByField}
+    </if>
+    <if test="startPageNum != null and perPageNum != null">
+      LIMIT ${perPageNum} OFFSET ${startPageNum}
+    </if>
+  </select>
+</mapper>

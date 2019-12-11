@@ -1,0 +1,144 @@
+/**
+ * @description 个股证券卡片样式
+ * @author kygeng
+ * date: 2018-05-15
+ */
+ .abc-stock-card-wrap {
+    position: relative;
+    padding: 20px 30px;
+    width: 870px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 0px;
+    box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.04);
+    .abc-stock-card-header {
+        padding: 0;
+        height: 36px;
+        line-height: 36px;
+        background: #fff;
+        .card-date{float: right;font-size: 12px;color: #999;}
+        .name,
+        .code,
+        .price {
+            color: #38609d;
+            font-size: 24px;
+            line-height: 36px;
+            font-weight: bold;
+        }
+        .price, 
+        .diff {
+            color: #666;
+        }
+        &.rise .price, 
+        &.rise .diff {
+            color: #d0021b;
+        }
+        &.rise .anticon-arrow-down {
+            display: none;
+        }
+        &.rise .anticon-arrow-up {
+            color: #d0021b;
+            margin-left: 5px;
+            font-size: 20px;
+        }
+        &.drop .price,
+        &.drop .diff {
+            color: #04a92b;
+        }
+        &.drop .anticon-arrow-up {
+            display: none;
+        }
+        &.drop .anticon-arrow-down {
+            color: #04a92b;
+            margin-left: 5px;
+            font-size: 20px;
+        }
+        .diff {
+            margin-left: 10px;
+            font-size: 18px;
+            line-height: 27px;
+            // font-weight: bold;
+        }
+    }
+    .abc-stock-card-content {
+        width: 100%;
+        height: 240px;
+        .chart-wrap {
+            width: 65%;
+            height: 100%;
+        }
+        .info-wrap {
+            padding: 0 0 0 20px;
+            width: 35%;
+            height: 100%;
+            font-size: 12px;
+            border-left: 1px solid #f4f4f4;
+            .item-wrap {
+                width: 100%;
+                height: 38px;
+                color: #666;
+                .value.rise {
+                    color: #d0021b;
+                }
+                .value.drop {
+                    color: #04a92b;
+                }
+                .sub-item-wrap {
+                    width: 48%;
+                    height: 100%;
+                }
+                .label {
+                    position: relative;
+                    .iconfont {
+                        position: absolute;
+                        top: -5px;
+                        color: #333;
+                    }
+                }
+            }
+            .divider {
+                margin: 5px 0;
+                width: 100%;
+                border-top: 1px dashed #ddd;
+            }
+        }
+    }
+    .abc-stock-card-market {
+        width: 100%;
+        .header-title {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            font-size: 15px;
+            line-height: 22.5px;
+            color: #333;
+            font-weight: bold;
+        }
+    }
+    .abc-stock-card-footer {
+        color: #666;
+        color: #666;
+        display: flex;
+        background-color: transparent;
+        outline: none;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        padding: 20px 0 0 0;
+        >a {
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        &:hover >a {
+            color: #3F7CD5;
+            text-decoration: underline;
+        }
+        img{
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+        }
+    }
+ }

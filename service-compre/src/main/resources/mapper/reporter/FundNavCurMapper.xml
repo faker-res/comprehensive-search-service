@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundNavCurDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundNavCurModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="special_sign" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="ten_thousand_returns" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="seven_day_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ten_thousand_cumu_returns" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="asset_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tot_asset_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="announced_returns" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="announced_returns_unit" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="is_stat" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="fund_sign" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="memo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, announcement_date, begin_date, end_date, special_sign, ten_thousand_returns, 
+    seven_day_yield, ten_thousand_cumu_returns, asset_nav, tot_asset_nav, announced_returns, 
+    announced_returns_unit, is_stat, fund_sign, memo, createtime, updatetime, status, 
+    creator, editor, push_search, push_product
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_nav_cur
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_nav_cur
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundNavCurModel">
+    insert into fund_nav_cur (id, sec_uni_code, announcement_date, 
+      begin_date, end_date, special_sign, 
+      ten_thousand_returns, seven_day_yield, 
+      ten_thousand_cumu_returns, asset_nav, tot_asset_nav, 
+      announced_returns, announced_returns_unit, 
+      is_stat, fund_sign, memo, 
+      createtime, updatetime, status, 
+      creator, editor, push_search, 
+      push_product)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, #{special_sign,jdbcType=BIGINT}, 
+      #{ten_thousand_returns,jdbcType=DECIMAL}, #{seven_day_yield,jdbcType=DECIMAL}, 
+      #{ten_thousand_cumu_returns,jdbcType=DECIMAL}, #{asset_nav,jdbcType=DECIMAL}, #{tot_asset_nav,jdbcType=DECIMAL}, 
+      #{announced_returns,jdbcType=DECIMAL}, #{announced_returns_unit,jdbcType=BIGINT}, 
+      #{is_stat,jdbcType=TINYINT}, #{fund_sign,jdbcType=TINYINT}, #{memo,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, 
+      #{push_product,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundNavCurModel">
+    insert into fund_nav_cur
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="special_sign != null">
+        special_sign,
+      </if>
+      <if test="ten_thousand_returns != null">
+        ten_thousand_returns,
+      </if>
+      <if test="seven_day_yield != null">
+        seven_day_yield,
+      </if>
+      <if test="ten_thousand_cumu_returns != null">
+        ten_thousand_cumu_returns,
+      </if>
+      <if test="asset_nav != null">
+        asset_nav,
+      </if>
+      <if test="tot_asset_nav != null">
+        tot_asset_nav,
+      </if>
+      <if test="announced_returns != null">
+        announced_returns,
+      </if>
+      <if test="announced_returns_unit != null">
+        announced_returns_unit,
+      </if>
+      <if test="is_stat != null">
+        is_stat,
+      </if>
+      <if test="fund_sign != null">
+        fund_sign,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="special_sign != null">
+        #{special_sign,jdbcType=BIGINT},
+      </if>
+      <if test="ten_thousand_returns != null">
+        #{ten_thousand_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="seven_day_yield != null">
+        #{seven_day_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="ten_thousand_cumu_returns != null">
+        #{ten_thousand_cumu_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="asset_nav != null">
+        #{asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_asset_nav != null">
+        #{tot_asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="announced_returns != null">
+        #{announced_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="announced_returns_unit != null">
+        #{announced_returns_unit,jdbcType=BIGINT},
+      </if>
+      <if test="is_stat != null">
+        #{is_stat,jdbcType=TINYINT},
+      </if>
+      <if test="fund_sign != null">
+        #{fund_sign,jdbcType=TINYINT},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundNavCurModel">
+    update fund_nav_cur
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="special_sign != null">
+        special_sign = #{special_sign,jdbcType=BIGINT},
+      </if>
+      <if test="ten_thousand_returns != null">
+        ten_thousand_returns = #{ten_thousand_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="seven_day_yield != null">
+        seven_day_yield = #{seven_day_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="ten_thousand_cumu_returns != null">
+        ten_thousand_cumu_returns = #{ten_thousand_cumu_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="asset_nav != null">
+        asset_nav = #{asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="tot_asset_nav != null">
+        tot_asset_nav = #{tot_asset_nav,jdbcType=DECIMAL},
+      </if>
+      <if test="announced_returns != null">
+        announced_returns = #{announced_returns,jdbcType=DECIMAL},
+      </if>
+      <if test="announced_returns_unit != null">
+        announced_returns_unit = #{announced_returns_unit,jdbcType=BIGINT},
+      </if>
+      <if test="is_stat != null">
+        is_stat = #{is_stat,jdbcType=TINYINT},
+      </if>
+      <if test="fund_sign != null">
+        fund_sign = #{fund_sign,jdbcType=TINYINT},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundNavCurModel">
+    update fund_nav_cur
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      special_sign = #{special_sign,jdbcType=BIGINT},
+      ten_thousand_returns = #{ten_thousand_returns,jdbcType=DECIMAL},
+      seven_day_yield = #{seven_day_yield,jdbcType=DECIMAL},
+      ten_thousand_cumu_returns = #{ten_thousand_cumu_returns,jdbcType=DECIMAL},
+      asset_nav = #{asset_nav,jdbcType=DECIMAL},
+      tot_asset_nav = #{tot_asset_nav,jdbcType=DECIMAL},
+      announced_returns = #{announced_returns,jdbcType=DECIMAL},
+      announced_returns_unit = #{announced_returns_unit,jdbcType=BIGINT},
+      is_stat = #{is_stat,jdbcType=TINYINT},
+      fund_sign = #{fund_sign,jdbcType=TINYINT},
+      memo = #{memo,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_nav_cur where `sec_uni_code`=#{sec_uni_code,jdbcType=INTEGER} order by end_date desc limit 1
+  </select>
+
+</mapper>

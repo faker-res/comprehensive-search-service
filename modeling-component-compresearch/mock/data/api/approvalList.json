@@ -1,0 +1,117 @@
+{
+	"code": 200,
+	"message": "ok",
+	"data": [
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		},
+		{	
+			"name": "关于武镇兴提交股票池入库审批申请",
+			"stockName": "药明康德(600089)",
+			"stocks": "基础池",
+			"operation": "入库",
+			"submitter": "李达宁",
+			"originally": "大盘已经连续5个交易日围绕60…",
+			"creationTime": "2018\\04\\16",
+			"status": "待审核",
+			"innerReportNum": 12,
+			"sellerReportNum": 25
+		}
+	],
+	"pageSize": 12,
+	"currentPage": 1,
+	"totalCount": 1200
+}

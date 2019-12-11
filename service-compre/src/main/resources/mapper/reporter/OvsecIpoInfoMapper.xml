@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IOvsecIpoInfoDao">
+
+    <select id="getFinanceAndStockCodeByComUniCodeList" resultType="map">
+        SELECT  capi_raised_total_amount AS financeAmount, stock_code
+        FROM com_ipo_info_new
+        WHERE STATUS!='9'
+        <if test="com_uni_code_list != null">
+            AND  com_uni_code IN
+            <foreach collection="com_uni_code_list" separator="," open="(" close=")" item="com_uni_code">
+                #{com_uni_code}
+            </foreach>
+        </if>
+        GROUP BY com_uni_code
+    </select>
+
+</mapper>
+
+

@@ -1,0 +1,150 @@
+.abc-c-chart-card {
+    position: relative;
+    background-color: #FFF;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #efe9e9;
+    -webkit-box-shadow: 0 0px 6px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0px 6px 0 rgba(0,0,0,.1);
+    transition: all 0.3s;
+
+    &:hover {
+        -webkit-box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+    }
+
+    .card-header {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid #dfe5ef;
+        cursor: pointer;
+    }
+    .card-content {
+        position: relative;
+        overflow: hidden;
+        padding: 16px;
+        background: #F9F9F9;
+
+        .card-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: bold;
+            margin-bottom: 8px;
+
+            font-size: 18px;
+            color: #333;
+            line-height: 25px;
+        }
+        .card-info {
+            line-height: 14px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .cnt-detail {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-bottom-info {
+            color: #999;
+            font-size: 12px;
+            line-height: 18px;
+            margin-top: 10px;
+
+            .source {
+                padding-bottom: 8px;
+            }
+
+            & > div {
+                & > p {
+                    padding: 0 10px;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        width: 1px;
+                        background-color: #999;
+                        transform: rotate(0deg);
+                        height: 14px;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+                    &:first-child {
+                        padding-left: 0;
+                        &::before {
+                            display: none;
+                        }
+                    }
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+        .abc-c-table-box {
+            overflow: hidden;
+            .table-wrp {
+                position: relative;
+            }
+        }
+    }
+
+    .underline {
+        text-decoration: underline;
+
+        &:active {
+            color: blue;
+        }
+    }
+    .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+    .f-d-row {
+        flex-direction: row;
+    }
+    .f-d-column {
+        flex-direction: column;
+    }
+    .f-ai-baseline {
+        align-items: baseline;
+    }
+    .f-ai-center {
+        align-items: center;
+    }
+    .f-ai-stretch {
+        align-items: stretch;
+    }
+    .f-ai-center {
+        align-items: center;
+    }
+    .f-ai-start {
+        align-items: flex-start;
+    }
+    .f-ai-end {
+        align-items: flex-end;
+    }
+    .f-jc-between {
+        justify-content: space-between;
+    }
+    .f-jc-around {
+        justify-content: space-around;
+    }
+    .f-jc-center {
+        justify-content: center;
+    }
+    .f-jc-start {
+        justify-content: flex-start;
+    }
+    .f-jc-end {
+        justify-content: flex-end;
+    }
+}

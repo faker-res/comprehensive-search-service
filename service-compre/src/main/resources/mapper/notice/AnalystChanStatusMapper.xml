@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystChanStatusDao">
+    <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.AnalystChanStatusModel">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+            <arg column="peo_uni_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="analyst_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="certificate_issued_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="certificate_validity_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="org_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="current_org" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="practice_post" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="certificate_status" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+            <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+            <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+            <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+            <arg column="org_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="org_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, peo_uni_code, analyst_code, certificate_issued_date, certificate_validity_date,
+    org_uni_code, current_org, practice_post, certificate_status, createtime, updatetime,
+    status, remark, creator, editor, come_source, push_search, push_product, org_sname,
+    org_type
+  </sql>
+
+    <resultMap id="SimpleResultMap" type="la.niub.abcapi.servicecompre.model.AnalystChanStatusModel">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="peo_uni_code" property="peo_uni_code" jdbcType="VARCHAR"/>
+        <result column="org_sname" property="org_sname" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Simple_Column_List">
+        `id`, `peo_uni_code`, `org_sname`, `analyst_code`
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_chan_status
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from analyst_chan_status
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.AnalystChanStatusModel">
+    insert into analyst_chan_status (id, peo_uni_code, analyst_code,
+      certificate_issued_date, certificate_validity_date,
+      org_uni_code, current_org, practice_post,
+      certificate_status, createtime, updatetime,
+      status, remark, creator,
+      editor, come_source, push_search,
+      push_product, org_sname, org_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{peo_uni_code,jdbcType=VARCHAR}, #{analyst_code,jdbcType=VARCHAR},
+      #{certificate_issued_date,jdbcType=TIMESTAMP}, #{certificate_validity_date,jdbcType=TIMESTAMP},
+      #{org_uni_code,jdbcType=BIGINT}, #{current_org,jdbcType=VARCHAR}, #{practice_post,jdbcType=VARCHAR},
+      #{certificate_status,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},
+      #{status,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR},
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT},
+      #{push_product,jdbcType=TINYINT}, #{org_sname,jdbcType=VARCHAR}, #{org_type,jdbcType=BIGINT}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystChanStatusModel">
+        insert into analyst_chan_status
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="peo_uni_code != null">
+                peo_uni_code,
+            </if>
+            <if test="analyst_code != null">
+                analyst_code,
+            </if>
+            <if test="certificate_issued_date != null">
+                certificate_issued_date,
+            </if>
+            <if test="certificate_validity_date != null">
+                certificate_validity_date,
+            </if>
+            <if test="org_uni_code != null">
+                org_uni_code,
+            </if>
+            <if test="current_org != null">
+                current_org,
+            </if>
+            <if test="practice_post != null">
+                practice_post,
+            </if>
+            <if test="certificate_status != null">
+                certificate_status,
+            </if>
+            <if test="createtime != null">
+                createtime,
+            </if>
+            <if test="updatetime != null">
+                updatetime,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="editor != null">
+                editor,
+            </if>
+            <if test="come_source != null">
+                come_source,
+            </if>
+            <if test="push_search != null">
+                push_search,
+            </if>
+            <if test="push_product != null">
+                push_product,
+            </if>
+            <if test="org_sname != null">
+                org_sname,
+            </if>
+            <if test="org_type != null">
+                org_type,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="peo_uni_code != null">
+                #{peo_uni_code,jdbcType=VARCHAR},
+            </if>
+            <if test="analyst_code != null">
+                #{analyst_code,jdbcType=VARCHAR},
+            </if>
+            <if test="certificate_issued_date != null">
+                #{certificate_issued_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="certificate_validity_date != null">
+                #{certificate_validity_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="org_uni_code != null">
+                #{org_uni_code,jdbcType=BIGINT},
+            </if>
+            <if test="current_org != null">
+                #{current_org,jdbcType=VARCHAR},
+            </if>
+            <if test="practice_post != null">
+                #{practice_post,jdbcType=VARCHAR},
+            </if>
+            <if test="certificate_status != null">
+                #{certificate_status,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="editor != null">
+                #{editor,jdbcType=VARCHAR},
+            </if>
+            <if test="come_source != null">
+                #{come_source,jdbcType=VARCHAR},
+            </if>
+            <if test="push_search != null">
+                #{push_search,jdbcType=TINYINT},
+            </if>
+            <if test="push_product != null">
+                #{push_product,jdbcType=TINYINT},
+            </if>
+            <if test="org_sname != null">
+                #{org_sname,jdbcType=VARCHAR},
+            </if>
+            <if test="org_type != null">
+                #{org_type,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.AnalystChanStatusModel">
+        update analyst_chan_status
+        <set>
+            <if test="peo_uni_code != null">
+                peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+            </if>
+            <if test="analyst_code != null">
+                analyst_code = #{analyst_code,jdbcType=VARCHAR},
+            </if>
+            <if test="certificate_issued_date != null">
+                certificate_issued_date = #{certificate_issued_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="certificate_validity_date != null">
+                certificate_validity_date = #{certificate_validity_date,jdbcType=TIMESTAMP},
+            </if>
+            <if test="org_uni_code != null">
+                org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+            </if>
+            <if test="current_org != null">
+                current_org = #{current_org,jdbcType=VARCHAR},
+            </if>
+            <if test="practice_post != null">
+                practice_post = #{practice_post,jdbcType=VARCHAR},
+            </if>
+            <if test="certificate_status != null">
+                certificate_status = #{certificate_status,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="editor != null">
+                editor = #{editor,jdbcType=VARCHAR},
+            </if>
+            <if test="come_source != null">
+                come_source = #{come_source,jdbcType=VARCHAR},
+            </if>
+            <if test="push_search != null">
+                push_search = #{push_search,jdbcType=TINYINT},
+            </if>
+            <if test="push_product != null">
+                push_product = #{push_product,jdbcType=TINYINT},
+            </if>
+            <if test="org_sname != null">
+                org_sname = #{org_sname,jdbcType=VARCHAR},
+            </if>
+            <if test="org_type != null">
+                org_type = #{org_type,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.AnalystChanStatusModel">
+    update analyst_chan_status
+    set peo_uni_code = #{peo_uni_code,jdbcType=VARCHAR},
+      analyst_code = #{analyst_code,jdbcType=VARCHAR},
+      certificate_issued_date = #{certificate_issued_date,jdbcType=TIMESTAMP},
+      certificate_validity_date = #{certificate_validity_date,jdbcType=TIMESTAMP},
+      org_uni_code = #{org_uni_code,jdbcType=BIGINT},
+      current_org = #{current_org,jdbcType=VARCHAR},
+      practice_post = #{practice_post,jdbcType=VARCHAR},
+      certificate_status = #{certificate_status,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT},
+      org_sname = #{org_sname,jdbcType=VARCHAR},
+      org_type = #{org_type,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="getListByPeoUniCodes" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `analyst_chan_status`
+        WHERE `peo_uni_code` IN
+        <foreach collection="peoUniCodes" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+        AND `certificate_status` = "正常" ORDER BY ID ASC ;
+    </select>
+
+    <select id="selectByPeoUniCode" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `analyst_chan_status`
+        where `peo_uni_code`=#{peo_uni_code,jdbcType=VARCHAR}
+        AND `certificate_status` = "正常"
+        ORDER BY `certificate_issued_date` DESC limit 1
+    </select>
+
+    <select id="getResumesByPeoUniCodes" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM analyst_chan_status
+        where certificate_status IN ('正常', '机构内变更')
+        <if test ="null != peoUniCodes">
+           and  peo_uni_code IN
+            <foreach collection="peoUniCodes" item="item" index="index"
+                     open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        ORDER BY id DESC
+    </select>
+
+    <select id="getAnalystByOrg" resultMap="BaseResultMap">
+      SELECT
+      <include refid="Base_Column_List"/>
+        FROM `analyst_chan_status`
+        WHERE `org_uni_code` = #{orgId,jdbcType=INTEGER}
+        AND `practice_post` = "证券投资咨询业务(分析师)"
+        AND `certificate_status` = "正常" ORDER BY ID DESC;
+    </select>
+
+    <select id="selectPeoUniCodeByOrgUniCode" resultType="java.lang.String">
+        SELECT peo_uni_code
+        FROM analyst_chan_status
+        WHERE org_uni_code = #{org_uni_code}
+        AND `practice_post` = "证券投资咨询业务(分析师)"
+        AND certificate_status  IN ('正常', '机构内变更')
+        GROUP BY peo_uni_code
+    </select>
+
+    <select id="getAllAnalystByOrg" resultType="string">
+        SELECT
+        DISTINCT peo_uni_code
+        FROM
+        analyst_chan_status
+        WHERE
+        org_uni_code = #{orgId} AND practice_post = '证券投资咨询业务(分析师)'
+        ORDER BY id DESC
+    </select>
+
+    <select id="getResumesByPeoUniCode" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM `analyst_chan_status`
+        WHERE
+        peo_uni_code = #{peoUniCode}
+        ORDER BY
+        certificate_issued_date ASC
+    </select>
+
+    <select id="getOrgSnameList" resultType="map">
+        SELECT org_sname
+        FROM analyst_chan_status
+        WHERE org_sname IS NOT NULL
+        GROUP BY org_sname
+    </select>
+
+    <select id="getAllAnalystByOrgSname" resultType="java.lang.String">
+        SELECT peo_uni_code
+        FROM analyst_chan_status
+        WHERE `practice_post` = "证券投资咨询业务(分析师)"
+        AND certificate_status  IN ('正常', '机构内变更')
+        <if test="org_sname != null">
+            AND org_sname = #{org_sname}
+        </if>
+        GROUP BY peo_uni_code
+    </select>
+
+    <select id="getAllAnalystPeoUniCode" resultType="java.lang.String">
+        SELECT peo_uni_code
+        FROM analyst_chan_status
+        where `practice_post` = "证券投资咨询业务(分析师)"
+        AND certificate_status  IN ('正常', '机构内变更')
+        GROUP BY peo_uni_code
+    </select>
+</mapper>

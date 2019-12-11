@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundBasicInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundBasicInfoModel">
+    <constructor>
+      <idArg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="fund_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_method" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="investment_style" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mana_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="cust_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="exsit_period" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="operate_period" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="operate_period_unit" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="unit_par_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_mode" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="iss_obj_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="issue_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_fee" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="invst_cur_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="coll_amut_upper" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="iss_beg_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="iss_end_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="is_valid" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_stat" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_structured_fund" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_unbr_fund" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_index_fund" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="sub_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pay_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sub_limit_lower" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sub_limit_upper" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="coll_period" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="exist_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="exist_sub_num" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="spon_sub_pla_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="insu_sub_pla_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pub_sub_pla_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pub_sub_tot_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_sub_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_frozen_capital" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_success_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="valid_sub_num" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="valid_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="coll_val_inti" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="total_coll_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="initiator_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="employee_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="registration_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="found_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_found_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_app_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_redem_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_app_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_redem_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_app_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_redem_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_app_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_redem_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="app_limit_lower" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="redem_limit_lower" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="lowest_holding_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sub_conf_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="redem_conf_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="redem_pay_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="list_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_list_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="exchange" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="list_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="liquidation_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="liquidation_end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="nav_pub_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="large_redem_pct" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="la.niub.abcapi.servicecompre.model.FundBasicInfoWithBLOBs">
+    <constructor>
+      <idArg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="fund_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_method" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="investment_style" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mana_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="cust_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="exsit_period" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="operate_period" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="operate_period_unit" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="unit_par_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_mode" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="iss_obj_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="issue_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_fee" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="invst_cur_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="coll_amut_upper" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="iss_beg_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="iss_end_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="is_valid" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_stat" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_structured_fund" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_unbr_fund" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="is_index_fund" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="sub_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pay_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sub_limit_lower" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sub_limit_upper" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="coll_period" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="exist_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="exist_sub_num" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="spon_sub_pla_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="insu_sub_pla_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pub_sub_pla_amt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pub_sub_tot_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_sub_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_frozen_capital" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="issue_success_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="valid_sub_num" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="valid_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="coll_val_inti" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="total_coll_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="initiator_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="employee_sub_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="registration_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="found_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_found_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_app_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_redem_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_app_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="out_redem_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_app_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_redem_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_app_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="in_redem_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="app_limit_lower" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="redem_limit_lower" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="lowest_holding_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sub_conf_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="redem_conf_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="redem_pay_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="list_annc_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="fund_list_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="exchange" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="list_share" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="liquidation_start_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="liquidation_end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="nav_pub_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="large_redem_pct" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="push_search" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="push_product" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="invst_target" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="invst_rule" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="invst_orient" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="risk_type" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="invst_stra" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="decision_rule" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="large_redem_treat" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="profit_dist_rule" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="end_term" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    sec_uni_code, announcement_date, fund_name, fund_sname, fund_type, fund_method, investment_style, 
+    mana_uni_code, cust_uni_code, exsit_period, operate_period, operate_period_unit, 
+    unit_par_value, issue_mode, iss_obj_desc, issue_price, issue_fee, invst_cur_type, 
+    coll_amut_upper, iss_beg_date, iss_end_date, is_valid, is_stat, is_structured_fund, 
+    is_unbr_fund, is_index_fund, sub_type, pay_type, sub_limit_lower, sub_limit_upper, 
+    coll_period, exist_sub_share, exist_sub_num, spon_sub_pla_amt, insu_sub_pla_amt, 
+    pub_sub_pla_amt, pub_sub_tot_share, issue_sub_ratio, issue_frozen_capital, issue_success_rate, 
+    valid_sub_num, valid_sub_share, coll_val_inti, total_coll_share, initiator_sub_share, 
+    employee_sub_share, registration_date, found_annc_date, fund_found_date, fund_end_date, 
+    out_app_annc_date, out_redem_annc_date, out_app_start_date, out_redem_start_date, 
+    in_app_annc_date, in_redem_annc_date, in_app_start_date, in_redem_start_date, app_limit_lower, 
+    redem_limit_lower, lowest_holding_share, sub_conf_date, redem_conf_date, redem_pay_date, 
+    list_annc_date, fund_list_date, exchange, list_share, liquidation_start_date, liquidation_end_date, 
+    nav_pub_type, large_redem_pct, createtime, updatetime, status, creator, editor, push_search, 
+    push_product
+  </sql>
+  <sql id="Blob_Column_List">
+    invst_target, invst_rule, invst_orient, risk_type, invst_stra, decision_rule, large_redem_treat, 
+    profit_dist_rule, end_term, remark
+  </sql>
+  <select id="selectByPrimaryKeyWithBLOBs" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from fund_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundBasicInfoWithBLOBs">
+    insert into fund_basic_info (sec_uni_code, announcement_date, 
+      fund_name, fund_sname, fund_type, 
+      fund_method, investment_style, mana_uni_code, 
+      cust_uni_code, exsit_period, operate_period, 
+      operate_period_unit, unit_par_value, issue_mode, 
+      iss_obj_desc, issue_price, issue_fee, 
+      invst_cur_type, coll_amut_upper, iss_beg_date, 
+      iss_end_date, is_valid, is_stat, 
+      is_structured_fund, is_unbr_fund, is_index_fund, 
+      sub_type, pay_type, sub_limit_lower, 
+      sub_limit_upper, coll_period, exist_sub_share, 
+      exist_sub_num, spon_sub_pla_amt, insu_sub_pla_amt, 
+      pub_sub_pla_amt, pub_sub_tot_share, issue_sub_ratio, 
+      issue_frozen_capital, issue_success_rate, 
+      valid_sub_num, valid_sub_share, coll_val_inti, 
+      total_coll_share, initiator_sub_share, 
+      employee_sub_share, registration_date, found_annc_date, 
+      fund_found_date, fund_end_date, out_app_annc_date, 
+      out_redem_annc_date, out_app_start_date, out_redem_start_date, 
+      in_app_annc_date, in_redem_annc_date, in_app_start_date, 
+      in_redem_start_date, app_limit_lower, redem_limit_lower, 
+      lowest_holding_share, sub_conf_date, redem_conf_date, 
+      redem_pay_date, list_annc_date, fund_list_date, 
+      exchange, list_share, liquidation_start_date, 
+      liquidation_end_date, nav_pub_type, large_redem_pct, 
+      createtime, updatetime, status, 
+      creator, editor, push_search, 
+      push_product, invst_target, invst_rule, 
+      invst_orient, risk_type, invst_stra, 
+      decision_rule, large_redem_treat, 
+      profit_dist_rule, end_term, remark
+      )
+    values (#{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=TIMESTAMP}, 
+      #{fund_name,jdbcType=VARCHAR}, #{fund_sname,jdbcType=VARCHAR}, #{fund_type,jdbcType=VARCHAR}, 
+      #{fund_method,jdbcType=VARCHAR}, #{investment_style,jdbcType=VARCHAR}, #{mana_uni_code,jdbcType=BIGINT}, 
+      #{cust_uni_code,jdbcType=BIGINT}, #{exsit_period,jdbcType=VARCHAR}, #{operate_period,jdbcType=INTEGER}, 
+      #{operate_period_unit,jdbcType=BIGINT}, #{unit_par_value,jdbcType=DECIMAL}, #{issue_mode,jdbcType=BIGINT}, 
+      #{iss_obj_desc,jdbcType=VARCHAR}, #{issue_price,jdbcType=DECIMAL}, #{issue_fee,jdbcType=DECIMAL}, 
+      #{invst_cur_type,jdbcType=BIGINT}, #{coll_amut_upper,jdbcType=DECIMAL}, #{iss_beg_date,jdbcType=TIMESTAMP}, 
+      #{iss_end_date,jdbcType=TIMESTAMP}, #{is_valid,jdbcType=TINYINT}, #{is_stat,jdbcType=TINYINT}, 
+      #{is_structured_fund,jdbcType=TINYINT}, #{is_unbr_fund,jdbcType=TINYINT}, #{is_index_fund,jdbcType=TINYINT}, 
+      #{sub_type,jdbcType=VARCHAR}, #{pay_type,jdbcType=VARCHAR}, #{sub_limit_lower,jdbcType=DECIMAL}, 
+      #{sub_limit_upper,jdbcType=DECIMAL}, #{coll_period,jdbcType=INTEGER}, #{exist_sub_share,jdbcType=DECIMAL}, 
+      #{exist_sub_num,jdbcType=DECIMAL}, #{spon_sub_pla_amt,jdbcType=DECIMAL}, #{insu_sub_pla_amt,jdbcType=DECIMAL}, 
+      #{pub_sub_pla_amt,jdbcType=DECIMAL}, #{pub_sub_tot_share,jdbcType=DECIMAL}, #{issue_sub_ratio,jdbcType=DECIMAL}, 
+      #{issue_frozen_capital,jdbcType=DECIMAL}, #{issue_success_rate,jdbcType=DECIMAL}, 
+      #{valid_sub_num,jdbcType=DECIMAL}, #{valid_sub_share,jdbcType=DECIMAL}, #{coll_val_inti,jdbcType=DECIMAL}, 
+      #{total_coll_share,jdbcType=DECIMAL}, #{initiator_sub_share,jdbcType=DECIMAL}, 
+      #{employee_sub_share,jdbcType=DECIMAL}, #{registration_date,jdbcType=DATE}, #{found_annc_date,jdbcType=DATE}, 
+      #{fund_found_date,jdbcType=DATE}, #{fund_end_date,jdbcType=DATE}, #{out_app_annc_date,jdbcType=DATE}, 
+      #{out_redem_annc_date,jdbcType=DATE}, #{out_app_start_date,jdbcType=DATE}, #{out_redem_start_date,jdbcType=DATE}, 
+      #{in_app_annc_date,jdbcType=DATE}, #{in_redem_annc_date,jdbcType=DATE}, #{in_app_start_date,jdbcType=DATE}, 
+      #{in_redem_start_date,jdbcType=DATE}, #{app_limit_lower,jdbcType=DECIMAL}, #{redem_limit_lower,jdbcType=DECIMAL}, 
+      #{lowest_holding_share,jdbcType=DECIMAL}, #{sub_conf_date,jdbcType=VARCHAR}, #{redem_conf_date,jdbcType=VARCHAR}, 
+      #{redem_pay_date,jdbcType=VARCHAR}, #{list_annc_date,jdbcType=DATE}, #{fund_list_date,jdbcType=DATE}, 
+      #{exchange,jdbcType=BIGINT}, #{list_share,jdbcType=DECIMAL}, #{liquidation_start_date,jdbcType=DATE}, 
+      #{liquidation_end_date,jdbcType=DATE}, #{nav_pub_type,jdbcType=BIGINT}, #{large_redem_pct,jdbcType=INTEGER}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{push_search,jdbcType=TINYINT}, 
+      #{push_product,jdbcType=TINYINT}, #{invst_target,jdbcType=LONGVARCHAR}, #{invst_rule,jdbcType=LONGVARCHAR}, 
+      #{invst_orient,jdbcType=LONGVARCHAR}, #{risk_type,jdbcType=LONGVARCHAR}, #{invst_stra,jdbcType=LONGVARCHAR}, 
+      #{decision_rule,jdbcType=LONGVARCHAR}, #{large_redem_treat,jdbcType=LONGVARCHAR}, 
+      #{profit_dist_rule,jdbcType=LONGVARCHAR}, #{end_term,jdbcType=LONGVARCHAR}, #{remark,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundBasicInfoWithBLOBs">
+    insert into fund_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="fund_name != null">
+        fund_name,
+      </if>
+      <if test="fund_sname != null">
+        fund_sname,
+      </if>
+      <if test="fund_type != null">
+        fund_type,
+      </if>
+      <if test="fund_method != null">
+        fund_method,
+      </if>
+      <if test="investment_style != null">
+        investment_style,
+      </if>
+      <if test="mana_uni_code != null">
+        mana_uni_code,
+      </if>
+      <if test="cust_uni_code != null">
+        cust_uni_code,
+      </if>
+      <if test="exsit_period != null">
+        exsit_period,
+      </if>
+      <if test="operate_period != null">
+        operate_period,
+      </if>
+      <if test="operate_period_unit != null">
+        operate_period_unit,
+      </if>
+      <if test="unit_par_value != null">
+        unit_par_value,
+      </if>
+      <if test="issue_mode != null">
+        issue_mode,
+      </if>
+      <if test="iss_obj_desc != null">
+        iss_obj_desc,
+      </if>
+      <if test="issue_price != null">
+        issue_price,
+      </if>
+      <if test="issue_fee != null">
+        issue_fee,
+      </if>
+      <if test="invst_cur_type != null">
+        invst_cur_type,
+      </if>
+      <if test="coll_amut_upper != null">
+        coll_amut_upper,
+      </if>
+      <if test="iss_beg_date != null">
+        iss_beg_date,
+      </if>
+      <if test="iss_end_date != null">
+        iss_end_date,
+      </if>
+      <if test="is_valid != null">
+        is_valid,
+      </if>
+      <if test="is_stat != null">
+        is_stat,
+      </if>
+      <if test="is_structured_fund != null">
+        is_structured_fund,
+      </if>
+      <if test="is_unbr_fund != null">
+        is_unbr_fund,
+      </if>
+      <if test="is_index_fund != null">
+        is_index_fund,
+      </if>
+      <if test="sub_type != null">
+        sub_type,
+      </if>
+      <if test="pay_type != null">
+        pay_type,
+      </if>
+      <if test="sub_limit_lower != null">
+        sub_limit_lower,
+      </if>
+      <if test="sub_limit_upper != null">
+        sub_limit_upper,
+      </if>
+      <if test="coll_period != null">
+        coll_period,
+      </if>
+      <if test="exist_sub_share != null">
+        exist_sub_share,
+      </if>
+      <if test="exist_sub_num != null">
+        exist_sub_num,
+      </if>
+      <if test="spon_sub_pla_amt != null">
+        spon_sub_pla_amt,
+      </if>
+      <if test="insu_sub_pla_amt != null">
+        insu_sub_pla_amt,
+      </if>
+      <if test="pub_sub_pla_amt != null">
+        pub_sub_pla_amt,
+      </if>
+      <if test="pub_sub_tot_share != null">
+        pub_sub_tot_share,
+      </if>
+      <if test="issue_sub_ratio != null">
+        issue_sub_ratio,
+      </if>
+      <if test="issue_frozen_capital != null">
+        issue_frozen_capital,
+      </if>
+      <if test="issue_success_rate != null">
+        issue_success_rate,
+      </if>
+      <if test="valid_sub_num != null">
+        valid_sub_num,
+      </if>
+      <if test="valid_sub_share != null">
+        valid_sub_share,
+      </if>
+      <if test="coll_val_inti != null">
+        coll_val_inti,
+      </if>
+      <if test="total_coll_share != null">
+        total_coll_share,
+      </if>
+      <if test="initiator_sub_share != null">
+        initiator_sub_share,
+      </if>
+      <if test="employee_sub_share != null">
+        employee_sub_share,
+      </if>
+      <if test="registration_date != null">
+        registration_date,
+      </if>
+      <if test="found_annc_date != null">
+        found_annc_date,
+      </if>
+      <if test="fund_found_date != null">
+        fund_found_date,
+      </if>
+      <if test="fund_end_date != null">
+        fund_end_date,
+      </if>
+      <if test="out_app_annc_date != null">
+        out_app_annc_date,
+      </if>
+      <if test="out_redem_annc_date != null">
+        out_redem_annc_date,
+      </if>
+      <if test="out_app_start_date != null">
+        out_app_start_date,
+      </if>
+      <if test="out_redem_start_date != null">
+        out_redem_start_date,
+      </if>
+      <if test="in_app_annc_date != null">
+        in_app_annc_date,
+      </if>
+      <if test="in_redem_annc_date != null">
+        in_redem_annc_date,
+      </if>
+      <if test="in_app_start_date != null">
+        in_app_start_date,
+      </if>
+      <if test="in_redem_start_date != null">
+        in_redem_start_date,
+      </if>
+      <if test="app_limit_lower != null">
+        app_limit_lower,
+      </if>
+      <if test="redem_limit_lower != null">
+        redem_limit_lower,
+      </if>
+      <if test="lowest_holding_share != null">
+        lowest_holding_share,
+      </if>
+      <if test="sub_conf_date != null">
+        sub_conf_date,
+      </if>
+      <if test="redem_conf_date != null">
+        redem_conf_date,
+      </if>
+      <if test="redem_pay_date != null">
+        redem_pay_date,
+      </if>
+      <if test="list_annc_date != null">
+        list_annc_date,
+      </if>
+      <if test="fund_list_date != null">
+        fund_list_date,
+      </if>
+      <if test="exchange != null">
+        exchange,
+      </if>
+      <if test="list_share != null">
+        list_share,
+      </if>
+      <if test="liquidation_start_date != null">
+        liquidation_start_date,
+      </if>
+      <if test="liquidation_end_date != null">
+        liquidation_end_date,
+      </if>
+      <if test="nav_pub_type != null">
+        nav_pub_type,
+      </if>
+      <if test="large_redem_pct != null">
+        large_redem_pct,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="push_search != null">
+        push_search,
+      </if>
+      <if test="push_product != null">
+        push_product,
+      </if>
+      <if test="invst_target != null">
+        invst_target,
+      </if>
+      <if test="invst_rule != null">
+        invst_rule,
+      </if>
+      <if test="invst_orient != null">
+        invst_orient,
+      </if>
+      <if test="risk_type != null">
+        risk_type,
+      </if>
+      <if test="invst_stra != null">
+        invst_stra,
+      </if>
+      <if test="decision_rule != null">
+        decision_rule,
+      </if>
+      <if test="large_redem_treat != null">
+        large_redem_treat,
+      </if>
+      <if test="profit_dist_rule != null">
+        profit_dist_rule,
+      </if>
+      <if test="end_term != null">
+        end_term,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fund_name != null">
+        #{fund_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_sname != null">
+        #{fund_sname,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_type != null">
+        #{fund_type,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_method != null">
+        #{fund_method,jdbcType=VARCHAR},
+      </if>
+      <if test="investment_style != null">
+        #{investment_style,jdbcType=VARCHAR},
+      </if>
+      <if test="mana_uni_code != null">
+        #{mana_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="cust_uni_code != null">
+        #{cust_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="exsit_period != null">
+        #{exsit_period,jdbcType=VARCHAR},
+      </if>
+      <if test="operate_period != null">
+        #{operate_period,jdbcType=INTEGER},
+      </if>
+      <if test="operate_period_unit != null">
+        #{operate_period_unit,jdbcType=BIGINT},
+      </if>
+      <if test="unit_par_value != null">
+        #{unit_par_value,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_mode != null">
+        #{issue_mode,jdbcType=BIGINT},
+      </if>
+      <if test="iss_obj_desc != null">
+        #{iss_obj_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="issue_price != null">
+        #{issue_price,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_fee != null">
+        #{issue_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="invst_cur_type != null">
+        #{invst_cur_type,jdbcType=BIGINT},
+      </if>
+      <if test="coll_amut_upper != null">
+        #{coll_amut_upper,jdbcType=DECIMAL},
+      </if>
+      <if test="iss_beg_date != null">
+        #{iss_beg_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iss_end_date != null">
+        #{iss_end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="is_valid != null">
+        #{is_valid,jdbcType=TINYINT},
+      </if>
+      <if test="is_stat != null">
+        #{is_stat,jdbcType=TINYINT},
+      </if>
+      <if test="is_structured_fund != null">
+        #{is_structured_fund,jdbcType=TINYINT},
+      </if>
+      <if test="is_unbr_fund != null">
+        #{is_unbr_fund,jdbcType=TINYINT},
+      </if>
+      <if test="is_index_fund != null">
+        #{is_index_fund,jdbcType=TINYINT},
+      </if>
+      <if test="sub_type != null">
+        #{sub_type,jdbcType=VARCHAR},
+      </if>
+      <if test="pay_type != null">
+        #{pay_type,jdbcType=VARCHAR},
+      </if>
+      <if test="sub_limit_lower != null">
+        #{sub_limit_lower,jdbcType=DECIMAL},
+      </if>
+      <if test="sub_limit_upper != null">
+        #{sub_limit_upper,jdbcType=DECIMAL},
+      </if>
+      <if test="coll_period != null">
+        #{coll_period,jdbcType=INTEGER},
+      </if>
+      <if test="exist_sub_share != null">
+        #{exist_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="exist_sub_num != null">
+        #{exist_sub_num,jdbcType=DECIMAL},
+      </if>
+      <if test="spon_sub_pla_amt != null">
+        #{spon_sub_pla_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="insu_sub_pla_amt != null">
+        #{insu_sub_pla_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="pub_sub_pla_amt != null">
+        #{pub_sub_pla_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="pub_sub_tot_share != null">
+        #{pub_sub_tot_share,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_sub_ratio != null">
+        #{issue_sub_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_frozen_capital != null">
+        #{issue_frozen_capital,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_success_rate != null">
+        #{issue_success_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="valid_sub_num != null">
+        #{valid_sub_num,jdbcType=DECIMAL},
+      </if>
+      <if test="valid_sub_share != null">
+        #{valid_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="coll_val_inti != null">
+        #{coll_val_inti,jdbcType=DECIMAL},
+      </if>
+      <if test="total_coll_share != null">
+        #{total_coll_share,jdbcType=DECIMAL},
+      </if>
+      <if test="initiator_sub_share != null">
+        #{initiator_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="employee_sub_share != null">
+        #{employee_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="registration_date != null">
+        #{registration_date,jdbcType=DATE},
+      </if>
+      <if test="found_annc_date != null">
+        #{found_annc_date,jdbcType=DATE},
+      </if>
+      <if test="fund_found_date != null">
+        #{fund_found_date,jdbcType=DATE},
+      </if>
+      <if test="fund_end_date != null">
+        #{fund_end_date,jdbcType=DATE},
+      </if>
+      <if test="out_app_annc_date != null">
+        #{out_app_annc_date,jdbcType=DATE},
+      </if>
+      <if test="out_redem_annc_date != null">
+        #{out_redem_annc_date,jdbcType=DATE},
+      </if>
+      <if test="out_app_start_date != null">
+        #{out_app_start_date,jdbcType=DATE},
+      </if>
+      <if test="out_redem_start_date != null">
+        #{out_redem_start_date,jdbcType=DATE},
+      </if>
+      <if test="in_app_annc_date != null">
+        #{in_app_annc_date,jdbcType=DATE},
+      </if>
+      <if test="in_redem_annc_date != null">
+        #{in_redem_annc_date,jdbcType=DATE},
+      </if>
+      <if test="in_app_start_date != null">
+        #{in_app_start_date,jdbcType=DATE},
+      </if>
+      <if test="in_redem_start_date != null">
+        #{in_redem_start_date,jdbcType=DATE},
+      </if>
+      <if test="app_limit_lower != null">
+        #{app_limit_lower,jdbcType=DECIMAL},
+      </if>
+      <if test="redem_limit_lower != null">
+        #{redem_limit_lower,jdbcType=DECIMAL},
+      </if>
+      <if test="lowest_holding_share != null">
+        #{lowest_holding_share,jdbcType=DECIMAL},
+      </if>
+      <if test="sub_conf_date != null">
+        #{sub_conf_date,jdbcType=VARCHAR},
+      </if>
+      <if test="redem_conf_date != null">
+        #{redem_conf_date,jdbcType=VARCHAR},
+      </if>
+      <if test="redem_pay_date != null">
+        #{redem_pay_date,jdbcType=VARCHAR},
+      </if>
+      <if test="list_annc_date != null">
+        #{list_annc_date,jdbcType=DATE},
+      </if>
+      <if test="fund_list_date != null">
+        #{fund_list_date,jdbcType=DATE},
+      </if>
+      <if test="exchange != null">
+        #{exchange,jdbcType=BIGINT},
+      </if>
+      <if test="list_share != null">
+        #{list_share,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidation_start_date != null">
+        #{liquidation_start_date,jdbcType=DATE},
+      </if>
+      <if test="liquidation_end_date != null">
+        #{liquidation_end_date,jdbcType=DATE},
+      </if>
+      <if test="nav_pub_type != null">
+        #{nav_pub_type,jdbcType=BIGINT},
+      </if>
+      <if test="large_redem_pct != null">
+        #{large_redem_pct,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        #{push_product,jdbcType=TINYINT},
+      </if>
+      <if test="invst_target != null">
+        #{invst_target,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="invst_rule != null">
+        #{invst_rule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="invst_orient != null">
+        #{invst_orient,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="risk_type != null">
+        #{risk_type,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="invst_stra != null">
+        #{invst_stra,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="decision_rule != null">
+        #{decision_rule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="large_redem_treat != null">
+        #{large_redem_treat,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="profit_dist_rule != null">
+        #{profit_dist_rule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="end_term != null">
+        #{end_term,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundBasicInfoWithBLOBs">
+    update fund_basic_info
+    <set>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fund_name != null">
+        fund_name = #{fund_name,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_sname != null">
+        fund_sname = #{fund_sname,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_type != null">
+        fund_type = #{fund_type,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_method != null">
+        fund_method = #{fund_method,jdbcType=VARCHAR},
+      </if>
+      <if test="investment_style != null">
+        investment_style = #{investment_style,jdbcType=VARCHAR},
+      </if>
+      <if test="mana_uni_code != null">
+        mana_uni_code = #{mana_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="cust_uni_code != null">
+        cust_uni_code = #{cust_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="exsit_period != null">
+        exsit_period = #{exsit_period,jdbcType=VARCHAR},
+      </if>
+      <if test="operate_period != null">
+        operate_period = #{operate_period,jdbcType=INTEGER},
+      </if>
+      <if test="operate_period_unit != null">
+        operate_period_unit = #{operate_period_unit,jdbcType=BIGINT},
+      </if>
+      <if test="unit_par_value != null">
+        unit_par_value = #{unit_par_value,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_mode != null">
+        issue_mode = #{issue_mode,jdbcType=BIGINT},
+      </if>
+      <if test="iss_obj_desc != null">
+        iss_obj_desc = #{iss_obj_desc,jdbcType=VARCHAR},
+      </if>
+      <if test="issue_price != null">
+        issue_price = #{issue_price,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_fee != null">
+        issue_fee = #{issue_fee,jdbcType=DECIMAL},
+      </if>
+      <if test="invst_cur_type != null">
+        invst_cur_type = #{invst_cur_type,jdbcType=BIGINT},
+      </if>
+      <if test="coll_amut_upper != null">
+        coll_amut_upper = #{coll_amut_upper,jdbcType=DECIMAL},
+      </if>
+      <if test="iss_beg_date != null">
+        iss_beg_date = #{iss_beg_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iss_end_date != null">
+        iss_end_date = #{iss_end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="is_valid != null">
+        is_valid = #{is_valid,jdbcType=TINYINT},
+      </if>
+      <if test="is_stat != null">
+        is_stat = #{is_stat,jdbcType=TINYINT},
+      </if>
+      <if test="is_structured_fund != null">
+        is_structured_fund = #{is_structured_fund,jdbcType=TINYINT},
+      </if>
+      <if test="is_unbr_fund != null">
+        is_unbr_fund = #{is_unbr_fund,jdbcType=TINYINT},
+      </if>
+      <if test="is_index_fund != null">
+        is_index_fund = #{is_index_fund,jdbcType=TINYINT},
+      </if>
+      <if test="sub_type != null">
+        sub_type = #{sub_type,jdbcType=VARCHAR},
+      </if>
+      <if test="pay_type != null">
+        pay_type = #{pay_type,jdbcType=VARCHAR},
+      </if>
+      <if test="sub_limit_lower != null">
+        sub_limit_lower = #{sub_limit_lower,jdbcType=DECIMAL},
+      </if>
+      <if test="sub_limit_upper != null">
+        sub_limit_upper = #{sub_limit_upper,jdbcType=DECIMAL},
+      </if>
+      <if test="coll_period != null">
+        coll_period = #{coll_period,jdbcType=INTEGER},
+      </if>
+      <if test="exist_sub_share != null">
+        exist_sub_share = #{exist_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="exist_sub_num != null">
+        exist_sub_num = #{exist_sub_num,jdbcType=DECIMAL},
+      </if>
+      <if test="spon_sub_pla_amt != null">
+        spon_sub_pla_amt = #{spon_sub_pla_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="insu_sub_pla_amt != null">
+        insu_sub_pla_amt = #{insu_sub_pla_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="pub_sub_pla_amt != null">
+        pub_sub_pla_amt = #{pub_sub_pla_amt,jdbcType=DECIMAL},
+      </if>
+      <if test="pub_sub_tot_share != null">
+        pub_sub_tot_share = #{pub_sub_tot_share,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_sub_ratio != null">
+        issue_sub_ratio = #{issue_sub_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_frozen_capital != null">
+        issue_frozen_capital = #{issue_frozen_capital,jdbcType=DECIMAL},
+      </if>
+      <if test="issue_success_rate != null">
+        issue_success_rate = #{issue_success_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="valid_sub_num != null">
+        valid_sub_num = #{valid_sub_num,jdbcType=DECIMAL},
+      </if>
+      <if test="valid_sub_share != null">
+        valid_sub_share = #{valid_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="coll_val_inti != null">
+        coll_val_inti = #{coll_val_inti,jdbcType=DECIMAL},
+      </if>
+      <if test="total_coll_share != null">
+        total_coll_share = #{total_coll_share,jdbcType=DECIMAL},
+      </if>
+      <if test="initiator_sub_share != null">
+        initiator_sub_share = #{initiator_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="employee_sub_share != null">
+        employee_sub_share = #{employee_sub_share,jdbcType=DECIMAL},
+      </if>
+      <if test="registration_date != null">
+        registration_date = #{registration_date,jdbcType=DATE},
+      </if>
+      <if test="found_annc_date != null">
+        found_annc_date = #{found_annc_date,jdbcType=DATE},
+      </if>
+      <if test="fund_found_date != null">
+        fund_found_date = #{fund_found_date,jdbcType=DATE},
+      </if>
+      <if test="fund_end_date != null">
+        fund_end_date = #{fund_end_date,jdbcType=DATE},
+      </if>
+      <if test="out_app_annc_date != null">
+        out_app_annc_date = #{out_app_annc_date,jdbcType=DATE},
+      </if>
+      <if test="out_redem_annc_date != null">
+        out_redem_annc_date = #{out_redem_annc_date,jdbcType=DATE},
+      </if>
+      <if test="out_app_start_date != null">
+        out_app_start_date = #{out_app_start_date,jdbcType=DATE},
+      </if>
+      <if test="out_redem_start_date != null">
+        out_redem_start_date = #{out_redem_start_date,jdbcType=DATE},
+      </if>
+      <if test="in_app_annc_date != null">
+        in_app_annc_date = #{in_app_annc_date,jdbcType=DATE},
+      </if>
+      <if test="in_redem_annc_date != null">
+        in_redem_annc_date = #{in_redem_annc_date,jdbcType=DATE},
+      </if>
+      <if test="in_app_start_date != null">
+        in_app_start_date = #{in_app_start_date,jdbcType=DATE},
+      </if>
+      <if test="in_redem_start_date != null">
+        in_redem_start_date = #{in_redem_start_date,jdbcType=DATE},
+      </if>
+      <if test="app_limit_lower != null">
+        app_limit_lower = #{app_limit_lower,jdbcType=DECIMAL},
+      </if>
+      <if test="redem_limit_lower != null">
+        redem_limit_lower = #{redem_limit_lower,jdbcType=DECIMAL},
+      </if>
+      <if test="lowest_holding_share != null">
+        lowest_holding_share = #{lowest_holding_share,jdbcType=DECIMAL},
+      </if>
+      <if test="sub_conf_date != null">
+        sub_conf_date = #{sub_conf_date,jdbcType=VARCHAR},
+      </if>
+      <if test="redem_conf_date != null">
+        redem_conf_date = #{redem_conf_date,jdbcType=VARCHAR},
+      </if>
+      <if test="redem_pay_date != null">
+        redem_pay_date = #{redem_pay_date,jdbcType=VARCHAR},
+      </if>
+      <if test="list_annc_date != null">
+        list_annc_date = #{list_annc_date,jdbcType=DATE},
+      </if>
+      <if test="fund_list_date != null">
+        fund_list_date = #{fund_list_date,jdbcType=DATE},
+      </if>
+      <if test="exchange != null">
+        exchange = #{exchange,jdbcType=BIGINT},
+      </if>
+      <if test="list_share != null">
+        list_share = #{list_share,jdbcType=DECIMAL},
+      </if>
+      <if test="liquidation_start_date != null">
+        liquidation_start_date = #{liquidation_start_date,jdbcType=DATE},
+      </if>
+      <if test="liquidation_end_date != null">
+        liquidation_end_date = #{liquidation_end_date,jdbcType=DATE},
+      </if>
+      <if test="nav_pub_type != null">
+        nav_pub_type = #{nav_pub_type,jdbcType=BIGINT},
+      </if>
+      <if test="large_redem_pct != null">
+        large_redem_pct = #{large_redem_pct,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="push_search != null">
+        push_search = #{push_search,jdbcType=TINYINT},
+      </if>
+      <if test="push_product != null">
+        push_product = #{push_product,jdbcType=TINYINT},
+      </if>
+      <if test="invst_target != null">
+        invst_target = #{invst_target,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="invst_rule != null">
+        invst_rule = #{invst_rule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="invst_orient != null">
+        invst_orient = #{invst_orient,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="risk_type != null">
+        risk_type = #{risk_type,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="invst_stra != null">
+        invst_stra = #{invst_stra,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="decision_rule != null">
+        decision_rule = #{decision_rule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="large_redem_treat != null">
+        large_redem_treat = #{large_redem_treat,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="profit_dist_rule != null">
+        profit_dist_rule = #{profit_dist_rule,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="end_term != null">
+        end_term = #{end_term,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="la.niub.abcapi.servicecompre.model.FundBasicInfoWithBLOBs">
+    update fund_basic_info
+    set announcement_date = #{announcement_date,jdbcType=TIMESTAMP},
+      fund_name = #{fund_name,jdbcType=VARCHAR},
+      fund_sname = #{fund_sname,jdbcType=VARCHAR},
+      fund_type = #{fund_type,jdbcType=VARCHAR},
+      fund_method = #{fund_method,jdbcType=VARCHAR},
+      investment_style = #{investment_style,jdbcType=VARCHAR},
+      mana_uni_code = #{mana_uni_code,jdbcType=BIGINT},
+      cust_uni_code = #{cust_uni_code,jdbcType=BIGINT},
+      exsit_period = #{exsit_period,jdbcType=VARCHAR},
+      operate_period = #{operate_period,jdbcType=INTEGER},
+      operate_period_unit = #{operate_period_unit,jdbcType=BIGINT},
+      unit_par_value = #{unit_par_value,jdbcType=DECIMAL},
+      issue_mode = #{issue_mode,jdbcType=BIGINT},
+      iss_obj_desc = #{iss_obj_desc,jdbcType=VARCHAR},
+      issue_price = #{issue_price,jdbcType=DECIMAL},
+      issue_fee = #{issue_fee,jdbcType=DECIMAL},
+      invst_cur_type = #{invst_cur_type,jdbcType=BIGINT},
+      coll_amut_upper = #{coll_amut_upper,jdbcType=DECIMAL},
+      iss_beg_date = #{iss_beg_date,jdbcType=TIMESTAMP},
+      iss_end_date = #{iss_end_date,jdbcType=TIMESTAMP},
+      is_valid = #{is_valid,jdbcType=TINYINT},
+      is_stat = #{is_stat,jdbcType=TINYINT},
+      is_structured_fund = #{is_structured_fund,jdbcType=TINYINT},
+      is_unbr_fund = #{is_unbr_fund,jdbcType=TINYINT},
+      is_index_fund = #{is_index_fund,jdbcType=TINYINT},
+      sub_type = #{sub_type,jdbcType=VARCHAR},
+      pay_type = #{pay_type,jdbcType=VARCHAR},
+      sub_limit_lower = #{sub_limit_lower,jdbcType=DECIMAL},
+      sub_limit_upper = #{sub_limit_upper,jdbcType=DECIMAL},
+      coll_period = #{coll_period,jdbcType=INTEGER},
+      exist_sub_share = #{exist_sub_share,jdbcType=DECIMAL},
+      exist_sub_num = #{exist_sub_num,jdbcType=DECIMAL},
+      spon_sub_pla_amt = #{spon_sub_pla_amt,jdbcType=DECIMAL},
+      insu_sub_pla_amt = #{insu_sub_pla_amt,jdbcType=DECIMAL},
+      pub_sub_pla_amt = #{pub_sub_pla_amt,jdbcType=DECIMAL},
+      pub_sub_tot_share = #{pub_sub_tot_share,jdbcType=DECIMAL},
+      issue_sub_ratio = #{issue_sub_ratio,jdbcType=DECIMAL},
+      issue_frozen_capital = #{issue_frozen_capital,jdbcType=DECIMAL},
+      issue_success_rate = #{issue_success_rate,jdbcType=DECIMAL},
+      valid_sub_num = #{valid_sub_num,jdbcType=DECIMAL},
+      valid_sub_share = #{valid_sub_share,jdbcType=DECIMAL},
+      coll_val_inti = #{coll_val_inti,jdbcType=DECIMAL},
+      total_coll_share = #{total_coll_share,jdbcType=DECIMAL},
+      initiator_sub_share = #{initiator_sub_share,jdbcType=DECIMAL},
+      employee_sub_share = #{employee_sub_share,jdbcType=DECIMAL},
+      registration_date = #{registration_date,jdbcType=DATE},
+      found_annc_date = #{found_annc_date,jdbcType=DATE},
+      fund_found_date = #{fund_found_date,jdbcType=DATE},
+      fund_end_date = #{fund_end_date,jdbcType=DATE},
+      out_app_annc_date = #{out_app_annc_date,jdbcType=DATE},
+      out_redem_annc_date = #{out_redem_annc_date,jdbcType=DATE},
+      out_app_start_date = #{out_app_start_date,jdbcType=DATE},
+      out_redem_start_date = #{out_redem_start_date,jdbcType=DATE},
+      in_app_annc_date = #{in_app_annc_date,jdbcType=DATE},
+      in_redem_annc_date = #{in_redem_annc_date,jdbcType=DATE},
+      in_app_start_date = #{in_app_start_date,jdbcType=DATE},
+      in_redem_start_date = #{in_redem_start_date,jdbcType=DATE},
+      app_limit_lower = #{app_limit_lower,jdbcType=DECIMAL},
+      redem_limit_lower = #{redem_limit_lower,jdbcType=DECIMAL},
+      lowest_holding_share = #{lowest_holding_share,jdbcType=DECIMAL},
+      sub_conf_date = #{sub_conf_date,jdbcType=VARCHAR},
+      redem_conf_date = #{redem_conf_date,jdbcType=VARCHAR},
+      redem_pay_date = #{redem_pay_date,jdbcType=VARCHAR},
+      list_annc_date = #{list_annc_date,jdbcType=DATE},
+      fund_list_date = #{fund_list_date,jdbcType=DATE},
+      exchange = #{exchange,jdbcType=BIGINT},
+      list_share = #{list_share,jdbcType=DECIMAL},
+      liquidation_start_date = #{liquidation_start_date,jdbcType=DATE},
+      liquidation_end_date = #{liquidation_end_date,jdbcType=DATE},
+      nav_pub_type = #{nav_pub_type,jdbcType=BIGINT},
+      large_redem_pct = #{large_redem_pct,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT},
+      invst_target = #{invst_target,jdbcType=LONGVARCHAR},
+      invst_rule = #{invst_rule,jdbcType=LONGVARCHAR},
+      invst_orient = #{invst_orient,jdbcType=LONGVARCHAR},
+      risk_type = #{risk_type,jdbcType=LONGVARCHAR},
+      invst_stra = #{invst_stra,jdbcType=LONGVARCHAR},
+      decision_rule = #{decision_rule,jdbcType=LONGVARCHAR},
+      large_redem_treat = #{large_redem_treat,jdbcType=LONGVARCHAR},
+      profit_dist_rule = #{profit_dist_rule,jdbcType=LONGVARCHAR},
+      end_term = #{end_term,jdbcType=LONGVARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundBasicInfoModel">
+    update fund_basic_info
+    set announcement_date = #{announcement_date,jdbcType=TIMESTAMP},
+      fund_name = #{fund_name,jdbcType=VARCHAR},
+      fund_sname = #{fund_sname,jdbcType=VARCHAR},
+      fund_type = #{fund_type,jdbcType=VARCHAR},
+      fund_method = #{fund_method,jdbcType=VARCHAR},
+      investment_style = #{investment_style,jdbcType=VARCHAR},
+      mana_uni_code = #{mana_uni_code,jdbcType=BIGINT},
+      cust_uni_code = #{cust_uni_code,jdbcType=BIGINT},
+      exsit_period = #{exsit_period,jdbcType=VARCHAR},
+      operate_period = #{operate_period,jdbcType=INTEGER},
+      operate_period_unit = #{operate_period_unit,jdbcType=BIGINT},
+      unit_par_value = #{unit_par_value,jdbcType=DECIMAL},
+      issue_mode = #{issue_mode,jdbcType=BIGINT},
+      iss_obj_desc = #{iss_obj_desc,jdbcType=VARCHAR},
+      issue_price = #{issue_price,jdbcType=DECIMAL},
+      issue_fee = #{issue_fee,jdbcType=DECIMAL},
+      invst_cur_type = #{invst_cur_type,jdbcType=BIGINT},
+      coll_amut_upper = #{coll_amut_upper,jdbcType=DECIMAL},
+      iss_beg_date = #{iss_beg_date,jdbcType=TIMESTAMP},
+      iss_end_date = #{iss_end_date,jdbcType=TIMESTAMP},
+      is_valid = #{is_valid,jdbcType=TINYINT},
+      is_stat = #{is_stat,jdbcType=TINYINT},
+      is_structured_fund = #{is_structured_fund,jdbcType=TINYINT},
+      is_unbr_fund = #{is_unbr_fund,jdbcType=TINYINT},
+      is_index_fund = #{is_index_fund,jdbcType=TINYINT},
+      sub_type = #{sub_type,jdbcType=VARCHAR},
+      pay_type = #{pay_type,jdbcType=VARCHAR},
+      sub_limit_lower = #{sub_limit_lower,jdbcType=DECIMAL},
+      sub_limit_upper = #{sub_limit_upper,jdbcType=DECIMAL},
+      coll_period = #{coll_period,jdbcType=INTEGER},
+      exist_sub_share = #{exist_sub_share,jdbcType=DECIMAL},
+      exist_sub_num = #{exist_sub_num,jdbcType=DECIMAL},
+      spon_sub_pla_amt = #{spon_sub_pla_amt,jdbcType=DECIMAL},
+      insu_sub_pla_amt = #{insu_sub_pla_amt,jdbcType=DECIMAL},
+      pub_sub_pla_amt = #{pub_sub_pla_amt,jdbcType=DECIMAL},
+      pub_sub_tot_share = #{pub_sub_tot_share,jdbcType=DECIMAL},
+      issue_sub_ratio = #{issue_sub_ratio,jdbcType=DECIMAL},
+      issue_frozen_capital = #{issue_frozen_capital,jdbcType=DECIMAL},
+      issue_success_rate = #{issue_success_rate,jdbcType=DECIMAL},
+      valid_sub_num = #{valid_sub_num,jdbcType=DECIMAL},
+      valid_sub_share = #{valid_sub_share,jdbcType=DECIMAL},
+      coll_val_inti = #{coll_val_inti,jdbcType=DECIMAL},
+      total_coll_share = #{total_coll_share,jdbcType=DECIMAL},
+      initiator_sub_share = #{initiator_sub_share,jdbcType=DECIMAL},
+      employee_sub_share = #{employee_sub_share,jdbcType=DECIMAL},
+      registration_date = #{registration_date,jdbcType=DATE},
+      found_annc_date = #{found_annc_date,jdbcType=DATE},
+      fund_found_date = #{fund_found_date,jdbcType=DATE},
+      fund_end_date = #{fund_end_date,jdbcType=DATE},
+      out_app_annc_date = #{out_app_annc_date,jdbcType=DATE},
+      out_redem_annc_date = #{out_redem_annc_date,jdbcType=DATE},
+      out_app_start_date = #{out_app_start_date,jdbcType=DATE},
+      out_redem_start_date = #{out_redem_start_date,jdbcType=DATE},
+      in_app_annc_date = #{in_app_annc_date,jdbcType=DATE},
+      in_redem_annc_date = #{in_redem_annc_date,jdbcType=DATE},
+      in_app_start_date = #{in_app_start_date,jdbcType=DATE},
+      in_redem_start_date = #{in_redem_start_date,jdbcType=DATE},
+      app_limit_lower = #{app_limit_lower,jdbcType=DECIMAL},
+      redem_limit_lower = #{redem_limit_lower,jdbcType=DECIMAL},
+      lowest_holding_share = #{lowest_holding_share,jdbcType=DECIMAL},
+      sub_conf_date = #{sub_conf_date,jdbcType=VARCHAR},
+      redem_conf_date = #{redem_conf_date,jdbcType=VARCHAR},
+      redem_pay_date = #{redem_pay_date,jdbcType=VARCHAR},
+      list_annc_date = #{list_annc_date,jdbcType=DATE},
+      fund_list_date = #{fund_list_date,jdbcType=DATE},
+      exchange = #{exchange,jdbcType=BIGINT},
+      list_share = #{list_share,jdbcType=DECIMAL},
+      liquidation_start_date = #{liquidation_start_date,jdbcType=DATE},
+      liquidation_end_date = #{liquidation_end_date,jdbcType=DATE},
+      nav_pub_type = #{nav_pub_type,jdbcType=BIGINT},
+      large_redem_pct = #{large_redem_pct,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      push_search = #{push_search,jdbcType=TINYINT},
+      push_product = #{push_product,jdbcType=TINYINT}
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_basic_info
+    where sec_uni_code = #{sec_uni_code,jdbcType=BIGINT}
+  </select>
+  <select id="selectByManaUniCode" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from fund_basic_info
+    where mana_uni_code = #{mana_uni_code,jdbcType=BIGINT}
+  </select>
+
+  <select id="getAllFunCompany" resultType="la.niub.abcapi.servicecompre.model.response.FundCompanyAchievementsInfoItemResponse">
+    SELECT DISTINCT
+        fund_basic_info.mana_uni_code com_uni_code,
+        org_basic_info.org_name
+    FROM
+        org_basic_info,
+        fund_basic_info
+    WHERE
+        fund_basic_info.mana_uni_code = org_basic_info.com_uni_code
+    AND fund_basic_info.mana_uni_code NOT IN (
+        '162716',
+        '196074',
+        '485754',
+        '485753',
+        '181033',
+        '165873',
+        '220917',
+        '462942',
+        '0'
+    )
+  </select>
+
+</mapper>

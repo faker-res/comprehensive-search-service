@@ -1,0 +1,57 @@
+{
+    "code": 200,
+    "msg": "4uNQOaJn6u",
+    "data": [
+        {
+            "childTypes": "NeWEEeHKce",
+            "departsNum": [
+                {
+                    "depart": "6YjGyusslf",
+                    "num": 86279
+                },
+                {
+                    "depart": "sKbJ8xzMTG",
+                    "num": 18629
+                },
+                {
+                    "depart": "dvF7EJ5qJB",
+                    "num": 37123
+                }
+            ]
+        },
+        {
+            "childTypes": "T1dwmwNIjv",
+            "departsNum": [
+                {
+                    "depart": "2tGqH5RfdW",
+                    "num": 48726
+                },
+                {
+                    "depart": "Gy8wUhu0Uy",
+                    "num": 12735
+                },
+                {
+                    "depart": "PjHwS9zJzg",
+                    "num": 40734
+                }
+            ]
+        },
+        {
+            "childTypes": "BaHeGbwIWu",
+            "departsNum": [
+                {
+                    "depart": "AZcKUUtt1P",
+                    "num": 46080
+                },
+                {
+                    "depart": "sw782KIQe1",
+                    "num": 75647
+                },
+                {
+                    "depart": "XbQCA1hFK9",
+                    "num": 66041
+                }
+            ]
+        }
+    ]
+}

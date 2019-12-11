@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.ISeccomActivitiesDao">
+  <select id="getActivitiesByTimeAndOrgId" resultType="la.niub.abcapi.servicecompre.model.SeccomActivities">
+    SELECT
+      event,
+      place,
+      starttime,
+      endtime
+    FROM
+      seccom_activities
+    WHERE
+    (
+      (
+        starttime &gt;= DATE_FORMAT(#{startDate},'%Y-%m-%d %H:%m:%s')
+        AND starttime &lt;= DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%m:%s')
+      )
+    OR
+      (
+        endtime &gt;= DATE_FORMAT(#{startDate},'%Y-%m-%d %H:%m:%s')
+        AND endtime &lt;= DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%m:%s')
+      )
+    )
+    AND org_sname = #{orgName}
+    ORDER BY starttime ASC
+  </select>
+</mapper>

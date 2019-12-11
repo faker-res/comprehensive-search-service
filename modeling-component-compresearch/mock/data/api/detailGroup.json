@@ -1,0 +1,127 @@
+{
+    "code": 200,
+    "msg": "DhnOjkY9wK",
+    "data": [
+        {
+            "key": "1",
+            "stockName":"中国长城（000066）",
+            "money": "7.06",
+            "position": "9.64",
+            "number": "2000",
+            "amount": "1052.25",
+            "yield": "-26.48%",
+            "operation":"",
+            "id": 54722
+        },
+        {
+            "key": "2",
+            "stockName":"新大陆（000997）",
+            "money": "19.13",
+            "position": "20.91",
+            "number": "2000",
+            "amount": "735.31",
+            "yield": "-9.02%",
+            "operation":"",
+            "id": 54723
+        },
+        {
+            "key": "3",
+            "stockName":"东华软件（002065）",
+            "money": "8.3",
+            "position": "10.90",
+            "number": "2000",
+            "amount": "492.15",
+            "yield": "31.09%",
+            "operation":"",
+            "id": 54724
+        },
+        {
+            "key": "4",
+            "stockName":"四维图新（002405）",
+            "money": "25.84",
+            "position": "20.48",
+            "number": "2000",
+            "amount": "1200.59",
+            "yield": "13.48%",
+            "operation":"",
+            "id": 54725
+        },
+        {
+            "key": "5",
+            "stockName":"启民星辰（002439）",
+            "money": "22.35",
+            "position": "19.69",
+            "number": "2000",
+            "amount": "509.57",
+            "yield": "-26.71%",
+            "operation":"",
+            "id": 54726
+        },
+        {
+            "key": "6",
+            "stockName":"安洁科技（002635）",
+            "money": "25.2",
+            "position": "34.13",
+            "number": "2000",
+            "amount": "629.89",
+            "yield": "8.26%",
+            "operation":"",
+            "id": 54727
+        },
+        {
+            "key": "7",
+            "stockName":"东方国信（300166）",
+            "money": "12.88",
+            "position": "11.84",
+            "number": "2000",
+            "amount": "747.26",
+            "yield": "1.85%",
+            "operation":"",
+            "id": 54728
+        },
+        {
+            "key": "8",
+            "stockName":"东方国信（300166）",
+            "money": "29.22",
+            "position": "36.98",
+            "number": "2000",
+            "amount": "490.66",
+            "yield": "33.24%",
+            "operation":"",
+            "id": 54729
+        },
+        {
+            "key": "9",
+            "stockName":"北陵信息（300487）",
+            "money": "21.35",
+            "position": "29.99",
+            "number": "2000",
+            "amount": "559.2",
+            "yield": "-12.55%",
+            "operation":"",
+            "id": 54730
+        },
+        {
+            "key": "10",
+            "stockName":"中国长城（000066）",
+            "money": "16.4",
+            "position": "23.21",
+            "number": "2000",
+            "amount": "653.2",
+            "yield": "-9.22%",
+            "operation":"",
+            "id": 54731
+        },
+        {
+            "key": "11",
+            "stockName":"特变电工（600089）",
+            "money": "16.4",
+            "position": "23.21",
+            "number": "2000",
+            "amount": "653.2",
+            "yield": "-9.22%",
+            "operation":"",
+            "id": 52732
+        }
+    ]
+}

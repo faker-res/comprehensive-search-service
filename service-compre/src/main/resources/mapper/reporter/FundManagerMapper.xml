@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundManagerDao">
+    <resultMap id="FundManagerInfoResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerInfoModel">
+        <constructor>
+            <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="sex_par" javaType="java.lang.Integer" jdbcType="TINYINT" />
+            <arg column="age" javaType="java.lang.Integer" jdbcType="BIGINT" />
+            <arg column="high_edu" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="oss_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="fund_manager_beg_date" javaType="java.util.Date" jdbcType="DATE" />
+            <arg column="fund_manager_tot_days" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="present_comp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="fund_count" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="present_comp_fund_count" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="comp_count" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="job_hopping_freq" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="fund_manage_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="tenure_avg_annual_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="avg_ir" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="avg_ir_pct" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="tenure_avg_annual_yield_index" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+        </constructor>
+    </resultMap>
+    <resultMap id="FundManagerStarResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerStarModel">
+        <constructor>
+            <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="oss_path" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="org_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="fund_manage_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <!--<result column="fund_news" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </constructor>
+    </resultMap>
+    <resultMap id="FundManagerIndexResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerIndexModel">
+        <constructor>
+            <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+            <arg column="tenure_avg_annual_yield_index" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="hs_300_index_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="csi_universal_index_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <!--<result column="fund_news" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </constructor>
+    </resultMap>
+    <resultMap id="FundManagerPositionDistributionResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerPositionDistributionModel">
+        <constructor>
+            <idArg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="sec_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="sec_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="tot_fund_nav" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <!--<result column="fund_news" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </constructor>
+    </resultMap>
+    <resultMap id="FundManagerStockResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerStockModel">
+        <constructor>
+            <idArg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="stock_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+            <arg column="stock_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="stock_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <arg column="sec_value_net_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+            <arg column="hold_sec_value" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+        </constructor>
+    </resultMap>
+    <!--<sql id="Base_Column_List">-->
+        <!--DISTINCT peo_basic_info.peo_uni_code, peo_basic_info.sex_par, (SELECT YEAR(NOW())) - SUBSTRING(peo_basic_info.birth_day, 1, 4) AS age, peo_basic_info.high_edu, peo_image.oss_path,-->
+        <!--fund_manager_basic_info.fund_manager_name, fund_manager_stat.fund_manager_beg_date, fund_manager_stat.fund_manager_tot_days, fund_manager_stat.present_comp_name,-->
+        <!--fund_manager_stat.fund_count, fund_manager_stat.present_comp_fund_count, fund_manager_stat.comp_count, fund_manager_stat.job_hopping_freq, fund_manager_stat.fund_manage_nav,-->
+        <!--fund_manager_stat.fund_manage_nav, fund_manager_stat.tenure_avg_annual_yield, fund_manager_stat.avg_ir, fund_manager_stat.avg_ir_pct, fund_manager_stat.tenure_avg_annual_yield_index-->
+    <!--</sql>-->
+    <select id="selectFundManagerInfoByPeoUniCode" parameterType="java.lang.Long" resultMap="FundManagerInfoResultMap">
+        SELECT DISTINCT peo_basic_info.peo_uni_code, peo_basic_info.sex_par, (SELECT YEAR(NOW())) - SUBSTRING(peo_basic_info.birth_day, 1, 4) AS age,system_const.`system_name` AS high_edu, peo_image.oss_path,
+        fund_manager_basic_info.fund_manager_name, fund_manager_stat.fund_manager_beg_date, fund_manager_stat.fund_manager_tot_days, fund_manager_stat.present_comp_name,
+        fund_manager_stat.fund_count, fund_manager_stat.present_comp_fund_count, fund_manager_stat.comp_count, fund_manager_stat.job_hopping_freq,
+        fund_manager_stat.fund_manage_nav, fund_manager_stat.tenure_avg_annual_yield, fund_manager_stat.avg_ir, fund_manager_stat.avg_ir_pct, fund_manager_stat.tenure_avg_annual_yield_index
+        FROM fund_manager_basic_info
+        LEFT JOIN peo_basic_info ON fund_manager_basic_info.peo_uni_code = peo_basic_info.peo_uni_code
+        LEFT JOIN peo_image ON fund_manager_basic_info.peo_uni_code = peo_image.peo_uni_code
+        LEFT JOIN fund_manager_stat ON fund_manager_basic_info.peo_uni_code = fund_manager_stat.peo_uni_code
+        LEFT JOIN system_const ON system_const.`system_uni_code` = peo_basic_info.high_edu
+        WHERE fund_manager_basic_info.peo_uni_code = #{peo_uni_code}
+    </select>
+    <select id="selectFundManagerStarList" resultMap="FundManagerStarResultMap">
+        SELECT DISTINCT fund_manager_basic_info.peo_uni_code, fund_manager_basic_info.fund_manager_name,
+                peo_image.oss_path, org_basic_info.`org_sname`,fund_manager_stat.fund_manage_nav
+        FROM fund_manager_basic_info
+        LEFT JOIN fund_basic_info ON fund_manager_basic_info.`sec_uni_code`=fund_basic_info.`sec_uni_code`
+        LEFT JOIN org_basic_info ON org_basic_info.`com_uni_code`=fund_basic_info.`mana_uni_code`
+        LEFT JOIN peo_image ON fund_manager_basic_info.peo_uni_code = peo_image.peo_uni_code
+        LEFT JOIN fund_manager_stat ON fund_manager_basic_info.peo_uni_code = fund_manager_stat.peo_uni_code
+        WHERE  fund_manager_basic_info.end_date IS NULL
+        ORDER BY fund_manager_stat.fund_manage_nav DESC
+        LIMIT 0, 5
+    </select>
+    <select id="selectFundManagerIndexByPeoUniCode" resultMap="FundManagerIndexResultMap">
+        SELECT fund_manager_index.peo_uni_code, fund_manager_index.fund_manager_name, fund_manager_index.end_date,
+               fund_manager_index.tenure_avg_annual_yield_index, fund_manager_index.hs_300_index_yield, fund_manager_index.csi_universal_index_yield
+        FROM fund_manager_index
+        WHERE peo_uni_code = #{peo_uni_code}
+        AND fund_manager_index.status = 2
+        ORDER BY end_date ASC
+    </select>
+    <select id="selectFundManagerPositionDistributionByPeoUniCode" resultMap="FundManagerPositionDistributionResultMap">
+        SELECT a.peo_uni_code,a.fund_manager_name, b.sec_uni_code, b.sec_code, b.sec_name, e.tot_fund_nav
+        FROM fund_manager_basic_info a
+        JOIN sec_basic_info b ON a.sec_uni_code=b.sec_uni_code
+        AND a.end_date IS NULL
+        JOIN (SELECT c.sec_uni_code,c.tot_fund_nav,d.date
+              FROM fund_asset_allocation c
+              JOIN(SELECT sec_uni_code CODE,MAX(end_date) DATE
+                   FROM fund_asset_allocation
+                   GROUP BY sec_uni_code) d
+              ON c.sec_uni_code=d.code  AND c.end_date=d.date) e
+        ON a.sec_uni_code=e.sec_uni_code
+        WHERE a.peo_uni_code = #{peo_uni_code}
+    </select>
+    <select id="selectFundManagerStockBySecUniCode" resultMap="FundManagerStockResultMap">
+        SELECT a.com_uni_code, a.sec_uni_code AS sec_uni_code,d.inv_sec_uni_code AS stock_uni_code,
+              d.inv_sec_code AS stock_code, d.inv_sec_name AS stock_name,
+              d.hold_sec_value ,d.sec_value_net_ratio
+        FROM sec_basic_info a
+        JOIN(SELECT b.sec_uni_code,b.inv_sec_uni_code,b.inv_sec_code,b.inv_sec_name,b.end_date,b.hold_sec_value,b.sec_value_net_ratio,c.date,b.inv_sec_type
+             FROM fund_invest_detail b
+             JOIN (SELECT sec_uni_code CODE,MAX(end_date) DATE
+                   FROM fund_invest_detail
+                   GROUP BY sec_uni_code) c
+             ON b.sec_uni_code=c.code
+             AND b.end_date=c.date) d
+        ON a.sec_uni_code=d.sec_uni_code
+        AND a.sec_uni_code= #{sec_uni_code}
+        AND d.inv_sec_type IN('1004001001','1004017')
+        ORDER BY d.sec_value_net_ratio DESC
+        LIMIT 0, 10
+    </select>
+    <select id="selectStockCodeBySecUniCode" resultType="la.niub.abcapi.servicecompre.model.SecBasicInfoModel">
+        SELECT sec_code, abc_code FROM sec_basic_info WHERE sec_uni_code = #{sec_uni_code}
+    </select>
+</mapper>

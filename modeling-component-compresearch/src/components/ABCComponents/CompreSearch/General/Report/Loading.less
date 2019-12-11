@@ -1,0 +1,17 @@
+.loading_container{
+  width: 100%;
+  .loading_content{
+    width: 100%;
+  }
+  :global{
+    .ant-spin-nested-loading > div > .ant-spin .ant-spin-dot{
+      left: initial;
+    }
+    .ant-spin-nested-loading{
+      width: 100%;
+    }
+    .ant-list >div:nth-child(2){
+      border-top: 0!important;
+    }
+  }
+}

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComprehensiveSearchesTopDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.ComprehensiveSearchesTopModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="query" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="link" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="news" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="change" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="order" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, `query`, `link`, `new` as news, `change`, `order`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comprehensive_searches_top
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from comprehensive_searches_top
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.ComprehensiveSearchesTopModel">
+    insert into comprehensive_searches_top (id, title, query, 
+      link, new, change, 
+      order)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{query,jdbcType=VARCHAR}, 
+      #{link,jdbcType=VARCHAR}, #{new,jdbcType=INTEGER}, #{change,jdbcType=INTEGER}, 
+      #{order,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.ComprehensiveSearchesTopModel">
+    insert into comprehensive_searches_top
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="query != null">
+        query,
+      </if>
+      <if test="link != null">
+        link,
+      </if>
+      <if test="new != null">
+        new,
+      </if>
+      <if test="change != null">
+        change,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="query != null">
+        #{query,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="new != null">
+        #{new,jdbcType=INTEGER},
+      </if>
+      <if test="change != null">
+        #{change,jdbcType=INTEGER},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.ComprehensiveSearchesTopModel">
+    update comprehensive_searches_top
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="query != null">
+        query = #{query,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null">
+        link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="new != null">
+        new = #{new,jdbcType=INTEGER},
+      </if>
+      <if test="change != null">
+        change = #{change,jdbcType=INTEGER},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.ComprehensiveSearchesTopModel">
+    update comprehensive_searches_top
+    set title = #{title,jdbcType=VARCHAR},
+      query = #{query,jdbcType=VARCHAR},
+      link = #{link,jdbcType=VARCHAR},
+      new = #{new,jdbcType=INTEGER},
+      change = #{change,jdbcType=INTEGER},
+      order = #{order,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="buildRecordByLimit"
+          resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from comprehensive_searches_top
+    order by `order` ASC limit #{limit,jdbcType=INTEGER} offset #{offset,jdbcType=INTEGER}
+  </select>
+</mapper>

@@ -1,0 +1,39 @@
+.sideCard{
+    :global {
+      .ant-tabs-content{
+        // margin-top: -1px;
+      }
+      .ant-card-body{
+          padding:0;
+        };
+        .ant-card-grid{
+          padding:18px 0!important;
+          // cursor: pointer;
+          &:hover{
+            .type_title, .stock_title{
+              color: #287ddc;
+            }
+          }
+        }
+        a{
+          color:inherit;
+        }
+        .ant-avatar-square{
+          border-radius: 0;
+        }
+    }
+}
+.type_title{
+  color: #333333;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.stock_title{
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #333333;
+}
+.stock_code{
+  font-size: 12px;
+  color: #999;
+}

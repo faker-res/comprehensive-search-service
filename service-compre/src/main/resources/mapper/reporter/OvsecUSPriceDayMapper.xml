@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IOvsecUSPriceDayDao">
+
+    <select id="getClosePriceBySecUniCode" resultType="java.math.BigDecimal">
+        SELECT close_price
+        FROM ovsec_us_price_day
+        WHERE sec_uni_code = #{sec_uni_code}
+        ORDER BY trade_date DESC
+        LIMIT 1
+    </select>
+
+
+</mapper>
+
+

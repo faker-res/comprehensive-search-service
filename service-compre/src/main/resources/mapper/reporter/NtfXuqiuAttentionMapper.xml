@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.INtfXuqiuAttentionDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.NtfXuqiuAttentionModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="stock_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="xq_id" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="stock_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_value" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="market" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="stat_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stock_code, xq_id, stock_name, index_name, index_value, market, stat_date, come_source, 
+    createtime, updatetime, status, editor, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ntf_xuqiu_attention
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ntf_xuqiu_attention
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.NtfXuqiuAttentionModel">
+    insert into ntf_xuqiu_attention (id, stock_code, xq_id, 
+      stock_name, index_name, index_value, 
+      market, stat_date, come_source, 
+      createtime, updatetime, status, 
+      editor, remark)
+    values (#{id,jdbcType=INTEGER}, #{stock_code,jdbcType=VARCHAR}, #{xq_id,jdbcType=CHAR}, 
+      #{stock_name,jdbcType=VARCHAR}, #{index_name,jdbcType=VARCHAR}, #{index_value,jdbcType=INTEGER}, 
+      #{market,jdbcType=VARCHAR}, #{stat_date,jdbcType=DATE}, #{come_source,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{editor,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.NtfXuqiuAttentionModel">
+    insert into ntf_xuqiu_attention
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stock_code != null">
+        stock_code,
+      </if>
+      <if test="xq_id != null">
+        xq_id,
+      </if>
+      <if test="stock_name != null">
+        stock_name,
+      </if>
+      <if test="index_name != null">
+        index_name,
+      </if>
+      <if test="index_value != null">
+        index_value,
+      </if>
+      <if test="market != null">
+        market,
+      </if>
+      <if test="stat_date != null">
+        stat_date,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stock_code != null">
+        #{stock_code,jdbcType=VARCHAR},
+      </if>
+      <if test="xq_id != null">
+        #{xq_id,jdbcType=CHAR},
+      </if>
+      <if test="stock_name != null">
+        #{stock_name,jdbcType=VARCHAR},
+      </if>
+      <if test="index_name != null">
+        #{index_name,jdbcType=VARCHAR},
+      </if>
+      <if test="index_value != null">
+        #{index_value,jdbcType=INTEGER},
+      </if>
+      <if test="market != null">
+        #{market,jdbcType=VARCHAR},
+      </if>
+      <if test="stat_date != null">
+        #{stat_date,jdbcType=DATE},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.NtfXuqiuAttentionModel">
+    update ntf_xuqiu_attention
+    <set>
+      <if test="stock_code != null">
+        stock_code = #{stock_code,jdbcType=VARCHAR},
+      </if>
+      <if test="xq_id != null">
+        xq_id = #{xq_id,jdbcType=CHAR},
+      </if>
+      <if test="stock_name != null">
+        stock_name = #{stock_name,jdbcType=VARCHAR},
+      </if>
+      <if test="index_name != null">
+        index_name = #{index_name,jdbcType=VARCHAR},
+      </if>
+      <if test="index_value != null">
+        index_value = #{index_value,jdbcType=INTEGER},
+      </if>
+      <if test="market != null">
+        market = #{market,jdbcType=VARCHAR},
+      </if>
+      <if test="stat_date != null">
+        stat_date = #{stat_date,jdbcType=DATE},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.NtfXuqiuAttentionModel">
+    update ntf_xuqiu_attention
+    set stock_code = #{stock_code,jdbcType=VARCHAR},
+      xq_id = #{xq_id,jdbcType=CHAR},
+      stock_name = #{stock_name,jdbcType=VARCHAR},
+      index_name = #{index_name,jdbcType=VARCHAR},
+      index_value = #{index_value,jdbcType=INTEGER},
+      market = #{market,jdbcType=VARCHAR},
+      stat_date = #{stat_date,jdbcType=DATE},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      editor = #{editor,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="buildRecordsByKyeword" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ntf_xuqiu_attention
+    where stock_code = #{stock_code,jdbcType=VARCHAR} order by stat_date desc
+  </select>
+</mapper>

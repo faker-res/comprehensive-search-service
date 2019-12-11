@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IOperateConfigFromNoticeDao">
+    <resultMap id="ChartConfigMap" type="la.niub.abcapi.servicecompre.model.ChartConfigModel">
+        <result column="id" property="id" />
+        <result column="topic_Title" property="topic_Title" />
+        <result column="topic_Sub" property="topic_Sub" />
+        <result column="topic_Url" property="topic_Url" />
+        <result column="bg_ImgID" property="bg_ImgID" />
+        <result column="query" property="query" />
+    </resultMap>
+    <select id="getChartConfigFromSubjectTag"  resultMap="ChartConfigMap">
+        select id, topic_Title,topic_Sub,topic_Url,bg_ImgID,query from subject_tag where ana_Module = #{module,jdbcType=VARCHAR}
+        and isApp != #{terminal,jdbcType=INTEGER} and isEnglish != #{lan,jdbcType=INTEGER} order by display_Order ASC limit #{limit,jdbcType=INTEGER}
+    </select>
+</mapper>

@@ -1,0 +1,149 @@
+// @import "~antd/lib/style/themes/default.less";
+@ease-in-out-circ: cubic-bezier(.78, .14, .15, .86);
+font[color="red"]{color: #DD4B39 !important;}
+.report_item_container{
+  .item_container{
+    padding: 8px 0;
+    width: 100%;
+  }
+  .title_container{
+    position: relative;
+    font-family: 'Microsoft YaHei','PingFang SC','Helvetica Neue',Helvetica,STHeitiSC-Light,WOL_SB,'Segoe UI Semibold','Segoe UI',Tahoma,Helvetica,sans-serif;
+    font-size: 14px;
+    .report_item_title_time{
+      display: block;
+    }
+    .report_item_title_open{
+      display: none;
+    }
+    &:hover{
+      .report_item_title_time{
+        display: none!important;
+      }
+      .report_item_title_open{
+        display: block!important;
+      }
+    }
+    .report-item-export-checkbox {
+      margin-right: 10px;
+    }
+  }
+  .title_chart{
+    margin-right: 6px;
+    padding: 2px 6px;
+    height: 20px;
+    line-height: 19px;
+    color: #495C79;
+    font-size: 12px;
+    font-weight: normal;
+    background: #F3F5F8;
+    vertical-align: middle;
+    border-radius: 3px;
+  }
+  .title_name{
+    cursor: pointer;
+    max-width: 65%;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+    &:hover{
+      color: #287ddc;
+    }
+  }
+  .report_filter_read{
+    // padding: 0 5px;
+    color: #828A92;
+    font-size: 13px;
+  }
+  .report_filter{
+    // padding: 0 5px;
+    color: #436183;
+    font-size: 13px;
+    cursor: default;
+    /* &:hover{
+      color: #287ddc;
+    } */
+  }
+  .selected_author{
+    color: red;
+  }
+  .honor_name{
+    border: 1px solid red;
+    color: red;
+    padding: 0 3px;
+    border-radius: 3px;
+  }
+  .item_action{
+    > .middle:before{content: '';display: inline-block;width: 1px;height: 12px;background: #828A92;margin: 0 5px;vertical-align: middle;}
+    > .middle:first-child:before{content: none;}
+    .docType + .tagWrap:before{content: none;}
+    .tag{font-size: 12px;border: 1px solid #DD4B39;color: #DD4B39;border-radius: 4px;padding: 0 5px;line-height: 20px;margin-left: 5px;}
+    >div:last-child >div{
+      display: none!important;
+    }
+    >div:first-child >span:first-child{
+      padding-left: 1px;
+    }
+    .cursor_pointer {
+      cursor: pointer;
+    }
+  }
+  .stock_name{
+    color: #495C79;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+  .rating{
+    font-size: 12px;
+    margin-left: 5px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: white;
+    cursor: default;
+  }
+  .item_footer{
+    margin-top: 10px;
+  }
+  .highlight{
+    color: #DD4B39;
+    padding: 0;
+    background-color: transparent;
+  }
+  .report_item_paragraph{
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    &:hover{
+      background: #f9f9f9;
+    }
+  }
+  .ant-collapse{
+    background-color:white;
+    border: 0; 
+    .ant-collapse-item{
+      border-bottom: 0;
+      .ant-collapse-header{
+        padding: 0;
+        .arrow{
+          // right: 10px;
+          // top: -10px;
+          // position: absolute;
+          // width: 20px;
+          // left: initial;
+          display: none;
+        }
+      }
+      .ant-collapse-content{
+        border-top: 0;
+        .ant-collapse-content-box {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}

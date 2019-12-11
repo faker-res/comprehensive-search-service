@@ -1,0 +1,25 @@
+.abc-analyzer-competition-power-box {
+    .abc-cardbox-head-title {
+        .ant-select-selection {
+            color: rgba(0, 0, 0, 0.45);
+        }
+    }
+
+    .filter-item {
+        &:last-child {
+            & > span:first-child {
+                margin-right: 10px;
+                vertical-align: "middle";
+                font-size: "13px";
+                color: "#333";
+            }
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+    .fr {
+        float: right;
+    }
+}

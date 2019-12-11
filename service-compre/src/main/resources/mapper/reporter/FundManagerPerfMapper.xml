@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundManagerPerfDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerPerfModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_sname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fund_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="is_incumbent" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="nav_growth_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="benchmark_growth_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="return_rate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="annual_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="benchmark_annual_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="all_rank" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="all_avg_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="class_rank" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="class_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="rank_type_avg_yield" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="alpha" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ir" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="ir_pct" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sharpe_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="treynor_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="jenson_ratio" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="maxAnnualYieldGroupByPeoUniCodeMap" type="la.niub.abcapi.servicecompre.model.FundManagerPerfModel">
+    <result column="annual_yield" property="annual_yield" jdbcType="DECIMAL" />
+    <result column="peo_uni_code" property="peo_uni_code" jdbcType="BIGINT"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, fund_sname, fund_type, peo_uni_code, fund_manager_name, is_incumbent, 
+    begin_date, end_date, nav_growth_rate, benchmark_growth_rate, return_rate, annual_yield, 
+    benchmark_annual_yield, all_rank, all_avg_yield, class_rank, class_type, rank_type_avg_yield, 
+    alpha, ir, ir_pct, sharpe_ratio, treynor_ratio, jenson_ratio, createtime, updatetime, 
+    status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_manager_perf
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_manager_perf
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundManagerPerfModel">
+    insert into fund_manager_perf (id, sec_uni_code, fund_sname, 
+      fund_type, peo_uni_code, fund_manager_name, 
+      is_incumbent, begin_date, end_date, 
+      nav_growth_rate, benchmark_growth_rate, 
+      return_rate, annual_yield, benchmark_annual_yield, 
+      all_rank, all_avg_yield, class_rank, 
+      class_type, rank_type_avg_yield, alpha, 
+      ir, ir_pct, sharpe_ratio, 
+      treynor_ratio, jenson_ratio, createtime, 
+      updatetime, status, creator, 
+      editor)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{fund_sname,jdbcType=VARCHAR}, 
+      #{fund_type,jdbcType=VARCHAR}, #{peo_uni_code,jdbcType=BIGINT}, #{fund_manager_name,jdbcType=VARCHAR}, 
+      #{is_incumbent,jdbcType=BIGINT}, #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, 
+      #{nav_growth_rate,jdbcType=DECIMAL}, #{benchmark_growth_rate,jdbcType=DECIMAL}, 
+      #{return_rate,jdbcType=DECIMAL}, #{annual_yield,jdbcType=DECIMAL}, #{benchmark_annual_yield,jdbcType=DECIMAL}, 
+      #{all_rank,jdbcType=VARCHAR}, #{all_avg_yield,jdbcType=DECIMAL}, #{class_rank,jdbcType=VARCHAR}, 
+      #{class_type,jdbcType=BIGINT}, #{rank_type_avg_yield,jdbcType=DECIMAL}, #{alpha,jdbcType=DECIMAL}, 
+      #{ir,jdbcType=DECIMAL}, #{ir_pct,jdbcType=DECIMAL}, #{sharpe_ratio,jdbcType=DECIMAL}, 
+      #{treynor_ratio,jdbcType=DECIMAL}, #{jenson_ratio,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerPerfModel">
+    insert into fund_manager_perf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="fund_sname != null">
+        fund_sname,
+      </if>
+      <if test="fund_type != null">
+        fund_type,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="fund_manager_name != null">
+        fund_manager_name,
+      </if>
+      <if test="is_incumbent != null">
+        is_incumbent,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="nav_growth_rate != null">
+        nav_growth_rate,
+      </if>
+      <if test="benchmark_growth_rate != null">
+        benchmark_growth_rate,
+      </if>
+      <if test="return_rate != null">
+        return_rate,
+      </if>
+      <if test="annual_yield != null">
+        annual_yield,
+      </if>
+      <if test="benchmark_annual_yield != null">
+        benchmark_annual_yield,
+      </if>
+      <if test="all_rank != null">
+        all_rank,
+      </if>
+      <if test="all_avg_yield != null">
+        all_avg_yield,
+      </if>
+      <if test="class_rank != null">
+        class_rank,
+      </if>
+      <if test="class_type != null">
+        class_type,
+      </if>
+      <if test="rank_type_avg_yield != null">
+        rank_type_avg_yield,
+      </if>
+      <if test="alpha != null">
+        alpha,
+      </if>
+      <if test="ir != null">
+        ir,
+      </if>
+      <if test="ir_pct != null">
+        ir_pct,
+      </if>
+      <if test="sharpe_ratio != null">
+        sharpe_ratio,
+      </if>
+      <if test="treynor_ratio != null">
+        treynor_ratio,
+      </if>
+      <if test="jenson_ratio != null">
+        jenson_ratio,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_sname != null">
+        #{fund_sname,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_type != null">
+        #{fund_type,jdbcType=VARCHAR},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_manager_name != null">
+        #{fund_manager_name,jdbcType=VARCHAR},
+      </if>
+      <if test="is_incumbent != null">
+        #{is_incumbent,jdbcType=BIGINT},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="nav_growth_rate != null">
+        #{nav_growth_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="benchmark_growth_rate != null">
+        #{benchmark_growth_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="return_rate != null">
+        #{return_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="annual_yield != null">
+        #{annual_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="benchmark_annual_yield != null">
+        #{benchmark_annual_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="all_rank != null">
+        #{all_rank,jdbcType=VARCHAR},
+      </if>
+      <if test="all_avg_yield != null">
+        #{all_avg_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="class_rank != null">
+        #{class_rank,jdbcType=VARCHAR},
+      </if>
+      <if test="class_type != null">
+        #{class_type,jdbcType=BIGINT},
+      </if>
+      <if test="rank_type_avg_yield != null">
+        #{rank_type_avg_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="alpha != null">
+        #{alpha,jdbcType=DECIMAL},
+      </if>
+      <if test="ir != null">
+        #{ir,jdbcType=DECIMAL},
+      </if>
+      <if test="ir_pct != null">
+        #{ir_pct,jdbcType=DECIMAL},
+      </if>
+      <if test="sharpe_ratio != null">
+        #{sharpe_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="treynor_ratio != null">
+        #{treynor_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="jenson_ratio != null">
+        #{jenson_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerPerfModel">
+    update fund_manager_perf
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_sname != null">
+        fund_sname = #{fund_sname,jdbcType=VARCHAR},
+      </if>
+      <if test="fund_type != null">
+        fund_type = #{fund_type,jdbcType=VARCHAR},
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_manager_name != null">
+        fund_manager_name = #{fund_manager_name,jdbcType=VARCHAR},
+      </if>
+      <if test="is_incumbent != null">
+        is_incumbent = #{is_incumbent,jdbcType=BIGINT},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="nav_growth_rate != null">
+        nav_growth_rate = #{nav_growth_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="benchmark_growth_rate != null">
+        benchmark_growth_rate = #{benchmark_growth_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="return_rate != null">
+        return_rate = #{return_rate,jdbcType=DECIMAL},
+      </if>
+      <if test="annual_yield != null">
+        annual_yield = #{annual_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="benchmark_annual_yield != null">
+        benchmark_annual_yield = #{benchmark_annual_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="all_rank != null">
+        all_rank = #{all_rank,jdbcType=VARCHAR},
+      </if>
+      <if test="all_avg_yield != null">
+        all_avg_yield = #{all_avg_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="class_rank != null">
+        class_rank = #{class_rank,jdbcType=VARCHAR},
+      </if>
+      <if test="class_type != null">
+        class_type = #{class_type,jdbcType=BIGINT},
+      </if>
+      <if test="rank_type_avg_yield != null">
+        rank_type_avg_yield = #{rank_type_avg_yield,jdbcType=DECIMAL},
+      </if>
+      <if test="alpha != null">
+        alpha = #{alpha,jdbcType=DECIMAL},
+      </if>
+      <if test="ir != null">
+        ir = #{ir,jdbcType=DECIMAL},
+      </if>
+      <if test="ir_pct != null">
+        ir_pct = #{ir_pct,jdbcType=DECIMAL},
+      </if>
+      <if test="sharpe_ratio != null">
+        sharpe_ratio = #{sharpe_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="treynor_ratio != null">
+        treynor_ratio = #{treynor_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="jenson_ratio != null">
+        jenson_ratio = #{jenson_ratio,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundManagerPerfModel">
+    update fund_manager_perf
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      fund_sname = #{fund_sname,jdbcType=VARCHAR},
+      fund_type = #{fund_type,jdbcType=VARCHAR},
+      peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      fund_manager_name = #{fund_manager_name,jdbcType=VARCHAR},
+      is_incumbent = #{is_incumbent,jdbcType=BIGINT},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      nav_growth_rate = #{nav_growth_rate,jdbcType=DECIMAL},
+      benchmark_growth_rate = #{benchmark_growth_rate,jdbcType=DECIMAL},
+      return_rate = #{return_rate,jdbcType=DECIMAL},
+      annual_yield = #{annual_yield,jdbcType=DECIMAL},
+      benchmark_annual_yield = #{benchmark_annual_yield,jdbcType=DECIMAL},
+      all_rank = #{all_rank,jdbcType=VARCHAR},
+      all_avg_yield = #{all_avg_yield,jdbcType=DECIMAL},
+      class_rank = #{class_rank,jdbcType=VARCHAR},
+      class_type = #{class_type,jdbcType=BIGINT},
+      rank_type_avg_yield = #{rank_type_avg_yield,jdbcType=DECIMAL},
+      alpha = #{alpha,jdbcType=DECIMAL},
+      ir = #{ir,jdbcType=DECIMAL},
+      ir_pct = #{ir_pct,jdbcType=DECIMAL},
+      sharpe_ratio = #{sharpe_ratio,jdbcType=DECIMAL},
+      treynor_ratio = #{treynor_ratio,jdbcType=DECIMAL},
+      jenson_ratio = #{jenson_ratio,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectMaxAnnualYieldByPeoUniCodesGroupByPeoUniCodes" resultMap="maxAnnualYieldGroupByPeoUniCodeMap">
+    SELECT
+    MAX(`annual_yield`) as `annual_yield` , `peo_uni_code`
+    from `fund_manager_perf`
+    WHERE 1
+    <if test ="null != peoUniCodes">
+     AND `peo_uni_code` IN
+      <foreach collection="peoUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    GROUP BY `peo_uni_code` ASC ;
+  </select>
+  <select id="getLastBySecUniCodeAndPeoUniCodes" resultMap="BaseResultMap">
+    SELECT * from `fund_manager_perf`
+    WHERE sec_uni_code = #{secUniCode,jdbcType=BIGINT} AND `peo_uni_code` IN
+    <foreach collection="peoUniCodes" item="item" index="index"
+           open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    GROUP BY `peo_uni_code`
+    ORDER BY `begin_date` DESC;
+  </select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IUserWeiboInfoDao">
+
+    <select id="getUserWeiboInfoByUserId" resultType="la.niub.abcapi.servicecompre.model.UserWeiboInfoModel">
+         SELECT  bj_user_id AS peo_uni_code, publish_time, weibo_article_id, url, content, account_name, img,
+                 member_ranking, head , verify, type AS peo_type
+         FROM user_weibo_info
+         WHERE bj_user_id = #{userId}
+         ORDER BY publish_time DESC
+         limit 5
+    </select>
+
+
+
+
+</mapper>
+
+

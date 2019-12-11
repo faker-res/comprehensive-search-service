@@ -1,0 +1,109 @@
+/**
+ * @description 新闻消息卡片，适用新闻、公告、研报类型消息列表
+ * @author kygeng
+ * date: 2018-06-20
+ */
+@import '../../../../theme/common.scss';
+.abcft-news-list-card {
+    width: 33.33%;
+    background: $fill-base;
+    // 头部
+    &-header {
+        padding: 0px 20px;
+        height: 50px;
+        &-title {
+            color: #4a4a4a;
+            font-weight: bold;
+            line-height: 21px;
+            font-size: 15px;
+        }
+        &-more {
+            font-size: 12px;
+            color: $color-text-caption;
+            cursor: pointer;
+            transition: all 0.3s;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            &:hover {
+                color: #1890ff;
+            }
+        }
+    }
+    // 主题
+    &-content {
+        padding: 16px 20px;
+        width: 100%;
+    }
+    // item
+    &-item {
+        margin-bottom: 12px;
+        // 标题
+        &-title {
+            margin-bottom: 5px;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            >a,span{
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: bold;
+                color: #333333;
+                font-size: 14px;
+                font-family: PingFangSC-Medium;
+                &:visited {
+                    text-decoration: none;
+                    color: $color-text-secondary;
+                }
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $color-link;
+                    text-decoration: none;
+                }
+            }
+        }
+        // 描述
+        &-desc {
+            width: 100%;
+            font-size: 12px;
+            line-height: 18px;
+            color: #666666;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        // 来源
+        &-source,
+        &-category,
+        &-author {
+            padding-right: 5px;
+            margin-right: 5px;
+            border-right: 1px solid $border-color-base;
+            >a {
+                color: $color-text-secondary;
+                text-decoration: none;
+                &:hover {
+                    color: $color-link;
+                    text-decoration: none;
+                }
+                &:visited {
+                    color: $color-text-caption;
+                }
+            }
+        }
+        &-author {
+            border: none;
+            .anticon.anticon-star {
+                color: $brand-warning;
+            }
+        }
+    }
+    &-icon-honor {
+        margin-right: 5px;
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+    }
+}

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IFundManagerBasicInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="sec_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peo_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="fund_manager_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="begin_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, announcement_date, sec_name, peo_uni_code, fund_manager_name, begin_date, 
+    end_date, remark, createtime, updatetime, status, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from fund_manager_basic_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from fund_manager_basic_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    insert into fund_manager_basic_info (id, sec_uni_code, announcement_date, 
+      sec_name, peo_uni_code, fund_manager_name, 
+      begin_date, end_date, remark, 
+      createtime, updatetime, status, 
+      creator, editor)
+    values (#{id,jdbcType=BIGINT}, #{sec_uni_code,jdbcType=BIGINT}, #{announcement_date,jdbcType=DATE}, 
+      #{sec_name,jdbcType=VARCHAR}, #{peo_uni_code,jdbcType=BIGINT}, #{fund_manager_name,jdbcType=VARCHAR}, 
+      #{begin_date,jdbcType=DATE}, #{end_date,jdbcType=DATE}, #{remark,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    insert into fund_manager_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="sec_name != null">
+        sec_name,
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code,
+      </if>
+      <if test="fund_manager_name != null">
+        fund_manager_name,
+      </if>
+      <if test="begin_date != null">
+        begin_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="sec_name != null">
+        #{sec_name,jdbcType=VARCHAR},
+      </if>
+      <if test="peo_uni_code != null">
+        #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_manager_name != null">
+        #{fund_manager_name,jdbcType=VARCHAR},
+      </if>
+      <if test="begin_date != null">
+        #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    update fund_manager_basic_info
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=DATE},
+      </if>
+      <if test="sec_name != null">
+        sec_name = #{sec_name,jdbcType=VARCHAR},
+      </if>
+      <if test="peo_uni_code != null">
+        peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="fund_manager_name != null">
+        fund_manager_name = #{fund_manager_name,jdbcType=VARCHAR},
+      </if>
+      <if test="begin_date != null">
+        begin_date = #{begin_date,jdbcType=DATE},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    update fund_manager_basic_info
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=DATE},
+      sec_name = #{sec_name,jdbcType=VARCHAR},
+      peo_uni_code = #{peo_uni_code,jdbcType=BIGINT},
+      fund_manager_name = #{fund_manager_name,jdbcType=VARCHAR},
+      begin_date = #{begin_date,jdbcType=DATE},
+      end_date = #{end_date,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectBySecUniCodes" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM `fund_manager_basic_info`
+    WHERE 1
+
+    <if test ="null != secUniCodes">
+     AND `sec_uni_code` IN
+      <foreach collection="secUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    ORDER BY `begin_date` ASC ;
+  </select>
+  <!--<select id="selectBySecUniCodeAndNullEndDate" resultMap="BaseResultMap">-->
+    <!--SELECT-->
+    <!--<include refid="Base_Column_List"/>-->
+    <!--FROM `fund_manager_basic_info`-->
+    <!--WHERE `sec_uni_code` = #{secUniCode,jdbcType=BIGINT}-->
+    <!--<choose>-->
+      <!--<when test="true == nullEndDate">-->
+        <!--and end_date is null-->
+      <!--</when>-->
+      <!--<otherwise>-->
+        <!--and end_date is not null-->
+      <!--</otherwise>-->
+    <!--</choose>-->
+    <!--ORDER BY `begin_date` ASC limit #{limit,jdbcType=INTEGER};-->
+  <!--</select>-->
+  <select id="selectBySecUniCode" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM `fund_manager_basic_info`
+    WHERE `sec_uni_code` = #{secUniCode,jdbcType=BIGINT}
+    ORDER BY `begin_date` ASC
+  </select>
+
+  <select id="getFundMangerNameBySecUniCode" resultType="java.lang.String">
+     SELECT fund_manager_name
+     FROM fund_manager_basic_info
+     WHERE sec_uni_code = #{secUniCode}
+     AND end_date IS NULL LIMIT 1
+  </select>
+
+  <select id="getFundManagerInfoByPeoUniCodeAndDate" resultType="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    SELECT
+      sec_uni_code,
+      sec_name,
+      begin_date,
+      end_date
+    FROM
+      fund_manager_basic_info
+    WHERE
+      peo_uni_code = #{peo_uni_code}
+    AND begin_date &lt; #{endTime}
+    AND (end_date IS NULL OR end_date &gt;= #{startTime})
+    ORDER BY id
+  </select>
+
+  <select id="getFundManagerInfoBySecUniCodeAndDateAndPeoUniCode" resultType="string">
+    SELECT
+      GROUP_CONCAT(fund_manager_name)
+    FROM
+      fund_manager_basic_info
+    WHERE
+      sec_uni_code = #{sec_uni_code}
+    AND peo_uni_code != #{peo_uni_code}
+    <if test="end_date != null">
+      AND begin_date &lt; #{end_date}
+    </if>
+    AND (end_date IS NULL OR end_date &gt; #{begin_date})
+    GROUP BY sec_uni_code
+  </select>
+
+  <select id="getEndDateByPeoUniCodeAndSecUniCodeAndDate" resultType="la.niub.abcapi.servicecompre.model.FundManagerBasicInfoModel">
+    SELECT
+      begin_date,
+	  end_date
+    FROM
+      fund_manager_basic_info
+    WHERE
+      peo_uni_code = #{peo_uni_code}
+    AND sec_uni_code = #{sec_uni_code}
+    AND begin_date &lt; #{end_date}
+    AND (end_date IS NULL OR end_date &gt;= #{begin_date})
+  </select>
+</mapper>

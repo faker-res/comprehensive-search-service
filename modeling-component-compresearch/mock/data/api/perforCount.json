@@ -1,0 +1,9 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": {
+        "uploadReport": 65,
+        "readReport": 4190,
+        "researchAmount": 100
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": [
+        {
+            "id": "50439",
+            "name": "oaUoh3uUog",
+            "typesNum": {
+                "industry": 86770,
+                "common": 17351,
+                "macroscopic": 41572,
+                "company": 18474,
+                "total": 83589
+            }
+        },
+        {
+            "id": "51065",
+            "name": "Uuc4hsW7Rw",
+            "typesNum": {
+                "industry": 62599,
+                "common": 21207,
+                "macroscopic": 49657,
+                "company": 37014,
+                "total": 21967
+            }
+        },
+        {
+            "id": "52054",
+            "name": "cPYC47KMba",
+            "typesNum": {
+                "industry": 18574,
+                "common": 51483,
+                "macroscopic": 28953,
+                "company": 32977,
+                "total": 20855
+            }
+        }
+    ],
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.INtfJzComInfoDao">
+    <select id="getComInfoCountByComIds" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            ntf_jz_com_info
+        <where>
+            <if test="comIds != null and comIds.size() == 1">
+                com_id =
+                <foreach collection="comIds" item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="comIds != null and comIds.size() > 1">
+                com_id IN
+                <foreach collection="comIds" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            AND status = 2
+        </where>
+    </select>
+
+    <select id="getComInfoListByComIds" resultType="map">
+        SELECT
+            com_id comId,
+            com_logo_archive comLogo,
+            com_name comName,
+            invse_date invstDate,
+            com_fund_status_name comFundStatusName,
+            invse_detail_money invstDetailMoney,
+            invse_currency_name invstCurrencyName,
+            com_prov comProv,
+            com_born_date comBornDate,
+            event_id eventId
+        FROM
+          ntf_jz_com_info
+        <where>
+            <if test="comIds != null and comIds.size() == 1">
+                com_id =
+                <foreach collection="comIds" item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="comIds != null and comIds.size() > 1">
+                com_id IN
+                <foreach collection="comIds" item="item" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+            AND status = 2
+        </where>
+        ORDER BY
+        <if test="financingAmountSort != null and financingAmountSort == 0">
+            (IFNULL(invse_detail_money_r1, 0.00) + IFNULL(invse_detail_money_r2, 0.00)) / 2 ASC, id ASC
+        </if>
+        <if test="financingAmountSort != null and financingAmountSort == 1">
+            (IFNULL(invse_detail_money_r1, 0.00) + IFNULL(invse_detail_money_r2, 0.00)) / 2 DESC, id DESC
+        </if>
+        LIMIT #{index}, #{limit}
+    </select>
+</mapper>

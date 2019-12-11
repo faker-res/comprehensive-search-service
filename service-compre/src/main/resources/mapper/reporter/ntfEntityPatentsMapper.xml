@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IntfEntityPatentsDao">
+  <sql id="Base_Column_List">
+    id, com_id, com_uni_code, com_name, patents_id, patents_publish_no, patents_no, cat_no, 
+    inventor, applicant_name, application_time, application_publish_time, agency, agent, 
+    address, come_source, createtime, updatetime, editor, remark, status,patents_type,patents_name, abstracts
+  </sql>
+  <select id="selectByComUniCode" resultType="la.niub.abcapi.servicecompre.model.ntfEntityPatentsModel">
+    select patents_name,application_time,patents_no,application_publish_time,patents_publish_no,patents_type
+    from ntf_entity_patents
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    order by application_publish_time desc
+    <if test="limit != null">
+      limit #{limit,jdbcType=INTEGER}
+    </if>
+    <if test="offset != null">
+      offset #{offset,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="getCount" resultType="java.lang.Integer">
+    select count(id)
+    from ntf_entity_patents
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+  </select>
+</mapper>

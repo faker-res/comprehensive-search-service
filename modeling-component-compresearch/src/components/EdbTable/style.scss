@@ -1,0 +1,237 @@
+@import '../../theme/common.scss';
+#root{
+    .hide{
+        display: none !important;
+    }
+    .ant-table{
+        .ant-table-thead > tr > th{
+            background: white;
+            color: #333;
+            border: 0;
+            font-weight: bold;
+            padding: 13px 16px;
+            border-bottom: 2px solid #353A47;
+        }
+        .ant-table-tbody{
+            >tr{
+                >td{
+                    position: relative;
+                    border: 0;
+                    padding: 13px 16px;
+                    .detail{
+                        text-align: center;
+                        display: inline-block;
+                    }
+                    .ant-table-row-expand-icon{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        display: none;
+                    }
+                    .ant-table-row-indent{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                    .sourceUrl{
+                        color: #333;
+                        text-decoration: underline;
+                    }
+                    &:first-child{
+                       font-weight: bold;
+                       font,span{
+                           font-weight: normal;
+                       }
+                       .title-name{
+                           padding-left: 25px;
+                           float: left;
+                       }
+                    }
+                }
+                th.column-money,
+                td.column-money {
+                  text-align: right !important;
+                }
+                .ant-table-row-expand-icon-cell{
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    top:0;
+                }
+            }
+            &.active{
+                background-color: #F8FAFC;
+            }
+            .ant-table-row-level-0.active{
+                background-color: #F8FAFC;
+            }
+        }
+        .ant-table-thead > tr:first-child > th:first-child,
+        .ant-table-thead > tr:first-child > th:last-child{
+            border-radius: 0;
+        }    
+    }
+    .ant-tooltip-inner, 
+    .ant-tooltip-arrow{
+        opacity: 0.7;
+        font-size: 12px;
+    }
+    .color-grey{
+        background-color: #F8FAFC;
+    }
+    .container{
+        background-color: white;
+        .title{
+            padding: 15px 65px;
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+        .filters{
+            padding: 15px 65px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            .ant-dropdown-link{
+                margin-right: 50px;
+                color: #333;
+            }
+            .clear-all{
+                line-height: 36px;
+                float: right;
+            }
+        }
+        .content{
+            padding: 10px 10px;
+        }
+    }
+    .showMore{
+        position: absolute;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: #6D8FB8;
+        border-radius: 4px;
+        line-height: 18px;
+        text-align: center;
+        margin-right: 10px;
+        color: white;
+        cursor: pointer;
+        &.zero{
+            height: 0;
+        }
+        &.active{
+            background: #AABFD9;
+        }
+    }
+    .ant-table-row-level-1{
+        background: #F8FAFC;
+    }
+    .total_count{
+        font-size: 12px;
+        color: #9B9B9B;
+        margin-bottom: 10px;
+    }
+    .ant-dropdown-trigger .anticon-down, :root .ant-dropdown-link .anticon-down{
+        margin-left: 10px;
+    }
+}
+.ant-dropdown-menu{
+    .ant-dropdown-menu-item{
+        line-height: 30px;
+        width: 200px;
+        label{
+            display: block;
+        }
+        .text-right{
+            float: right;
+        }
+    }
+    button{
+        width: 168px;
+        margin-left: 4px;
+    }
+    .border-bottom{
+        border-bottom: 1px solid #eee;
+    }
+}
+.area-filter{
+    width: 600px;
+    .ant-dropdown-menu-item{
+        width: 100%;
+        padding: 0;
+        .ant-col-12{
+            padding: 10px;
+            &:first-child{
+                border-right: 1px solid #eee;
+            }
+            .reset{            
+                float: right;
+                font-size: 12px;
+                color: #8590A6;
+                border-bottom: 1px solid #8590A6;
+                line-height: 16px;
+                margin-top: 5px;
+            }
+            .ant-btn-primary{
+                position: absolute;
+                bottom: 0;
+                width: 270px;
+            }
+        }
+    }
+    .ant-dropdown-menu-item-active{
+        background: white;
+    }
+    .ant-tree li{
+        position: relative;
+        .ant-tree-checkbox{
+            position: absolute;
+            right: 35px;
+            top: 5px;
+        }
+        .ant-radio-wrapper{
+            position: absolute;
+            right: 10px;
+            top: 5px;
+        }
+        .ant-tree-node-content-wrapper{
+            position: static;
+        }
+        .ant-tree-node-content-wrapper.ant-tree-node-selected{
+            background: white;
+        }
+    }
+    .ant-list-split .ant-list-item{
+        background: #F9FAFB;
+        border-radius: 2px;
+        height: 32px;
+        border-bottom: 5px solid white;
+        font-size: 12px;
+        padding-left: 15px;
+        margin: 0 10px;
+        color: #333;
+        position: relative;
+        .anticon-close{
+            position: absolute;
+            right: 13px;
+            width: 9px;
+            height: 9px;
+            top: 9px;
+        }
+    }
+    .ant-list-split .search-list{
+        height: 55px;
+        width: 100%;
+        background-color: white;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        .parents{
+            color: #999;
+        }
+    }
+}
+.filter-loading{
+    background-color: white;
+    margin-top: -1px;
+}

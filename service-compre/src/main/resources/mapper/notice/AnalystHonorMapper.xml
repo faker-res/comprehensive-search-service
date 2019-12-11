@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.IAnalystHonorDao">
+
+  <sql id="Base_Column_List">
+    id, peo_uni_code, sac, honor, `time`, `direction`, ranking, organ, analyst, `session`
+  </sql>
+
+  <select id="getHonor" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+    select
+    <include refid="Base_Column_List" />
+    from analyst_honor where `peo_uni_code`=#{peo_uni_code,jdbcType=VARCHAR} AND honor = '新财富最佳分析师'
+    order by time desc limit #{limit,jdbcType=INTEGER}
+  </select>
+  <select id="getDirectionList" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+    select DISTINCT(direction)
+    from analyst_honor where `peo_uni_code`=#{peo_uni_code,jdbcType=VARCHAR}
+  </select>
+  <select id="getHonorNum" resultType="java.lang.Integer">
+    select count(DISTINCT(`time`))
+    from analyst_honor where `peo_uni_code`=#{peo_uni_code,jdbcType=VARCHAR} AND honor = '新财富最佳分析师'
+  </select>
+  <select id="buildRecordsOrderByHonorRank" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+    select
+      analyst_honor.id, analyst_honor.peo_uni_code, sac, honor, analyst_honor.`time`, `direction`, ranking, organ, analyst, `session`
+    from analyst_honor, analyst_chan_status
+    where honor = '新财富最佳分析师'
+      and analyst_honor.peo_uni_code != 0
+      AND analyst_honor.peo_uni_code = analyst_chan_status.peo_uni_code
+      AND  `practice_post` = "证券投资咨询业务(分析师)"
+      AND certificate_status  IN ('正常', '机构内变更')
+    <if test ="null != direction_list">
+      AND direction IN
+      <foreach collection="direction_list" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    ORDER BY `time` DESC , `ranking` ASC
+   <if test ="0 != limit">
+      limit #{limit,jdbcType=INTEGER}
+   </if>
+  </select>
+
+  <select id="buildRecordsOrderByHonorNum" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+    select count(analyst_honor.id) as honor_total,analyst_honor.peo_uni_code,analyst,direction,organ
+      from analyst_honor, analyst_chan_status
+    where honor = '新财富最佳分析师'
+      and analyst_honor.peo_uni_code != 0
+      AND analyst_honor.peo_uni_code = analyst_chan_status.peo_uni_code
+      AND  `practice_post` = "证券投资咨询业务(分析师)"
+      AND certificate_status  IN ('正常', '机构内变更')
+    <if test ="null != direction_list">
+      AND direction IN
+      <foreach collection="direction_list" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    GROUP BY peo_uni_code ORDER BY honor_total
+    DESC limit #{limit,jdbcType=INTEGER}
+  </select>
+
+    <select id="buildMaxTimeByTime" resultType="java.util.Date">
+        select max(time)
+        from analyst_honor
+    </select>
+
+    <select id="buildRecordsByAnalyst" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+        select
+        analyst_honor.id, analyst_honor.peo_uni_code, sac, honor, `time`, `direction`, ranking, organ, analyst, `session`
+        from analyst_honor, analyst_chan_status
+        where analyst_honor.peo_uni_code in
+        <foreach collection="analyst" item="item" index="index" open="(" separator="," close=")">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+        AND `practice_post` = "证券投资咨询业务(分析师)"
+        AND certificate_status  IN ('正常', '机构内变更')
+        AND analyst_honor.peo_uni_code = analyst_chan_status.peo_uni_code
+        group by analyst_honor.peo_uni_code
+        order by analyst_honor.honor !=  '新财富最佳分析师', analyst_honor.time DESC ,analyst_honor.ranking IS NULL, analyst_honor.ranking
+        limit #{limit,jdbcType=INTEGER}
+    </select>
+
+
+    <select id="SelectNewWealthHonorCountByOrg" resultType="java.lang.Integer">
+        SELECT COUNT(`id`) FROM `analyst_honor`
+        WHERE `organ` = #{organ,jdbcType=VARCHAR}
+        AND `honor` = "新财富最佳分析师"
+        AND `time` &gt; #{year,jdbcType=INTEGER};
+    </select>
+
+    <select id="getHonorByPeoUniCodes" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_honor
+        where
+        <if test ="null != peoUniCodes">
+            peo_uni_code in
+            <foreach collection="peoUniCodes" item="item" index="index" open="(" separator="," close=")">
+                #{item,jdbcType=VARCHAR}
+            </foreach>
+            AND
+        </if>
+        honor = '新财富最佳分析师'
+        <if test ="0 != limit">
+            limit #{limit,jdbcType=INTEGER}
+        </if>
+    </select>
+
+    <select id="selectAnalystHonorRankingByPeoUniCodeList" resultType="la.niub.abcapi.servicecompre.model.bo.AnalystHonorInfoBO">
+        SELECT peo_uni_code, analyst_honor.time, analyst_honor.`ranking`, honor
+        FROM analyst_honor
+        WHERE peo_uni_code in
+            <foreach collection="peo_uni_code_list" item="peo_uni_code" open="(" separator="," close=")">
+              #{peo_uni_code}
+            </foreach>
+        <if test="indu_name_list != null">
+            AND
+            <foreach collection="indu_name_list" item="indu_name" open="( " close=" )" separator=" OR ">
+                analyst_honor.direction like "%"#{indu_name,jdbcType=VARCHAR}"%"
+            </foreach>
+        </if>
+        GROUP BY peo_uni_code
+        ORDER BY analyst_honor.honor !=  '新财富最佳分析师', analyst_honor.time DESC ,analyst_honor.ranking IS NULL, analyst_honor.ranking
+    </select>
+
+    <select id="selectAnalystHonorRankingByPeoUniCodeList2" resultType="la.niub.abcapi.servicecompre.model.bo.AnalystHonorInfoBO">
+        SELECT peo_uni_code, analyst_honor.time, analyst_honor.`ranking`, honor
+        FROM analyst_honor
+        WHERE peo_uni_code in
+        ( SELECT peo_uni_code
+        FROM analyst_chan_status
+        WHERE org_uni_code = #{org_uni_code}
+        AND `practice_post` = "证券投资咨询业务(分析师)"
+        AND certificate_status  IN ('正常', '机构内变更') GROUP BY peo_uni_code)
+        <if test="indu_name_list != null">
+            AND
+            <foreach collection="indu_name_list" item="indu_name" open="( " close=" )" separator=" OR ">
+                analyst_honor.direction like "%"#{indu_name,jdbcType=VARCHAR}"%"
+            </foreach>
+        </if>
+        GROUP BY peo_uni_code
+        ORDER BY analyst_honor.honor !=  '新财富最佳分析师', analyst_honor.time DESC ,analyst_honor.ranking IS NULL, analyst_honor.ranking
+    </select>
+
+    <select id="judegeAnalystIsPrized" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_honor
+        WHERE peo_uni_code = #{peo_uni_code}
+        AND analyst_honor.time IS NOT NULL
+        AND ranking IS NOT NULL
+        AND honor = '新财富最佳分析师'
+    </select>
+
+    <select id="getRankByPeoUniCode" resultType="map">
+        SELECT peo_uni_code, analyst_honor.time, ranking
+        FROM analyst_honor
+        WHERE honor = '新财富最佳分析师'
+        AND TIME IS NOT NULL
+        AND ranking IS NOT NULL
+        AND peo_uni_code = #{peoUniCode}
+        ORDER BY analyst_honor.time DESC, ranking
+    </select>
+
+    <select id="getPrizeCountByPeoUniCode" resultType="java.lang.Integer">
+        SELECT COUNT(peo_uni_code)
+        FROM analyst_honor
+        WHERE honor = '新财富最佳分析师'
+        AND TIME IS NOT NULL
+        AND ranking IS NOT NULL
+        AND peo_uni_code = #{peoUniCode}
+        ORDER BY analyst_honor.time DESC, ranking
+    </select>
+
+    <select id="getPeoUniCodeByPeoUniCodeListAndDirectionList" resultType="java.lang.String">
+        SELECT peo_uni_code
+        FROM analyst_honor
+        WHERE 1
+        <if test="peoUniCodeList != null">
+            AND peo_uni_code in
+            <foreach collection="peoUniCodeList" item="peoUniCode" open="(" separator="," close=")">
+                #{peoUniCode}
+            </foreach>
+        </if>
+        <if test="directionList != null">
+            AND analyst_honor.direction IN
+            <foreach collection="directionList" item="direction" open="(" close=")" separator=",">
+                #{direction}
+            </foreach>
+        </if>
+        GROUP BY peo_uni_code
+    </select>
+
+    <select id="selectHonor" resultType="la.niub.abcapi.servicecompre.model.AnalystHonorModel">
+        select
+        <include refid="Base_Column_List" />
+        from analyst_honor
+        WHERE 1=1
+        <if test="peo_uni_code!=null and peo_uni_code!=''">
+            AND  peo_uni_code = #{peo_uni_code}
+        </if>
+        <if test="honor!=null and honor!=''">
+            AND  honor = #{honor}
+        </if>
+        <if test="order_by!=null and order_by!=''">
+            ${order_by}
+        </if>
+    </select>
+
+    <!--<select id="getRankByPeoUniCode" resultType="java.lang.String">-->
+         <!--SELECT peo_uni_code-->
+         <!--FROM (SELECT peo_uni_code, ranking, TIME, honor-->
+                 <!--FROM analyst_honor-->
+                 <!--WHERE peo_uni_code  IN-->
+                        <!--<foreach collection="peoUniCodeList" item="peoUniCode" open="(" separator="," close=")">-->
+                          <!--#{peoUniCode}-->
+                        <!--</foreach>-->
+                 <!--ORDER BY analyst_honor.ranking  IS  NULL ,analyst_honor.honor !=  '新财富最佳分析师', analyst_honor.time DESC ,-->
+                       <!--analyst_honor.ranking ASC, peo_uni_code) a-->
+         <!--GROUP BY peo_uni_code-->
+         <!--ORDER BY ranking  IS  NULL, honor !=  '新财富最佳分析师', TIME DESC ,-->
+                   <!--ranking ASC, peo_uni_code-->
+         <!--LIMIT #{offset}, #{limit}-->
+    <!--</select>-->
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IsecMainCirHolderDao">
+
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, share_rank, decl_date, shr_hldr_name, org_uni_code, peo_uni_code,
+    hold_shr_vol, hold_shr_prop, hold_shr_add, change_prop, shr_hldr_type, hold_type,createtime,
+    updatetime,status,remark,creator,editor,come_source
+  </sql>
+
+  <select id="getRecords" resultType="la.niub.abcapi.servicecompre.model.secMainCirHolderModel">
+    select com_uni_code, end_date, share_rank, decl_date, shr_hldr_name, org_uni_code, peo_uni_code,
+    hold_shr_vol, hold_shr_prop, hold_shr_add, change_prop, shr_hldr_type, hold_type
+    from sec_main_cir_holder
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    <if test="endDate != null">
+      and end_date = #{endDate,jdbcType=TIMESTAMP}
+    </if>
+    order by share_rank
+  </select>
+  <select id="getMaxDate" parameterType="java.lang.Long" resultType="java.util.Date">
+    select
+    max(end_date)
+    from sec_main_cir_holder
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+  </select>
+
+  <select id="findbysql" parameterType="java.lang.String" resultType="map">
+    ${sql}
+  </select>
+
+  <select id="find" parameterType="map" resultType="map">
+    select * from  sec_main_cir_holder where 1=1
+    <if test="com_uni_code != null and com_uni_code != ''">
+      AND com_uni_code = #{com_uni_code}
+    </if>
+    <if test="start_time != null and start_time != ''">
+      AND end_date &gt; #{start_time}
+    </if>
+    <if test="end_time != null and end_time != ''">
+      AND end_date &lt;= #{end_time}
+    </if>
+    <if test="end_date != null and end_date != ''">
+      AND end_date = #{end_date}
+    </if>
+    <if test="reporttype != null and reporttype != ''">
+      ${reporttype}
+    </if>
+    <if test="groupby != null and groupby != ''">
+      ${groupby}
+    </if>
+    <if test="orderby != null and orderby != ''">
+      ${orderby}
+    </if>
+    <if test="limit != null and limit != 0">
+      LIMIT ${limit} OFFSET ${offset}
+    </if>
+  </select>
+
+  <select id="getCount" parameterType="map" resultType="long">
+    select count(DISTINCT end_date) from sec_main_cir_holder  where 1=1
+    <if test="com_uni_code != null and com_uni_code != ''">
+      AND com_uni_code = #{com_uni_code}
+    </if>
+    <if test="start_time != null and start_time != ''">
+      AND end_date &gt; #{start_time}
+    </if>
+    <if test="end_time != null and end_time != ''">
+      AND end_date &lt;= #{end_time}
+    </if>
+    <if test="reporttype != null and reporttype != ''">
+      ${reporttype}
+    </if>
+  </select>
+
+</mapper>

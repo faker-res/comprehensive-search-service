@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComLedPositionDao">
+
+  <sql id="Base_Column_List">
+    id, com_uni_code, peo_uni_code, decl_date, led_name, seq_num, post_code, in_date, 
+    off_date, post_type, post_name, if_position, qhqm_seq, createtime, updatetime, status, 
+    remark, creator, editor, come_source, src_id
+  </sql>
+  <select id="getRecordsByUniCodeAndPost" resultType="la.niub.abcapi.servicecompre.model.ComLedPositionModel">
+    select com_uni_code, peo_uni_code, decl_date, led_name, seq_num, post_code, in_date,
+    off_date, post_type, post_name, if_position
+    from com_led_position
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    AND if_position = '1'
+    <if test="postName != null">
+      and post_type = #{postName,jdbcType=VARCHAR}
+    </if>
+    order by in_date desc
+  </select>
+
+  <select id="getRecordByComUniCode" parameterType="java.math.BigInteger" resultType="la.niub.abcapi.servicecompre.model.ComLedPositionModel">
+    SELECT
+      peo_uni_code,
+      led_name,
+      post_name
+    FROM
+      com_led_position
+    WHERE
+      STATUS != '9'
+    AND if_position = '1'
+    AND post_type = '高管'
+    AND com_uni_code = #{comUniCode}
+    ORDER BY post_code ASC
+    limit 1
+  </select>
+
+
+</mapper>

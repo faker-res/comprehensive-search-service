@@ -1,0 +1,45 @@
+.abc-comprehensive-search-result-box.chart {
+    width: 100%;
+    margin-top: 0;
+    .compwarp {
+        margin-bottom: 30px;
+    }
+
+    .search-result-list {
+        display: block;
+        padding: 20px;
+        background-color: #fff;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 6px 1px rgba(0,0,0,.03);
+        border: 1px solid #eee;
+        &>div {
+            &:last-child {
+                .compwarp {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .ant-col-8 {
+        margin-bottom: 20px;
+    }
+    .abc-report-item {
+        margin: 0px;
+
+        &:first-child {
+            padding-top: 0px;
+        }
+        &:last-child {
+            padding-bottom: 0px;
+        }
+    }
+
+    .ant-pagination-prev,
+    .ant-pagination-next {
+        .ant-pagination-item {
+            padding: 0px 5px;
+            margin-top: -2px;
+        }
+    }
+}

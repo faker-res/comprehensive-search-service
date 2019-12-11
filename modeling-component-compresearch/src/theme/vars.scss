@@ -1,0 +1,68 @@
+// sizes
+$default-padding: 24px;
+$default-space: 10px;
+$font-size-small: 12px;
+
+$layout-body-background: #f8f8f8;
+
+// layout-header
+$layout-header-height: 70px;
+$layout-header-background: #3F7CD5;
+$layout-header-padding: 0 25px;
+
+// menu
+$menu-item-height: $layout-header-height;
+$menu-dark-bg: $layout-header-background;
+$menu-dark-active-bg:  #1D5BB6;
+
+// menu item
+$menu-line-height: $menu-item-height;
+$menu-item-padding: 0;
+$menu-item-width: 77px;
+$menu-item-height: 70px;
+// menu-item-margin-left
+$menu-item-ml: $default-padding;
+
+// layout-content
+$layout-content-margin-top: $layout-header-height;
+$layout-content-padding: 0 $default-padding;
+
+// layout-footer
+$layout-footer-height: 45px;
+$layout-footer-padding-horizontal: 35px;
+$layout-footer-padding: 0 $layout-footer-padding-horizontal;
+$layout-footer-border-color: #E0E4EB;
+$layout-footer-border-top: 1px solid $layout-footer-border-color;
+$layout-footer-font-size: $font-size-small;
+$layout-footer-color: #9b9b9b;
+// 分隔符 |
+$layout-footer-links-split:  1px solid $layout-footer-color;
+$layout-footer-link-padding: 0 10px;
+
+// 左边菜单宽度
+$page-left-width: 131px + 34px;
+// 右边内容宽度
+$page-right-width: 1204px;
+
+//文字色
+$color-link: #417cd5; // 链接
+$color-text-secondary: #666666; // 辅助色
+$color-wechat: #00ce12;
+$color-weibo: #e71e1d;
+$color-text-caption: #999; // 辅助描述
+$color-text-base: #333333; // 基本
+// 背景色
+$fill-base: #fff; // 组件默认背景
+$color-icon-base: #ccc; // 许多小图标的背景，比如一些小圆点，加减号
+// 边框色
+$border-color-base: #ddd;
+// 全局/品牌色
+$brand-warning: #ffc600;
+
+// 工具样式
+// 单行文本溢出省略
+@mixin text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComProfitDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.ComProfitModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="com_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="report_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="principles" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="consolidation" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="currency_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="report_format" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="announcement_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="overall_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="main_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="interest_netincome" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="interest_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="interest_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="commission_netincome" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="commission_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="commission_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="earn_insurance" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="insurance_bus_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="premium_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="separate_premiums" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="extraction_unexpired" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="brokerage_fee_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="netincome_of_investment_banking_fees" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="netincome_of_asset_management_fees" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="invest_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="relate_invest_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="gain_loss_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="value_gains" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="other_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="operating_revenue_special_course" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="operating_revenue_balance_course" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="overall_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="main_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="operat_expenses" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="canel_insurance_money" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pay_expenses" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="spread_pay_expenses" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="insurance_liability" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="spread_insurance_liability" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="insurance_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="reduce_insurance_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="tax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="operating_manage_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="spread_premium" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sale_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="manage_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="fin_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="asset_loss" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="other_bus_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="total_cost_of_special_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="total_cost_of_balance_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="overall_profit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="addition_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="addition_cost" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="interest_dispose" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="disposal_noncurrent_assets" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="operating_profit_special_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="operating_profit_balance_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="profit_total" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="reduce_tax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="profit_total_special_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="profit_total_balance_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="netprofit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="parent_netprofit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="minority_loss" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="netprofit_special_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="netprofit_balance_subjects" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="basic_perstock_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="reduce_perstock_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="other_composite_loss" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="parent_other_com_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="income_for_holer_other_com_income" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="all_income_total" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="income_for_parent" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="income_for_minority" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="special_case_description" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="other_income_loss" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="recalculate_change_plan" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="equity_method" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="others_1" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="other_income_profit" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="share_of_equity_method" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sale_financial_assets" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="sale_financial" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="cashflow_hedge_gains" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="effective_portion_cashflow" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="others_2" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="whether_published" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, com_uni_code, end_date, report_type, principles, consolidation, currency_code, 
+    report_format, announcement_date, overall_income, main_income, interest_netincome, 
+    interest_income, interest_cost, commission_netincome, commission_income, commission_cost, 
+    earn_insurance, insurance_bus_income, premium_income, separate_premiums, extraction_unexpired, 
+    brokerage_fee_income, netincome_of_investment_banking_fees, netincome_of_asset_management_fees, 
+    invest_income, relate_invest_income, gain_loss_income, value_gains, other_income, 
+    operating_revenue_special_course, operating_revenue_balance_course, overall_cost, 
+    main_cost, operat_expenses, canel_insurance_money, pay_expenses, spread_pay_expenses, 
+    insurance_liability, spread_insurance_liability, insurance_cost, reduce_insurance_cost, 
+    tax, operating_manage_cost, spread_premium, sale_cost, manage_cost, fin_cost, asset_loss, 
+    other_bus_cost, total_cost_of_special_subjects, total_cost_of_balance_subjects, overall_profit, 
+    addition_income, addition_cost, interest_dispose, disposal_noncurrent_assets, operating_profit_special_subjects, 
+    operating_profit_balance_subjects, profit_total, reduce_tax, profit_total_special_subjects, 
+    profit_total_balance_subjects, netprofit, parent_netprofit, minority_loss, netprofit_special_subjects, 
+    netprofit_balance_subjects, basic_perstock_income, reduce_perstock_income, other_composite_loss, 
+    parent_other_com_income, income_for_holer_other_com_income, all_income_total, income_for_parent, 
+    income_for_minority, special_case_description, other_income_loss, recalculate_change_plan, 
+    equity_method, others_1, other_income_profit, share_of_equity_method, sale_financial_assets, 
+    sale_financial, cashflow_hedge_gains, effective_portion_cashflow, others_2, whether_published, 
+    come_source, createtime, updatetime, status, remark, creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from com_profit
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from com_profit
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.ComProfitModel">
+    insert into com_profit (id, com_uni_code, end_date, 
+      report_type, principles, consolidation, 
+      currency_code, report_format, announcement_date, 
+      overall_income, main_income, interest_netincome, 
+      interest_income, interest_cost, commission_netincome, 
+      commission_income, commission_cost, earn_insurance, 
+      insurance_bus_income, premium_income, separate_premiums, 
+      extraction_unexpired, brokerage_fee_income, 
+      netincome_of_investment_banking_fees, netincome_of_asset_management_fees, 
+      invest_income, relate_invest_income, gain_loss_income, 
+      value_gains, other_income, operating_revenue_special_course, 
+      operating_revenue_balance_course, overall_cost, 
+      main_cost, operat_expenses, canel_insurance_money, 
+      pay_expenses, spread_pay_expenses, insurance_liability, 
+      spread_insurance_liability, insurance_cost, 
+      reduce_insurance_cost, tax, operating_manage_cost, 
+      spread_premium, sale_cost, manage_cost, 
+      fin_cost, asset_loss, other_bus_cost, 
+      total_cost_of_special_subjects, total_cost_of_balance_subjects, 
+      overall_profit, addition_income, addition_cost, 
+      interest_dispose, disposal_noncurrent_assets, 
+      operating_profit_special_subjects, operating_profit_balance_subjects, 
+      profit_total, reduce_tax, profit_total_special_subjects, 
+      profit_total_balance_subjects, netprofit, 
+      parent_netprofit, minority_loss, netprofit_special_subjects, 
+      netprofit_balance_subjects, basic_perstock_income, 
+      reduce_perstock_income, other_composite_loss, 
+      parent_other_com_income, income_for_holer_other_com_income, 
+      all_income_total, income_for_parent, income_for_minority, 
+      special_case_description, other_income_loss, 
+      recalculate_change_plan, equity_method, 
+      others_1, other_income_profit, share_of_equity_method, 
+      sale_financial_assets, sale_financial, 
+      cashflow_hedge_gains, effective_portion_cashflow, 
+      others_2, whether_published, come_source, 
+      createtime, updatetime, status, 
+      remark, creator, editor
+      )
+    values (#{id,jdbcType=BIGINT}, #{com_uni_code,jdbcType=BIGINT}, #{end_date,jdbcType=TIMESTAMP}, 
+      #{report_type,jdbcType=BIGINT}, #{principles,jdbcType=BIGINT}, #{consolidation,jdbcType=BIGINT}, 
+      #{currency_code,jdbcType=BIGINT}, #{report_format,jdbcType=BIGINT}, #{announcement_date,jdbcType=TIMESTAMP}, 
+      #{overall_income,jdbcType=DECIMAL}, #{main_income,jdbcType=DECIMAL}, #{interest_netincome,jdbcType=DECIMAL}, 
+      #{interest_income,jdbcType=DECIMAL}, #{interest_cost,jdbcType=DECIMAL}, #{commission_netincome,jdbcType=DECIMAL}, 
+      #{commission_income,jdbcType=DECIMAL}, #{commission_cost,jdbcType=DECIMAL}, #{earn_insurance,jdbcType=DECIMAL}, 
+      #{insurance_bus_income,jdbcType=DECIMAL}, #{premium_income,jdbcType=DECIMAL}, #{separate_premiums,jdbcType=DECIMAL}, 
+      #{extraction_unexpired,jdbcType=DECIMAL}, #{brokerage_fee_income,jdbcType=DECIMAL}, 
+      #{netincome_of_investment_banking_fees,jdbcType=DECIMAL}, #{netincome_of_asset_management_fees,jdbcType=DECIMAL}, 
+      #{invest_income,jdbcType=DECIMAL}, #{relate_invest_income,jdbcType=DECIMAL}, #{gain_loss_income,jdbcType=DECIMAL}, 
+      #{value_gains,jdbcType=DECIMAL}, #{other_income,jdbcType=DECIMAL}, #{operating_revenue_special_course,jdbcType=DECIMAL}, 
+      #{operating_revenue_balance_course,jdbcType=DECIMAL}, #{overall_cost,jdbcType=DECIMAL}, 
+      #{main_cost,jdbcType=DECIMAL}, #{operat_expenses,jdbcType=DECIMAL}, #{canel_insurance_money,jdbcType=DECIMAL}, 
+      #{pay_expenses,jdbcType=DECIMAL}, #{spread_pay_expenses,jdbcType=DECIMAL}, #{insurance_liability,jdbcType=DECIMAL}, 
+      #{spread_insurance_liability,jdbcType=DECIMAL}, #{insurance_cost,jdbcType=DECIMAL}, 
+      #{reduce_insurance_cost,jdbcType=DECIMAL}, #{tax,jdbcType=DECIMAL}, #{operating_manage_cost,jdbcType=DECIMAL}, 
+      #{spread_premium,jdbcType=DECIMAL}, #{sale_cost,jdbcType=DECIMAL}, #{manage_cost,jdbcType=DECIMAL}, 
+      #{fin_cost,jdbcType=DECIMAL}, #{asset_loss,jdbcType=DECIMAL}, #{other_bus_cost,jdbcType=DECIMAL}, 
+      #{total_cost_of_special_subjects,jdbcType=DECIMAL}, #{total_cost_of_balance_subjects,jdbcType=DECIMAL}, 
+      #{overall_profit,jdbcType=DECIMAL}, #{addition_income,jdbcType=DECIMAL}, #{addition_cost,jdbcType=DECIMAL}, 
+      #{interest_dispose,jdbcType=DECIMAL}, #{disposal_noncurrent_assets,jdbcType=DECIMAL}, 
+      #{operating_profit_special_subjects,jdbcType=DECIMAL}, #{operating_profit_balance_subjects,jdbcType=DECIMAL}, 
+      #{profit_total,jdbcType=DECIMAL}, #{reduce_tax,jdbcType=DECIMAL}, #{profit_total_special_subjects,jdbcType=DECIMAL}, 
+      #{profit_total_balance_subjects,jdbcType=DECIMAL}, #{netprofit,jdbcType=DECIMAL}, 
+      #{parent_netprofit,jdbcType=DECIMAL}, #{minority_loss,jdbcType=DECIMAL}, #{netprofit_special_subjects,jdbcType=DECIMAL}, 
+      #{netprofit_balance_subjects,jdbcType=DECIMAL}, #{basic_perstock_income,jdbcType=DECIMAL}, 
+      #{reduce_perstock_income,jdbcType=DECIMAL}, #{other_composite_loss,jdbcType=DECIMAL}, 
+      #{parent_other_com_income,jdbcType=DECIMAL}, #{income_for_holer_other_com_income,jdbcType=DECIMAL}, 
+      #{all_income_total,jdbcType=DECIMAL}, #{income_for_parent,jdbcType=DECIMAL}, #{income_for_minority,jdbcType=DECIMAL}, 
+      #{special_case_description,jdbcType=VARCHAR}, #{other_income_loss,jdbcType=DECIMAL}, 
+      #{recalculate_change_plan,jdbcType=DECIMAL}, #{equity_method,jdbcType=DECIMAL}, 
+      #{others_1,jdbcType=DECIMAL}, #{other_income_profit,jdbcType=DECIMAL}, #{share_of_equity_method,jdbcType=DECIMAL}, 
+      #{sale_financial_assets,jdbcType=DECIMAL}, #{sale_financial,jdbcType=DECIMAL}, 
+      #{cashflow_hedge_gains,jdbcType=DECIMAL}, #{effective_portion_cashflow,jdbcType=DECIMAL}, 
+      #{others_2,jdbcType=DECIMAL}, #{whether_published,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.ComProfitModel">
+    insert into com_profit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="com_uni_code != null">
+        com_uni_code,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="report_type != null">
+        report_type,
+      </if>
+      <if test="principles != null">
+        principles,
+      </if>
+      <if test="consolidation != null">
+        consolidation,
+      </if>
+      <if test="currency_code != null">
+        currency_code,
+      </if>
+      <if test="report_format != null">
+        report_format,
+      </if>
+      <if test="announcement_date != null">
+        announcement_date,
+      </if>
+      <if test="overall_income != null">
+        overall_income,
+      </if>
+      <if test="main_income != null">
+        main_income,
+      </if>
+      <if test="interest_netincome != null">
+        interest_netincome,
+      </if>
+      <if test="interest_income != null">
+        interest_income,
+      </if>
+      <if test="interest_cost != null">
+        interest_cost,
+      </if>
+      <if test="commission_netincome != null">
+        commission_netincome,
+      </if>
+      <if test="commission_income != null">
+        commission_income,
+      </if>
+      <if test="commission_cost != null">
+        commission_cost,
+      </if>
+      <if test="earn_insurance != null">
+        earn_insurance,
+      </if>
+      <if test="insurance_bus_income != null">
+        insurance_bus_income,
+      </if>
+      <if test="premium_income != null">
+        premium_income,
+      </if>
+      <if test="separate_premiums != null">
+        separate_premiums,
+      </if>
+      <if test="extraction_unexpired != null">
+        extraction_unexpired,
+      </if>
+      <if test="brokerage_fee_income != null">
+        brokerage_fee_income,
+      </if>
+      <if test="netincome_of_investment_banking_fees != null">
+        netincome_of_investment_banking_fees,
+      </if>
+      <if test="netincome_of_asset_management_fees != null">
+        netincome_of_asset_management_fees,
+      </if>
+      <if test="invest_income != null">
+        invest_income,
+      </if>
+      <if test="relate_invest_income != null">
+        relate_invest_income,
+      </if>
+      <if test="gain_loss_income != null">
+        gain_loss_income,
+      </if>
+      <if test="value_gains != null">
+        value_gains,
+      </if>
+      <if test="other_income != null">
+        other_income,
+      </if>
+      <if test="operating_revenue_special_course != null">
+        operating_revenue_special_course,
+      </if>
+      <if test="operating_revenue_balance_course != null">
+        operating_revenue_balance_course,
+      </if>
+      <if test="overall_cost != null">
+        overall_cost,
+      </if>
+      <if test="main_cost != null">
+        main_cost,
+      </if>
+      <if test="operat_expenses != null">
+        operat_expenses,
+      </if>
+      <if test="canel_insurance_money != null">
+        canel_insurance_money,
+      </if>
+      <if test="pay_expenses != null">
+        pay_expenses,
+      </if>
+      <if test="spread_pay_expenses != null">
+        spread_pay_expenses,
+      </if>
+      <if test="insurance_liability != null">
+        insurance_liability,
+      </if>
+      <if test="spread_insurance_liability != null">
+        spread_insurance_liability,
+      </if>
+      <if test="insurance_cost != null">
+        insurance_cost,
+      </if>
+      <if test="reduce_insurance_cost != null">
+        reduce_insurance_cost,
+      </if>
+      <if test="tax != null">
+        tax,
+      </if>
+      <if test="operating_manage_cost != null">
+        operating_manage_cost,
+      </if>
+      <if test="spread_premium != null">
+        spread_premium,
+      </if>
+      <if test="sale_cost != null">
+        sale_cost,
+      </if>
+      <if test="manage_cost != null">
+        manage_cost,
+      </if>
+      <if test="fin_cost != null">
+        fin_cost,
+      </if>
+      <if test="asset_loss != null">
+        asset_loss,
+      </if>
+      <if test="other_bus_cost != null">
+        other_bus_cost,
+      </if>
+      <if test="total_cost_of_special_subjects != null">
+        total_cost_of_special_subjects,
+      </if>
+      <if test="total_cost_of_balance_subjects != null">
+        total_cost_of_balance_subjects,
+      </if>
+      <if test="overall_profit != null">
+        overall_profit,
+      </if>
+      <if test="addition_income != null">
+        addition_income,
+      </if>
+      <if test="addition_cost != null">
+        addition_cost,
+      </if>
+      <if test="interest_dispose != null">
+        interest_dispose,
+      </if>
+      <if test="disposal_noncurrent_assets != null">
+        disposal_noncurrent_assets,
+      </if>
+      <if test="operating_profit_special_subjects != null">
+        operating_profit_special_subjects,
+      </if>
+      <if test="operating_profit_balance_subjects != null">
+        operating_profit_balance_subjects,
+      </if>
+      <if test="profit_total != null">
+        profit_total,
+      </if>
+      <if test="reduce_tax != null">
+        reduce_tax,
+      </if>
+      <if test="profit_total_special_subjects != null">
+        profit_total_special_subjects,
+      </if>
+      <if test="profit_total_balance_subjects != null">
+        profit_total_balance_subjects,
+      </if>
+      <if test="netprofit != null">
+        netprofit,
+      </if>
+      <if test="parent_netprofit != null">
+        parent_netprofit,
+      </if>
+      <if test="minority_loss != null">
+        minority_loss,
+      </if>
+      <if test="netprofit_special_subjects != null">
+        netprofit_special_subjects,
+      </if>
+      <if test="netprofit_balance_subjects != null">
+        netprofit_balance_subjects,
+      </if>
+      <if test="basic_perstock_income != null">
+        basic_perstock_income,
+      </if>
+      <if test="reduce_perstock_income != null">
+        reduce_perstock_income,
+      </if>
+      <if test="other_composite_loss != null">
+        other_composite_loss,
+      </if>
+      <if test="parent_other_com_income != null">
+        parent_other_com_income,
+      </if>
+      <if test="income_for_holer_other_com_income != null">
+        income_for_holer_other_com_income,
+      </if>
+      <if test="all_income_total != null">
+        all_income_total,
+      </if>
+      <if test="income_for_parent != null">
+        income_for_parent,
+      </if>
+      <if test="income_for_minority != null">
+        income_for_minority,
+      </if>
+      <if test="special_case_description != null">
+        special_case_description,
+      </if>
+      <if test="other_income_loss != null">
+        other_income_loss,
+      </if>
+      <if test="recalculate_change_plan != null">
+        recalculate_change_plan,
+      </if>
+      <if test="equity_method != null">
+        equity_method,
+      </if>
+      <if test="others_1 != null">
+        others_1,
+      </if>
+      <if test="other_income_profit != null">
+        other_income_profit,
+      </if>
+      <if test="share_of_equity_method != null">
+        share_of_equity_method,
+      </if>
+      <if test="sale_financial_assets != null">
+        sale_financial_assets,
+      </if>
+      <if test="sale_financial != null">
+        sale_financial,
+      </if>
+      <if test="cashflow_hedge_gains != null">
+        cashflow_hedge_gains,
+      </if>
+      <if test="effective_portion_cashflow != null">
+        effective_portion_cashflow,
+      </if>
+      <if test="others_2 != null">
+        others_2,
+      </if>
+      <if test="whether_published != null">
+        whether_published,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="com_uni_code != null">
+        #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="report_type != null">
+        #{report_type,jdbcType=BIGINT},
+      </if>
+      <if test="principles != null">
+        #{principles,jdbcType=BIGINT},
+      </if>
+      <if test="consolidation != null">
+        #{consolidation,jdbcType=BIGINT},
+      </if>
+      <if test="currency_code != null">
+        #{currency_code,jdbcType=BIGINT},
+      </if>
+      <if test="report_format != null">
+        #{report_format,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        #{announcement_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overall_income != null">
+        #{overall_income,jdbcType=DECIMAL},
+      </if>
+      <if test="main_income != null">
+        #{main_income,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_netincome != null">
+        #{interest_netincome,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_income != null">
+        #{interest_income,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_cost != null">
+        #{interest_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="commission_netincome != null">
+        #{commission_netincome,jdbcType=DECIMAL},
+      </if>
+      <if test="commission_income != null">
+        #{commission_income,jdbcType=DECIMAL},
+      </if>
+      <if test="commission_cost != null">
+        #{commission_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="earn_insurance != null">
+        #{earn_insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance_bus_income != null">
+        #{insurance_bus_income,jdbcType=DECIMAL},
+      </if>
+      <if test="premium_income != null">
+        #{premium_income,jdbcType=DECIMAL},
+      </if>
+      <if test="separate_premiums != null">
+        #{separate_premiums,jdbcType=DECIMAL},
+      </if>
+      <if test="extraction_unexpired != null">
+        #{extraction_unexpired,jdbcType=DECIMAL},
+      </if>
+      <if test="brokerage_fee_income != null">
+        #{brokerage_fee_income,jdbcType=DECIMAL},
+      </if>
+      <if test="netincome_of_investment_banking_fees != null">
+        #{netincome_of_investment_banking_fees,jdbcType=DECIMAL},
+      </if>
+      <if test="netincome_of_asset_management_fees != null">
+        #{netincome_of_asset_management_fees,jdbcType=DECIMAL},
+      </if>
+      <if test="invest_income != null">
+        #{invest_income,jdbcType=DECIMAL},
+      </if>
+      <if test="relate_invest_income != null">
+        #{relate_invest_income,jdbcType=DECIMAL},
+      </if>
+      <if test="gain_loss_income != null">
+        #{gain_loss_income,jdbcType=DECIMAL},
+      </if>
+      <if test="value_gains != null">
+        #{value_gains,jdbcType=DECIMAL},
+      </if>
+      <if test="other_income != null">
+        #{other_income,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_revenue_special_course != null">
+        #{operating_revenue_special_course,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_revenue_balance_course != null">
+        #{operating_revenue_balance_course,jdbcType=DECIMAL},
+      </if>
+      <if test="overall_cost != null">
+        #{overall_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="main_cost != null">
+        #{main_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="operat_expenses != null">
+        #{operat_expenses,jdbcType=DECIMAL},
+      </if>
+      <if test="canel_insurance_money != null">
+        #{canel_insurance_money,jdbcType=DECIMAL},
+      </if>
+      <if test="pay_expenses != null">
+        #{pay_expenses,jdbcType=DECIMAL},
+      </if>
+      <if test="spread_pay_expenses != null">
+        #{spread_pay_expenses,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance_liability != null">
+        #{insurance_liability,jdbcType=DECIMAL},
+      </if>
+      <if test="spread_insurance_liability != null">
+        #{spread_insurance_liability,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance_cost != null">
+        #{insurance_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="reduce_insurance_cost != null">
+        #{reduce_insurance_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_manage_cost != null">
+        #{operating_manage_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="spread_premium != null">
+        #{spread_premium,jdbcType=DECIMAL},
+      </if>
+      <if test="sale_cost != null">
+        #{sale_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="manage_cost != null">
+        #{manage_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="fin_cost != null">
+        #{fin_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="asset_loss != null">
+        #{asset_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="other_bus_cost != null">
+        #{other_bus_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="total_cost_of_special_subjects != null">
+        #{total_cost_of_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="total_cost_of_balance_subjects != null">
+        #{total_cost_of_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="overall_profit != null">
+        #{overall_profit,jdbcType=DECIMAL},
+      </if>
+      <if test="addition_income != null">
+        #{addition_income,jdbcType=DECIMAL},
+      </if>
+      <if test="addition_cost != null">
+        #{addition_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_dispose != null">
+        #{interest_dispose,jdbcType=DECIMAL},
+      </if>
+      <if test="disposal_noncurrent_assets != null">
+        #{disposal_noncurrent_assets,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_profit_special_subjects != null">
+        #{operating_profit_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_profit_balance_subjects != null">
+        #{operating_profit_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="profit_total != null">
+        #{profit_total,jdbcType=DECIMAL},
+      </if>
+      <if test="reduce_tax != null">
+        #{reduce_tax,jdbcType=DECIMAL},
+      </if>
+      <if test="profit_total_special_subjects != null">
+        #{profit_total_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="profit_total_balance_subjects != null">
+        #{profit_total_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="netprofit != null">
+        #{netprofit,jdbcType=DECIMAL},
+      </if>
+      <if test="parent_netprofit != null">
+        #{parent_netprofit,jdbcType=DECIMAL},
+      </if>
+      <if test="minority_loss != null">
+        #{minority_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="netprofit_special_subjects != null">
+        #{netprofit_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="netprofit_balance_subjects != null">
+        #{netprofit_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="basic_perstock_income != null">
+        #{basic_perstock_income,jdbcType=DECIMAL},
+      </if>
+      <if test="reduce_perstock_income != null">
+        #{reduce_perstock_income,jdbcType=DECIMAL},
+      </if>
+      <if test="other_composite_loss != null">
+        #{other_composite_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="parent_other_com_income != null">
+        #{parent_other_com_income,jdbcType=DECIMAL},
+      </if>
+      <if test="income_for_holer_other_com_income != null">
+        #{income_for_holer_other_com_income,jdbcType=DECIMAL},
+      </if>
+      <if test="all_income_total != null">
+        #{all_income_total,jdbcType=DECIMAL},
+      </if>
+      <if test="income_for_parent != null">
+        #{income_for_parent,jdbcType=DECIMAL},
+      </if>
+      <if test="income_for_minority != null">
+        #{income_for_minority,jdbcType=DECIMAL},
+      </if>
+      <if test="special_case_description != null">
+        #{special_case_description,jdbcType=VARCHAR},
+      </if>
+      <if test="other_income_loss != null">
+        #{other_income_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="recalculate_change_plan != null">
+        #{recalculate_change_plan,jdbcType=DECIMAL},
+      </if>
+      <if test="equity_method != null">
+        #{equity_method,jdbcType=DECIMAL},
+      </if>
+      <if test="others_1 != null">
+        #{others_1,jdbcType=DECIMAL},
+      </if>
+      <if test="other_income_profit != null">
+        #{other_income_profit,jdbcType=DECIMAL},
+      </if>
+      <if test="share_of_equity_method != null">
+        #{share_of_equity_method,jdbcType=DECIMAL},
+      </if>
+      <if test="sale_financial_assets != null">
+        #{sale_financial_assets,jdbcType=DECIMAL},
+      </if>
+      <if test="sale_financial != null">
+        #{sale_financial,jdbcType=DECIMAL},
+      </if>
+      <if test="cashflow_hedge_gains != null">
+        #{cashflow_hedge_gains,jdbcType=DECIMAL},
+      </if>
+      <if test="effective_portion_cashflow != null">
+        #{effective_portion_cashflow,jdbcType=DECIMAL},
+      </if>
+      <if test="others_2 != null">
+        #{others_2,jdbcType=DECIMAL},
+      </if>
+      <if test="whether_published != null">
+        #{whether_published,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.ComProfitModel">
+    update com_profit
+    <set>
+      <if test="com_uni_code != null">
+        com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="report_type != null">
+        report_type = #{report_type,jdbcType=BIGINT},
+      </if>
+      <if test="principles != null">
+        principles = #{principles,jdbcType=BIGINT},
+      </if>
+      <if test="consolidation != null">
+        consolidation = #{consolidation,jdbcType=BIGINT},
+      </if>
+      <if test="currency_code != null">
+        currency_code = #{currency_code,jdbcType=BIGINT},
+      </if>
+      <if test="report_format != null">
+        report_format = #{report_format,jdbcType=BIGINT},
+      </if>
+      <if test="announcement_date != null">
+        announcement_date = #{announcement_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="overall_income != null">
+        overall_income = #{overall_income,jdbcType=DECIMAL},
+      </if>
+      <if test="main_income != null">
+        main_income = #{main_income,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_netincome != null">
+        interest_netincome = #{interest_netincome,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_income != null">
+        interest_income = #{interest_income,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_cost != null">
+        interest_cost = #{interest_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="commission_netincome != null">
+        commission_netincome = #{commission_netincome,jdbcType=DECIMAL},
+      </if>
+      <if test="commission_income != null">
+        commission_income = #{commission_income,jdbcType=DECIMAL},
+      </if>
+      <if test="commission_cost != null">
+        commission_cost = #{commission_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="earn_insurance != null">
+        earn_insurance = #{earn_insurance,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance_bus_income != null">
+        insurance_bus_income = #{insurance_bus_income,jdbcType=DECIMAL},
+      </if>
+      <if test="premium_income != null">
+        premium_income = #{premium_income,jdbcType=DECIMAL},
+      </if>
+      <if test="separate_premiums != null">
+        separate_premiums = #{separate_premiums,jdbcType=DECIMAL},
+      </if>
+      <if test="extraction_unexpired != null">
+        extraction_unexpired = #{extraction_unexpired,jdbcType=DECIMAL},
+      </if>
+      <if test="brokerage_fee_income != null">
+        brokerage_fee_income = #{brokerage_fee_income,jdbcType=DECIMAL},
+      </if>
+      <if test="netincome_of_investment_banking_fees != null">
+        netincome_of_investment_banking_fees = #{netincome_of_investment_banking_fees,jdbcType=DECIMAL},
+      </if>
+      <if test="netincome_of_asset_management_fees != null">
+        netincome_of_asset_management_fees = #{netincome_of_asset_management_fees,jdbcType=DECIMAL},
+      </if>
+      <if test="invest_income != null">
+        invest_income = #{invest_income,jdbcType=DECIMAL},
+      </if>
+      <if test="relate_invest_income != null">
+        relate_invest_income = #{relate_invest_income,jdbcType=DECIMAL},
+      </if>
+      <if test="gain_loss_income != null">
+        gain_loss_income = #{gain_loss_income,jdbcType=DECIMAL},
+      </if>
+      <if test="value_gains != null">
+        value_gains = #{value_gains,jdbcType=DECIMAL},
+      </if>
+      <if test="other_income != null">
+        other_income = #{other_income,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_revenue_special_course != null">
+        operating_revenue_special_course = #{operating_revenue_special_course,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_revenue_balance_course != null">
+        operating_revenue_balance_course = #{operating_revenue_balance_course,jdbcType=DECIMAL},
+      </if>
+      <if test="overall_cost != null">
+        overall_cost = #{overall_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="main_cost != null">
+        main_cost = #{main_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="operat_expenses != null">
+        operat_expenses = #{operat_expenses,jdbcType=DECIMAL},
+      </if>
+      <if test="canel_insurance_money != null">
+        canel_insurance_money = #{canel_insurance_money,jdbcType=DECIMAL},
+      </if>
+      <if test="pay_expenses != null">
+        pay_expenses = #{pay_expenses,jdbcType=DECIMAL},
+      </if>
+      <if test="spread_pay_expenses != null">
+        spread_pay_expenses = #{spread_pay_expenses,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance_liability != null">
+        insurance_liability = #{insurance_liability,jdbcType=DECIMAL},
+      </if>
+      <if test="spread_insurance_liability != null">
+        spread_insurance_liability = #{spread_insurance_liability,jdbcType=DECIMAL},
+      </if>
+      <if test="insurance_cost != null">
+        insurance_cost = #{insurance_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="reduce_insurance_cost != null">
+        reduce_insurance_cost = #{reduce_insurance_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null">
+        tax = #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_manage_cost != null">
+        operating_manage_cost = #{operating_manage_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="spread_premium != null">
+        spread_premium = #{spread_premium,jdbcType=DECIMAL},
+      </if>
+      <if test="sale_cost != null">
+        sale_cost = #{sale_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="manage_cost != null">
+        manage_cost = #{manage_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="fin_cost != null">
+        fin_cost = #{fin_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="asset_loss != null">
+        asset_loss = #{asset_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="other_bus_cost != null">
+        other_bus_cost = #{other_bus_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="total_cost_of_special_subjects != null">
+        total_cost_of_special_subjects = #{total_cost_of_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="total_cost_of_balance_subjects != null">
+        total_cost_of_balance_subjects = #{total_cost_of_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="overall_profit != null">
+        overall_profit = #{overall_profit,jdbcType=DECIMAL},
+      </if>
+      <if test="addition_income != null">
+        addition_income = #{addition_income,jdbcType=DECIMAL},
+      </if>
+      <if test="addition_cost != null">
+        addition_cost = #{addition_cost,jdbcType=DECIMAL},
+      </if>
+      <if test="interest_dispose != null">
+        interest_dispose = #{interest_dispose,jdbcType=DECIMAL},
+      </if>
+      <if test="disposal_noncurrent_assets != null">
+        disposal_noncurrent_assets = #{disposal_noncurrent_assets,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_profit_special_subjects != null">
+        operating_profit_special_subjects = #{operating_profit_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="operating_profit_balance_subjects != null">
+        operating_profit_balance_subjects = #{operating_profit_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="profit_total != null">
+        profit_total = #{profit_total,jdbcType=DECIMAL},
+      </if>
+      <if test="reduce_tax != null">
+        reduce_tax = #{reduce_tax,jdbcType=DECIMAL},
+      </if>
+      <if test="profit_total_special_subjects != null">
+        profit_total_special_subjects = #{profit_total_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="profit_total_balance_subjects != null">
+        profit_total_balance_subjects = #{profit_total_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="netprofit != null">
+        netprofit = #{netprofit,jdbcType=DECIMAL},
+      </if>
+      <if test="parent_netprofit != null">
+        parent_netprofit = #{parent_netprofit,jdbcType=DECIMAL},
+      </if>
+      <if test="minority_loss != null">
+        minority_loss = #{minority_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="netprofit_special_subjects != null">
+        netprofit_special_subjects = #{netprofit_special_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="netprofit_balance_subjects != null">
+        netprofit_balance_subjects = #{netprofit_balance_subjects,jdbcType=DECIMAL},
+      </if>
+      <if test="basic_perstock_income != null">
+        basic_perstock_income = #{basic_perstock_income,jdbcType=DECIMAL},
+      </if>
+      <if test="reduce_perstock_income != null">
+        reduce_perstock_income = #{reduce_perstock_income,jdbcType=DECIMAL},
+      </if>
+      <if test="other_composite_loss != null">
+        other_composite_loss = #{other_composite_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="parent_other_com_income != null">
+        parent_other_com_income = #{parent_other_com_income,jdbcType=DECIMAL},
+      </if>
+      <if test="income_for_holer_other_com_income != null">
+        income_for_holer_other_com_income = #{income_for_holer_other_com_income,jdbcType=DECIMAL},
+      </if>
+      <if test="all_income_total != null">
+        all_income_total = #{all_income_total,jdbcType=DECIMAL},
+      </if>
+      <if test="income_for_parent != null">
+        income_for_parent = #{income_for_parent,jdbcType=DECIMAL},
+      </if>
+      <if test="income_for_minority != null">
+        income_for_minority = #{income_for_minority,jdbcType=DECIMAL},
+      </if>
+      <if test="special_case_description != null">
+        special_case_description = #{special_case_description,jdbcType=VARCHAR},
+      </if>
+      <if test="other_income_loss != null">
+        other_income_loss = #{other_income_loss,jdbcType=DECIMAL},
+      </if>
+      <if test="recalculate_change_plan != null">
+        recalculate_change_plan = #{recalculate_change_plan,jdbcType=DECIMAL},
+      </if>
+      <if test="equity_method != null">
+        equity_method = #{equity_method,jdbcType=DECIMAL},
+      </if>
+      <if test="others_1 != null">
+        others_1 = #{others_1,jdbcType=DECIMAL},
+      </if>
+      <if test="other_income_profit != null">
+        other_income_profit = #{other_income_profit,jdbcType=DECIMAL},
+      </if>
+      <if test="share_of_equity_method != null">
+        share_of_equity_method = #{share_of_equity_method,jdbcType=DECIMAL},
+      </if>
+      <if test="sale_financial_assets != null">
+        sale_financial_assets = #{sale_financial_assets,jdbcType=DECIMAL},
+      </if>
+      <if test="sale_financial != null">
+        sale_financial = #{sale_financial,jdbcType=DECIMAL},
+      </if>
+      <if test="cashflow_hedge_gains != null">
+        cashflow_hedge_gains = #{cashflow_hedge_gains,jdbcType=DECIMAL},
+      </if>
+      <if test="effective_portion_cashflow != null">
+        effective_portion_cashflow = #{effective_portion_cashflow,jdbcType=DECIMAL},
+      </if>
+      <if test="others_2 != null">
+        others_2 = #{others_2,jdbcType=DECIMAL},
+      </if>
+      <if test="whether_published != null">
+        whether_published = #{whether_published,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.ComProfitModel">
+    update com_profit
+    set com_uni_code = #{com_uni_code,jdbcType=BIGINT},
+      end_date = #{end_date,jdbcType=TIMESTAMP},
+      report_type = #{report_type,jdbcType=BIGINT},
+      principles = #{principles,jdbcType=BIGINT},
+      consolidation = #{consolidation,jdbcType=BIGINT},
+      currency_code = #{currency_code,jdbcType=BIGINT},
+      report_format = #{report_format,jdbcType=BIGINT},
+      announcement_date = #{announcement_date,jdbcType=TIMESTAMP},
+      overall_income = #{overall_income,jdbcType=DECIMAL},
+      main_income = #{main_income,jdbcType=DECIMAL},
+      interest_netincome = #{interest_netincome,jdbcType=DECIMAL},
+      interest_income = #{interest_income,jdbcType=DECIMAL},
+      interest_cost = #{interest_cost,jdbcType=DECIMAL},
+      commission_netincome = #{commission_netincome,jdbcType=DECIMAL},
+      commission_income = #{commission_income,jdbcType=DECIMAL},
+      commission_cost = #{commission_cost,jdbcType=DECIMAL},
+      earn_insurance = #{earn_insurance,jdbcType=DECIMAL},
+      insurance_bus_income = #{insurance_bus_income,jdbcType=DECIMAL},
+      premium_income = #{premium_income,jdbcType=DECIMAL},
+      separate_premiums = #{separate_premiums,jdbcType=DECIMAL},
+      extraction_unexpired = #{extraction_unexpired,jdbcType=DECIMAL},
+      brokerage_fee_income = #{brokerage_fee_income,jdbcType=DECIMAL},
+      netincome_of_investment_banking_fees = #{netincome_of_investment_banking_fees,jdbcType=DECIMAL},
+      netincome_of_asset_management_fees = #{netincome_of_asset_management_fees,jdbcType=DECIMAL},
+      invest_income = #{invest_income,jdbcType=DECIMAL},
+      relate_invest_income = #{relate_invest_income,jdbcType=DECIMAL},
+      gain_loss_income = #{gain_loss_income,jdbcType=DECIMAL},
+      value_gains = #{value_gains,jdbcType=DECIMAL},
+      other_income = #{other_income,jdbcType=DECIMAL},
+      operating_revenue_special_course = #{operating_revenue_special_course,jdbcType=DECIMAL},
+      operating_revenue_balance_course = #{operating_revenue_balance_course,jdbcType=DECIMAL},
+      overall_cost = #{overall_cost,jdbcType=DECIMAL},
+      main_cost = #{main_cost,jdbcType=DECIMAL},
+      operat_expenses = #{operat_expenses,jdbcType=DECIMAL},
+      canel_insurance_money = #{canel_insurance_money,jdbcType=DECIMAL},
+      pay_expenses = #{pay_expenses,jdbcType=DECIMAL},
+      spread_pay_expenses = #{spread_pay_expenses,jdbcType=DECIMAL},
+      insurance_liability = #{insurance_liability,jdbcType=DECIMAL},
+      spread_insurance_liability = #{spread_insurance_liability,jdbcType=DECIMAL},
+      insurance_cost = #{insurance_cost,jdbcType=DECIMAL},
+      reduce_insurance_cost = #{reduce_insurance_cost,jdbcType=DECIMAL},
+      tax = #{tax,jdbcType=DECIMAL},
+      operating_manage_cost = #{operating_manage_cost,jdbcType=DECIMAL},
+      spread_premium = #{spread_premium,jdbcType=DECIMAL},
+      sale_cost = #{sale_cost,jdbcType=DECIMAL},
+      manage_cost = #{manage_cost,jdbcType=DECIMAL},
+      fin_cost = #{fin_cost,jdbcType=DECIMAL},
+      asset_loss = #{asset_loss,jdbcType=DECIMAL},
+      other_bus_cost = #{other_bus_cost,jdbcType=DECIMAL},
+      total_cost_of_special_subjects = #{total_cost_of_special_subjects,jdbcType=DECIMAL},
+      total_cost_of_balance_subjects = #{total_cost_of_balance_subjects,jdbcType=DECIMAL},
+      overall_profit = #{overall_profit,jdbcType=DECIMAL},
+      addition_income = #{addition_income,jdbcType=DECIMAL},
+      addition_cost = #{addition_cost,jdbcType=DECIMAL},
+      interest_dispose = #{interest_dispose,jdbcType=DECIMAL},
+      disposal_noncurrent_assets = #{disposal_noncurrent_assets,jdbcType=DECIMAL},
+      operating_profit_special_subjects = #{operating_profit_special_subjects,jdbcType=DECIMAL},
+      operating_profit_balance_subjects = #{operating_profit_balance_subjects,jdbcType=DECIMAL},
+      profit_total = #{profit_total,jdbcType=DECIMAL},
+      reduce_tax = #{reduce_tax,jdbcType=DECIMAL},
+      profit_total_special_subjects = #{profit_total_special_subjects,jdbcType=DECIMAL},
+      profit_total_balance_subjects = #{profit_total_balance_subjects,jdbcType=DECIMAL},
+      netprofit = #{netprofit,jdbcType=DECIMAL},
+      parent_netprofit = #{parent_netprofit,jdbcType=DECIMAL},
+      minority_loss = #{minority_loss,jdbcType=DECIMAL},
+      netprofit_special_subjects = #{netprofit_special_subjects,jdbcType=DECIMAL},
+      netprofit_balance_subjects = #{netprofit_balance_subjects,jdbcType=DECIMAL},
+      basic_perstock_income = #{basic_perstock_income,jdbcType=DECIMAL},
+      reduce_perstock_income = #{reduce_perstock_income,jdbcType=DECIMAL},
+      other_composite_loss = #{other_composite_loss,jdbcType=DECIMAL},
+      parent_other_com_income = #{parent_other_com_income,jdbcType=DECIMAL},
+      income_for_holer_other_com_income = #{income_for_holer_other_com_income,jdbcType=DECIMAL},
+      all_income_total = #{all_income_total,jdbcType=DECIMAL},
+      income_for_parent = #{income_for_parent,jdbcType=DECIMAL},
+      income_for_minority = #{income_for_minority,jdbcType=DECIMAL},
+      special_case_description = #{special_case_description,jdbcType=VARCHAR},
+      other_income_loss = #{other_income_loss,jdbcType=DECIMAL},
+      recalculate_change_plan = #{recalculate_change_plan,jdbcType=DECIMAL},
+      equity_method = #{equity_method,jdbcType=DECIMAL},
+      others_1 = #{others_1,jdbcType=DECIMAL},
+      other_income_profit = #{other_income_profit,jdbcType=DECIMAL},
+      share_of_equity_method = #{share_of_equity_method,jdbcType=DECIMAL},
+      sale_financial_assets = #{sale_financial_assets,jdbcType=DECIMAL},
+      sale_financial = #{sale_financial,jdbcType=DECIMAL},
+      cashflow_hedge_gains = #{cashflow_hedge_gains,jdbcType=DECIMAL},
+      effective_portion_cashflow = #{effective_portion_cashflow,jdbcType=DECIMAL},
+      others_2 = #{others_2,jdbcType=DECIMAL},
+      whether_published = #{whether_published,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getTopNRecords" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from com_profit
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT} order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+  <select id="getRecordsByReportType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from com_profit
+    where com_uni_code = #{comUniCode,jdbcType=BIGINT}
+    AND report_type = #{reportType,jdbcType=INTEGER}
+    order by end_date desc limit #{limit,jdbcType=INTEGER}
+  </select>
+
+</mapper>

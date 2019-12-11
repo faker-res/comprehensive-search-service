@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.INtfEntityComSubDao">
+    <select id="getInvestInfoCountByPeoUniCode" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            ntf_entity_com_sub
+        WHERE
+            peo_uni_code = #{peo_uni_code}
+        AND ownership_stake IS NOT NULL
+    </select>
+
+    <select id="getInvestInfoListByPeoUniCode" resultType="map">
+        SELECT
+            com_uni_code,
+            sub_com_name com_name,
+            prov,
+            UNIX_TIMESTAMP(estibilish_time) * 1000 estiblish_time,
+            reg_status,
+            ownership_stake * 100 ownership_stake
+        FROM
+            ntf_entity_com_sub
+        WHERE
+            peo_uni_code = #{peo_uni_code}
+        AND ownership_stake IS NOT NULL
+        ORDER BY ${order}
+        limit #{index}, #{limit}
+    </select>
+
+    <select id="getBusinessRoleCountByPeoUniCode" resultType="int">
+        SELECT
+          COUNT(*)
+        FROM
+          ntf_entity_com_sub
+        WHERE
+          peo_uni_code = #{peo_uni_code}
+    </select>
+
+    <select id="getBusinessRoleListByPeoUniCode" resultType="map">
+        SELECT
+            business_role role,
+            com_uni_code,
+            sub_com_name com_name,
+            prov,
+            UNIX_TIMESTAMP(estibilish_time) * 1000 estiblish_time,
+            reg_status
+        FROM
+          ntf_entity_com_sub
+        WHERE
+          peo_uni_code = #{peo_uni_code}
+        AND (
+            business_role IS NOT NULL
+            OR sub_com_name IS NOT NULL
+            OR prov IS NOT NULL
+            OR estibilish_time IS NOT NULL
+            OR reg_status IS NOT NULL
+        )
+        ORDER BY ${order}
+        limit #{index}, #{limit}
+    </select>
+</mapper>

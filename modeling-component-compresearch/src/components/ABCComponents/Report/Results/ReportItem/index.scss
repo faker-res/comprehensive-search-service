@@ -1,0 +1,237 @@
+.abc-report-item {
+    padding: 20px 0;
+    margin: 0 37px;
+    color: #6e7378;
+    font-size: 13px;
+    border-bottom: 1px solid #ececec;
+    background: #fff;
+    position: relative;
+
+    .item-header {
+        position: relative;
+        .item-title {
+            display: inline-block;
+            max-width: 70%;
+            vertical-align: middle;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            &:visited {
+                color: #888;
+            }
+            &:hover {
+                color: #287ddc;
+            }
+        }
+
+        .item-stockname {
+            position: relative;
+            display: inline-block;
+            // max-width: 115px;
+            margin-right: 6px;
+            padding: 4px 6px;
+            line-height: 19px;
+            color: #495C79;
+            font-size: 12px;
+            font-weight: normal;
+            background: #F3F5F8;
+            vertical-align: middle;
+            border-radius: 3px;
+            cursor: pointer;
+            &:hover {
+                color: #287ddc;
+            }
+
+            .stock-name {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 16px;
+                font-weight: bold;
+                color: inherit;
+            }
+        }
+
+        .rating {
+            border:none;
+            color:#fff;
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: -15px;
+            margin-left: 5px;
+            padding: 1px 5px;
+            font-size: 12px;
+            border-radius: 3px;
+            text-align: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            &.addbuy{background: #e8a900;}
+            &.buyin{background:#ff0000;}
+            &.saleout{background: #328d00;}
+            &.addbuy{background: #de9700;}
+            &.removebuy{background: #13b5b1;}
+            &.hold{background: #abe201;}
+        }
+    }
+
+    .item-body {
+        margin: 10px 0 15px;
+        .item-summary {
+            color: #666;
+            line-height: 22px;
+            letter-spacing: 0.3px;
+            word-wrap: break-word;
+            word-break: break-all;
+            .match-summary {
+                margin-bottom: 10px;
+                cursor: pointer;
+                .match-para-wrap {
+                    // 多行需打开
+                    // border-bottom: 1px dashed #eceeef;
+                    // padding-bottom: 10px;
+                }
+                .report-match-para {
+                    height: 45px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    margin: 0 !important;
+                    color: #999;
+                    &:hover {
+                        background: #f9f9f9;
+                    }
+                }
+            }
+        }
+    }
+
+    // 最后一个span无需右边框
+    .item-bottom span:nth-last-child(2) {
+        border-right: 0px !important;
+    }
+
+    .item-bottom {
+        & > span:first-child {
+          padding-left: 0px;
+        }
+        & > span {
+            padding: 0 10px;
+            height: 10px;
+            color: #828A92;
+            font-size: 13px;
+            border-right: 1px solid #C4CAD0;
+            a {
+                color: #828A92;
+                &:active,
+                &:hover {
+                    color: #287ddc;
+                }
+            }
+        }
+
+        & > span:last-child {
+            padding-right: 0;
+            border: none;
+        }
+
+        .item-date {
+            font-style: normal;
+            font-weight: 500;
+            color: #828A92;
+            font-size: 12px;
+        }
+        
+        .item-page-file{
+            height: 16px; 
+            line-height: 16px;
+            border-right:0;
+            .sourceDown {
+                display: inline-block;
+                // vertical-align: bottom;
+                i {
+                    font-style: normal;
+                    display: inline-block;
+                    color: #949cb3;
+                    font-size: 12px;
+                    &.sourceType {
+                        color: #949cb3;
+                        border: 1px solid #949CB3;
+                        border-radius: 3px;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        margin-right: 4px;
+                        
+                    }
+                }
+            }
+            .item-page-count{
+                display: inline-block;
+                font-size: 12px;
+                padding: 0px 2px;
+                color: #ffffff;
+                background: #949CB3;
+                border: 1px solid #949CB3;
+                border-radius: 3px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+
+    .highlight-text {
+        color: #ea5e5e;
+        font-weight: bold;
+    }
+    .hidden {
+        display: none;
+    }
+    .fr {
+        float: right;
+    }
+    .icon-arrow-down {
+        width: 12px;
+        margin-right: 5px;
+        vertical-align: middle;
+
+        &.up {
+            transform: rotate(180deg);
+        }
+    }
+    .view-open-container {
+        text-align: center;
+    }
+    .view-open {
+        display: inline-block;
+        margin: 0 auto;
+        color: #287ddc;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .view-more {
+        text-align: left;
+        color: #287ddc;
+
+        .view-open {
+            position: relative;
+            padding-right: 30px;
+        }
+
+        span::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            right: 15px;
+            width: 1px;
+            height: 12px;
+            background: #C4CAD0;
+        }
+    }
+}

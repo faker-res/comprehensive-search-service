@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IComManagerDao">
+    <sql id="Com_manager_Column_List">
+id,decl_date,com_uni_code,post_type,post_code,if_agent,post_name,peo_uni_code,led_name,time_session,in_session,current_status,in_date,off_date,leave_reason,if_position,remark,status,createtime,updatetime,come_source,source_id,creator,editor
+    </sql>
+
+	<select id="find" parameterType="map" resultType="la.niub.abcapi.servicecompre.model.ComManagerModel">
+        SELECT <include refid="Com_manager_Column_List"/> FROM com_manager WHERE 1=1
+		<if test="id != null and id != ''">
+			AND id = #{id}
+		</if>
+		<if test="decl_date != null and decl_date != ''">
+			AND decl_date = #{decl_date}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND com_uni_code = #{com_uni_code}
+		</if>
+		<if test="post_type != null and post_type != ''">
+			AND post_type = #{post_type}
+		</if>
+		<if test="post_code != null and post_code != ''">
+			AND post_code = #{post_code}
+		</if>
+		<if test="if_agent != null and if_agent != ''">
+			AND if_agent = #{if_agent}
+		</if>
+		<if test="post_name != null and post_name != ''">
+			AND post_name = #{post_name}
+		</if>
+		<if test="peo_uni_code != null and peo_uni_code != ''">
+			AND peo_uni_code = #{peo_uni_code}
+		</if>
+		<if test="led_name != null and led_name != ''">
+			AND led_name = #{led_name}
+		</if>
+		<if test="time_session != null and time_session != ''">
+			AND time_session = #{time_session}
+		</if>
+		<if test="in_session != null and in_session != ''">
+			AND in_session = #{in_session}
+		</if>
+		<if test="current_status != null and current_status != ''">
+			AND current_status = #{current_status}
+		</if>
+		<if test="in_date != null and in_date != ''">
+			AND in_date = #{in_date}
+		</if>
+		<if test="off_date != null and off_date != ''">
+			AND off_date = #{off_date}
+		</if>
+		<if test="leave_reason != null and leave_reason != ''">
+			AND leave_reason = #{leave_reason}
+		</if>
+		<if test="if_position != null and if_position != ''">
+			AND if_position = #{if_position}
+		</if>
+		<if test="remark != null and remark != ''">
+			AND remark = #{remark}
+		</if>
+		<if test="status != null and status != ''">
+			AND status = #{status}
+		</if>
+		<if test="createtime != null and createtime != ''">
+			AND createtime = #{createtime}
+		</if>
+		<if test="updatetime != null and updatetime != ''">
+			AND updatetime = #{updatetime}
+		</if>
+		<if test="come_source != null and come_source != ''">
+			AND come_source = #{come_source}
+		</if>
+		<if test="source_id != null and source_id != ''">
+			AND source_id = #{source_id}
+		</if>
+		<if test="creator != null and creator != ''">
+			AND creator = #{creator}
+		</if>
+		<if test="editor != null and editor != ''">
+			AND editor = #{editor}
+		</if>
+		<if test="orderByField != null and orderByField != ''">
+            ORDER BY ${orderByField}
+        </if>
+        <if test="startPageNum != null and perPageNum != null">
+            LIMIT ${perPageNum} OFFSET ${startPageNum}
+        </if>
+    </select>
+	
+	<select id="getCount" parameterType="map" resultType="int">
+        SELECT COUNT(1) FROM com_manager WHERE 1=1
+			<if test="id != null and id != ''">
+				AND id = #{id}
+			</if>
+			<if test="decl_date != null and decl_date != ''">
+				AND decl_date = #{decl_date}
+			</if>
+			<if test="com_uni_code != null and com_uni_code != ''">
+				AND com_uni_code = #{com_uni_code}
+			</if>
+			<if test="post_type != null and post_type != ''">
+				AND post_type = #{post_type}
+			</if>
+			<if test="post_code != null and post_code != ''">
+				AND post_code = #{post_code}
+			</if>
+			<if test="if_agent != null and if_agent != ''">
+				AND if_agent = #{if_agent}
+			</if>
+			<if test="post_name != null and post_name != ''">
+				AND post_name = #{post_name}
+			</if>
+			<if test="peo_uni_code != null and peo_uni_code != ''">
+				AND peo_uni_code = #{peo_uni_code}
+			</if>
+			<if test="led_name != null and led_name != ''">
+				AND led_name = #{led_name}
+			</if>
+			<if test="time_session != null and time_session != ''">
+				AND time_session = #{time_session}
+			</if>
+			<if test="in_session != null and in_session != ''">
+				AND in_session = #{in_session}
+			</if>
+			<if test="current_status != null and current_status != ''">
+				AND current_status = #{current_status}
+			</if>
+			<if test="in_date != null and in_date != ''">
+				AND in_date = #{in_date}
+			</if>
+			<if test="off_date != null and off_date != ''">
+				AND off_date = #{off_date}
+			</if>
+			<if test="leave_reason != null and leave_reason != ''">
+				AND leave_reason = #{leave_reason}
+			</if>
+			<if test="if_position != null and if_position != ''">
+				AND if_position = #{if_position}
+			</if>
+			<if test="remark != null and remark != ''">
+				AND remark = #{remark}
+			</if>
+			<if test="status != null and status != ''">
+				AND status = #{status}
+			</if>
+			<if test="createtime != null and createtime != ''">
+				AND createtime = #{createtime}
+			</if>
+			<if test="updatetime != null and updatetime != ''">
+				AND updatetime = #{updatetime}
+			</if>
+			<if test="come_source != null and come_source != ''">
+				AND come_source = #{come_source}
+			</if>
+			<if test="source_id != null and source_id != ''">
+				AND source_id = #{source_id}
+			</if>
+			<if test="creator != null and creator != ''">
+				AND creator = #{creator}
+			</if>
+			<if test="editor != null and editor != ''">
+				AND editor = #{editor}
+			</if>
+    </select>
+
+	<select id="findbysql" parameterType="java.lang.String" resultType="map">
+		${sql}
+	</select>
+
+	<select id="selectManager" parameterType="map" resultType="map">
+		select a.id,a.led_name,a.post_name,a.in_date,a.off_date,b.sex_par,b.high_edu,b.birth_day,b.back_gro,b.country,a.post_type  from com_manager a,peo_basic_info b where a.peo_uni_code=b.peo_uni_code
+		<if test="post_type != null and post_type != ''">
+			and post_type in ${post_type}
+		</if>
+		<if test="if_position != null and if_position != ''">
+			AND a.if_position = #{if_position}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND a.com_uni_code = #{com_uni_code}
+		</if>
+		<if test="orderByField != null and orderByField != ''">
+			ORDER BY ${orderByField}
+		</if>
+		<if test="limit != null and limit != 0">
+			LIMIT ${limit} OFFSET ${offset}
+		</if>
+	</select>
+
+	<select id="getManagerCount" parameterType="map" resultType="long">
+		select count(1)  from com_manager a,peo_basic_info b where a.peo_uni_code=b.peo_uni_code
+		<if test="post_type != null and post_type != ''">
+			and post_type in ${post_type}
+		</if>
+		<if test="if_position != null and if_position != ''">
+			AND a.if_position = #{if_position}
+		</if>
+		<if test="com_uni_code != null and com_uni_code != ''">
+			AND a.com_uni_code = #{com_uni_code}
+		</if>
+	</select>
+	
+</mapper>
+

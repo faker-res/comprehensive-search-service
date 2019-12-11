@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.notice.INoticeDao">
+    <select id="getNoticeCountByStockCodeListAndStartDate" resultType="map">
+        SELECT publish_at, COUNT(added_id) AS noticeCount
+        FROM notice
+        WHERE stockcode IN
+             <foreach collection="stockCodeList" item="stockCode" open="(" close=")" separator=",">
+                 #{stockCode}
+             </foreach>
+        AND publish_at >= #{startDate}
+        GROUP BY DATE_FORMAT(publish_at,'%y%m%d')
+        ORDER BY publish_at
+    </select>
+</mapper>

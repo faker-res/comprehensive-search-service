@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.IIndexBasicInfoDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.IndexBasicInfoModel">
+    <constructor>
+      <idArg column="index_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="index_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="index_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="abc_index_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="bench_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="bench_num" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="publish_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="chg_period" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="index_memo" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="index_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="pub_org_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="pub_org_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="component_sum" javaType="java.lang.Integer" jdbcType="DECIMAL" />
+      <arg column="wa_method" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="security_type" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    index_uni_code, index_id, index_name, index_code, abc_index_code, bench_date, bench_num, 
+    publish_date, end_date, chg_period, index_memo, index_type, pub_org_name, pub_org_code, 
+    component_sum, wa_method, security_type, createtime, updatetime, status, remark, 
+    creator, editor
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from index_basic_info
+    where index_uni_code = #{index_uni_code,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from index_basic_info
+    where index_uni_code = #{index_uni_code,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.IndexBasicInfoModel">
+    insert into index_basic_info (index_uni_code, index_id, index_name, 
+      index_code, abc_index_code, bench_date, 
+      bench_num, publish_date, end_date, 
+      chg_period, index_memo, index_type, 
+      pub_org_name, pub_org_code, component_sum, 
+      wa_method, security_type, createtime, 
+      updatetime, status, remark, 
+      creator, editor)
+    values (#{index_uni_code,jdbcType=BIGINT}, #{index_id,jdbcType=BIGINT}, #{index_name,jdbcType=VARCHAR}, 
+      #{index_code,jdbcType=VARCHAR}, #{abc_index_code,jdbcType=VARCHAR}, #{bench_date,jdbcType=TIMESTAMP}, 
+      #{bench_num,jdbcType=DECIMAL}, #{publish_date,jdbcType=TIMESTAMP}, #{end_date,jdbcType=TIMESTAMP}, 
+      #{chg_period,jdbcType=DECIMAL}, #{index_memo,jdbcType=VARCHAR}, #{index_type,jdbcType=BIGINT}, 
+      #{pub_org_name,jdbcType=VARCHAR}, #{pub_org_code,jdbcType=BIGINT}, #{component_sum,jdbcType=DECIMAL}, 
+      #{wa_method,jdbcType=VARCHAR}, #{security_type,jdbcType=BIGINT}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.IndexBasicInfoModel">
+    insert into index_basic_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="index_uni_code != null">
+        index_uni_code,
+      </if>
+      <if test="index_id != null">
+        index_id,
+      </if>
+      <if test="index_name != null">
+        index_name,
+      </if>
+      <if test="index_code != null">
+        index_code,
+      </if>
+      <if test="abc_index_code != null">
+        abc_index_code,
+      </if>
+      <if test="bench_date != null">
+        bench_date,
+      </if>
+      <if test="bench_num != null">
+        bench_num,
+      </if>
+      <if test="publish_date != null">
+        publish_date,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="chg_period != null">
+        chg_period,
+      </if>
+      <if test="index_memo != null">
+        index_memo,
+      </if>
+      <if test="index_type != null">
+        index_type,
+      </if>
+      <if test="pub_org_name != null">
+        pub_org_name,
+      </if>
+      <if test="pub_org_code != null">
+        pub_org_code,
+      </if>
+      <if test="component_sum != null">
+        component_sum,
+      </if>
+      <if test="wa_method != null">
+        wa_method,
+      </if>
+      <if test="security_type != null">
+        security_type,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="index_uni_code != null">
+        #{index_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="index_id != null">
+        #{index_id,jdbcType=BIGINT},
+      </if>
+      <if test="index_name != null">
+        #{index_name,jdbcType=VARCHAR},
+      </if>
+      <if test="index_code != null">
+        #{index_code,jdbcType=VARCHAR},
+      </if>
+      <if test="abc_index_code != null">
+        #{abc_index_code,jdbcType=VARCHAR},
+      </if>
+      <if test="bench_date != null">
+        #{bench_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bench_num != null">
+        #{bench_num,jdbcType=DECIMAL},
+      </if>
+      <if test="publish_date != null">
+        #{publish_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chg_period != null">
+        #{chg_period,jdbcType=DECIMAL},
+      </if>
+      <if test="index_memo != null">
+        #{index_memo,jdbcType=VARCHAR},
+      </if>
+      <if test="index_type != null">
+        #{index_type,jdbcType=BIGINT},
+      </if>
+      <if test="pub_org_name != null">
+        #{pub_org_name,jdbcType=VARCHAR},
+      </if>
+      <if test="pub_org_code != null">
+        #{pub_org_code,jdbcType=BIGINT},
+      </if>
+      <if test="component_sum != null">
+        #{component_sum,jdbcType=DECIMAL},
+      </if>
+      <if test="wa_method != null">
+        #{wa_method,jdbcType=VARCHAR},
+      </if>
+      <if test="security_type != null">
+        #{security_type,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.IndexBasicInfoModel">
+    update index_basic_info
+    <set>
+      <if test="index_id != null">
+        index_id = #{index_id,jdbcType=BIGINT},
+      </if>
+      <if test="index_name != null">
+        index_name = #{index_name,jdbcType=VARCHAR},
+      </if>
+      <if test="index_code != null">
+        index_code = #{index_code,jdbcType=VARCHAR},
+      </if>
+      <if test="abc_index_code != null">
+        abc_index_code = #{abc_index_code,jdbcType=VARCHAR},
+      </if>
+      <if test="bench_date != null">
+        bench_date = #{bench_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bench_num != null">
+        bench_num = #{bench_num,jdbcType=DECIMAL},
+      </if>
+      <if test="publish_date != null">
+        publish_date = #{publish_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chg_period != null">
+        chg_period = #{chg_period,jdbcType=DECIMAL},
+      </if>
+      <if test="index_memo != null">
+        index_memo = #{index_memo,jdbcType=VARCHAR},
+      </if>
+      <if test="index_type != null">
+        index_type = #{index_type,jdbcType=BIGINT},
+      </if>
+      <if test="pub_org_name != null">
+        pub_org_name = #{pub_org_name,jdbcType=VARCHAR},
+      </if>
+      <if test="pub_org_code != null">
+        pub_org_code = #{pub_org_code,jdbcType=BIGINT},
+      </if>
+      <if test="component_sum != null">
+        component_sum = #{component_sum,jdbcType=DECIMAL},
+      </if>
+      <if test="wa_method != null">
+        wa_method = #{wa_method,jdbcType=VARCHAR},
+      </if>
+      <if test="security_type != null">
+        security_type = #{security_type,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where index_uni_code = #{index_uni_code,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.IndexBasicInfoModel">
+    update index_basic_info
+    set index_id = #{index_id,jdbcType=BIGINT},
+      index_name = #{index_name,jdbcType=VARCHAR},
+      index_code = #{index_code,jdbcType=VARCHAR},
+      abc_index_code = #{abc_index_code,jdbcType=VARCHAR},
+      bench_date = #{bench_date,jdbcType=TIMESTAMP},
+      bench_num = #{bench_num,jdbcType=DECIMAL},
+      publish_date = #{publish_date,jdbcType=TIMESTAMP},
+      end_date = #{end_date,jdbcType=TIMESTAMP},
+      chg_period = #{chg_period,jdbcType=DECIMAL},
+      index_memo = #{index_memo,jdbcType=VARCHAR},
+      index_type = #{index_type,jdbcType=BIGINT},
+      pub_org_name = #{pub_org_name,jdbcType=VARCHAR},
+      pub_org_code = #{pub_org_code,jdbcType=BIGINT},
+      component_sum = #{component_sum,jdbcType=DECIMAL},
+      wa_method = #{wa_method,jdbcType=VARCHAR},
+      security_type = #{security_type,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR}
+    where index_uni_code = #{index_uni_code,jdbcType=BIGINT}
+  </update>
+  <select id="selectByIndexCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_basic_info
+    where index_code = #{index_code,jdbcType=VARCHAR} limit 1
+  </select>
+
+
+  <select id="getByIndexCodes" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_basic_info
+    where 1
+    <if test ="null != indexCodes">
+      AND  `index_code` IN
+      <foreach collection="indexCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    ;
+  </select>
+  <select id="getThemeNameByCode" resultType="string" parameterType="string">
+    SELECT
+        index_name
+    FROM
+        index_basic_info
+    WHERE
+        index_code = #{theme_code}
+    LIMIT 1
+</select>
+  <select id="getByIndexUniCodes" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from index_basic_info
+    where 1=1
+    <if test ="null != indexUniCodes">
+      AND  `index_uni_code` IN
+      <foreach collection="indexUniCodes" item="item" index="index"
+               open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+  </select>
+
+  <select id="selectSWIndustryList" resultType="map">
+    SELECT index_uni_code, index_name,index_sname FROM index_basic_info WHERE  remark = '申万一级行业'
+  </select>
+</mapper>

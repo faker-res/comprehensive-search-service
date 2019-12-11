@@ -1,0 +1,158 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://100.115.146.17:8001/eureka
+
+solr:
+#  common_search_api: http://10.117.48.67:8080/solrweb/newCommonSearch
+  common_search_api: http://10.168.123.53:8086/common_search/newCommonSearch
+#  card_search_api: http://10.117.48.67:8080/solrweb/cardSearch
+  card_search_api: http://10.168.123.53:8086/common_search/cardSearch
+  card_finance_api: http://10.27.94.127:9011/finance/participle/languageQueryResult4Analysis
+  card_finance2_api: http://10.27.94.127:9011/share/multidimensionalAnalysis
+  bitmap_import_task: http://10.168.18.42:8800/api/bitmap/import_task/v2/
+  bitmap_parse_state: http://10.168.18.42:8800/api/bitmap/parse_state/v2/
+  bitmap_push_solr: http://10.168.123.53:8086/chart_update/
+rbac:
+  serviceHost: http://auth-api-dev.analyst.ai
+  client_key: ff77c8a0acfab17e84f8c08db6208d11
+  app_secret: acfab17e84f8c08d
+  accessMap: 301-102=/data/chart/detail,301-103=/data/table/detail
+spring:
+  datasource:
+    reporter:
+      driverClassName: com.mysql.jdbc.Driver
+      username: srnt_sys_rw_te
+      password: 3ea988bfe31c
+      url: jdbc:mysql://10.252.218.51:3306/r_reportor?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+      #线上正式
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: srnt_sys_rw_pe
+#      password: aafe0b66f7ba
+#      url: jdbc:mysql://100.114.147.8:6633/r_reportor?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+    notice:
+#      driverClassName: com.mysql.jdbc.Driver
+#      username: srnt_sys_rw_te
+#      password: 3ea988bfe31c
+#      url: jdbc:mysql://10.252.218.51:3306/core_doc?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+#      timeoutSeconds: 30
+      #线上正式
+      driverClassName: com.mysql.jdbc.Driver
+      username: srnt_sys_rw_pe
+      password: aafe0b66f7ba
+      url: jdbc:mysql://100.114.147.8:6633/core_doc?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+    market:
+      driverClassName: com.mysql.jdbc.Driver
+      username: zh_search_ro_pe
+      password: 467b4c0d486a
+      url: jdbc:mysql://100.114.151.37:6633/market_price?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+    marketprice:
+      driverClassName: com.mysql.jdbc.Driver
+      username: zh_search_ro_pe
+      password: 467b4c0d486a
+      url: jdbc:mysql://100.114.151.37:6633/market_price?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=PRC&allowMultiQueries=true&useAffectedRows=true&autoReconnect=true
+      timeoutSeconds: 30
+
+  redis:
+    pool:
+      max-active: 8
+      max-wait: 1000
+      max-idle: 8
+    default:
+      host: 10.81.88.218
+      port: 8101
+      password: 8ca163ba45c8
+      database: 1
+      timeout: 1000
+    market:
+      host: 10.81.88.218
+      port: 8102
+      password: 3fb9b68f5fb8
+      database: 4
+      timeout: 1000
+    industryTime:
+      host: 10.27.212.161
+      port: 8801
+      password: KOPJjA39zv65
+      database: 6
+      timeout: 1000
+    industryRealTime:
+      host: 10.27.212.161
+      port: 8801
+      password: KOPJjA39zv65
+      database: 0
+      timeout: 1000
+  data:
+    mongodb:
+      notice:
+        uri: mongodb://xwu:dfog89jgl3l@dds-bp1d09d4b278ceb41.mongodb.rds.aliyuncs.com:3717,dds-bp1d09d4b278ceb42.mongodb.rds.aliyuncs.com:3717/cr_data?replicaSet=mgset-3255385
+        timeout: 30000
+      stock:
+        uri: mongodb://rsnt_sys_rw_pe:dfkhg78hfd@dds-bp1d09d4b278ceb41.mongodb.rds.aliyuncs.com:3717,dds-bp1d09d4b278ceb42.mongodb.rds.aliyuncs.com:3717/cr_data?replicaSet=mgset-3255385
+        timeout: 30000
+
+feign:
+  client:
+    apiBestNews:
+      name: api-bestNews
+      url: http://111.231.54.144:8082/api/mainpage/bestNews
+    apiRecommendNews:
+      name: api-recommendNews
+      url: http://111.231.54.144:8082/api/mainpage/recommendNewsList
+    solrNotice:
+      name: solr-notice
+      url: http://116.62.35.63:8080/solrweb/raaNoticeSearch
+    apiReportFieldFacet:
+      name: api-reportFieldFacet
+      url: http://116.62.35.63:8080/solrweb/raaPublicGroupReportStock
+    solrReport:
+      name: solr-report
+      url: http://116.62.35.63:8080/solrweb/raaPublicReport
+    wechatArticle:
+      name: wechat-article
+      url: http://10.165.101.72:8086/news_search
+    dataSearch:
+      name: data-search
+#      url: http://118.178.226.204:8080/solrweb2/dataSearchMul
+      url: http://10.26.108.252:8080/solrweb/dataSearchMul
+    edbSearch:
+      name: edb-search
+#      url: http://118.178.226.204:8080/solrweb2/edbSearch
+      url: http://10.26.108.252:8080/solrweb/edbSearch
+    dataChart:
+      name: solr-dataChart
+#      url: http://10.168.123.53:8086/chart_hello
+#      url: http://10.165.101.72:8086/chart_hello
+      url: http://10.168.123.53:8086/chart_hello
+    dataTable:
+      name: solr-dataTable
+#      url: http://10.31.54.90:8081/solr/tableClassifySearch
+      url: http://116.62.35.63:8081/solr/tableSearch
+    dataTableSingle:
+      name: solr-dataTableSingle
+      url: http://116.62.35.63:8081/solr/tableSearch
+    searchTag:
+      name: search-tag
+      url: http://10.29.114.115:8081
+    apiNews:
+      name: api-news
+      url : http://10.168.123.53:8086/news_search
+    userCenterChart:
+      name: solr-userCenterChart
+      url: http://10.80.62.116:8080/chartSearch/chartSearch
+    parsingSend:
+      name: parsing-send
+      url: http://10.11.255.124:8800/api/bitmap/import_task
+    noticeSearch2:
+      name: notice-search2
+#      url: http://10.27.231.85:8090/solrweb/notice/search2.do
+      url: http://10.25.1.62:8090/solrweb/notice/search2.do
+    myStock:
+      name: service-mystock
+      url: https://api-dev.analyst.ai/api/openms/subscriptions/pure
+oss:
+  file_server_host: http://abc-crawler.oss-cn-hangzhou.aliyuncs.com

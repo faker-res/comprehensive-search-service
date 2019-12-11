@@ -1,0 +1,36 @@
+.abc-pdf-viewer {
+    position: absolute;
+    left: 48px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .am-activity-indicator {
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #887ddc;
+    }
+    .ant-progress-line {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+    }
+    .ant-progress-bg {
+        height: 5px !important;
+        margin-top: -12px;
+        margin-bottom: 0;
+    }
+}

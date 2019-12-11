@@ -1,0 +1,140 @@
+export const AnalystCardData = {
+    "data": {
+        "id": "19905144",
+        "image": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/sac.net_4c66374a-20fe-36f9-b1b9-bb4432952a6e.jpg",
+        "name": "胡又文",
+        "organ": "安信证券",
+        "organ_logo": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/logo/4f8f574b68184932bff6fc5925cae19a.png",
+        "rank": 1,
+        "report_num": 0,
+        "report_num_rate": 0.0,
+        "honor_num": 4,
+        "direction": "计算机、海外科技",
+        "email": "",
+        "tel": "",
+        "time": "2017",
+        "average_days": 38,
+        "head_percent": 0.0,
+        "summary": 'cvdskfkdsfihdwsivkldlgdwshfvdgv whfvohdoshvwhv;ewfyhvoe>ywfoheqwlvnckjdsgv igdsavhldaosgodsvhldnwlvhodsvosdhlvhldshovhysodfhvblsdhoivbhsodhvlkbdhoisvhlowdanvgdasgvlsdhovhfwhedofgvyodws v vdsgafv edodwslehgvdasygvfedfgvedoi',
+        "resume": [{
+            "id": 19905144,
+            "position": "证券投资咨询业务(分析师)",
+            "name": "胡又文",
+            "company_name": "安信证券股份有限公司",
+            "head_img": null,
+            "start_time": 1305820800000,
+            "end_time": null,
+            "office_term": null,
+            "return_ratio": null,
+            "amount": null,
+            "rank": null
+        }]
+    },
+    "code": 200,
+    "message": ""
+}
+export const AnalystActivityData = {
+    "data": [{
+        "id": "14048496",
+        "type": "report",
+        "title": "安信证券-计算机行业周报：久违的大涨，七月怎么走？-180701",
+        "source": "安信证券",
+        "url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/downloads/c8df9060aa864a02acd6fc4dbaf7fc7f.pdf",
+        "time": 1530374400000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "14031213",
+        "type": "report",
+        "title": "安信证券-锐科激光(300747)：大功率光纤激光器龙头,国产化自主可控先锋",
+        "source": "安信证券",
+        "url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/downloads/988d6cd0426d40d5840e2aa0d05c83fe.pdf",
+        "time": 1530115200000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "14031851",
+        "type": "report",
+        "title": "安信证券-锐科激光-300747-大功率光纤激光器龙头，国产化自主可控先锋-180628",
+        "source": "安信证券",
+        "url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/downloads/c552580a966d44209dd5b2489498be7d.pdf",
+        "time": 1530115200000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "14015168",
+        "type": "report",
+        "title": "安信证券-计算机行业周报：计算机板块中报前瞻-180624",
+        "source": "安信证券",
+        "url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/downloads/20815c7195794c33b181880829c8b3b2.pdf",
+        "time": 1529769600000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "14020607",
+        "type": "report",
+        "title": "安信证券-计算机行业：每日快讯-180624",
+        "source": "安信证券",
+        "url": "http://abc-crawler.oss-cn-hangzhou.aliyuncs.com/downloads/ee4b43499f264afb96d4d7f0952b578b.pdf",
+        "time": 1529769600000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "87b7a1fedf973dcdacc2f01174af68c9",
+        "type": "news",
+        "title": "【计算机-<font color='red'>胡又文</font>】超图软件快报：预告中报高增长 云计算业务高速增长",
+        "source": "安信证券研究",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzYxNjY2MQ==&mid=2247490275&idx=2&sn=d43e9e8c4b9ead7cf8be7ac43ed80efb&scene=0",
+        "time": 1529019424000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "5768434371f625506a127fb37a4582c0",
+        "type": "news",
+        "title": "【计算机-<font color='red'>胡又文</font>】中新赛克深度：网络可视化龙头，大数据全产业链布局",
+        "source": "安信证券研究",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzYxNjY2MQ==&mid=2247490265&idx=2&sn=2fa9298c543092fedaf81bc18f2f0e48&scene=0",
+        "time": 1528933214000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "75dcb7e3cd9cf4f53b5368d5f7e42161",
+        "type": "news",
+        "title": "<font color='red'>胡又文</font>】赛意信息公司快报：股权激励彰显信心，企业服务龙头起航",
+        "source": "安信证券研究",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzYxNjY2MQ==&mid=2247489121&idx=3&sn=270e8d4e176ef27867ebcc1638d6898b&scene=0",
+        "time": 1528155536000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "c65ac4d22fa2e28fffbff91d00dd4302",
+        "type": "news",
+        "title": "<font color='red'>胡又文</font>】润和软件快报：蚂蚁金服战略入股，深化金融科技合作",
+        "source": "安信证券研究",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzYxNjY2MQ==&mid=2247489109&idx=2&sn=4114f8db76419e929bd6eaedeb851773&scene=0",
+        "time": 1528069476000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }, {
+        "id": "53c89cf4c8175dd0045f9b305fa51d62",
+        "type": "news",
+        "title": "<font color='red'>胡又文</font>】东软集团: 东软睿驰完成新一轮增资，业务进展良好",
+        "source": "安信证券研究",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIyNzYxNjY2MQ==&mid=2247489095&idx=2&sn=aca59dabafec3af73d653f8952923f3a&scene=0",
+        "time": 1527806755000,
+        "read": null,
+        "author": "胡又文",
+        "honor": null
+    }],
+    "code": 200,
+    "message": ""
+}

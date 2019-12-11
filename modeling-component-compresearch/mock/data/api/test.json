@@ -1,0 +1,21 @@
+{
+    "code": 200,
+    "msg": "wzYtDgQc0h",
+    "data": {
+        "childTypes": "OEriUdkYJT",
+        "departsNum": [
+            {
+                "depart": "RcI5bqxW7C",
+                "num": 99694
+            },
+            {
+                "depart": "Zz7idmyO3D",
+                "num": 14557
+            },
+            {
+                "depart": "XywwUFEfYp",
+                "num": 30614
+            }
+        ]
+    }
+}

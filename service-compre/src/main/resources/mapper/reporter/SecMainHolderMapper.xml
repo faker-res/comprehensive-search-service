@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.reporter.ISecMainHolderDao">
+
+    <select id="getLatestFiveDateByComUniCode" resultType="java.util.Date">
+        SELECT  end_date
+        FROM sec_main_holder
+        WHERE com_uni_code = #{com_uni_code}
+        AND DATE_FORMAT(end_date,'%m%d') IN ('0331','0630','0930','1231')
+        GROUP BY end_date
+        ORDER BY end_date DESC
+        LIMIT 5
+    </select>
+
+    <select id="getMainHolderInfo" resultType="map">
+        SELECT com_uni_code,end_date,shr_hldr_name as holderName,hold_shr_vol as stockCount, hold_shr_prop as proportion, hold_shr_add holdChangeCount
+        FROM sec_main_holder
+        WHERE STATUS!='9'
+        AND end_date IN
+               <foreach collection="latestFiveDateList" separator="," open="(" close=")" item="latestFiveDate">
+                   #{latestFiveDate}
+               </foreach>
+        AND com_uni_code = #{com_uni_code}
+        AND
+            <if test="org_uni_code != null">
+                org_uni_code = #{org_uni_code}
+            </if>
+            <if test="peo_uni_code != null">
+                peo_uni_code = #{peo_uni_code}
+            </if>
+        GROUP BY end_date
+        ORDER BY end_date DESC
+    </select>
+
+    <select id="getMainHolderCode" resultType="map">
+        SELECT org_uni_code, peo_uni_code
+        FROM sec_main_holder
+        WHERE com_uni_code = #{com_uni_code}
+        AND end_date = #{latestDate}
+        GROUP BY  peo_uni_code, org_uni_code
+    </select>
+
+    <select id="findbysql" parameterType="java.lang.String" resultType="map">
+        ${sql}
+    </select>
+
+    <select id="find" parameterType="map" resultType="map">
+        select * from  sec_main_holder where 1=1
+        <if test="start_time != null and start_time != ''">
+            AND end_date &gt; #{start_time}
+        </if>
+        <if test="end_time != null and end_time != ''">
+            AND end_date &lt;= #{end_time}
+        </if>
+        <if test="end_date != null and end_date != ''">
+            AND end_date = #{end_date}
+        </if>
+        <if test="reporttype != null and reporttype != ''">
+             ${reporttype}
+        </if>
+        <if test="com_uni_code != null and com_uni_code != ''">
+            AND com_uni_code = #{com_uni_code}
+        </if>
+        <if test="groupby != null and groupby != ''">
+           ${groupby}
+        </if>
+        <if test="orderby != null and orderby != ''">
+             ${orderby}
+        </if>
+        <if test="limit != null and limit != 0">
+            LIMIT ${limit} OFFSET ${offset}
+        </if>
+    </select>
+
+    <select id="getCount" parameterType="map" resultType="long">
+        select count(DISTINCT end_date) from sec_main_holder  where 1=1
+        <if test="start_time != null and start_time != ''">
+            AND end_date &gt; #{start_time}
+        </if>
+        <if test="end_time != null and end_time != ''">
+            AND end_date &lt;= #{end_time}
+        </if>
+        <if test="reporttype != null and reporttype != ''">
+            ${reporttype}
+        </if>
+        <if test="com_uni_code != null and com_uni_code != ''">
+            AND com_uni_code = #{com_uni_code}
+        </if>
+    </select>
+</mapper>
+
+

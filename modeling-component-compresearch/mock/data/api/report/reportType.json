@@ -1,0 +1,14 @@
+{
+    "code": 200,
+    "message": "ok",
+    "data": {
+        "industry": 84975,
+        "common": 39832,
+        "macroscopic": 64207,
+        "company": 81418,
+        "total": 76274
+    },
+    "pageSize": 12,
+    "currentPage": 1,
+    "totalCount": 1200
+}

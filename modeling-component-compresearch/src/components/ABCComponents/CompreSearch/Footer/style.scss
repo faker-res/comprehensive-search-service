@@ -1,0 +1,19 @@
+
+:local(.localClass){
+    height: 40px;
+    background: #333;
+    color: #999;
+    line-height: 40px;
+    font-size: 12px;
+    padding:0 100px;
+    .fl{float: left;}
+    .fr{float: right;}
+    .midArea{/* min-width: 1260px; */margin: 0 auto;}
+    .clearfix:after{content: '';display: block;width: 100%;height: 0;overflow: hidden;clear: both;}
+    a{color: #999;}
+    .linkpl{font-size: 0;
+        > a{vertical-align: middle;font-size: 12px;}
+        > a:hover{color: #3f7cd5;}
+        > em{margin: 0 10px;display: inline-block;width: 1px;height: 18px;background: #999;vertical-align: middle;}
+    }
+}

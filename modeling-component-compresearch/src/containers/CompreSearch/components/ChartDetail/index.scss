@@ -1,0 +1,13 @@
+@import '../../common.scss';
+ $subTitColor : #9a9fa5;
+ $subTitHoverColor : #1890ff;
+
+ :local(.localClass){background: #f4f4f4;position: relative;height: 100%;
+    .middleConWrap{height: 100%;display:block;justify-content: center;align-items: center;}
+    
+    @media screen and (max-width: 768px){
+        .default-top-bar-smallSearch{
+            .topRight{display: none;}
+        }
+    }
+ }

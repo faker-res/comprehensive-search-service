@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="la.niub.abcapi.servicecompre.dao.market.ISecPriceMonthDao">
+  <resultMap id="BaseResultMap" type="la.niub.abcapi.servicecompre.model.SecPriceMonthModel">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="sec_uni_code" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="end_date" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="close_price" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="open" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="high" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="low" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="pre_close_month" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="differ_range" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="turn" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="volume" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="t_num" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="amount" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="amplitude" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="createtime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updatetime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="creator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="editor" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="come_source" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sec_uni_code, end_date, time, close_price, open, high, low, pre_close_month, 
+    differ, differ_range, turn, volume, t_num, amount, amplitude, createtime, updatetime, 
+    status, remark, creator, editor, come_source
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sec_price_month
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sec_price_month
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="la.niub.abcapi.servicecompre.model.SecPriceMonthModel">
+    insert into sec_price_month (id, sec_uni_code, end_date, 
+      time, close_price, open, 
+      high, low, pre_close_month, 
+      differ, differ_range, turn, 
+      volume, t_num, amount, 
+      amplitude, createtime, updatetime, 
+      status, remark, creator, 
+      editor, come_source)
+    values (#{id,jdbcType=INTEGER}, #{sec_uni_code,jdbcType=BIGINT}, #{end_date,jdbcType=TIMESTAMP}, 
+      #{time,jdbcType=TIMESTAMP}, #{close_price,jdbcType=DECIMAL}, #{open,jdbcType=DECIMAL}, 
+      #{high,jdbcType=DECIMAL}, #{low,jdbcType=DECIMAL}, #{pre_close_month,jdbcType=DECIMAL}, 
+      #{differ,jdbcType=DECIMAL}, #{differ_range,jdbcType=DECIMAL}, #{turn,jdbcType=DECIMAL}, 
+      #{volume,jdbcType=DECIMAL}, #{t_num,jdbcType=DECIMAL}, #{amount,jdbcType=DECIMAL}, 
+      #{amplitude,jdbcType=DECIMAL}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{come_source,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="la.niub.abcapi.servicecompre.model.SecPriceMonthModel">
+    insert into sec_price_month
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sec_uni_code != null">
+        sec_uni_code,
+      </if>
+      <if test="end_date != null">
+        end_date,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="close_price != null">
+        close_price,
+      </if>
+      <if test="open != null">
+        open,
+      </if>
+      <if test="high != null">
+        high,
+      </if>
+      <if test="low != null">
+        low,
+      </if>
+      <if test="pre_close_month != null">
+        pre_close_month,
+      </if>
+      <if test="differ != null">
+        differ,
+      </if>
+      <if test="differ_range != null">
+        differ_range,
+      </if>
+      <if test="turn != null">
+        turn,
+      </if>
+      <if test="volume != null">
+        volume,
+      </if>
+      <if test="t_num != null">
+        t_num,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="amplitude != null">
+        amplitude,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="come_source != null">
+        come_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sec_uni_code != null">
+        #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="close_price != null">
+        #{close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="open != null">
+        #{open,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null">
+        #{high,jdbcType=DECIMAL},
+      </if>
+      <if test="low != null">
+        #{low,jdbcType=DECIMAL},
+      </if>
+      <if test="pre_close_month != null">
+        #{pre_close_month,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="differ_range != null">
+        #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="turn != null">
+        #{turn,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="t_num != null">
+        #{t_num,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="amplitude != null">
+        #{amplitude,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        #{come_source,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="la.niub.abcapi.servicecompre.model.SecPriceMonthModel">
+    update sec_price_month
+    <set>
+      <if test="sec_uni_code != null">
+        sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      </if>
+      <if test="end_date != null">
+        end_date = #{end_date,jdbcType=TIMESTAMP},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="close_price != null">
+        close_price = #{close_price,jdbcType=DECIMAL},
+      </if>
+      <if test="open != null">
+        open = #{open,jdbcType=DECIMAL},
+      </if>
+      <if test="high != null">
+        high = #{high,jdbcType=DECIMAL},
+      </if>
+      <if test="low != null">
+        low = #{low,jdbcType=DECIMAL},
+      </if>
+      <if test="pre_close_month != null">
+        pre_close_month = #{pre_close_month,jdbcType=DECIMAL},
+      </if>
+      <if test="differ != null">
+        differ = #{differ,jdbcType=DECIMAL},
+      </if>
+      <if test="differ_range != null">
+        differ_range = #{differ_range,jdbcType=DECIMAL},
+      </if>
+      <if test="turn != null">
+        turn = #{turn,jdbcType=DECIMAL},
+      </if>
+      <if test="volume != null">
+        volume = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="t_num != null">
+        t_num = #{t_num,jdbcType=DECIMAL},
+      </if>
+      <if test="amount != null">
+        amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="amplitude != null">
+        amplitude = #{amplitude,jdbcType=DECIMAL},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="come_source != null">
+        come_source = #{come_source,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="la.niub.abcapi.servicecompre.model.SecPriceMonthModel">
+    update sec_price_month
+    set sec_uni_code = #{sec_uni_code,jdbcType=BIGINT},
+      end_date = #{end_date,jdbcType=TIMESTAMP},
+      time = #{time,jdbcType=TIMESTAMP},
+      close_price = #{close_price,jdbcType=DECIMAL},
+      open = #{open,jdbcType=DECIMAL},
+      high = #{high,jdbcType=DECIMAL},
+      low = #{low,jdbcType=DECIMAL},
+      pre_close_month = #{pre_close_month,jdbcType=DECIMAL},
+      differ = #{differ,jdbcType=DECIMAL},
+      differ_range = #{differ_range,jdbcType=DECIMAL},
+      turn = #{turn,jdbcType=DECIMAL},
+      volume = #{volume,jdbcType=DECIMAL},
+      t_num = #{t_num,jdbcType=DECIMAL},
+      amount = #{amount,jdbcType=DECIMAL},
+      amplitude = #{amplitude,jdbcType=DECIMAL},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=VARCHAR},
+      editor = #{editor,jdbcType=VARCHAR},
+      come_source = #{come_source,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getRecordsBySecUniCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_price_month
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+    <if test="startTime != null">
+      and time>=#{startTime,jdbcType=TIMESTAMP}
+    </if><if test="endTime != null">
+    and time&lt;=#{endTime,jdbcType=TIMESTAMP}
+  </if>
+    order by time asc
+  </select>
+  <select id="getRecords" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sec_price_month
+    where sec_uni_code = #{secUniCode,jdbcType=BIGINT}
+    <if test="startTime != null">
+      and end_date>=#{startTime,jdbcType=TIMESTAMP}
+    </if>
+  </select>
+  <select id="selectBySecUniCodesAfterTime" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from (select
+    <include refid="Base_Column_List"/>
+    from sec_price_month
+    where sec_uni_code in
+    <foreach collection="secUniCodes" index="index" item="item" open="(" separator="," close=")">
+      #{item,jdbcType=BIGINT}
+    </foreach>
+    and time >= #{time,jdbcType=TIMESTAMP}
+    order by time asc) a
+    group by sec_uni_code
+  </select>
+</mapper>
